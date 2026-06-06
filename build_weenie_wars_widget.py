@@ -346,6 +346,7 @@ MOBILE_FILTER_JS = """<script>
   var tb      = document.querySelector('tbody');
   var MONTH_COLS = {may:5, june:6, july:7, aug:8, sep:9};
   var TOTAL_COL  = 3;
+
   function setColVisible(ci, visible) {
     var disp = visible ? 'table-cell' : 'none';
     headers[ci].style.display = disp;
@@ -353,16 +354,29 @@ MOBILE_FILTER_JS = """<script>
       if (row.cells[ci]) row.cells[ci].style.display = disp;
     });
   }
+
+  function sortBy(col) {
+    var rows = Array.from(tb.querySelectorAll('tr'));
+    rows.sort(function(a, b) {
+      var av = parseInt((a.cells[col] ? a.cells[col].textContent : '0').replace(/[^0-9]/g, '') || '0');
+      var bv = parseInt((b.cells[col] ? b.cells[col].textContent : '0').replace(/[^0-9]/g, '') || '0');
+      return bv - av;
+    });
+    rows.forEach(function(r) { tb.appendChild(r); });
+  }
+
   pills.forEach(function(pill) {
     pill.addEventListener('click', function() {
       pills.forEach(function(p) { p.classList.remove('active'); });
       pill.classList.add('active');
       var month = pill.dataset.month;
       if (month === 'all') {
+        // All Season: show Total + all month cols, sort by season total
         setColVisible(TOTAL_COL, true);
-        Object.keys(MONTH_COLS).forEach(function(m) { setColVisible(MONTH_COLS[m], false); });
+        Object.keys(MONTH_COLS).forEach(function(m) { setColVisible(MONTH_COLS[m], true); });
         sortBy(TOTAL_COL);
       } else {
+        // Single month: hide Total + other months, show selected, sort by it
         var col = MONTH_COLS[month];
         setColVisible(TOTAL_COL, false);
         Object.keys(MONTH_COLS).forEach(function(m) { setColVisible(MONTH_COLS[m], m === month); });
@@ -492,7 +506,19 @@ html = f"""<!DOCTYPE html>
   .btn-red  {{ background:#B22234; box-shadow:0 2px 6px rgba(178,34,52,0.3); }}
   .btn-navy {{ background:#002868; box-shadow:0 2px 6px rgba(0,40,104,0.3); }}
 
-  /* ── Responsive / Mobile ───────────────────────────────────────────────── */
+  /* Month filter pills */
+  .month-filter {{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; }}
+  .mf-label {{ font-size:0.75em; color:#7a8aaa; text-transform:uppercase; letter-spacing:1px; flex:0 0 auto; font-weight:600; }}
+  .mf-pills {{ display:flex; gap:6px; flex-wrap:wrap; }}
+  .mf-pill {{
+    background:#f4f7fc; border:1.5px solid #c8d4ea; border-radius:20px;
+    padding:7px 16px; font-size:0.78em; font-weight:600; color:#445580;
+    cursor:pointer; transition:all 0.15s;
+  }}
+  .mf-pill.active {{ background:#002868; border-color:#002868; color:#fff; box-shadow:0 2px 6px rgba(0,40,104,0.18); }}
+  .mf-pill:hover:not(.active) {{ background:#dde4f2; }}
+
+    /* ── Responsive / Mobile ───────────────────────────────────────────────── */
   .table-scroll {{ overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:8px; }}
 
   @media (max-width:660px) {{
@@ -547,20 +573,7 @@ html = f"""<!DOCTYPE html>
     .section-title {{ font-size:0.65em; }}
     .footer {{ font-size:0.62em; }}
 
-    /* Month filter pills — mobile only */
-    .month-filter {{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px; }}
-    .mf-label {{ font-size:0.68em; color:#7a8aaa; text-transform:uppercase; letter-spacing:1px; flex:0 0 auto; }}
-    .mf-pills {{ display:flex; gap:5px; flex-wrap:wrap; }}
-    .mf-pill {{
-      background:#f4f7fc; border:1px solid #c8d4ea; border-radius:20px;
-      padding:6px 12px; font-size:0.72em; font-weight:600; color:#445580;
-      cursor:pointer; transition:all 0.15s;
-    }}
-    .mf-pill.active {{ background:#002868; border-color:#002868; color:#fff; }}
-    .mf-pill:hover:not(.active) {{ background:#dde4f2; }}
   }}
-  /* Hidden on desktop */
-  .month-filter {{ display:none; }}
 </style>
 </head>
 <body>
