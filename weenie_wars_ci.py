@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """
 Weenie Wars 2026 — CI Auto-Update Script
-Runs in GitHub Actions: fetches sheet, recalculates, rebuilds HTML, deploys to Firebase.
+Fetches Google Sheet, checks if new entries exist, rebuilds + redeploys only if changed.
+State tracked in last_seen.json (committed back to repo on each change).
 """
-import urllib.request, csv, io, json, os, re, sys, subprocess, random, shutil
+import urllib.request, csv, io, json, os, re, sys, subprocess, random, shutil, hashlib
 from datetime import datetime, timedelta
 
 ROOT         = os.path.dirname(os.path.abspath(__file__))
 BUILD_SCRIPT = os.path.join(ROOT, "build_weenie_wars_widget.py")
 HTML_OUT     = os.path.join(ROOT, "WeeniesWars_2026.html")
 PUBLIC_HTML  = os.path.join(ROOT, "public", "index.html")
+STATE_FILE   = os.path.join(ROOT, "last_seen.json")
 
 SHEET_CSV = "https://docs.google.com/spreadsheets/d/1-NezoEWSZpeUIZem89ZMltE-kGX_P11LqKVoAwSG0gU/export?format=csv&gid=1814658863"
 
@@ -38,12 +40,27 @@ NICK_UPDATES = [
     "Nick's alibi for June 3rd — I was simply existing — has been flagged as legally insufficient.",
 ]
 
-# ── Fetch sheet ────────────────────────────────────────────────────────────────
+# ── Fetch CSV ─────────────────────────────────────────────────────────────────
 print("Fetching sheet...")
-resp = urllib.request.urlopen(SHEET_CSV)
-rows = list(csv.DictReader(io.StringIO(resp.read().decode("utf-8"))))
-print(f"  {len(rows)} entries")
+raw_csv = urllib.request.urlopen(SHEET_CSV).read()
+csv_hash = hashlib.sha256(raw_csv).hexdigest()
+rows = list(csv.DictReader(io.StringIO(raw_csv.decode("utf-8"))))
+print(f"  {len(rows)} entries | hash={csv_hash[:12]}...")
 
+# ── Change detection ──────────────────────────────────────────────────────────
+last_state = {}
+if os.path.exists(STATE_FILE):
+    with open(STATE_FILE) as f:
+        last_state = json.load(f)
+
+last_hash = last_state.get("csv_hash", "")
+if csv_hash == last_hash:
+    print("No new entries since last run — skipping update.")
+    sys.exit(0)
+
+print(f"  Change detected (was {last_hash[:12] if last_hash else 'none'}) — updating widget.")
+
+# ── Calculate scores ──────────────────────────────────────────────────────────
 today     = datetime.now()
 l7_cutoff = today - timedelta(days=7)
 totals = {}; month_scores = {5:{}, 6:{}, 7:{}, 8:{}, 9:{}}; l7 = {}
@@ -59,8 +76,8 @@ for row in rows:
     if dt >= l7_cutoff:
         l7[name] = l7.get(name, 0) + n
 
-# ── Read build script ─────────────────────────────────────────────────────────
-print("Updating build script in memory...")
+# ── Update build script in memory ────────────────────────────────────────────
+print("Updating build script...")
 with open(BUILD_SCRIPT, "r", encoding="utf-8") as f:
     src = f.read()
 
@@ -92,7 +109,6 @@ for name in player_names:
     new_src, n = re.subn(pattern, repl, src)
     if n: src = new_src; updated += 1
 
-# Banner
 if totals:
     leader = max(player_names, key=lambda p: g(totals, p))
     src = re.sub(r'"leader_name":\s*"[^"]+"',  f'"leader_name":   "{leader}"',          src)
@@ -105,7 +121,6 @@ src = re.sub(r'"players":\s*\d+,',         f'"players":       {n_players},',    
 src = re.sub(r'UPDATED\s*=\s*"[\d-]+"',    f'UPDATED    = "{today.strftime("%Y-%m-%d")}"', src)
 src = re.sub(r'NICK_UPDATE\s*=\s*"[^"]*"', f'NICK_UPDATE       = "{random.choice(NICK_UPDATES)}"', src)
 
-# Write modified build script to disk (temp, not committed)
 with open(BUILD_SCRIPT, "w", encoding="utf-8") as f:
     f.write(src)
 print(f"  {updated}/{n_players} player rows updated")
@@ -116,10 +131,8 @@ if result.returncode != 0:
     print("BUILD ERROR:", result.stderr); sys.exit(1)
 print(result.stdout.strip())
 
-# Copy to public/ for Firebase Hosting
 os.makedirs(os.path.join(ROOT, "public"), exist_ok=True)
 shutil.copy(HTML_OUT, PUBLIC_HTML)
-print(f"  Copied to public/index.html")
 
 # ── Deploy to Firebase ────────────────────────────────────────────────────────
 print("Deploying to Firebase...")
@@ -127,8 +140,18 @@ result = subprocess.run(
     ["firebase", "deploy", "--only", "hosting", "--project", "weenie-wars-2026", "--non-interactive"],
     capture_output=True, text=True, cwd=ROOT
 )
+if result.returncode != 0:
+    print("DEPLOY ERROR:", result.stderr); sys.exit(1)
+print(f"Live: https://weenie-wars-2026.web.app  ({today.strftime('%Y-%m-%d %H:%M UTC')})")
+
+# ── Save new state + commit ───────────────────────────────────────────────────
+with open(STATE_FILE, "w") as f:
+    json.dump({"csv_hash": csv_hash, "row_count": len(rows), "updated": today.isoformat()}, f, indent=2)
+
+subprocess.run(["git", "config", "user.name",  "github-actions[bot]"], cwd=ROOT)
+subprocess.run(["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"], cwd=ROOT)
+subprocess.run(["git", "add", "last_seen.json", "build_weenie_wars_widget.py"], cwd=ROOT)
+result = subprocess.run(["git", "commit", "-m", f"Auto-update {today.strftime('%Y-%m-%d %H:%M')} UTC"], cwd=ROOT, capture_output=True, text=True)
 if result.returncode == 0:
-    print(f"Live: https://weenie-wars-2026.web.app  ({today.strftime('%Y-%m-%d %H:%M UTC')})")
-else:
-    print("DEPLOY ERROR:", result.stderr)
-    sys.exit(1)
+    subprocess.run(["git", "push"], cwd=ROOT)
+    print("State committed.")
