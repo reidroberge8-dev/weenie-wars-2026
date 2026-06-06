@@ -281,7 +281,7 @@ for i, p in enumerate(PLAYERS):
                   '<span style="font-size:0.72em;color:#B22234;font-weight:normal;"> (suspended)</span>'
                   if p["name"] == "Nick" and NICK_INVESTIGATION else '')
     rows_html += f"""
-    <tr style="background:{bg};">
+    <tr style="background:{bg};" data-player="{p['name']}" data-chomp="{p['chomp']}">
       <td style="{td};text-align:center;font-size:1em">{streak}</td>
       <td style="{td};color:{pc};font-weight:bold;text-align:center;white-space:nowrap">{icon} {p['place']}</td>
       <td style="{td};{ns}">{p['name']}{nick_badge}</td>
@@ -365,22 +365,57 @@ MOBILE_FILTER_JS = """<script>
     rows.forEach(function(r) { tb.appendChild(r); });
   }
 
+  function chompColor(c) {
+    if (c >= 400) return '#B22234';
+    if (c >= 200) return '#002868';
+    if (c > 0)    return '#445580';
+    return '#c0c8d8';
+  }
+
+  function setChompCell(row, chomp) {
+    var cell = row.cells[CHOMP_COL];
+    if (!cell) return;
+    cell.style.color = chompColor(chomp);
+    cell.innerHTML = chomp > 0
+      ? '<strong>' + chomp + '</strong>'
+      : '<span style="color:#c0c8d8">—</span>';
+  }
+
+  function updateChompForMonth(month) {
+    var names = Object.keys(WW_PLAYERS);
+    var total = 0;
+    names.forEach(function(n) { total += (WW_PLAYERS[n][month] || 0); });
+    var avg = WW_N > 0 ? total / WW_N : 0;
+    Array.from(tb.querySelectorAll('tr')).forEach(function(row) {
+      var name = row.dataset.player;
+      if (!name || !WW_PLAYERS[name]) return;
+      var t = WW_PLAYERS[name][month] || 0;
+      var chomp = avg > 0 ? Math.round(t / avg * 100) : 0;
+      setChompCell(row, chomp);
+    });
+  }
+
+  function restoreSeasonChomp() {
+    Array.from(tb.querySelectorAll('tr')).forEach(function(row) {
+      setChompCell(row, parseInt(row.dataset.chomp || '0'));
+    });
+  }
+
   pills.forEach(function(pill) {
     pill.addEventListener('click', function() {
       pills.forEach(function(p) { p.classList.remove('active'); });
       pill.classList.add('active');
       var month = pill.dataset.month;
       if (month === 'all') {
-        // All Season: Total, P2J, L7, CHOMP+, Odds — no individual month cols
         setColVisible(TOTAL_COL, true);
         setColVisible(P2J_COL,   true);
         setColVisible(L7_COL,    true);
         setColVisible(CHOMP_COL, true);
         setColVisible(ODDS_COL,  true);
         Object.keys(MONTH_COLS).forEach(function(m) { setColVisible(MONTH_COLS[m], false); });
+        restoreSeasonChomp();
         sortBy(TOTAL_COL);
       } else {
-        // Monthly: only selected month col + CHOMP+ — everything else hidden
         var col = MONTH_COLS[month];
         setColVisible(TOTAL_COL, false);
         setColVisible(P2J_COL,   false);
@@ -388,15 +423,22 @@ MOBILE_FILTER_JS = """<script>
         setColVisible(CHOMP_COL, true);
         setColVisible(ODDS_COL,  false);
         Object.keys(MONTH_COLS).forEach(function(m) { setColVisible(MONTH_COLS[m], m === month); });
+        updateChompForMonth(month);
         sortBy(col);
       }
     });
   });
 
-  // Set initial state on load
   pills[0].click();
 })();
 </script>"""
+
+# Per-player monthly data for dynamic CHOMP+ in JS
+_pd = ", ".join(
+    f'"{p["name"]}":{{"may":{p["may"]},"june":{p["june"]},"july":{p["july"]},"aug":{p["aug"]},"sep":{p["sep"]},"chomp":{p["chomp"]}}}'
+    for p in PLAYERS
+)
+PLAYER_DATA_SCRIPT = f'<script>var WW_PLAYERS={{{_pd}}};var WW_N={len(PLAYERS)};</script>'
 
 # ── Full HTML
 nick_footnote = (
@@ -716,6 +758,7 @@ html = f"""<!DOCTYPE html>
   <div style="background:#ddd"></div><div style="background:#002868"></div>
 </div>
 
+{PLAYER_DATA_SCRIPT}
 {MOBILE_FILTER_JS}
 
 </body>
