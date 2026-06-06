@@ -602,7 +602,7 @@ html = f"""<!DOCTYPE html>
     🌭 Log Weenies Here
   </a>
   <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn-link btn-navy">
-    🌭 Click 4 Free Weenies
+    🌭 Click for FREE WEENIES!
   </a>
 </div>
 <div class="months-wrap" style="margin-bottom:12px;">
@@ -613,13 +613,13 @@ html = f"""<!DOCTYPE html>
 <div class="cards-row">
   <div class="joey-wrap">
     <div class="section-title">Season Ends</div>
-    <div class="season-card">
+    <a href="https://media1.tenor.com/m/po-UiIbWBlQAAAAC/hot-dog-girl.gif" target="_blank" class="season-card" style="text-decoration:none;display:block">
       <div class="slabel">⏳ Weenie Wars</div>
       <div class="stitle">Days Remaining</div>
       <div class="sdays">{SEASON_DAYS}</div>
       <div class="sunit">days left</div>
       <div class="send">★ Labor Day {SEASON_END} ★</div>
-    </div>
+    </a>
   </div>
   <div class="joey-wrap">
     <div class="section-title">The Benchmark</div>
