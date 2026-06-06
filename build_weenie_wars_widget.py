@@ -45,18 +45,18 @@ import os
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":5,"may":5,"june":0,"july":0,"aug":0,"sep":0,"l7":2, "chomp":381,"odds":"+225","move":"▲","mc":"#B22234"},
-    {"name":"Tom",     "place":2, "total":3,"may":1,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":229,"odds":"+375","move":"▲","mc":"#B22234"},
-    {"name":"Jake",    "place":2, "total":3,"may":3,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":229,"odds":"+800","move":"▲","mc":"#B22234"},
-    {"name":"Nick",    "place":2, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":229,"odds":"+500","move":"▼","mc":"#2a7a2a"},
-    {"name":"Jess",    "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":1, "chomp":152,"odds":"+1500","move":"▲","mc":"#B22234"},
-    {"name":"Scott",   "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":152,"odds":"+1500","move":"▲","mc":"#B22234"},
-    {"name":"Leah",    "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":152,"odds":"+1500","move":"▲","mc":"#B22234"},
-    {"name":"Jon",     "place":8, "total":1,"may":1,"june":0,"july":0,"aug":0,"sep":0,"l7":1, "chomp":76, "odds":"+4000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Alex",    "place":1, "total":6,"may":5,"june":1,"july":0,"aug":0,"sep":0,"l7":2, "chomp":343,"odds":"+225","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":5,"may":1,"june":4,"july":0,"aug":0,"sep":0,"l7":4, "chomp":286,"odds":"+375","move":"▲","mc":"#B22234"},
+    {"name":"Jake",    "place":2, "total":3,"may":3,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":171,"odds":"+800","move":"▲","mc":"#B22234"},
+    {"name":"Nick",    "place":2, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":171,"odds":"+500","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jess",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":2, "chomp":171,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Scott",   "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":114,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":114,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Jon",     "place":8, "total":3,"may":1,"june":2,"july":0,"aug":0,"sep":0,"l7":3, "chomp":171, "odds":"+4000","move":"▼","mc":"#2a7a2a"},
     {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Noel",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Kristen", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
-    {"name":"Reid",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":57,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Devin",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+6000","move":"▲","mc":"#B22234"},
     {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
@@ -77,9 +77,9 @@ MONTHS = [
 
 BANNER = {
     "leader_name":   "Alex",
-    "leader_total":  5,
-    "l7_leader":     "Nick",
-    "l7_score":      3,
+    "leader_total":  6,
+    "l7_leader":     "Tom",
+    "l7_score":      4,
     "l7_note":       "3 today — June's hot hand",
     "months_done":   1,
     "months_total":  5,
@@ -93,12 +93,12 @@ BANNER = {
 # To override manually, set NARRATIVE_OVERRIDE = "your html" (or leave as None)
 NARRATIVE_OVERRIDE = None
 
-UPDATED    = "2026-06-05"
+UPDATED    = "2026-06-06"
 
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "Testimony from Nick's neighbor suggests he was seen at 2am doing something suspicious with a bun the night before entries were due."
+NICK_UPDATE       = "Commission investigators found a receipt for 47 hot dogs charged to a corporate card registered to a shell company called Nicky's Real Weenies LLC."
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
