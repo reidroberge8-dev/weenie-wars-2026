@@ -93,12 +93,12 @@ BANNER = {
 # To override manually, set NARRATIVE_OVERRIDE = "your html" (or leave as None)
 NARRATIVE_OVERRIDE = None
 
-UPDATED    = "2026-06-06"
+UPDATED    = "2026-06-05"
 
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "A hot dog vendor near Nick's home has gone suspiciously silent after being subpoenaed by the Commission."
+NICK_UPDATE       = "Surveillance footage shows Nick entering a Costco at 11:58pm, purchasing 96 hot dogs, and then immediately returning them — behavior investigators call a dry run."
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
@@ -613,7 +613,7 @@ html = f"""<!DOCTYPE html>
 <div class="cards-row">
   <div class="joey-wrap">
     <div class="section-title">Season Ends</div>
-    <a href="https://media1.tenor.com/m/po-UiIbWBlQAAAAC/hot-dog-girl.gif" target="_blank" class="season-card" style="text-decoration:none;display:block">
+    <a href="https://tenor.com/view/hot-dog-girl-gif-12001974846064297556" target="_blank" class="season-card" style="text-decoration:none;display:block">
       <div class="slabel">⏳ Weenie Wars</div>
       <div class="stitle">Days Remaining</div>
       <div class="sdays">{SEASON_DAYS}</div>
