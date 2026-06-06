@@ -277,11 +277,14 @@ for i, p in enumerate(PLAYERS):
     odds_str  = f'<span style="color:{oc};font-weight:bold">{p["odds"]}</span> <span style="color:{p["mc"]};font-size:0.75em">{p["move"]}</span>'
     p2j_str, _ = p2j_fmt(p["total"])
     td = "padding:7px 9px"
+    nick_badge = ('<sup style="color:#B22234;font-size:0.8em">*</sup>'
+                  '<span style="font-size:0.72em;color:#B22234;font-weight:normal;"> (suspended)</span>'
+                  if p["name"] == "Nick" and NICK_INVESTIGATION else '')
     rows_html += f"""
     <tr style="background:{bg};">
       <td style="{td};text-align:center;font-size:1em">{streak}</td>
       <td style="{td};color:{pc};font-weight:bold;text-align:center;white-space:nowrap">{icon} {p['place']}</td>
-      <td style="{td};{ns}">{p['name']}{'<sup style=\"color:#B22234;font-size:0.8em\">*</sup><span style=\"font-size:0.72em;color:#B22234;font-weight:normal;\"> (suspended)</span>' if p['name']=='Nick' and NICK_INVESTIGATION else ''}</td>
+      <td style="{td};{ns}">{p['name']}{nick_badge}</td>
       <td style="{td};text-align:center;font-weight:bold;color:{tcol}">{fv(p['total'])}</td>
       <td style="{td};text-align:center;font-size:0.93em">{p2j_str}</td>
       <td style="{td};text-align:center;color:#445580">{fv(p['may'])}</td>
@@ -371,6 +374,15 @@ MOBILE_FILTER_JS = """<script>
 </script>"""
 
 # ── Full HTML
+nick_footnote = (
+    '<div style="margin-top:8px;font-size:0.72em;color:#8a9abc;border-left:3px solid #B22234;'
+    'padding:5px 10px;background:#fff8f8;border-radius:0 5px 5px 0;display:inline-block">'
+    '<strong style="color:#B22234">*</strong> Nick (AKA Nicky the Fluff) is under investigation by the '
+    '<strong style="color:#002868">Weenie Commission</strong> for alleged <em>fraudulent dogs</em>. '
+    'The committee has determined the behavior was highly questionable. '
+    f'The case has been escalated to the Supreme Weenie for final judgement. {NICK_UPDATE}</div>'
+    if NICK_INVESTIGATION else ''
+)
 html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -671,7 +683,7 @@ html = f"""<!DOCTYPE html>
   <tbody>{rows_html}</tbody>
 </table></div>
 
-{f'<div style="margin-top:8px;font-size:0.72em;color:#8a9abc;border-left:3px solid #B22234;padding:5px 10px;background:#fff8f8;border-radius:0 5px 5px 0;display:inline-block"><strong style=\"color:#B22234\">*</strong> Nick (AKA Nicky the Fluff) is under investigation by the <strong style=\"color:#002868\">Weenie Commission</strong> for alleged <em>fraudulent dogs</em>. The committee has determined the behavior was highly questionable. The case has been escalated to the Supreme Weenie for final judgement. {NICK_UPDATE}</div>' if NICK_INVESTIGATION else ''}
+{nick_footnote}
 
 <div class="footer">★ &nbsp; Updated {UPDATED} &nbsp; ★ &nbsp; Odds for entertainment only &nbsp; ★ &nbsp; P2J benchmark: Joey Chestnut {JOEY_COUNT} dogs (2025) &nbsp; ★ &nbsp; CHOMP+ league avg = 1.13 weenies/player &nbsp; ★</div>
 <div class="bottom-stripe">
