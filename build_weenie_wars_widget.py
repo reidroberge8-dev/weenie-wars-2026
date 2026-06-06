@@ -93,12 +93,12 @@ BANNER = {
 # To override manually, set NARRATIVE_OVERRIDE = "your html" (or leave as None)
 NARRATIVE_OVERRIDE = None
 
-UPDATED    = "2026-06-05"
+UPDATED    = "2026-06-06"
 
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "Surveillance footage shows Nick entering a Costco at 11:58pm, purchasing 96 hot dogs, and then immediately returning them — behavior investigators call a dry run."
+NICK_UPDATE       = "A hot dog vendor near Nick's home has gone suspiciously silent after being subpoenaed by the Commission."
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
