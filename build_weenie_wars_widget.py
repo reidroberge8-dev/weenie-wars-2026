@@ -1,0 +1,693 @@
+"""
+Weenie Wars 2026 — Widget Build Script
+Run:  python3 build_weenie_wars_widget.py
+Out:  WeeniesWars_2026.html  (same folder)
+
+DATA SOURCE
+  Google Sheet: https://docs.google.com/spreadsheets/d/1-NezoEWSZpeUIZem89ZMltE-kGX_P11LqKVoAwSG0gU/edit?gid=1814658863
+  Export CSV:   https://docs.google.com/spreadsheets/d/1-NezoEWSZpeUIZem89ZMltE-kGX_P11LqKVoAwSG0gU/export?format=csv&gid=1814658863
+  Columns:      Timestamp, Name, Weenies Consumed
+  Note:         "John" in sheet = "Jon" in widget
+
+UPDATE GUIDE
+Each month:
+  1. Fetch the CSV export URL above to get raw entries
+  2. Sum per player per month (month = May if month==5, June if month==6, etc.)
+  3. L7 = entries within last 7 days from today
+  4. Update player scores in PLAYERS list (may, june, july, aug, sep fields)
+  2. Update l7 = weenies in last 7 days for each player
+  3. Recalculate chomp (see CHOMP+ formula below)
+  4. Update odds + move direction ("▲" lengthened / "▼" shortened)
+  5. Update months list: set status = "complete" / "inprogress" / "upcoming"
+  6. Update banner stats (leader name, l7 leader, months complete)
+  7. Update narrative text
+  8. Update footer date
+
+CHOMP+ Formula
+  league_avg = sum(all totals) / num_players
+  chomp = round((player_total / league_avg) * 100)   # 0 if total == 0
+  League avg = 100 by definition.
+
+P2J Formula
+  p2j = round(player_total / JOEY_COUNT * 100, 1)    # % to Joey's benchmark
+  Computed dynamically — no need to store in PLAYERS.
+
+Betting Odds
+  American format. Calibrate so total implied probability ≈ 110-115% (10-15% vig).
+  Implied prob from odds:
+    negative: (-odds) / (-odds + 100)
+    positive: 100 / (odds + 100)
+"""
+
+import os
+
+# ─── DATA ────────────────────────────────────────────────────────────────────
+
+PLAYERS = [
+    # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
+    {"name":"Alex",    "place":1, "total":5,"may":5,"june":0,"july":0,"aug":0,"sep":0,"l7":2, "chomp":381,"odds":"+225","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":3,"may":1,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":229,"odds":"+375","move":"▲","mc":"#B22234"},
+    {"name":"Jake",    "place":2, "total":3,"may":3,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":229,"odds":"+800","move":"▲","mc":"#B22234"},
+    {"name":"Nick",    "place":2, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":229,"odds":"+500","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jess",    "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":1, "chomp":152,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Scott",   "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":152,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":152,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Jon",     "place":8, "total":1,"may":1,"june":0,"july":0,"aug":0,"sep":0,"l7":1, "chomp":76, "odds":"+4000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Noel",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Kristen", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Devin",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+6000","move":"▲","mc":"#B22234"},
+    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
+]
+
+MONTHS = [
+    # name         key       status: "complete" | "inprogress" | "upcoming"
+    {"name":"May",       "key":"may",  "status":"complete"},
+    {"name":"June",      "key":"june", "status":"inprogress"},
+    {"name":"July",      "key":"july", "status":"upcoming"},
+    {"name":"August",    "key":"aug",  "status":"upcoming"},
+    {"name":"September", "key":"sep",  "status":"upcoming"},
+]
+
+# ─── BANNER ──────────────────────────────────────────────────────────────────
+# Update these manually each refresh
+
+BANNER = {
+    "leader_name":   "Alex",
+    "leader_total":  5,
+    "l7_leader":     "Nick",
+    "l7_score":      3,
+    "l7_note":       "3 today — June's hot hand",
+    "months_done":   1,
+    "months_total":  5,
+    "players":       16,
+}
+
+# ─── NARRATIVE ───────────────────────────────────────────────────────────────
+# Update as the season progresses
+
+# NARRATIVE is auto-generated from data — see generate_narrative() below
+# To override manually, set NARRATIVE_OVERRIDE = "your html" (or leave as None)
+NARRATIVE_OVERRIDE = None
+
+UPDATED    = "2026-06-05"
+
+# ── Temporary flags ──────────────────────────────────────────────────────────
+# Set to False to remove the asterisk once investigation is resolved
+NICK_INVESTIGATION = True
+NICK_UPDATE       = "Surveillance footage shows Nick entering a Costco at 11:58pm, purchasing 96 hot dogs, and then immediately returning them — behavior investigators call a dry run."
+JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
+NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
+NATHANS_DATE  = "July 4, 2026"
+
+# Days until Nathan's — computed at build time
+from datetime import datetime as _dt
+_contest  = _dt(2026, 7, 4)
+_today    = _dt.strptime(UPDATED, "%Y-%m-%d")
+NATHANS_DAYS = max(0, (_contest - _today).days)
+
+# Days remaining in Weenie Wars season — ends Labor Day (first Mon in Sep)
+_labor_day   = _dt(2026, 9, 7)
+SEASON_DAYS  = max(0, (_labor_day - _today).days)
+SEASON_END   = "Sep 7, 2026"
+
+# ─── BUILD ───────────────────────────────────────────────────────────────────
+
+def generate_narrative(players, months, joey_count):
+    """Auto-generate the Analyst Take narrative from current data."""
+    from operator import itemgetter
+
+    sorted_p   = sorted(players, key=lambda p: p["total"], reverse=True)
+    leader     = sorted_p[0]
+    n_players  = len(players)
+    total_w    = sum(p["total"] for p in players)
+    league_avg = total_w / n_players if n_players else 1
+
+    active_month = next((m for m in months if m["status"] == "inprogress"), None)
+    active_key   = active_month["name"] if active_month else None
+
+    hot   = sorted([p for p in players if p["l7"] > 0],  key=lambda p: p["l7"],   reverse=True)
+    zeros = [p for p in players if p["total"] == 0]
+    board = [p for p in sorted_p if p["total"] > 0]
+
+    def strong(text, color="#002868"): return f'<strong style="color:{color}">{text}</strong>'
+    def em(text): return f'<em>{text}</em>'
+
+    paras = []
+
+    # ── Para 1: Leader + L7 hot hand
+    p1 = f'{strong(leader["name"])} leads at {strong(str(leader["total"]) + " 🌭", "#B22234")} total.'
+    if hot:
+        hottest = hot[0]
+        if hottest["name"] == leader["name"]:
+            p1 += f' {strong(leader["name"])} is also the hottest hand right now with an L7 of {strong(str(hottest["l7"]), "#B22234")} — the lead and the momentum.'
+        else:
+            gap = leader["total"] - hottest["total"]
+            p1 += (f' The {active_key or "current"} story belongs to {strong(hottest["name"])} — '
+                   f'L7 Weenie Score of {strong(str(hottest["l7"]), "#B22234")}, '
+                   f'closing to within {strong(str(gap))} of the lead.')
+            if hottest["total"] == leader["total"]:
+                p1 += f' {strong(hottest["name"])} has {em("tied")} the leader.'
+    paras.append(p1)
+
+    # ── Para 2: Chasing pack (2nd–4th by total, skip leader)
+    pack = [p for p in board if p["name"] != leader["name"]][:4]
+    if pack:
+        # Group by total
+        groups = {}
+        for p in pack:
+            groups.setdefault(p["total"], []).append(p["name"])
+        lines = []
+        for total, names in sorted(groups.items(), reverse=True):
+            cold = [n for n in names if not any(h["name"] == n for h in hot)]
+            warm = [n for n in names if any(h["name"] == n for h in hot)]
+            name_str = ", ".join(f'{strong(n)}' for n in names)
+            note = ""
+            if cold and not warm:
+                note = " — cold in " + (active_key or "the current month")
+            elif warm:
+                note = " — 🔥 active"
+            lines.append(f'{name_str} {"are" if len(names) > 1 else "is"} at {strong(str(total))}{note}.')
+        paras.append(" ".join(lines))
+
+    # ── Para 3: CHOMP+
+    chomp_leader = max(players, key=lambda p: p["chomp"])
+    times = round(chomp_leader["chomp"] / 100, 1)
+    p3 = (f'By {strong("CHOMP+")}, {strong(chomp_leader["name"])} leads at '
+          f'{strong(str(chomp_leader["chomp"]), "#B22234")} — '
+          f'{times}× the league average.')
+    tied_chomp = [p for p in players if p["chomp"] == chomp_leader["chomp"] and p["name"] != chomp_leader["name"]]
+    if pack:
+        second_chomp = sorted([p for p in players if p["chomp"] < chomp_leader["chomp"] and p["chomp"] > 0],
+                               key=lambda p: p["chomp"], reverse=True)
+        if second_chomp:
+            sc = second_chomp[0]
+            others = [p for p in second_chomp if p["chomp"] == sc["chomp"]]
+            names_str = ", ".join(strong(p["name"]) for p in [sc] + others[1:3])
+            p3 += f' {names_str} trail at {strong(str(sc["chomp"]), "#445580")}.'
+    paras.append(p3)
+
+    # ── Para 4: P2J
+    leader_p2j = round(leader["total"] / joey_count * 100, 1)
+    months_left = sum(1 for m in months if m["status"] != "complete")
+    projected   = round(leader["total"] / max(1, len([m for m in months if m["status"] == "complete"])) * len(months), 1) if any(m["status"] == "complete" for m in months) else "?"
+    projected_p2j = round(float(projected) / joey_count * 100, 1) if projected != "?" else "?"
+    p4 = (f'{strong("P2J")} puts the gap in perspective: {strong(leader["name"])} leads at '
+          f'{strong(str(leader_p2j) + "%", "#002868")} of Joey Chestnut ({joey_count} dogs). ')
+    if projected != "?":
+        p4 += f'At this pace, projected finish is ~{strong(str(projected))} weenies (~{strong(str(projected_p2j) + "% P2J")}). '
+    p4 += f'{strong(str(months_left))} months remain.'
+    paras.append(p4)
+
+    # ── Para 5: Zeros + watch note
+    if zeros:
+        p5 = f'{strong(str(len(zeros)))} {"player" if len(zeros) == 1 else "players"} remain at zero.'
+    else:
+        p5 = "Every player has scored this season."
+    # Watch note: who could catch the leader next month
+    if len(board) > 1:
+        closest = pack[0] if pack else None
+        if closest:
+            gap = leader["total"] - closest["total"]
+            p5 += (f' {strong("Watch:")} {strong(closest["name"])} is {strong(str(gap))} back — '
+                   f'one strong month changes everything.')
+    paras.append(p5)
+
+    return "".join(f"<p>{p}</p>\n" for p in paras)
+
+
+place_icons  = {1:"🥇", 2:"🥈", 4:"🥉"}
+place_colors = {1:"#B8860B", 2:"#666", 4:"#8B4513", 7:"#8a9abc"}
+
+def streak_icon(p):
+    # Use the most recently active month key to determine hot/cold
+    recent_keys = ["sep","aug","july","june","may"]
+    for k in recent_keys:
+        vals = [x[k] for x in PLAYERS if x[k] > 0]
+        if vals:  # this is the most recent month with any score
+            return "🔥" if p[k] > 0 else ("🧊" if p["total"] == 0 else "📉")
+    return "🧊"
+
+def chomp_color(c):
+    if c >= 400: return "#B22234"
+    if c >= 200: return "#002868"
+    if c > 0:    return "#445580"
+    return "#c0c8d8"
+
+def odds_color(o):
+    val = int(o.replace("+","").replace("-",""))
+    if o.startswith("-") or val <= 400: return "#002868"
+    if val <= 1500:                     return "#445580"
+    return "#8a9abc"
+
+def p2j_fmt(total):
+    """% to Joey Chestnut's most recent result. Returns (display_str, color)."""
+    if total == 0:
+        return '<span style="color:#c0c8d8">—</span>', "#c0c8d8"
+    pct = round(total / JOEY_COUNT * 100, 1)
+    # Color: <5% faint, 5-10% navy, >10% red (extremely impressive)
+    if pct >= 10:   color = "#B22234"
+    elif pct >= 5:  color = "#002868"
+    else:           color = "#445580"
+    return f'<strong style="color:{color}">{pct}%</strong>', color
+
+def top_scorer(month_key):
+    if not month_key: return None, 0
+    best = max(PLAYERS, key=lambda p: p[month_key])
+    return (best["name"], best[month_key]) if best[month_key] > 0 else (None, 0)
+
+def fv(v): return str(v) if v else "—"
+
+# ── Leaderboard rows
+rows_html = ""
+for i, p in enumerate(PLAYERS):
+    icon   = place_icons.get(p["place"], "")
+    pc     = place_colors.get(p["place"], "#8a9abc")
+    streak = streak_icon(p)
+    bg     = "#ffffff" if i % 2 == 0 else "#f4f7fc"
+    ns     = "color:#002868;font-weight:600;"
+    tcol   = "#B22234" if p["total"] > 0 else "#b0bcd4"
+    l7c    = "#002868" if p["l7"] > 0 else "#c0c8d8"
+    cc     = chomp_color(p["chomp"])
+    oc     = odds_color(p["odds"])
+    chomp_str = f'<strong>{p["chomp"]}</strong>' if p["chomp"] > 0 else '<span style="color:#c0c8d8">—</span>'
+    odds_str  = f'<span style="color:{oc};font-weight:bold">{p["odds"]}</span> <span style="color:{p["mc"]};font-size:0.75em">{p["move"]}</span>'
+    p2j_str, _ = p2j_fmt(p["total"])
+    td = "padding:7px 9px"
+    rows_html += f"""
+    <tr style="background:{bg};">
+      <td style="{td};text-align:center;font-size:1em">{streak}</td>
+      <td style="{td};color:{pc};font-weight:bold;text-align:center;white-space:nowrap">{icon} {p['place']}</td>
+      <td style="{td};{ns}">{p['name']}{'<sup style=\"color:#B22234;font-size:0.8em\">*</sup><span style=\"font-size:0.72em;color:#B22234;font-weight:normal;\"> (suspended)</span>' if p['name']=='Nick' and NICK_INVESTIGATION else ''}</td>
+      <td style="{td};text-align:center;font-weight:bold;color:{tcol}">{fv(p['total'])}</td>
+      <td style="{td};text-align:center;font-size:0.93em">{p2j_str}</td>
+      <td style="{td};text-align:center;color:#445580">{fv(p['may'])}</td>
+      <td style="{td};text-align:center;color:#445580">{fv(p['june'])}</td>
+      <td style="{td};text-align:center;color:#445580">{fv(p['july'])}</td>
+      <td style="{td};text-align:center;color:#445580">{fv(p['aug'])}</td>
+      <td style="{td};text-align:center;color:#445580">{fv(p['sep'])}</td>
+      <td style="{td};text-align:center;font-weight:bold;color:{l7c}">{fv(p['l7'])}</td>
+      <td style="{td};text-align:center;color:{cc};font-size:0.95em">{chomp_str}</td>
+      <td style="{td};text-align:center;white-space:nowrap;font-size:0.95em">{odds_str}</td>
+    </tr>"""
+
+# ── Month tiles
+month_tiles = ""
+for m in MONTHS:
+    winner, w_count = top_scorer(m["key"])
+    has_data = winner is not None
+    status   = m["status"]
+    if status == "complete":
+        tile_bg = "linear-gradient(135deg,#B22234,#cc2a3c)"; tile_border = "#8a1020"; tc = "#fff"
+        badge = '<span style="background:rgba(0,0,0,0.2);color:#fff;font-size:0.62em;padding:1px 7px;border-radius:10px;font-weight:bold;letter-spacing:1px">✓ COMPLETE</span>'
+        winner_block = f"""<div style="margin-top:7px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.25)">
+          <div style="font-size:0.6em;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.65);margin-bottom:2px">Most Weenies</div>
+          <div style="font-size:0.9em;font-weight:bold;color:#fff">🌭 {winner}</div>
+          <div style="font-size:1.35em;font-weight:900;color:#FFD700;line-height:1.1">{w_count}</div>
+        </div>""" if has_data else ""
+    elif status == "inprogress":
+        tile_bg = "linear-gradient(135deg,#edf1f9,#dde4f2)"; tile_border = "#3a6abf"; tc = "#002868"
+        badge = '<span style="background:#002868;color:#fff;font-size:0.62em;padding:1px 7px;border-radius:10px;font-weight:bold;letter-spacing:1px">⚡ IN PROGRESS</span>'
+        winner_block = f"""<div style="margin-top:7px;padding-top:6px;border-top:1px solid #c8d4ea">
+          <div style="font-size:0.6em;text-transform:uppercase;letter-spacing:1px;color:#8a9abc;margin-bottom:2px">Leading</div>
+          <div style="font-size:0.9em;font-weight:bold;color:#002868">🌭 {winner}</div>
+          <div style="font-size:1.35em;font-weight:900;color:#B22234;line-height:1.1">{w_count}</div>
+        </div>""" if has_data else '<div style="font-size:1.1em;color:#b0bcd4;margin-top:8px">No scores yet</div>'
+    else:
+        tile_bg = "linear-gradient(135deg,#edf1f9,#dde4f2)"; tile_border = "#b8c8e8"; tc = "#002868"
+        badge = '<span style="background:#c8d4ea;color:#445580;font-size:0.62em;padding:1px 7px;border-radius:10px;letter-spacing:1px">UPCOMING</span>'
+        winner_block = """<div style="margin-top:7px;padding-top:6px;border-top:1px solid #c8d4ea">
+          <div style="font-size:0.6em;text-transform:uppercase;letter-spacing:1px;color:#b0bcd4;margin-bottom:2px">Most Weenies</div>
+          <div style="font-size:0.9em;font-weight:bold;color:#c0c8d8">🌭 TBD</div>
+          <div style="font-size:1.35em;font-weight:900;color:#c0c8d8;line-height:1.1">—</div>
+        </div>"""
+    month_tiles += f"""<div data-month="{m['key']}" style="background:{tile_bg};border:1px solid {tile_border};border-radius:9px;padding:10px 13px;min-width:100px;text-align:center;flex-shrink:0;align-self:flex-start;cursor:pointer;transition:outline 0.1s">
+      <div style="color:{tc};font-weight:bold;font-size:0.85em;margin-bottom:5px;letter-spacing:1px">{m['name']}</div>
+      {badge}{winner_block}</div>"""
+
+months_remaining = sum(1 for m in MONTHS if m["status"] != "complete")
+
+# ── Compute narrative ────────────────────────────────────────────────────────
+NARRATIVE = NARRATIVE_OVERRIDE if NARRATIVE_OVERRIDE else generate_narrative(PLAYERS, MONTHS, JOEY_COUNT)
+
+# Mobile month filter JS — defined outside f-string to avoid brace-escaping issues
+MOBILE_FILTER_JS = """<script>
+(function() {
+  var bar = document.getElementById('monthFilter');
+  if (!bar) return;
+  var pills   = Array.from(bar.querySelectorAll('.mf-pill'));
+  var headers = Array.from(document.querySelectorAll('thead th'));
+  var tb      = document.querySelector('tbody');
+  var MONTH_COLS = {may:5, june:6, july:7, aug:8, sep:9};
+  var TOTAL_COL  = 3;
+  function setColVisible(ci, visible) {
+    var disp = visible ? 'table-cell' : 'none';
+    headers[ci].style.display = disp;
+    Array.from(tb.querySelectorAll('tr')).forEach(function(row) {
+      if (row.cells[ci]) row.cells[ci].style.display = disp;
+    });
+  }
+  pills.forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      pills.forEach(function(p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+      var month = pill.dataset.month;
+      if (month === 'all') {
+        setColVisible(TOTAL_COL, true);
+        Object.keys(MONTH_COLS).forEach(function(m) { setColVisible(MONTH_COLS[m], false); });
+        sortBy(TOTAL_COL);
+      } else {
+        var col = MONTH_COLS[month];
+        setColVisible(TOTAL_COL, false);
+        Object.keys(MONTH_COLS).forEach(function(m) { setColVisible(MONTH_COLS[m], m === month); });
+        sortBy(col);
+      }
+    });
+  });
+})();
+</script>"""
+
+# ── Full HTML
+html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weenie Wars 2026</title>
+<style>
+  * {{ box-sizing:border-box; margin:0; padding:0; }}
+  body {{ background:#f0f4fb; color:#002868; font-family:'Segoe UI',Arial,sans-serif; padding:16px; font-size:13px; }}
+  .header {{ text-align:center; margin-bottom:14px; }}
+  .header h1 {{ font-size:2em; font-weight:900; letter-spacing:3px; line-height:1.2; }}
+  .header h1 .title-text {{
+    background:linear-gradient(90deg,#B22234 0%,#555 45%,#002868 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  }}
+  .header h1 .title-emoji {{ -webkit-text-fill-color:initial; background:none; }}
+  .header .subtitle {{ color:#7a8aaa; font-size:0.78em; margin-top:4px; letter-spacing:2px; text-transform:uppercase; }}
+  .header-stripe {{ display:flex; height:3px; border-radius:2px; margin:7px auto 0; width:260px; overflow:hidden; }}
+  .sr {{ flex:1; background:#B22234; }} .sw {{ flex:1; background:#ccc; }} .sb {{ flex:1; background:#002868; }}
+  .banner {{
+    background:#fff; border:1px solid #c8d4ea; border-top:3px solid #002868;
+    border-radius:10px; padding:10px 18px; margin-bottom:12px;
+    display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+    box-shadow:0 1px 5px rgba(0,40,104,0.07);
+  }}
+  .banner .label {{ color:#7a8aaa; font-size:0.7em; text-transform:uppercase; letter-spacing:1px; }}
+  .banner .note  {{ color:#8a9abc; font-size:0.68em; margin-top:1px; }}
+  .divider {{ width:1px; height:38px; background:#dde4f0; }}
+  .mid-row {{ display:flex; gap:12px; align-items:flex-start; margin-bottom:12px; }}
+  .cards-row {{ display:flex; gap:12px; align-items:stretch; margin-bottom:14px; flex-wrap:wrap; }}
+  .months-wrap {{ flex:0 0 auto; align-self:flex-start; }}
+  .months-row {{ display:flex; gap:8px; flex-wrap:nowrap; align-items:flex-start; }}
+  .narrative-card {{
+    width:100%;
+    background:#fff; border:1px solid #c8d4ea; border-left:3px solid #002868;
+    border-radius:9px; padding:12px 14px;
+    box-shadow:0 1px 5px rgba(0,40,104,0.07);
+    font-size:0.78em; line-height:1.6; color:#334466;
+  }}
+  .narrative-card .nt {{ font-size:0.68em; text-transform:uppercase; letter-spacing:2px; color:#7a8aaa; border-left:3px solid #B22234; padding-left:7px; margin-bottom:8px; }}
+  .narrative-card p {{ margin-bottom:6px; }}
+  .narrative-card p:last-child {{ margin-bottom:0; }}
+  .joey-wrap {{ flex:0 0 auto; display:flex; flex-direction:column; }}
+  .joey-card {{
+    background:#fff; border:2px solid #B22234; border-radius:10px;
+    padding:14px 16px; text-align:center; width:180px;
+    box-shadow:0 2px 8px rgba(178,34,52,0.10);
+    display:flex; flex-direction:column; justify-content:center;
+    flex:1; text-decoration:none; color:inherit;
+  }}
+  .joey-card:hover {{ background:#fff5f5; }}
+  .joey-card .jlabel {{ color:#8a9abc; font-size:0.68em; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }}
+  .joey-card .jname  {{ font-size:0.9em; font-weight:bold; color:#002868; margin-bottom:6px; letter-spacing:1px; }}
+  .joey-card .jcount {{ font-size:2.4em; font-weight:900; color:#B22234; line-height:1; }}
+  .joey-card .jdogs  {{ font-size:0.72em; color:#7a8aaa; margin-top:3px; }}
+  .joey-card .jyear  {{ font-size:0.65em; color:#aab4cc; margin-top:5px; letter-spacing:1px; }}
+  .nathans-card {{
+    background:#fff; border:2px solid #002868; border-radius:10px;
+    padding:14px 16px; text-align:center; width:180px;
+    box-shadow:0 2px 8px rgba(0,40,104,0.10);
+    display:flex; flex-direction:column; justify-content:center;
+    text-decoration:none; color:inherit; flex:1;
+  }}
+  .nathans-card:hover {{ background:#edf1f9; }}
+  .nathans-card .nlabel {{ color:#8a9abc; font-size:0.68em; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }}
+  .nathans-card .ntitle {{ font-size:0.82em; font-weight:bold; color:#002868; margin-bottom:8px; line-height:1.3; }}
+  .nathans-card .ndays  {{ font-size:2.4em; font-weight:900; color:#002868; line-height:1; }}
+  .nathans-card .nunit  {{ font-size:0.72em; color:#7a8aaa; margin-top:3px; }}
+  .nathans-card .ndate  {{ font-size:0.65em; color:#aab4cc; margin-top:5px; letter-spacing:1px; }}
+  .season-card {{
+    background:#fff; border:2px solid #445580; border-radius:10px;
+    padding:14px 16px; text-align:center; width:180px;
+    box-shadow:0 2px 8px rgba(68,85,128,0.10);
+    display:flex; flex-direction:column; justify-content:center; flex:1;
+  }}
+  .season-card .slabel {{ color:#8a9abc; font-size:0.68em; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }}
+  .season-card .stitle {{ font-size:0.82em; font-weight:bold; color:#445580; margin-bottom:6px; letter-spacing:1px; }}
+  .season-card .sdays  {{ font-size:2.4em; font-weight:900; color:#445580; line-height:1; }}
+  .season-card .sunit  {{ font-size:0.72em; color:#7a8aaa; margin-top:3px; }}
+  .season-card .send   {{ font-size:0.65em; color:#aab4cc; margin-top:5px; letter-spacing:1px; }}
+  .section-title {{ font-size:0.68em; text-transform:uppercase; letter-spacing:2px; color:#7a8aaa; margin-bottom:7px; margin-top:2px; border-left:3px solid #B22234; padding-left:7px; }}
+  table {{ width:100%; border-collapse:collapse; font-size:0.93em; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 1px 6px rgba(0,40,104,0.07); }}
+  thead tr {{ background:#002868; }}
+  thead th {{ padding:8px 7px; text-align:center; color:#c8d4ea; font-size:0.68em; text-transform:uppercase; letter-spacing:1px; }}
+  thead th:nth-child(3) {{ text-align:left; }}
+  thead th.chomp-h {{ color:#FFD700; }}
+  thead th.l7-h {{ color:#88ccff; }}
+  thead th.odds-h {{ color:#aaffaa; }}
+  thead th.p2j-h  {{ color:#ffccee; }}
+  tbody tr {{ border-bottom:1px solid #edf1f9; transition:background 0.12s; }}
+  tbody tr:hover {{ background:#e8f0ff!important; }}
+  .legend {{ color:#7a8aaa; font-size:0.72em; margin:7px 0 5px; }}
+  .stat-notes {{ display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap; }}
+  .stat-note {{ font-size:0.7em; color:#8a9abc; background:#f4f7fc; border-left:2px solid #B22234; padding:4px 8px; border-radius:0 5px 5px 0; flex:1; min-width:160px; }}
+  .stat-note strong {{ color:#002868; }}
+  .footer {{ margin-top:12px; text-align:center; color:#aab4cc; font-size:0.68em; letter-spacing:1px; }}
+  .bottom-stripe {{ display:flex; height:3px; border-radius:2px; margin-top:10px; overflow:hidden; }}
+  .bottom-stripe div {{ flex:1; }}
+
+  /* ── Button row ───────────────────────────────────────────────────────── */
+  .btn-row {{ display:flex; gap:10px; margin-bottom:12px; }}
+  .btn-link {{
+    display:inline-block; font-weight:bold; font-size:0.82em;
+    padding:9px 18px; border-radius:6px; text-decoration:none;
+    letter-spacing:0.5px; white-space:nowrap; color:#fff;
+  }}
+  .btn-red  {{ background:#B22234; box-shadow:0 2px 6px rgba(178,34,52,0.3); }}
+  .btn-navy {{ background:#002868; box-shadow:0 2px 6px rgba(0,40,104,0.3); }}
+
+  /* ── Responsive / Mobile ───────────────────────────────────────────────── */
+  .table-scroll {{ overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:8px; }}
+
+  @media (max-width:660px) {{
+    body {{ padding:8px; font-size:13px; }}
+    .header h1 {{ font-size:1.4em; letter-spacing:1px; }}
+    .header .subtitle {{ font-size:0.68em; letter-spacing:1px; }}
+    .header-stripe {{ width:140px; }}
+
+    /* Banner: 2×2 grid */
+    .banner {{ display:grid; grid-template-columns:1fr 1fr; gap:10px 16px; padding:10px 12px; }}
+    .divider {{ display:none; }}
+
+    /* Buttons: full width, tall touch targets */
+    .btn-row {{ flex-direction:column; gap:8px; }}
+    .btn-link {{ width:100%; text-align:center; padding:13px 18px; font-size:0.9em; box-sizing:border-box; }}
+
+    /* Month tiles: wrap 2–3 per row */
+    .months-row {{ flex-wrap:wrap; gap:6px; }}
+    .months-row > div {{ flex:1 1 calc(33% - 6px); min-width:90px !important; }}
+
+    /* Cards: 3-per-row, compact */
+    .cards-row {{ flex-wrap:nowrap; gap:6px; }}
+    .joey-wrap {{ flex:1 1 0; min-width:0; }}
+    .season-card, .joey-card, .nathans-card {{ width:100% !important; padding:10px 6px !important; box-sizing:border-box; }}
+    .season-card .sdays, .joey-card .jcount, .nathans-card .ndays {{ font-size:1.9em; }}
+    .season-card .slabel, .joey-card .jlabel, .nathans-card .nlabel {{ font-size:0.6em; }}
+    .season-card .stitle, .nathans-card .ntitle {{ font-size:0.72em; }}
+    .joey-card .jname {{ font-size:0.78em; }}
+
+    /* Narrative */
+    .narrative-card {{ font-size:0.82em; }}
+
+    /* Stat notes: stack vertically */
+    .stat-notes {{ flex-direction:column; }}
+    .stat-note {{ min-width:unset; }}
+
+    /* Table: hide monthly cols + P2J + Odds — leaves Trend/Place/Player/Total/L7/CHOMP+ */
+    table th:nth-child(5),  table td:nth-child(5),   /* P2J */
+    table th:nth-child(6),  table td:nth-child(6),   /* May */
+    table th:nth-child(7),  table td:nth-child(7),   /* June */
+    table th:nth-child(8),  table td:nth-child(8),   /* July */
+    table th:nth-child(9),  table td:nth-child(9),   /* Aug */
+    table th:nth-child(10), table td:nth-child(10),  /* Sep */
+    table th:nth-child(13), table td:nth-child(13)   /* Odds */
+    {{ display:none; }}
+
+    table {{ font-size:0.9em; }}
+    thead th {{ font-size:0.65em; padding:7px 5px !important; }}
+    tbody td {{ padding:8px 5px !important; }}
+
+    .legend {{ font-size:0.68em; }}
+    .section-title {{ font-size:0.65em; }}
+    .footer {{ font-size:0.62em; }}
+
+    /* Month filter pills — mobile only */
+    .month-filter {{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px; }}
+    .mf-label {{ font-size:0.68em; color:#7a8aaa; text-transform:uppercase; letter-spacing:1px; flex:0 0 auto; }}
+    .mf-pills {{ display:flex; gap:5px; flex-wrap:wrap; }}
+    .mf-pill {{
+      background:#f4f7fc; border:1px solid #c8d4ea; border-radius:20px;
+      padding:6px 12px; font-size:0.72em; font-weight:600; color:#445580;
+      cursor:pointer; transition:all 0.15s;
+    }}
+    .mf-pill.active {{ background:#002868; border-color:#002868; color:#fff; }}
+    .mf-pill:hover:not(.active) {{ background:#dde4f2; }}
+  }}
+  /* Hidden on desktop */
+  .month-filter {{ display:none; }}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1><span class="title-emoji">🌭</span><span class="title-text"> WEENIE WARS 2026 </span><span class="title-emoji">🌭</span></h1>
+  <div class="subtitle">Hot Dog Eating Championship &nbsp;★&nbsp; Memorial Day to Labor Day</div>
+  <div class="header-stripe"><div class="sr"></div><div class="sw"></div><div class="sb"></div></div>
+</div>
+
+<div class="banner">
+  <div>
+    <div class="label">Leader</div>
+    <div style="font-size:1.35em;font-weight:bold;color:#B8860B;line-height:1.1">🥇 {BANNER['leader_name']}</div>
+    <div class="note">{BANNER['leader_total']} weenies total</div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <div class="label">🔥 Last 7 Days</div>
+    <div style="font-size:1.35em;font-weight:bold;color:#002868;line-height:1.1">{BANNER['l7_leader']} &nbsp;<span style="color:#B22234">+{BANNER['l7_score']}</span></div>
+    <div class="note">{BANNER['l7_note']}</div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <div class="label">Months Complete</div>
+    <div style="font-size:1.35em;font-weight:bold;color:#002868;line-height:1.1">{BANNER['months_done']} / {BANNER['months_total']}</div>
+    <div class="note">{months_remaining} months remaining</div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <div class="label">Players</div>
+    <div style="font-size:1.35em;font-weight:bold;color:#002868;line-height:1.1">{BANNER['players']}</div>
+    <div class="note">Competing in 2026</div>
+  </div>
+</div>
+
+<div class="btn-row">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScMSUKG2thEJFaIJc4TviSwX346w8m8zJcou78Vqxdavu93kQ/viewform?usp=dialog" target="_blank" class="btn-link btn-red">
+    🌭 Log Weenies Here
+  </a>
+  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn-link btn-navy">
+    🌭 Click 4 Free Weenies
+  </a>
+</div>
+<div class="months-wrap" style="margin-bottom:12px;">
+  <div class="section-title">Monthly Status</div>
+  <div class="months-row">{month_tiles}</div>
+</div>
+
+<div class="cards-row">
+  <div class="joey-wrap">
+    <div class="section-title">Season Ends</div>
+    <div class="season-card">
+      <div class="slabel">⏳ Weenie Wars</div>
+      <div class="stitle">Days Remaining</div>
+      <div class="sdays">{SEASON_DAYS}</div>
+      <div class="sunit">days left</div>
+      <div class="send">★ Labor Day {SEASON_END} ★</div>
+    </div>
+  </div>
+  <div class="joey-wrap">
+    <div class="section-title">The Benchmark</div>
+    <a href="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTQ4bjhncGI2YXY3Zm93OHJ1ZHZ0NzB4cGpvZHRubXkyNDF2NXJzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/37QHg0RoCFAiEJD0oV/giphy.gif" target="_blank" class="joey-card">
+      <div class="jlabel">🌭 The Man</div>
+      <div class="jname">Joey Chestnut</div>
+      <div class="jcount">{JOEY_COUNT}</div>
+      <div class="jdogs">hot dogs in 10 min</div>
+      <div class="jyear">★ 2025 RESULT ★</div>
+    </a>
+  </div>
+  <div class="joey-wrap">
+    <div class="section-title">Nathan's 2026</div>
+    <a href="{NATHANS_URL}" target="_blank" class="nathans-card">
+      <div class="nlabel">🌭 Contest</div>
+      <div class="ntitle">Nathan's Famous Hot Dog Eating</div>
+      <div class="ndays">{NATHANS_DAYS}</div>
+      <div class="nunit">days away</div>
+      <div class="ndate">★ {NATHANS_DATE} ★</div>
+    </a>
+  </div>
+</div>
+
+<div class="narrative-card" style="margin-bottom:14px;">
+  <div class="nt">📰 Analyst's Take</div>
+  {NARRATIVE}
+</div>
+
+<div class="section-title">Leaderboard</div>
+<div class="legend">🔥 Hot — scored most recently &nbsp;·&nbsp; 📉 Cooling — scored before, nothing lately &nbsp;·&nbsp; 🧊 Cold — no weenies yet</div>
+<div class="stat-notes">
+  <div class="stat-note"><strong>CHOMP+</strong> — Weighted Consumption Created Plus (wRC+ analog). League avg = 100. Alex at 441 = 4.4× field avg.</div>
+  <div class="stat-note"><strong>P2J</strong> — % to Joey Chestnut's most recent result ({JOEY_COUNT} dogs). Alex at 7.1% = 5 / 70.5. Higher = closer to greatness.</div>
+  <div class="stat-note"><strong>L7 Weenie Score</strong> — Weenies tracked in the last 7 days.</div>
+  <div class="stat-note"><strong>Odds</strong> — American format. +300 = $100 wins $300. <span style="color:#2a7a2a">▼ shortened</span> / <span style="color:#B22234">▲ lengthened</span>.</div>
+</div>
+<div class="month-filter" id="monthFilter">
+  <span class="mf-label">Month:</span>
+  <div class="mf-pills">
+    <button class="mf-pill active" data-month="all">All</button>
+    <button class="mf-pill" data-month="may"  data-col="5">May</button>
+    <button class="mf-pill" data-month="june" data-col="6">Jun</button>
+    <button class="mf-pill" data-month="july" data-col="7">Jul</button>
+    <button class="mf-pill" data-month="aug"  data-col="8">Aug</button>
+    <button class="mf-pill" data-month="sep"  data-col="9">Sep</button>
+  </div>
+</div>
+<div class="table-scroll"><table>
+  <thead>
+    <tr>
+      <th data-col="0">Trend</th><th data-col="1">Place</th>
+      <th data-col="2" style="text-align:left">Player</th>
+      <th data-col="3">Total 🌭</th>
+      <th data-col="4" class="p2j-h">P2J</th>
+      <th data-col="5">May</th><th data-col="6">June</th><th data-col="7">July</th><th data-col="8">Aug</th><th data-col="9">Sep</th>
+      <th data-col="10" class="l7-h">L7 Weenie Score</th>
+      <th data-col="11" class="chomp-h">CHOMP+</th>
+      <th data-col="12" class="odds-h">Odds</th>
+    </tr>
+  </thead>
+  <tbody>{rows_html}</tbody>
+</table></div>
+
+{f'<div style="margin-top:8px;font-size:0.72em;color:#8a9abc;border-left:3px solid #B22234;padding:5px 10px;background:#fff8f8;border-radius:0 5px 5px 0;display:inline-block"><strong style=\"color:#B22234\">*</strong> Nick (AKA Nicky the Fluff) is under investigation by the <strong style=\"color:#002868\">Weenie Commission</strong> for alleged <em>fraudulent dogs</em>. The committee has determined the behavior was highly questionable. The case has been escalated to the Supreme Weenie for final judgement. {NICK_UPDATE}</div>' if NICK_INVESTIGATION else ''}
+
+<div class="footer">★ &nbsp; Updated {UPDATED} &nbsp; ★ &nbsp; Odds for entertainment only &nbsp; ★ &nbsp; P2J benchmark: Joey Chestnut {JOEY_COUNT} dogs (2025) &nbsp; ★ &nbsp; CHOMP+ league avg = 1.13 weenies/player &nbsp; ★</div>
+<div class="bottom-stripe">
+  <div style="background:#B22234"></div><div style="background:#ddd"></div>
+  <div style="background:#002868"></div><div style="background:#B22234"></div>
+  <div style="background:#ddd"></div><div style="background:#002868"></div>
+</div>
+
+{MOBILE_FILTER_JS}
+
+</body>
+</html>"""
+
+out_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "WeeniesWars_2026.html")
+with open(out_path, "w", encoding="utf-8") as f:
+    f.write(html)
+print(f"✓ Built: {out_path}")
+
+print(f"\u2713 Built: {out_path}")
