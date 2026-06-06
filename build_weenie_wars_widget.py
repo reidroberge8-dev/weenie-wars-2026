@@ -433,6 +433,20 @@ MOBILE_FILTER_JS = """<script>
 })();
 </script>"""
 
+# Stat note examples — computed from live PLAYERS data
+_chomp_leaders = sorted([p for p in PLAYERS if p["chomp"] > 0], key=lambda p: p["chomp"], reverse=True)
+_chomp_ex = _chomp_leaders[0] if _chomp_leaders else None
+STAT_CHOMP_EX = (
+    f'{_chomp_ex["name"]} at {_chomp_ex["chomp"]} = {round(_chomp_ex["chomp"]/100,1)}× field avg'
+    if _chomp_ex else "league avg = 100 by definition"
+)
+_p2j_leaders = sorted([p for p in PLAYERS if p["total"] > 0], key=lambda p: p["total"], reverse=True)
+_p2j_ex = _p2j_leaders[0] if _p2j_leaders else None
+STAT_P2J_EX = (
+    f'{_p2j_ex["name"]} at {round(_p2j_ex["total"]/JOEY_COUNT*100,1)}% = {_p2j_ex["total"]} / {JOEY_COUNT}'
+    if _p2j_ex else f"leader / {JOEY_COUNT} dogs"
+)
+
 # Per-player monthly data for dynamic CHOMP+ in JS
 _pd = ", ".join(
     f'"{p["name"]}":{{"may":{p["may"]},"june":{p["june"]},"july":{p["july"]},"aug":{p["aug"]},"sep":{p["sep"]},"chomp":{p["chomp"]}}}'
@@ -717,8 +731,8 @@ html = f"""<!DOCTYPE html>
 <div class="section-title">Leaderboard</div>
 <div class="legend">🔥 Hot — scored most recently &nbsp;·&nbsp; 📉 Cooling — scored before, nothing lately &nbsp;·&nbsp; 🧊 Cold — no weenies yet</div>
 <div class="stat-notes">
-  <div class="stat-note"><strong>CHOMP+</strong> — Weighted Consumption Created Plus (wRC+ analog). League avg = 100. Alex at 441 = 4.4× field avg.</div>
-  <div class="stat-note"><strong>P2J</strong> — % to Joey Chestnut's most recent result ({JOEY_COUNT} dogs). Alex at 7.1% = 5 / 70.5. Higher = closer to greatness.</div>
+  <div class="stat-note"><strong>CHOMP+</strong> — Weighted Consumption Created Plus (wRC+ analog). League avg = 100. {STAT_CHOMP_EX}.</div>
+  <div class="stat-note"><strong>P2J</strong> — % to Joey Chestnut's most recent result ({JOEY_COUNT} dogs). {STAT_P2J_EX}. Higher = closer to greatness.</div>
   <div class="stat-note"><strong>L7 Weenie Score</strong> — Weenies tracked in the last 7 days.</div>
   <div class="stat-note"><strong>Odds</strong> — American format. +300 = $100 wins $300. <span style="color:#2a7a2a">▼ shortened</span> / <span style="color:#B22234">▲ lengthened</span>.</div>
 </div>
