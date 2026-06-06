@@ -98,7 +98,7 @@ UPDATED    = "2026-06-05"
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "Surveillance footage shows Nick entering a Costco at 11:58pm, purchasing 96 hot dogs, and then immediately returning them — behavior investigators call a dry run."
+NICK_UPDATE       = "Testimony from Nick's neighbor suggests he was seen at 2am doing something suspicious with a bun the night before entries were due."
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
@@ -345,7 +345,7 @@ MOBILE_FILTER_JS = """<script>
   var headers = Array.from(document.querySelectorAll('thead th'));
   var tb      = document.querySelector('tbody');
   var MONTH_COLS = {may:5, june:6, july:7, aug:8, sep:9};
-  var TOTAL_COL  = 3;
+  var TOTAL_COL = 3, P2J_COL = 4, L7_COL = 10, CHOMP_COL = 11, ODDS_COL = 12;
 
   function setColVisible(ci, visible) {
     var disp = visible ? 'table-cell' : 'none';
@@ -371,19 +371,30 @@ MOBILE_FILTER_JS = """<script>
       pill.classList.add('active');
       var month = pill.dataset.month;
       if (month === 'all') {
-        // All Season: show Total + all month cols, sort by season total
+        // All Season: Total, P2J, L7, CHOMP+, Odds — no individual month cols
         setColVisible(TOTAL_COL, true);
-        Object.keys(MONTH_COLS).forEach(function(m) { setColVisible(MONTH_COLS[m], true); });
+        setColVisible(P2J_COL,   true);
+        setColVisible(L7_COL,    true);
+        setColVisible(CHOMP_COL, true);
+        setColVisible(ODDS_COL,  true);
+        Object.keys(MONTH_COLS).forEach(function(m) { setColVisible(MONTH_COLS[m], false); });
         sortBy(TOTAL_COL);
       } else {
-        // Single month: hide Total + other months, show selected, sort by it
+        // Monthly: only selected month col + CHOMP+ — everything else hidden
         var col = MONTH_COLS[month];
         setColVisible(TOTAL_COL, false);
+        setColVisible(P2J_COL,   false);
+        setColVisible(L7_COL,    false);
+        setColVisible(CHOMP_COL, true);
+        setColVisible(ODDS_COL,  false);
         Object.keys(MONTH_COLS).forEach(function(m) { setColVisible(MONTH_COLS[m], m === month); });
         sortBy(col);
       }
     });
   });
+
+  // Set initial state on load
+  pills[0].click();
 })();
 </script>"""
 
