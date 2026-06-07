@@ -127,7 +127,7 @@ if l7:
     src = re.sub(r'"l7_leader":\s*"[^"]+"', f'"l7_leader":     "{l7_leader}"',    src)
     src = re.sub(r'"l7_score":\s*\d+',      f'"l7_score":      {l7[l7_leader]}',  src)
 src = re.sub(r'"players":\s*\d+,',         f'"players":       {n_players},',     src)
-src = re.sub(r'UPDATED\s*=\s*"[\d-]+"',    f'UPDATED    = "{today.strftime("%Y-%m-%d %H:%M")}"', src)
+# UPDATED is computed dynamically at build time — no regex needed
 src = re.sub(r'NICK_UPDATE\s*=\s*"[^"]*"', f'NICK_UPDATE       = "{random.choice(NICK_UPDATES)}"', src)
 
 with open(BUILD_SCRIPT, "w", encoding="utf-8") as f:
