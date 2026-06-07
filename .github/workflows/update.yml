@@ -2,8 +2,8 @@ name: Update Weenie Wars
 
 on:
   schedule:
-    # Every 15 min, 24/7
-    - cron: '0,15,30,45 * * * *'
+    # Every 5 min, 24/7 (5 min is GitHub's minimum interval)
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
