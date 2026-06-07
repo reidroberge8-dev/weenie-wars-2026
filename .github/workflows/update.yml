@@ -9,6 +9,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: weenie-update
+  cancel-in-progress: false  # let deploys finish; queue the next run
+
 jobs:
   update:
     runs-on: ubuntu-latest
