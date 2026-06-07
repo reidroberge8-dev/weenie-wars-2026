@@ -97,7 +97,7 @@ UPDATED   = _build_dt.strftime("%Y-%m-%d %H:%M")
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "Nick filed a motion to have the word fraudulent stricken from the record on the grounds that it hurts his feelings. The motion was denied."
+NICK_UPDATE       = "Surveillance footage shows Nick entering a Costco at 11:58pm, purchasing 96 hot dogs, and then immediately returning them — behavior investigators call a dry run."
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
@@ -257,7 +257,7 @@ for i, p in enumerate(PLAYERS):
                   '<span style="font-size:0.72em;color:#B22234;font-weight:normal;"> (under review)</span>'
                   if p["name"] == "Nick" and NICK_INVESTIGATION else '')
     rows_html += f"""
-    <tr style="background:{bg};" data-player="{p['name']}" data-chomp="{p['chomp']}">
+    <tr style="background:{bg};" data-player="{p['name']}" data-chomp="{p['chomp']}" data-place="{p['place']}">
       <td style="{td};text-align:center;font-size:1em">{streak}</td>
       <td style="{td};color:{pc};font-weight:bold;text-align:center;white-space:nowrap">{icon} {p['place']}</td>
       <td style="{td};{ns}">{p['name']}{nick_badge}</td>
@@ -323,6 +323,38 @@ MOBILE_FILTER_JS = """<script>
   var tb      = document.querySelector('tbody');
   var MONTH_COLS = {may:5, june:6, july:7, aug:8, sep:9};
   var TOTAL_COL = 3, P2J_COL = 4, L7_COL = 10, CHOMP_COL = 11, ODDS_COL = 12;
+  var PLACE_COL = 1;
+  var PLACE_ICONS  = {1:"🥇", 2:"🥈", 3:"🥉"};
+  var PLACE_COLORS = {1:"#B8860B", 2:"#666", 3:"#8B4513"};
+
+  function setPlaceCell(cell, place) {
+    var icon  = PLACE_ICONS[place]  || "";
+    var color = PLACE_COLORS[place] || "#8a9abc";
+    cell.style.color = color;
+    cell.innerHTML = (icon ? icon + " " : "") + place;
+  }
+
+  function updatePlaceForMonth(col) {
+    var sortedRows = Array.from(tb.querySelectorAll('tr'));
+    var place = 1;
+    sortedRows.forEach(function(row, i) {
+      if (!row.cells[col] || !row.cells[PLACE_COL]) return;
+      if (i > 0) {
+        var prevVal = parseInt((sortedRows[i-1].cells[col].textContent || '0').replace(/[^0-9]/g,'') || '0');
+        var curVal  = parseInt((row.cells[col].textContent || '0').replace(/[^0-9]/g,'') || '0');
+        if (curVal < prevVal) place = i + 1;
+      }
+      setPlaceCell(row.cells[PLACE_COL], place);
+    });
+  }
+
+  function restoreSeasonPlace() {
+    Array.from(tb.querySelectorAll('tr')).forEach(function(row) {
+      if (!row.cells[PLACE_COL]) return;
+      var place = parseInt(row.dataset.place || '0');
+      setPlaceCell(row.cells[PLACE_COL], place);
+    });
+  }
 
   function setColVisible(ci, visible) {
     var disp = visible ? 'table-cell' : 'none';
@@ -391,6 +423,7 @@ MOBILE_FILTER_JS = """<script>
         setColVisible(ODDS_COL,  true);
         Object.keys(MONTH_COLS).forEach(function(m) { setColVisible(MONTH_COLS[m], false); });
         restoreSeasonChomp();
+        restoreSeasonPlace();
         sortBy(TOTAL_COL);
       } else {
         var col = MONTH_COLS[month];
@@ -402,6 +435,7 @@ MOBILE_FILTER_JS = """<script>
         Object.keys(MONTH_COLS).forEach(function(m) { setColVisible(MONTH_COLS[m], m === month); });
         updateChompForMonth(month);
         sortBy(col);
+        updatePlaceForMonth(col);
       }
     });
   });
@@ -786,9 +820,6 @@ html = f"""<!DOCTYPE html>
   </a>
   <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn-link btn-navy">
     🌭 Click for FREE WEENIES!
-  </a>
-  <a href="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnkwNDRmNTFmbW54N3hyazg2NDg1anhxOHM3c3VrMXVrY3M3Mnd3NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/909f9MWJumXQbum0sn/giphy.gif" target="_blank" class="btn-link btn-red">
-    🌭 Single Weenies in Your Area
   </a>
 </div>
 <div class="months-wrap" style="margin-bottom:12px;">
