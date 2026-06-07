@@ -370,6 +370,18 @@ html = f"""<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Weenie Wars 2026</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F32D;</text></svg>">
+<link rel="apple-touch-icon" id="ati">
+<script>
+(function(){{
+  var c=document.createElement('canvas');c.width=c.height=180;
+  var x=c.getContext('2d');
+  x.fillStyle='#f0f4fb';x.beginPath();x.roundRect(0,0,180,180,32);x.fill();
+  x.font='115px serif';x.textAlign='center';x.textBaseline='middle';
+  x.fillText('\u{1F32D}',90,96);
+  document.getElementById('ati').href=c.toDataURL('image/png');
+}})();
+</script>
 <style>
   * {{ box-sizing:border-box; margin:0; padding:0; }}
   body {{ background:#f0f4fb; color:#002868; font-family:'Segoe UI',Arial,sans-serif; padding:16px; font-size:13px; }}
