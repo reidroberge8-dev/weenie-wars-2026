@@ -566,7 +566,7 @@ html = f"""<!DOCTYPE html>
   * {{ box-sizing:border-box; margin:0; padding:0; }}
   body {{ background:#f0f4fb; color:#002868; font-family:'Segoe UI',Arial,sans-serif; padding:16px; font-size:13px; }}
   .header {{ text-align:center; margin-bottom:14px; }}
-  .header h1 {{ font-size:2em; font-weight:900; letter-spacing:3px; line-height:1.2; }}
+  .header h1 {{ font-size:2.8em; font-weight:900; letter-spacing:3px; line-height:1.2; }}
   .header h1 .title-text {{
     background:linear-gradient(90deg,#B22234 0%,#555 45%,#002868 100%);
     -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
@@ -693,7 +693,7 @@ html = f"""<!DOCTYPE html>
 
   @media (max-width:660px) {{
     body {{ padding:8px; font-size:13px; }}
-    .header h1 {{ font-size:1.4em; letter-spacing:1px; }}
+    .header h1 {{ font-size:1.9em; letter-spacing:1px; }}
     .header .subtitle {{ font-size:0.68em; letter-spacing:1px; }}
     .header-stripe {{ width:140px; }}
 
