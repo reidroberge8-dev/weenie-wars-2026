@@ -55,24 +55,20 @@ if os.path.exists(STATE_FILE):
     with open(STATE_FILE) as f:
         last_state = json.load(f)
 
-last_hash       = last_state.get("csv_hash", "")
-last_nick_date  = last_state.get("nick_date", "")
-today_date      = today.strftime("%Y-%m-%d")
+last_hash      = last_state.get("csv_hash", "")
+today_date     = today.strftime("%Y-%m-%d")
 
 scores_changed = csv_hash != last_hash
-nick_stale     = today_date != last_nick_date
 force_rebuild  = os.environ.get("FORCE_REBUILD", "false") == "true"
 
-if not scores_changed and not nick_stale and not force_rebuild:
-    print("No new entries and Nick sentence is current — skipping update.")
+if not scores_changed and not force_rebuild:
+    print("No new entries — skipping update.")
     sys.exit(0)
 
 if scores_changed:
     print(f"  Score change detected ({last_hash[:12] if last_hash else 'none'} → {csv_hash[:12]}) — full update.")
-elif force_rebuild and not nick_stale:
-    print("  No new weenies — 8am daily force-rebuild.")
 else:
-    print(f"  No new weenies, but daily Nick sentence refresh triggered.")
+    print("  No new weenies — 8am daily force-rebuild.")
 
 # ── Calculate scores ──────────────────────────────────────────────────────────
 l7_cutoff = today - timedelta(days=7)
@@ -132,7 +128,10 @@ if l7:
     src = re.sub(r'"l7_score":\s*\d+',      f'"l7_score":      {l7[l7_leader]}',  src)
 src = re.sub(r'"players":\s*\d+,',         f'"players":       {n_players},',     src)
 # UPDATED is computed dynamically at build time — no regex needed
-src = re.sub(r'NICK_UPDATE\s*=\s*"[^"]*"', f'NICK_UPDATE       = "{random.choice(NICK_UPDATES)}"', src)
+# Nick sentence only rotates on the 8am daily force-rebuild
+if force_rebuild:
+    src = re.sub(r'NICK_UPDATE\s*=\s*"[^"]*"', f'NICK_UPDATE       = "{random.choice(NICK_UPDATES)}"', src)
+    print("  Nick sentence rotated (8am rebuild).")
 
 with open(BUILD_SCRIPT, "w", encoding="utf-8") as f:
     f.write(src)
@@ -159,7 +158,7 @@ print(f"Live: https://weenie-wars-2026.web.app  ({today.strftime('%Y-%m-%d %H:%M
 
 # ── Save new state + commit ───────────────────────────────────────────────────
 with open(STATE_FILE, "w") as f:
-    json.dump({"csv_hash": csv_hash, "row_count": len(rows), "updated": today.isoformat(), "nick_date": today_date}, f, indent=2)
+    json.dump({"csv_hash": csv_hash, "row_count": len(rows), "updated": today.isoformat()}, f, indent=2)
 
 subprocess.run(["git", "config", "user.name",  "github-actions[bot]"], cwd=ROOT)
 subprocess.run(["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"], cwd=ROOT)
@@ -168,4 +167,5 @@ result = subprocess.run(["git", "commit", "-m", f"Auto-update {today.strftime('%
 if result.returncode == 0:
     subprocess.run(["git", "push"], cwd=ROOT)
     print("State committed.")
+
 
