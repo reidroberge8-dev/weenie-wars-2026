@@ -363,6 +363,44 @@ _pd = ", ".join(
 )
 PLAYER_DATA_SCRIPT = f'<script>var WW_PLAYERS={{{_pd}}};var WW_N={len(PLAYERS)};</script>'
 
+# ── Season progress chart (cumulative weenies per player by month)
+_ck  = ["may","june","july","aug","sep"]
+_ms  = {m["key"]:m["status"] for m in MONTHS}
+_pal = ["#B22234","#002868","#1a7a4a","#e07b00","#cc44aa","#6a0dad",
+        "#0077aa","#e05500","#336633","#005577","#8B4513","#445580",
+        "#cc6600","#887733","#008855","#6633cc"]
+_sp  = sorted(PLAYERS, key=lambda x: x["total"], reverse=True)
+_cds = []
+for _ci, _cp in enumerate(_sp):
+    _col = _pal[_ci % len(_pal)]
+    _run = 0
+    _dv  = []
+    for _k2 in _ck:
+        if _ms.get(_k2,"upcoming") == "upcoming":
+            _dv.append("null")
+        else:
+            _run += _cp[_k2]
+            _dv.append(str(_run))
+    _cds.append('{{"label":"{}","data":[{}],"borderColor":"{}","backgroundColor":"{}22","tension":0.3,"pointRadius":4,"pointHoverRadius":6,"borderWidth":2}}'.format(
+        _cp["name"], ",".join(_dv), _col, _col))
+_cds_js = "[" + ",".join(_cds) + "]"
+CHART_SECTION = (
+    '<div class="section-title" style="margin-top:18px">\U0001f32d Season Progress \u2014 Cumulative Weenies</div>'
+    '<div style="background:#fff;border:1px solid #c8d4ea;border-radius:9px;padding:16px 14px;'
+    'box-shadow:0 1px 6px rgba(0,40,104,0.07);margin-bottom:14px">'
+    '<canvas id="wwChart" style="max-height:340px"></canvas></div>'
+    '<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>'
+    '<script>(function(){var ctx=document.getElementById("wwChart").getContext("2d");'
+    'new Chart(ctx,{type:"line",data:{labels:["May","June","July","Aug","Sep"],datasets:' + _cds_js + '},'
+    'options:{responsive:true,maintainAspectRatio:true,spanGaps:false,'
+    'interaction:{mode:"index",intersect:false},'
+    'plugins:{legend:{position:"bottom",labels:{boxWidth:10,padding:8,font:{size:10},color:"#445580"}},'
+    'tooltip:{callbacks:{title:function(i){return i[0].label+" (Cumulative)";},label:function(i){return i.dataset.label+": "+(i.raw!==null?i.raw:"—")+" \U0001f32d";}}}},'
+    'scales:{x:{grid:{color:"#edf1f9"},ticks:{color:"#7a8aaa",font:{size:11}}},'
+    'y:{beginAtZero:true,ticks:{stepSize:1,color:"#7a8aaa",font:{size:11}},grid:{color:"#edf1f9"}}}'
+    '}});})();</script>'
+)
+
 # ── Full HTML
 html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -676,6 +714,8 @@ html = f"""<!DOCTYPE html>
   <tbody>{rows_html}</tbody>
 </table></div>
 
+
+{CHART_SECTION}
 
 <div class="footer">★ &nbsp; Updated {UPDATED} &nbsp; ★ &nbsp; Odds for entertainment only &nbsp; ★ &nbsp; P2J benchmark: Joey Chestnut {JOEY_COUNT} dogs (2025) &nbsp; ★ &nbsp; CHOMP+ league avg = 1.13 weenies/player &nbsp; ★</div>
 <div class="bottom-stripe">
