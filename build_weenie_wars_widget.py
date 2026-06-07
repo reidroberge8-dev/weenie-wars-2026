@@ -457,12 +457,34 @@ CHART_SECTION = (
       '}});})();</script>'
 )
 
+STANDALONE_RELOAD_JS = """<script>
+(function() {
+  // iOS standalone mode: reload when app returns from background after 5+ min
+  if (!window.navigator.standalone) return;
+  var _hiddenAt = null;
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      _hiddenAt = Date.now();
+    } else if (_hiddenAt !== null && Date.now() - _hiddenAt > 5 * 60 * 1000) {
+      window.location.reload(true);
+    }
+  });
+  // Also force reload on bfcache restore (back/forward navigation)
+  window.addEventListener('pageshow', function(e) {
+    if (e.persisted) window.location.reload(true);
+  });
+})();
+</script>"""
+
 # ── Full HTML
 html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>Weenie Wars 2026</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F32D;</text></svg>">
 <link rel="apple-touch-icon" id="ati">
@@ -799,6 +821,7 @@ html = f"""<!DOCTYPE html>
 {PLAYER_DATA_SCRIPT}
 {MOBILE_FILTER_JS}
 
+{STANDALONE_RELOAD_JS}
 </body>
 </html>"""
 
