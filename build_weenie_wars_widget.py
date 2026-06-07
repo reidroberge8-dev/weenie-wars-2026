@@ -97,7 +97,7 @@ UPDATED   = _build_dt.strftime("%Y-%m-%d %H:%M")
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "DNA analysis of a suspicious frankfurter found in Nick's trash revealed it was, quote, not a real weenie by any legal definition."
+NICK_UPDATE       = "Commission experts concluded that four of Nick's entry timestamps are physically impossible unless he ate hot dogs in two states simultaneously."
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
@@ -812,6 +812,7 @@ html = f"""<!DOCTYPE html>
 <button class="refresh-btn" onclick="window.location.reload()">↻ Refresh</button>
 <div class="updated-stamp">🕐 Last updated {UPDATED}</div>
 <div class="footer">★ &nbsp; Odds for entertainment only &nbsp; ★ &nbsp; P2J benchmark: Joey Chestnut {JOEY_COUNT} dogs (2025) &nbsp; ★ &nbsp; CHOMP+ league avg = 1.13 weenies/player &nbsp; ★</div>
+<div style="text-align:center;color:#aab4cc;font-size:0.68em;margin-top:6px;letter-spacing:0.3px;">Logged weenies may take up to 15 minutes to appear on this page.</div>
 <div class="bottom-stripe">
   <div style="background:#B22234"></div><div style="background:#ddd"></div>
   <div style="background:#002868"></div><div style="background:#B22234"></div>
