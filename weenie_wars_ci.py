@@ -53,12 +53,21 @@ if os.path.exists(STATE_FILE):
     with open(STATE_FILE) as f:
         last_state = json.load(f)
 
-last_hash = last_state.get("csv_hash", "")
-if csv_hash == last_hash:
-    print("No new entries since last run — skipping update.")
+last_hash       = last_state.get("csv_hash", "")
+last_nick_date  = last_state.get("nick_date", "")
+today_date      = today.strftime("%Y-%m-%d")
+
+scores_changed = csv_hash != last_hash
+nick_stale     = today_date != last_nick_date
+
+if not scores_changed and not nick_stale:
+    print("No new entries and Nick sentence is current — skipping update.")
     sys.exit(0)
 
-print(f"  Change detected (was {last_hash[:12] if last_hash else 'none'}) — updating widget.")
+if scores_changed:
+    print(f"  Score change detected ({last_hash[:12] if last_hash else 'none'} → {csv_hash[:12]}) — full update.")
+else:
+    print(f"  No new weenies, but daily Nick sentence refresh triggered.")
 
 # ── Calculate scores ──────────────────────────────────────────────────────────
 today     = datetime.now()
@@ -118,7 +127,7 @@ if l7:
     src = re.sub(r'"l7_leader":\s*"[^"]+"', f'"l7_leader":     "{l7_leader}"',    src)
     src = re.sub(r'"l7_score":\s*\d+',      f'"l7_score":      {l7[l7_leader]}',  src)
 src = re.sub(r'"players":\s*\d+,',         f'"players":       {n_players},',     src)
-src = re.sub(r'UPDATED\s*=\s*"[\d-]+"',    f'UPDATED    = "{today.strftime("%Y-%m-%d")}"', src)
+src = re.sub(r'UPDATED\s*=\s*"[\d-]+"',    f'UPDATED    = "{today.strftime("%Y-%m-%d %H:%M")}"', src)
 src = re.sub(r'NICK_UPDATE\s*=\s*"[^"]*"', f'NICK_UPDATE       = "{random.choice(NICK_UPDATES)}"', src)
 
 with open(BUILD_SCRIPT, "w", encoding="utf-8") as f:
@@ -146,7 +155,7 @@ print(f"Live: https://weenie-wars-2026.web.app  ({today.strftime('%Y-%m-%d %H:%M
 
 # ── Save new state + commit ───────────────────────────────────────────────────
 with open(STATE_FILE, "w") as f:
-    json.dump({"csv_hash": csv_hash, "row_count": len(rows), "updated": today.isoformat()}, f, indent=2)
+    json.dump({"csv_hash": csv_hash, "row_count": len(rows), "updated": today.isoformat(), "nick_date": today_date}, f, indent=2)
 
 subprocess.run(["git", "config", "user.name",  "github-actions[bot]"], cwd=ROOT)
 subprocess.run(["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"], cwd=ROOT)
