@@ -170,6 +170,73 @@ def top_scorer(month_key):
 
 def fv(v): return str(v) if v else "—"
 
+
+def generate_narrative(players, joey_count):
+    """Auto-generate 3-sentence analyst take from live player data."""
+    active = [p for p in players if p["total"] > 0]
+    if not active:
+        return ("The season is underway. No weenies on the board yet — "
+                "the field is completely wide open.")
+
+    top_total = players[0]["total"]  # players already sorted by total
+    leaders   = [p for p in players if p["total"] == top_total]
+    l7_active = sorted([p for p in players if p["l7"] > 0], key=lambda p: -p["l7"])
+    l7_leader = l7_active[0] if l7_active else None
+    zeros     = [p for p in players if p["total"] == 0]
+
+    parts = []
+
+    # Sentence 1 — who's leading
+    if len(leaders) == 1:
+        ldr = leaders[0]
+        p2j = round(ldr["total"] / joey_count * 100, 1)
+        parts.append(
+            f"{ldr['name']} leads with {ldr['total']} weenie{'s' if ldr['total'] != 1 else ''} "
+            f"and a CHOMP+ of {ldr['chomp']} — {p2j}% of the way to Joey."
+        )
+    else:
+        names = " and ".join(p["name"] for p in leaders)
+        p2j = round(top_total / joey_count * 100, 1)
+        parts.append(
+            f"{names} are deadlocked at {top_total} weenie{'s' if top_total != 1 else ''} each "
+            f"({p2j}% of Joey) — the tiebreaker is whoever logs next."
+        )
+
+    # Sentence 2 — hot hand
+    if l7_leader:
+        is_leader = l7_leader["name"] in [p["name"] for p in leaders]
+        if is_leader:
+            parts.append(
+                f"{l7_leader['name']} is also the hot hand with {l7_leader['l7']} in the last 7 days, "
+                f"showing no signs of slowing down."
+            )
+        else:
+            chase = leaders[0]["total"] - l7_leader["total"]
+            parts.append(
+                f"{l7_leader['name']} is the hot hand with {l7_leader['l7']} in the last 7 days"
+                + (f", just {chase} back from the lead." if chase > 0 else ", now tied at the top.")
+            )
+
+    # Sentence 3 — zeros or field note
+    if zeros:
+        znames = ", ".join(p["name"] for p in zeros[:3])
+        tail   = f" and {len(zeros)-3} others" if len(zeros) > 3 else ""
+        parts.append(
+            f"{znames}{tail} {'have' if len(zeros) != 1 else 'has'} yet to get on the board "
+            f"— the season is long."
+        )
+    elif len(active) >= 3:
+        third = [p for p in players if p["place"] == 3]
+        if third:
+            parts.append(
+                f"The whole field is eating — {third[0]['name']} sits third with {third[0]['total']} "
+                f"and odds of {third[0]['odds']}."
+            )
+
+    return " ".join(parts)
+
+ANALYST_TAKE = generate_narrative(PLAYERS, JOEY_COUNT)
+
 # ── Leaderboard rows
 rows_html = ""
 for i, p in enumerate(PLAYERS):
@@ -768,14 +835,12 @@ html = f"""<!DOCTYPE html>
   <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{NICK_UPDATE}</p>
 </div>
 
-<div class="section-title">Leaderboard</div>
-<div class="legend">🔥 Hot — scored most recently &nbsp;·&nbsp; 📉 Cooling — scored before, nothing lately &nbsp;·&nbsp; 🧊 Cold — no weenies yet</div>
-<div class="stat-notes">
-  <div class="stat-note"><strong>CHOMP+</strong> — Weighted Consumption Created Plus (wRC+ analog). League avg = 100. {STAT_CHOMP_EX}.</div>
-  <div class="stat-note"><strong>P2J</strong> — % to Joey Chestnut's most recent result ({JOEY_COUNT} dogs). {STAT_P2J_EX}. Higher = closer to greatness.</div>
-  <div class="stat-note"><strong>L7 Weenie Score</strong> — Weenies tracked in the last 7 days.</div>
-  <div class="stat-note"><strong>Odds</strong> — American format. +300 = $100 wins $300. <span style="color:#2a7a2a">▼ shortened</span> / <span style="color:#B22234">▲ lengthened</span>.</div>
+<div class="narrative-card" style="margin-bottom:14px;">
+  <div class="nt">📊 Analyst's Take</div>
+  <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{ANALYST_TAKE}</p>
 </div>
+
+<div class="section-title">Leaderboard</div>
 <div class="month-filter" id="monthFilter">
   <span class="mf-label">Month:</span>
   <div class="mf-pills">
@@ -802,6 +867,14 @@ html = f"""<!DOCTYPE html>
   </thead>
   <tbody>{rows_html}</tbody>
 </table></div>
+
+<div class="legend">🔥 Hot — scored most recently &nbsp;·&nbsp; 📉 Cooling — scored before, nothing lately &nbsp;·&nbsp; 🧊 Cold — no weenies yet</div>
+<div class="stat-notes">
+  <div class="stat-note"><strong>CHOMP+</strong> — Weighted Consumption Created Plus (wRC+ analog). League avg = 100. {STAT_CHOMP_EX}.</div>
+  <div class="stat-note"><strong>P2J</strong> — % to Joey Chestnut's most recent result ({JOEY_COUNT} dogs). {STAT_P2J_EX}. Higher = closer to greatness.</div>
+  <div class="stat-note"><strong>L7 Weenie Score</strong> — Weenies tracked in the last 7 days.</div>
+  <div class="stat-note"><strong>Odds</strong> — American format. +300 = $100 wins $300. <span style="color:#2a7a2a">▼ shortened</span> / <span style="color:#B22234">▲ lengthened</span>.</div>
+</div>
 
 
 {CHART_SECTION}
