@@ -188,7 +188,7 @@ for i, p in enumerate(PLAYERS):
     p2j_str, _ = p2j_fmt(p["total"])
     td = "padding:7px 9px"
     nick_badge = ('<sup style="color:#B22234;font-size:0.8em">*</sup>'
-                  '<span style="font-size:0.72em;color:#B22234;font-weight:normal;"> (suspended)</span>'
+                  '<span style="font-size:0.72em;color:#B22234;font-weight:normal;"> (under review)</span>'
                   if p["name"] == "Nick" and NICK_INVESTIGATION else '')
     rows_html += f"""
     <tr style="background:{bg};" data-player="{p['name']}" data-chomp="{p['chomp']}">
@@ -242,6 +242,8 @@ for m in MONTHS:
       {badge}{winner_block}</div>"""
 
 months_remaining = sum(1 for m in MONTHS if m["status"] != "complete")
+_total_weenies = sum(p["total"] for p in PLAYERS)
+_total_lbs     = round(_total_weenies * 2 / 16, 2)  # ~2 oz per hot dog → lbs
 
 # ── Compute narrative ────────────────────────────────────────────────────────
 
@@ -624,6 +626,12 @@ html = f"""<!DOCTYPE html>
     <div class="label">Players</div>
     <div style="font-size:1.35em;font-weight:bold;color:#002868;line-height:1.1">{BANNER['players']}</div>
     <div class="note">Competing in 2026</div>
+  </div>
+  <div class="divider"></div>
+  <div>
+    <div class="label">Total Consumed</div>
+    <div style="font-size:1.35em;font-weight:bold;color:#B22234;line-height:1.1">{_total_weenies} 🌭</div>
+    <div class="note">{_total_lbs} lbs of weenie</div>
   </div>
 </div>
 
