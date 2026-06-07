@@ -40,6 +40,8 @@ NICK_UPDATES = [
     "Nick's alibi for June 3rd — I was simply existing — has been flagged as legally insufficient.",
 ]
 
+today      = datetime.now()  # defined here so cache-bust and all downstream code can use it
+
 # ── Fetch CSV ─────────────────────────────────────────────────────────────────
 print("Fetching sheet...")
 raw_csv = urllib.request.urlopen(SHEET_CSV + f"&_={int(today.timestamp())}").read()  # cache-bust
@@ -48,7 +50,6 @@ rows = list(csv.DictReader(io.StringIO(raw_csv.decode("utf-8"))))
 print(f"  {len(rows)} entries | hash={csv_hash[:12]}...")
 
 # ── Change detection ──────────────────────────────────────────────────────────
-today      = datetime.now()  # defined early — used in change detection and below
 last_state = {}
 if os.path.exists(STATE_FILE):
     with open(STATE_FILE) as f:
