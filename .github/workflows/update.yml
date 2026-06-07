@@ -2,8 +2,10 @@ name: Update Weenie Wars
 
 on:
   schedule:
-    # Every 5 min, 24/7 (5 min is GitHub's minimum interval)
+    # Every 5 min — catches new weenie logs within 5 minutes
     - cron: '*/5 * * * *'
+    # 8am ET (noon UTC) — guaranteed daily rebuild regardless of activity
+    - cron: '0 12 * * *'
   workflow_dispatch:
 
 permissions:
@@ -45,4 +47,6 @@ jobs:
       - name: Run update
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/sa.json
+          # Set to 'true' only when triggered by the 8am ET daily schedule
+          FORCE_REBUILD: ${{ github.event.schedule == '0 12 * * *' && 'true' || 'false' }}
         run: python weenie_wars_ci.py
