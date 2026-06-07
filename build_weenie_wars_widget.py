@@ -127,12 +127,9 @@ def _assign_places(players):
 _assign_places(PLAYERS)
 
 # Medal icons for top 3 unique ranks
-_ranked = sorted(set(p["place"] for p in PLAYERS if p["total"] > 0))
-_g = _ranked[0] if len(_ranked) > 0 else 1
-_s = _ranked[1] if len(_ranked) > 1 else 2
-_b = _ranked[2] if len(_ranked) > 2 else 3
-place_icons  = {_g:"🥇", _s:"🥈", _b:"🥉"}
-place_colors = {_g:"#B8860B", _s:"#666", _b:"#8B4513"}
+# Medals fixed to places 1/2/3 — ties correctly skip a medal (e.g. two 1sts → no 2nd)
+place_icons  = {1:"🥇", 2:"🥈", 3:"🥉"}
+place_colors = {1:"#B8860B", 2:"#666", 3:"#8B4513"}
 
 def streak_icon(p):
     # Use the most recently active month key to determine hot/cold
