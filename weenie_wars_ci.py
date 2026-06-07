@@ -61,13 +61,16 @@ today_date      = today.strftime("%Y-%m-%d")
 
 scores_changed = csv_hash != last_hash
 nick_stale     = today_date != last_nick_date
+force_rebuild  = os.environ.get("FORCE_REBUILD", "false") == "true"
 
-if not scores_changed and not nick_stale:
+if not scores_changed and not nick_stale and not force_rebuild:
     print("No new entries and Nick sentence is current — skipping update.")
     sys.exit(0)
 
 if scores_changed:
     print(f"  Score change detected ({last_hash[:12] if last_hash else 'none'} → {csv_hash[:12]}) — full update.")
+elif force_rebuild and not nick_stale:
+    print("  No new weenies — 8am daily force-rebuild.")
 else:
     print(f"  No new weenies, but daily Nick sentence refresh triggered.")
 
@@ -165,3 +168,4 @@ result = subprocess.run(["git", "commit", "-m", f"Auto-update {today.strftime('%
 if result.returncode == 0:
     subprocess.run(["git", "push"], cwd=ROOT)
     print("State committed.")
+
