@@ -97,7 +97,7 @@ UPDATED   = _build_dt.strftime("%Y-%m-%d %H:%M")
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "Commission experts concluded that four of Nick's entry timestamps are physically impossible unless he ate hot dogs in two states simultaneously."
+NICK_UPDATE       = "Nick filed a motion to have the word fraudulent stricken from the record on the grounds that it hurts his feelings. The motion was denied."
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
@@ -831,7 +831,7 @@ html = f"""<!DOCTYPE html>
 
 <div class="narrative-card" style="margin-bottom:14px;">
   <div class="nt">🔍 Nick Investigation Update</div>
-  <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">Commission Dispatch — {UPDATED}</div>
+  <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">Supreme Weenie Update — {UPDATED}</div>
   <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{NICK_UPDATE}</p>
 </div>
 
