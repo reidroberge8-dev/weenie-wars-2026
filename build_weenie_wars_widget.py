@@ -93,12 +93,12 @@ BANNER = {
 # To override manually, set NARRATIVE_OVERRIDE = "your html" (or leave as None)
 NARRATIVE_OVERRIDE = None
 
-UPDATED    = "2026-06-07"
+UPDATED    = "2026-06-06"
 
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "The Commission has placed Nick's weenie scale under independent audit after discovering it was previously owned by a carnival."
+NICK_UPDATE       = "DNA analysis of a suspicious frankfurter found in Nick's trash revealed it was, quote, not a real weenie by any legal definition."
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
@@ -219,8 +219,25 @@ def generate_narrative(players, months, joey_count):
     return "".join(f"<p>{p}</p>\n" for p in paras)
 
 
-place_icons  = {1:"🥇", 2:"🥈", 4:"🥉"}
-place_colors = {1:"#B8860B", 2:"#666", 4:"#8B4513", 7:"#8a9abc"}
+# Auto-calculate place rankings from totals
+def _assign_places(players):
+    sp = sorted(players, key=lambda p: p["total"], reverse=True)
+    place = 1
+    for i, p in enumerate(sp):
+        if i > 0 and p["total"] < sp[i-1]["total"]:
+            place = i + 1
+        p["place"] = place
+    players[:] = sp  # reorder in-place so table renders sorted by default
+
+_assign_places(PLAYERS)
+
+# Medal icons for top 3 unique ranks
+_ranked = sorted(set(p["place"] for p in PLAYERS if p["total"] > 0))
+_g = _ranked[0] if len(_ranked) > 0 else 1
+_s = _ranked[1] if len(_ranked) > 1 else 2
+_b = _ranked[2] if len(_ranked) > 2 else 3
+place_icons  = {_g:"🥇", _s:"🥈", _b:"🥉"}
+place_colors = {_g:"#B8860B", _s:"#666", _b:"#8B4513"}
 
 def streak_icon(p):
     # Use the most recently active month key to determine hot/cold
