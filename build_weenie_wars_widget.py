@@ -95,7 +95,7 @@ UPDATED    = "2026-06-06"
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "DNA analysis of a suspicious frankfurter found in Nick's trash revealed it was, quote, not a real weenie by any legal definition."
+NICK_UPDATE       = "A handwriting expert confirmed that Nick's weenie log entries were written with the penmanship of a man who knows he is lying."
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
@@ -666,12 +666,6 @@ html = f"""<!DOCTYPE html>
     <div class="label">🔥 Last 7 Days</div>
     <div style="font-size:1.35em;font-weight:bold;color:#002868;line-height:1.1">{BANNER['l7_leader']} &nbsp;<span style="color:#B22234">+{BANNER['l7_score']}</span></div>
     <div class="note">{BANNER['l7_note']}</div>
-  </div>
-  <div class="divider"></div>
-  <div>
-    <div class="label">Months Complete</div>
-    <div style="font-size:1.35em;font-weight:bold;color:#002868;line-height:1.1">{BANNER['months_done']} / {BANNER['months_total']}</div>
-    <div class="note">{months_remaining} months remaining</div>
   </div>
   <div class="divider"></div>
   <div>
