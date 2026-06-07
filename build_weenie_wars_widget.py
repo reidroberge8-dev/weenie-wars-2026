@@ -566,6 +566,7 @@ html = f"""<!DOCTYPE html>
   .stat-note {{ font-size:0.7em; color:#8a9abc; background:#f4f7fc; border-left:2px solid #B22234; padding:4px 8px; border-radius:0 5px 5px 0; flex:1; min-width:160px; }}
   .stat-note strong {{ color:#002868; }}
   .footer {{ margin-top:12px; text-align:center; color:#aab4cc; font-size:0.68em; letter-spacing:1px; }}
+  .updated-stamp {{ text-align:center; color:#8a9abc; font-size:0.78em; margin-top:10px; margin-bottom:4px; letter-spacing:0.5px; }}
   .bottom-stripe {{ display:flex; height:3px; border-radius:2px; margin-top:10px; overflow:hidden; }}
   .bottom-stripe div {{ flex:1; }}
 
@@ -776,7 +777,8 @@ html = f"""<!DOCTYPE html>
 
 {CHART_SECTION}
 
-<div class="footer">★ &nbsp; Last updated {UPDATED} &nbsp; ★ &nbsp; Odds for entertainment only &nbsp; ★ &nbsp; P2J benchmark: Joey Chestnut {JOEY_COUNT} dogs (2025) &nbsp; ★ &nbsp; CHOMP+ league avg = 1.13 weenies/player &nbsp; ★</div>
+<div class="updated-stamp">🕐 Last updated {UPDATED}</div>
+<div class="footer">★ &nbsp; Odds for entertainment only &nbsp; ★ &nbsp; P2J benchmark: Joey Chestnut {JOEY_COUNT} dogs (2025) &nbsp; ★ &nbsp; CHOMP+ league avg = 1.13 weenies/player &nbsp; ★</div>
 <div class="bottom-stripe">
   <div style="background:#B22234"></div><div style="background:#ddd"></div>
   <div style="background:#002868"></div><div style="background:#B22234"></div>
