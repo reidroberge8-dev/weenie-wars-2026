@@ -41,6 +41,7 @@ Betting Odds
 
 import os
 
+from datetime import datetime as _dt
 # ─── DATA ────────────────────────────────────────────────────────────────────
 
 PLAYERS = [
@@ -90,7 +91,8 @@ BANNER = {
 # Update as the season progresses
 
 
-UPDATED    = "2026-06-06"
+_build_dt = _dt.now()
+UPDATED   = _build_dt.strftime("%Y-%m-%d %H:%M")
 
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
@@ -103,7 +105,7 @@ NATHANS_DATE  = "July 4, 2026"
 # Days until Nathan's — computed at build time
 from datetime import datetime as _dt
 _contest  = _dt(2026, 7, 4)
-_today    = _dt.strptime(UPDATED, "%Y-%m-%d")
+_today    = _build_dt
 NATHANS_DAYS = max(0, (_contest - _today).days)
 
 # Days remaining in Weenie Wars season — ends Labor Day (first Mon in Sep)
@@ -382,7 +384,7 @@ _wk_labels = ["{}/{}".format((_SEASON_START + _td(weeks=_wi)).month,
               for _wi in range(_N_WEEKS)]
 
 # Fetch raw sheet and bin entries by week
-_today_dt    = _dt.strptime(UPDATED, "%Y-%m-%d")
+_today_dt    = _build_dt
 _current_wk  = (_today_dt - _SEASON_START).days // 7  # 0-based
 _per_week    = {}  # name -> list[int] length _N_WEEKS
 _CSV_URL = ("https://docs.google.com/spreadsheets/d/"
@@ -774,7 +776,7 @@ html = f"""<!DOCTYPE html>
 
 {CHART_SECTION}
 
-<div class="footer">★ &nbsp; Updated {UPDATED} &nbsp; ★ &nbsp; Odds for entertainment only &nbsp; ★ &nbsp; P2J benchmark: Joey Chestnut {JOEY_COUNT} dogs (2025) &nbsp; ★ &nbsp; CHOMP+ league avg = 1.13 weenies/player &nbsp; ★</div>
+<div class="footer">★ &nbsp; Last updated {UPDATED} &nbsp; ★ &nbsp; Odds for entertainment only &nbsp; ★ &nbsp; P2J benchmark: Joey Chestnut {JOEY_COUNT} dogs (2025) &nbsp; ★ &nbsp; CHOMP+ league avg = 1.13 weenies/player &nbsp; ★</div>
 <div class="bottom-stripe">
   <div style="background:#B22234"></div><div style="background:#ddd"></div>
   <div style="background:#002868"></div><div style="background:#B22234"></div>
