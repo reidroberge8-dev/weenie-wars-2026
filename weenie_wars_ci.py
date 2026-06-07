@@ -42,12 +42,13 @@ NICK_UPDATES = [
 
 # ── Fetch CSV ─────────────────────────────────────────────────────────────────
 print("Fetching sheet...")
-raw_csv = urllib.request.urlopen(SHEET_CSV).read()
+raw_csv = urllib.request.urlopen(SHEET_CSV + f"&_={int(today.timestamp())}").read()  # cache-bust
 csv_hash = hashlib.sha256(raw_csv).hexdigest()
 rows = list(csv.DictReader(io.StringIO(raw_csv.decode("utf-8"))))
 print(f"  {len(rows)} entries | hash={csv_hash[:12]}...")
 
 # ── Change detection ──────────────────────────────────────────────────────────
+today      = datetime.now()  # defined early — used in change detection and below
 last_state = {}
 if os.path.exists(STATE_FILE):
     with open(STATE_FILE) as f:
@@ -70,7 +71,6 @@ else:
     print(f"  No new weenies, but daily Nick sentence refresh triggered.")
 
 # ── Calculate scores ──────────────────────────────────────────────────────────
-today     = datetime.now()
 l7_cutoff = today - timedelta(days=7)
 totals = {}; month_scores = {5:{}, 6:{}, 7:{}, 8:{}, 9:{}}; l7 = {}
 
