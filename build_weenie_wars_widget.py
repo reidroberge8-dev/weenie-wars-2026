@@ -567,6 +567,16 @@ html = f"""<!DOCTYPE html>
   .stat-note strong {{ color:#002868; }}
   .footer {{ margin-top:12px; text-align:center; color:#aab4cc; font-size:0.68em; letter-spacing:1px; }}
   .updated-stamp {{ text-align:center; color:#8a9abc; font-size:0.78em; margin-top:10px; margin-bottom:4px; letter-spacing:0.5px; }}
+  .refresh-btn {{ display:none; }}  /* hidden on desktop */
+  @media (max-width:660px) {{
+    .refresh-btn {{
+      display:block; width:100%; margin:12px 0 4px; padding:13px;
+      background:#f4f7fc; border:1.5px solid #c8d4ea; border-radius:8px;
+      color:#445580; font-size:0.9em; font-weight:600; cursor:pointer;
+      letter-spacing:0.5px;
+    }}
+    .refresh-btn:active {{ background:#dde4f2; }}
+  }}
   .bottom-stripe {{ display:flex; height:3px; border-radius:2px; margin-top:10px; overflow:hidden; }}
   .bottom-stripe div {{ flex:1; }}
 
@@ -777,6 +787,7 @@ html = f"""<!DOCTYPE html>
 
 {CHART_SECTION}
 
+<button class="refresh-btn" onclick="window.location.reload()">↻ Refresh</button>
 <div class="updated-stamp">🕐 Last updated {UPDATED}</div>
 <div class="footer">★ &nbsp; Odds for entertainment only &nbsp; ★ &nbsp; P2J benchmark: Joey Chestnut {JOEY_COUNT} dogs (2025) &nbsp; ★ &nbsp; CHOMP+ league avg = 1.13 weenies/player &nbsp; ★</div>
 <div class="bottom-stripe">
