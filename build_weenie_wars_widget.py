@@ -89,9 +89,6 @@ BANNER = {
 # ─── NARRATIVE ───────────────────────────────────────────────────────────────
 # Update as the season progresses
 
-# NARRATIVE is auto-generated from data — see generate_narrative() below
-# To override manually, set NARRATIVE_OVERRIDE = "your html" (or leave as None)
-NARRATIVE_OVERRIDE = None
 
 UPDATED    = "2026-06-06"
 
@@ -116,110 +113,6 @@ SEASON_END   = "Sep 7, 2026"
 
 # ─── BUILD ───────────────────────────────────────────────────────────────────
 
-def generate_narrative(players, months, joey_count):
-    """Auto-generate the Analyst Take narrative from current data."""
-    from operator import itemgetter
-
-    sorted_p   = sorted(players, key=lambda p: p["total"], reverse=True)
-    leader     = sorted_p[0]
-    n_players  = len(players)
-    total_w    = sum(p["total"] for p in players)
-    league_avg = total_w / n_players if n_players else 1
-
-    active_month = next((m for m in months if m["status"] == "inprogress"), None)
-    active_key   = active_month["name"] if active_month else None
-
-    hot   = sorted([p for p in players if p["l7"] > 0],  key=lambda p: p["l7"],   reverse=True)
-    zeros = [p for p in players if p["total"] == 0]
-    board = [p for p in sorted_p if p["total"] > 0]
-
-    def strong(text, color="#002868"): return f'<strong style="color:{color}">{text}</strong>'
-    def em(text): return f'<em>{text}</em>'
-
-    paras = []
-
-    # ── Para 1: Leader + L7 hot hand
-    p1 = f'{strong(leader["name"])} leads at {strong(str(leader["total"]) + " 🌭", "#B22234")} total.'
-    if hot:
-        hottest = hot[0]
-        if hottest["name"] == leader["name"]:
-            p1 += f' {strong(leader["name"])} is also the hottest hand right now with an L7 of {strong(str(hottest["l7"]), "#B22234")} — the lead and the momentum.'
-        else:
-            gap = leader["total"] - hottest["total"]
-            p1 += (f' The {active_key or "current"} story belongs to {strong(hottest["name"])} — '
-                   f'L7 Weenie Score of {strong(str(hottest["l7"]), "#B22234")}, '
-                   f'closing to within {strong(str(gap))} of the lead.')
-            if hottest["total"] == leader["total"]:
-                p1 += f' {strong(hottest["name"])} has {em("tied")} the leader.'
-    paras.append(p1)
-
-    # ── Para 2: Chasing pack (2nd–4th by total, skip leader)
-    pack = [p for p in board if p["name"] != leader["name"]][:4]
-    if pack:
-        # Group by total
-        groups = {}
-        for p in pack:
-            groups.setdefault(p["total"], []).append(p["name"])
-        lines = []
-        for total, names in sorted(groups.items(), reverse=True):
-            cold = [n for n in names if not any(h["name"] == n for h in hot)]
-            warm = [n for n in names if any(h["name"] == n for h in hot)]
-            name_str = ", ".join(f'{strong(n)}' for n in names)
-            note = ""
-            if cold and not warm:
-                note = " — cold in " + (active_key or "the current month")
-            elif warm:
-                note = " — 🔥 active"
-            lines.append(f'{name_str} {"are" if len(names) > 1 else "is"} at {strong(str(total))}{note}.')
-        paras.append(" ".join(lines))
-
-    # ── Para 3: CHOMP+
-    chomp_leader = max(players, key=lambda p: p["chomp"])
-    times = round(chomp_leader["chomp"] / 100, 1)
-    p3 = (f'By {strong("CHOMP+")}, {strong(chomp_leader["name"])} leads at '
-          f'{strong(str(chomp_leader["chomp"]), "#B22234")} — '
-          f'{times}× the league average.')
-    tied_chomp = [p for p in players if p["chomp"] == chomp_leader["chomp"] and p["name"] != chomp_leader["name"]]
-    if pack:
-        second_chomp = sorted([p for p in players if p["chomp"] < chomp_leader["chomp"] and p["chomp"] > 0],
-                               key=lambda p: p["chomp"], reverse=True)
-        if second_chomp:
-            sc = second_chomp[0]
-            others = [p for p in second_chomp if p["chomp"] == sc["chomp"]]
-            names_str = ", ".join(strong(p["name"]) for p in [sc] + others[1:3])
-            p3 += f' {names_str} trail at {strong(str(sc["chomp"]), "#445580")}.'
-    paras.append(p3)
-
-    # ── Para 4: P2J
-    leader_p2j = round(leader["total"] / joey_count * 100, 1)
-    months_left = sum(1 for m in months if m["status"] != "complete")
-    projected   = round(leader["total"] / max(1, len([m for m in months if m["status"] == "complete"])) * len(months), 1) if any(m["status"] == "complete" for m in months) else "?"
-    projected_p2j = round(float(projected) / joey_count * 100, 1) if projected != "?" else "?"
-    p4 = (f'{strong("P2J")} puts the gap in perspective: {strong(leader["name"])} leads at '
-          f'{strong(str(leader_p2j) + "%", "#002868")} of Joey Chestnut ({joey_count} dogs). ')
-    if projected != "?":
-        p4 += f'At this pace, projected finish is ~{strong(str(projected))} weenies (~{strong(str(projected_p2j) + "% P2J")}). '
-    p4 += f'{strong(str(months_left))} months remain.'
-    paras.append(p4)
-
-    # ── Para 5: Zeros + watch note
-    if zeros:
-        p5 = f'{strong(str(len(zeros)))} {"player" if len(zeros) == 1 else "players"} remain at zero.'
-    else:
-        p5 = "Every player has scored this season."
-    # Watch note: who could catch the leader next month
-    if len(board) > 1:
-        closest = pack[0] if pack else None
-        if closest:
-            gap = leader["total"] - closest["total"]
-            p5 += (f' {strong("Watch:")} {strong(closest["name"])} is {strong(str(gap))} back — '
-                   f'one strong month changes everything.')
-    paras.append(p5)
-
-    return "".join(f"<p>{p}</p>\n" for p in paras)
-
-
-# Auto-calculate place rankings from totals
 def _assign_places(players):
     sp = sorted(players, key=lambda p: p["total"], reverse=True)
     place = 1
@@ -351,7 +244,6 @@ for m in MONTHS:
 months_remaining = sum(1 for m in MONTHS if m["status"] != "complete")
 
 # ── Compute narrative ────────────────────────────────────────────────────────
-NARRATIVE = NARRATIVE_OVERRIDE if NARRATIVE_OVERRIDE else generate_narrative(PLAYERS, MONTHS, JOEY_COUNT)
 
 # Mobile month filter JS — defined outside f-string to avoid brace-escaping issues
 MOBILE_FILTER_JS = """<script>
@@ -472,15 +364,6 @@ _pd = ", ".join(
 PLAYER_DATA_SCRIPT = f'<script>var WW_PLAYERS={{{_pd}}};var WW_N={len(PLAYERS)};</script>'
 
 # ── Full HTML
-nick_footnote = (
-    '<div style="margin-top:8px;font-size:0.72em;color:#8a9abc;border-left:3px solid #B22234;'
-    'padding:5px 10px;background:#fff8f8;border-radius:0 5px 5px 0;display:inline-block">'
-    '<strong style="color:#B22234">*</strong> Nick (AKA Nicky the Fluff) is under investigation by the '
-    '<strong style="color:#002868">Weenie Commission</strong> for alleged <em>fraudulent dogs</em>. '
-    'The committee has determined the behavior was highly questionable. '
-    f'The case has been escalated to the Supreme Weenie for final judgement. {NICK_UPDATE}</div>'
-    if NICK_INVESTIGATION else ''
-)
 html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -741,8 +624,9 @@ html = f"""<!DOCTYPE html>
 </div>
 
 <div class="narrative-card" style="margin-bottom:14px;">
-  <div class="nt">📰 Analyst's Take</div>
-  {NARRATIVE}
+  <div class="nt">🔍 Nick Investigation Update</div>
+  <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">Commission Dispatch — {UPDATED}</div>
+  <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{NICK_UPDATE}</p>
 </div>
 
 <div class="section-title">Leaderboard</div>
@@ -780,7 +664,6 @@ html = f"""<!DOCTYPE html>
   <tbody>{rows_html}</tbody>
 </table></div>
 
-{nick_footnote}
 
 <div class="footer">★ &nbsp; Updated {UPDATED} &nbsp; ★ &nbsp; Odds for entertainment only &nbsp; ★ &nbsp; P2J benchmark: Joey Chestnut {JOEY_COUNT} dogs (2025) &nbsp; ★ &nbsp; CHOMP+ league avg = 1.13 weenies/player &nbsp; ★</div>
 <div class="bottom-stripe">
