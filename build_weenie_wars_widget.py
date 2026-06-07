@@ -694,6 +694,9 @@ html = f"""<!DOCTYPE html>
   <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn-link btn-navy">
     🌭 Click for FREE WEENIES!
   </a>
+  <a href="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnkwNDRmNTFmbW54N3hyazg2NDg1anhxOHM3c3VrMXVrY3M3Mnd3NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/909f9MWJumXQbum0sn/giphy.gif" target="_blank" class="btn-link btn-red">
+    🌭 Single Weenies in Your Area
+  </a>
 </div>
 <div class="months-wrap" style="margin-bottom:12px;">
   <div class="section-title">Monthly Status</div>
