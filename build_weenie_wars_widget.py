@@ -378,7 +378,7 @@ html = f"""<!DOCTYPE html>
   var x=c.getContext('2d');
   x.fillStyle='#f0f4fb';x.beginPath();x.roundRect(0,0,180,180,32);x.fill();
   x.font='115px serif';x.textAlign='center';x.textBaseline='middle';
-  x.fillText('\u{1F32D}',90,96);
+  x.fillText('🌭',90,96);
   document.getElementById('ati').href=c.toDataURL('image/png');
 }})();
 </script>
