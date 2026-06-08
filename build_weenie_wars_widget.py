@@ -317,6 +317,7 @@ for m in MONTHS:
 months_remaining = sum(1 for m in MONTHS if m["status"] != "complete")
 _total_weenies = sum(p["total"] for p in PLAYERS)
 _total_lbs     = round(_total_weenies * 2 / 16, 2)  # ~2 oz per hot dog → lbs
+_total_ft      = round(_total_weenies * 6 / 12, 2)  # 6 inch standard weenie → ft
 
 # ── Biggest Weenie Days card ─────────────────────────────────────────────────
 if BIG_DAYS:
@@ -848,7 +849,7 @@ html = f"""<!DOCTYPE html>
   <div>
     <div class="label">Total Consumed</div>
     <div style="font-size:1.35em;font-weight:bold;color:#B22234;line-height:1.1">{_total_weenies} 🌭</div>
-    <div class="note">{_total_lbs} lbs of weenie</div>
+    <div class="note">{_total_lbs} lbs | {_total_ft} ft of Weenie</div>
   </div>
 </div>
 
