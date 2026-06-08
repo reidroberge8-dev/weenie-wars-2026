@@ -350,8 +350,8 @@ MOBILE_FILTER_JS = """<script>
   var bar = document.getElementById('monthFilter');
   if (!bar) return;
   var pills   = Array.from(bar.querySelectorAll('.mf-pill'));
-  var headers = Array.from(document.querySelectorAll('thead th'));
-  var tb      = document.querySelector('tbody');
+  var headers = Array.from(document.querySelectorAll('#leaderboard-table thead th'));
+  var tb      = document.querySelector('#leaderboard-table tbody');
   var MONTH_COLS = {may:5, june:6, july:7, aug:8, sep:9};
   var TOTAL_COL = 3, P2J_COL = 4, L7_COL = 10, CHOMP_COL = 11, ODDS_COL = 12;
   var PLACE_COL = 1;
@@ -915,7 +915,7 @@ html = f"""<!DOCTYPE html>
     <button class="mf-pill" data-month="sep"  data-col="9">Sep</button>
   </div>
 </div>
-<div class="table-scroll"><table>
+<div class="table-scroll"><table id="leaderboard-table">
   <thead>
     <tr>
       <th data-col="0">Trend</th><th data-col="1">Place</th>
