@@ -329,7 +329,7 @@ if BIG_DAYS:
         )
     BIG_DAYS_HTML = (
         '<div class="narrative-card" style="margin-bottom:14px;">'
-        '<div class="nt">🏆 Biggest Weenie Days</div>'
+        '<div class="nt">🏆 <span style="font-size:1.25em;font-weight:900;color:#002868">Biggest Weenie</span> Days</div>'
         '<table style="width:100%;border-collapse:collapse;font-size:0.88em;">'
         '<thead><tr>'
         '<th style="text-align:left;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Date</th>'
