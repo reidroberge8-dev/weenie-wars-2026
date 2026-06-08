@@ -323,12 +323,14 @@ if BIG_DAYS:
     _big_rows = ""
     for _i, (_date, _cnt) in enumerate(BIG_DAYS):
         _lbs  = round(_cnt * 2 / 16, 2)
+        _ft   = round(_cnt * 6 / 12, 2)
         _rbg  = "background:#f7f9fc;" if _i % 2 == 0 else ""
         _big_rows += (
             f'<tr style="{_rbg}">'
             f'<td style="padding:6px 4px;color:#334">{_date}</td>'
             f'<td style="text-align:right;padding:6px 4px;font-weight:700;color:#002868">{_cnt}</td>'
             f'<td style="text-align:right;padding:6px 4px;color:#666">{_lbs} lbs</td>'
+            f'<td style="text-align:right;padding:6px 4px;color:#666">{_ft} ft</td>'
             f'</tr>'
         )
     BIG_DAYS_HTML = (
@@ -339,6 +341,7 @@ if BIG_DAYS:
         '<th style="text-align:left;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Date</th>'
         '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Weenies</th>'
         '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Lbs</th>'
+        '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Ft</th>'
         '</tr></thead>'
         f'<tbody>{_big_rows}</tbody>'
         '</table></div>'
