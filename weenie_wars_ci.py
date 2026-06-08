@@ -134,6 +134,15 @@ if l7:
     l7_leader = max(l7, key=l7.get)
     src = re.sub(r'"l7_leader":\s*"[^"]+"', f'"l7_leader":     "{l7_leader}"',    src)
     src = re.sub(r'"l7_score":\s*\d+',      f'"l7_score":      {l7[l7_leader]}',  src)
+    # Dynamic l7_note: how many weenies l7_leader logged today (UTC date, close enough for ET)
+    l7_today = sum(
+        int(row["Weenies Consumed"]) for row in rows
+        if (row["Name"].strip().replace("John", "Jon")) == l7_leader
+        and datetime.strptime(row["Timestamp"], "%m/%d/%Y %H:%M:%S").date() == today.date()
+    )
+    l7_note_val = f"{l7_today} today" if l7_today > 0 else "none today"
+    src = re.sub(r'"l7_note":\s*"[^"]*"', f'"l7_note":       "{l7_note_val}"', src)
+    print(f"  l7_note → {l7_note_val}")
 src = re.sub(r'"players":\s*\d+,',         f'"players":       {n_players},',     src)
 src = re.sub(r'BIG_DAYS\s*=\s*\[[^\]]*\]', f'BIG_DAYS      = {repr(top5_days)}', src)
 # UPDATED is computed dynamically at build time — no regex needed
