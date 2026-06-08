@@ -91,8 +91,14 @@ BANNER = {
 # Update as the season progresses
 
 
-_build_dt = _dt.now()
-UPDATED   = _build_dt.strftime("%Y-%m-%d %H:%M")
+try:
+    from zoneinfo import ZoneInfo as _ZI
+    _ET_TZ = _ZI("America/New_York")
+except Exception:
+    from datetime import timezone as _tz, timedelta as _td
+    _ET_TZ = _tz(_td(hours=-4))  # EDT fallback
+_build_dt = _dt.now(tz=_ET_TZ)
+UPDATED   = _build_dt.strftime("%I:%M %p ET  %m/%d/%Y").lstrip("0")
 
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
@@ -105,12 +111,12 @@ NATHANS_DATE  = "July 4, 2026"
 
 # Days until Nathan's — computed at build time
 from datetime import datetime as _dt
-_contest  = _dt(2026, 7, 4)
+_contest  = _dt(2026, 7, 4, tzinfo=_ET_TZ)
 _today    = _build_dt
 NATHANS_DAYS = max(0, (_contest - _today).days)
 
 # Days remaining in Weenie Wars season — ends Labor Day (first Mon in Sep)
-_labor_day   = _dt(2026, 9, 7)
+_labor_day   = _dt(2026, 9, 7, tzinfo=_ET_TZ)
 SEASON_DAYS  = max(0, (_labor_day - _today).days)
 SEASON_END   = "Sep 7, 2026"
 
@@ -498,8 +504,8 @@ PLAYER_DATA_SCRIPT = f'<script>var WW_PLAYERS={{{_pd}}};var WW_N={len(PLAYERS)};
 import urllib.request as _ureq, csv as _csv, io as _io
 from datetime import timedelta as _td
 
-_SEASON_START = _dt(2026, 5, 25)   # Memorial Day
-_SEASON_END   = _dt(2026, 9, 7)    # Labor Day
+_SEASON_START = _dt(2026, 5, 25, tzinfo=_ET_TZ)   # Memorial Day
+_SEASON_END   = _dt(2026, 9, 7,  tzinfo=_ET_TZ)    # Labor Day
 _N_WEEKS      = ((_SEASON_END - _SEASON_START).days // 7) + 1  # 16 weeks
 _pal = ["#B22234","#002868","#1a7a4a","#e07b00","#cc44aa","#6a0dad",
         "#0077aa","#e05500","#336633","#005577","#8B4513","#445580",
@@ -524,7 +530,7 @@ try:
         if len(_row) < 3 or _row[0].strip() == "Timestamp":
             continue
         try:
-            _ts = _dt.strptime(_row[0].strip(), "%m/%d/%Y %H:%M:%S")
+            _ts = _dt.strptime(_row[0].strip(), "%m/%d/%Y %H:%M:%S").replace(tzinfo=_ET_TZ)
         except ValueError:
             continue
         _nm = _row[1].strip()
