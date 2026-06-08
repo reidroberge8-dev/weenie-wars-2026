@@ -314,15 +314,13 @@ _total_lbs     = round(_total_weenies * 2 / 16, 2)  # ~2 oz per hot dog → lbs
 
 # ── Biggest Weenie Days card ─────────────────────────────────────────────────
 if BIG_DAYS:
-    _rank_labels = ["1.", "2.", "3.", "4.", "5."]
     _big_rows = ""
     for _i, (_date, _cnt) in enumerate(BIG_DAYS):
         _lbs  = round(_cnt * 2 / 16, 2)
-        _lbl  = _rank_labels[_i] if _i < len(_rank_labels) else f"{_i+1}."
         _rbg  = "background:#f7f9fc;" if _i % 2 == 0 else ""
         _big_rows += (
             f'<tr style="{_rbg}">'
-            f'<td style="padding:6px 4px;color:#334">{_lbl} {_date}</td>'
+            f'<td style="padding:6px 4px;color:#334">{_date}</td>'
             f'<td style="text-align:right;padding:6px 4px;font-weight:700;color:#002868">{_cnt}</td>'
             f'<td style="text-align:right;padding:6px 4px;color:#666">{_lbs} lbs</td>'
             f'</tr>'
