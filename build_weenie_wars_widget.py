@@ -46,14 +46,14 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":6,"may":5,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":274,"odds":"+225","move":"▲","mc":"#B22234"},
+    {"name":"Alex",    "place":1, "total":6,"may":5,"june":1,"july":0,"aug":0,"sep":0,"l7":2, "chomp":274,"odds":"+225","move":"▲","mc":"#B22234"},
     {"name":"Tom",     "place":2, "total":6,"may":1,"june":5,"july":0,"aug":0,"sep":0,"l7":5, "chomp":274,"odds":"+375","move":"▲","mc":"#B22234"},
     {"name":"Jake",    "place":2, "total":3,"may":3,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":137,"odds":"+800","move":"▲","mc":"#B22234"},
     {"name":"Nick",    "place":2, "total":5,"may":0,"june":5,"july":0,"aug":0,"sep":0,"l7":5, "chomp":229,"odds":"+500","move":"▼","mc":"#2a7a2a"},
-    {"name":"Jess",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":137,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Jess",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":2, "chomp":137,"odds":"+1500","move":"▲","mc":"#B22234"},
     {"name":"Scott",   "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":91,"odds":"+1500","move":"▲","mc":"#B22234"},
     {"name":"Leah",    "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":91,"odds":"+1500","move":"▲","mc":"#B22234"},
-    {"name":"Jon",     "place":8, "total":4,"may":1,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":183, "odds":"+4000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jon",     "place":8, "total":4,"may":1,"june":3,"july":0,"aug":0,"sep":0,"l7":4, "chomp":183, "odds":"+4000","move":"▼","mc":"#2a7a2a"},
     {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Noel",    "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":46,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":46,  "odds":"+5000","move":"▲","mc":"#B22234"},
@@ -97,8 +97,9 @@ UPDATED   = _build_dt.strftime("%Y-%m-%d %H:%M")
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "Nick's alibi for June 3rd — I was simply existing — has been flagged as legally insufficient."
+NICK_UPDATE       = "Commission forensic accountants discovered Nick submitted 11 weenie receipts from a restaurant that does not exist."
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
+BIG_DAYS      = [('Jun 5', 8), ('Jun 3', 6), ('May 28', 5), ('Jun 1', 4), ('Jun 4', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
 
@@ -310,6 +311,36 @@ for m in MONTHS:
 months_remaining = sum(1 for m in MONTHS if m["status"] != "complete")
 _total_weenies = sum(p["total"] for p in PLAYERS)
 _total_lbs     = round(_total_weenies * 2 / 16, 2)  # ~2 oz per hot dog → lbs
+
+# ── Biggest Weenie Days card ─────────────────────────────────────────────────
+if BIG_DAYS:
+    _rank_labels = ["🥇", "🥈", "🥉", "4.", "5."]
+    _big_rows = ""
+    for _i, (_date, _cnt) in enumerate(BIG_DAYS):
+        _lbs  = round(_cnt * 2 / 16, 2)
+        _lbl  = _rank_labels[_i] if _i < len(_rank_labels) else f"{_i+1}."
+        _rbg  = "background:#f7f9fc;" if _i % 2 == 0 else ""
+        _big_rows += (
+            f'<tr style="{_rbg}">'
+            f'<td style="padding:6px 4px;color:#334">{_lbl} {_date}</td>'
+            f'<td style="text-align:right;padding:6px 4px;font-weight:700;color:#002868">{_cnt}</td>'
+            f'<td style="text-align:right;padding:6px 4px;color:#666">{_lbs} lbs</td>'
+            f'</tr>'
+        )
+    BIG_DAYS_HTML = (
+        '<div class="narrative-card" style="margin-bottom:14px;">'
+        '<div class="nt">🏆 Biggest Weenie Days</div>'
+        '<table style="width:100%;border-collapse:collapse;font-size:0.88em;">'
+        '<thead><tr>'
+        '<th style="text-align:left;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Date</th>'
+        '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Weenies</th>'
+        '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Lbs</th>'
+        '</tr></thead>'
+        f'<tbody>{_big_rows}</tbody>'
+        '</table></div>'
+    )
+else:
+    BIG_DAYS_HTML = ""
 
 # ── Compute narrative ────────────────────────────────────────────────────────
 
@@ -871,6 +902,7 @@ html = f"""<!DOCTYPE html>
   <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{ANALYST_TAKE}</p>
 </div>
 
+{BIG_DAYS_HTML}
 <div class="section-title">Leaderboard</div>
 <div class="month-filter" id="monthFilter">
   <span class="mf-label">Month:</span>
