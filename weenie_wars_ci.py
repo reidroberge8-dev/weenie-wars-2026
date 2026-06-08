@@ -44,7 +44,7 @@ today      = datetime.now()  # defined here so cache-bust and all downstream cod
 
 # ── Fetch CSV ─────────────────────────────────────────────────────────────────
 print("Fetching sheet...")
-raw_csv = urllib.request.urlopen(SHEET_CSV + f"&_={int(today.timestamp())}", timeout=20).read()  # cache-bust
+raw_csv = urllib.request.urlopen(SHEET_CSV + f"&_={int(today.timestamp())}").read()  # cache-bust
 csv_hash = hashlib.sha256(raw_csv).hexdigest()
 rows = list(csv.DictReader(io.StringIO(raw_csv.decode("utf-8"))))
 print(f"  {len(rows)} entries | hash={csv_hash[:12]}...")
@@ -55,20 +55,20 @@ if os.path.exists(STATE_FILE):
     with open(STATE_FILE) as f:
         last_state = json.load(f)
 
-last_hash       = last_state.get("csv_hash", "")
+last_hash      = last_state.get("csv_hash", "")
+today_date     = today.strftime("%Y-%m-%d")
+
 scores_changed = csv_hash != last_hash
 force_rebuild  = os.environ.get("FORCE_REBUILD", "false") == "true"
 
 if not scores_changed and not force_rebuild:
-    print("No new entries and not daily rebuild — skipping.")
+    print("No new entries — skipping update.")
     sys.exit(0)
 
 if scores_changed:
     print(f"  Score change detected ({last_hash[:12] if last_hash else 'none'} → {csv_hash[:12]}) — full update.")
-elif force_rebuild:
-    print("  No new weenies — 8am daily force-rebuild.")
 else:
-    print("  Rebuilding (unexpected path).")
+    print("  No new weenies — 8am daily force-rebuild.")
 
 # ── Calculate scores ──────────────────────────────────────────────────────────
 l7_cutoff = today - timedelta(days=7)
@@ -84,6 +84,14 @@ for row in rows:
         month_scores[dt.month][name] = month_scores[dt.month].get(name, 0) + n
     if dt >= l7_cutoff:
         l7[name] = l7.get(name, 0) + n
+
+# ── Top 5 biggest weenie days ────────────────────────────────────────────────
+day_totals = {}
+for row in rows:
+    _dt_d = datetime.strptime(row["Timestamp"], "%m/%d/%Y %H:%M:%S")
+    _dk   = f"{_dt_d.strftime('%b')} {_dt_d.day}"
+    day_totals[_dk] = day_totals.get(_dk, 0) + int(row["Weenies Consumed"])
+top5_days = sorted(day_totals.items(), key=lambda x: x[1], reverse=True)[:5]
 
 # ── Update build script in memory ────────────────────────────────────────────
 print("Updating build script...")
@@ -127,9 +135,12 @@ if l7:
     src = re.sub(r'"l7_leader":\s*"[^"]+"', f'"l7_leader":     "{l7_leader}"',    src)
     src = re.sub(r'"l7_score":\s*\d+',      f'"l7_score":      {l7[l7_leader]}',  src)
 src = re.sub(r'"players":\s*\d+,',         f'"players":       {n_players},',     src)
+src = re.sub(r'BIG_DAYS\s*=\s*\[[^\]]*\]', f'BIG_DAYS      = {repr(top5_days)}', src)
 # UPDATED is computed dynamically at build time — no regex needed
+# Nick sentence only rotates on the 8am daily force-rebuild
 if force_rebuild:
     src = re.sub(r'NICK_UPDATE\s*=\s*"[^"]*"', f'NICK_UPDATE       = "{random.choice(NICK_UPDATES)}"', src)
+    print("  Nick sentence rotated (8am rebuild).")
 
 with open(BUILD_SCRIPT, "w", encoding="utf-8") as f:
     f.write(src)
