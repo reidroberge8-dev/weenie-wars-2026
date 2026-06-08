@@ -345,9 +345,10 @@ if BIG_DAYS:
         '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Ft</th>'
         '</tr></thead>'
         f'<tbody>{_big_rows}</tbody>'
+        '</table>'
         '<div style="font-size:0.7em;color:#aab;margin-top:8px;font-style:italic">'
         '* Feet calculated assuming 6&quot; average weenie length, which is in fact very above average.</div>'
-        '</table></div>'
+        '</div>'
     )
 else:
     BIG_DAYS_HTML = ""
