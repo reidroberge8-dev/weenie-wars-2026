@@ -81,7 +81,7 @@ BANNER = {
     "leader_total":  6,
     "l7_leader":     "Tom",
     "l7_score":      5,
-    "l7_note":       "3 today — June's hot hand",
+    "l7_note":       "none today",
     "months_done":   1,
     "months_total":  5,
     "players":       16,
