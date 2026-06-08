@@ -99,7 +99,7 @@ UPDATED   = _build_dt.strftime("%Y-%m-%d %H:%M")
 NICK_INVESTIGATION = True
 NICK_UPDATE       = "Commission forensic accountants discovered Nick submitted 11 weenie receipts from a restaurant that does not exist."
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
-BIG_DAYS      = [('Jun 5', 8), ('Jun 3', 6), ('May 28', 5), ('Jun 1', 4), ('Jun 4', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
+BIG_DAYS      = [('Jun 6', 14), ('May 25', 12), ('May 31', 3), ('Jun 5', 3), ('Jun 1', 2)]     # auto-filled by CI: [("Jun 3", 8), ...]
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
 
@@ -314,7 +314,7 @@ _total_lbs     = round(_total_weenies * 2 / 16, 2)  # ~2 oz per hot dog → lbs
 
 # ── Biggest Weenie Days card ─────────────────────────────────────────────────
 if BIG_DAYS:
-    _rank_labels = ["🥇", "🥈", "🥉", "4.", "5."]
+    _rank_labels = ["1.", "2.", "3.", "4.", "5."]
     _big_rows = ""
     for _i, (_date, _cnt) in enumerate(BIG_DAYS):
         _lbs  = round(_cnt * 2 / 16, 2)
