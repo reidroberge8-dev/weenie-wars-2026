@@ -103,7 +103,7 @@ UPDATED   = _build_dt.strftime("%I:%M %p ET  %m/%d/%Y").lstrip("0")
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "DNA analysis of a suspicious frankfurter found in Nick's trash revealed it was, quote, not a real weenie by any legal definition."
+NICK_UPDATE       = "Surveillance footage shows Nick entering a Costco at 11:58pm, purchasing 96 hot dogs, and then immediately returning them — behavior investigators call a dry run."
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 BIG_DAYS      = [('Jun 6', 14), ('May 25', 12), ('Jun 11', 5), ('May 31', 3), ('Jun 5', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
