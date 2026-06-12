@@ -49,7 +49,7 @@ PLAYERS = [
     {"name":"Alex",    "place":1, "total":10,"may":5,"june":5,"july":0,"aug":0,"sep":0,"l7":5, "chomp":296,"odds":"+225","move":"▲","mc":"#B22234"},
     {"name":"Tom",     "place":2, "total":11,"may":1,"june":10,"july":0,"aug":0,"sep":0,"l7":8, "chomp":326,"odds":"+375","move":"▲","mc":"#B22234"},
     {"name":"Jake",    "place":2, "total":3,"may":3,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":89,"odds":"+800","move":"▲","mc":"#B22234"},
-    {"name":"Nick",    "place":2, "total":5,"may":0,"june":5,"july":0,"aug":0,"sep":0,"l7":5, "chomp":148,"odds":"+500","move":"▼","mc":"#2a7a2a"},
+    {"name":"Nick",    "place":2, "total":5,"may":0,"june":5,"july":0,"aug":0,"sep":0,"l7":2, "chomp":148,"odds":"+500","move":"▼","mc":"#2a7a2a"},
     {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":119,"odds":"+1500","move":"▲","mc":"#B22234"},
     {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":119,"odds":"+1500","move":"▲","mc":"#B22234"},
     {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":89,"odds":"+1500","move":"▲","mc":"#B22234"},
@@ -105,7 +105,7 @@ UPDATED   = _build_dt.strftime("%I:%M %p ET  %m/%d/%Y").lstrip("0")
 NICK_INVESTIGATION = True
 NICK_UPDATE       = "Commission investigators found a receipt for 47 hot dogs charged to a corporate card registered to a shell company called Nicky's Real Weenies LLC."
 HARRISON_INVESTIGATION = True
-HARRISON_UPDATE       = "FBI (Food Baby Investigations) has confirmed that Harrison, known in weenie circles as Uncle Sam the Glizzy Man, is the subject of a formal Fraudfurter inquiry — the most serious classification in weenie law."
+HARRISON_UPDATE       = "Forensic dieticians testified that the curvature, density, and trajectory of Harrison's Food Baby are inconsistent with hot dog consumption under any known eating model."
 LAST_WEENIE_TS = 1781272988  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('May 31', 3), ('Jun 5', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
