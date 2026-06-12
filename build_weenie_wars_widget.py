@@ -108,7 +108,7 @@ HARRISON_INVESTIGATION = True
 HARRISON_UPDATE       = "FBI (Food Baby Investigations) has confirmed that Harrison, known in weenie circles as Uncle Sam the Glizzy Man, is the subject of a formal Fraudfurter inquiry — the most serious classification in weenie law."
 LAST_WEENIE_TS = 1781272988  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
-BIG_DAYS      = [('Jun 6', 14), ('May 25', 12), ('May 31', 3), ('Jun 5', 3), ('Jun 1', 2)]     # auto-filled by CI: [("Jun 3", 8), ...]
+BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('May 31', 3), ('Jun 5', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
 
@@ -940,10 +940,13 @@ html = f"""<!DOCTYPE html>
 <div class="months-wrap" style="margin-bottom:12px;">
   <div class="section-title">Monthly Status</div>
   <div class="months-row">{month_tiles}<div id="droughtTile" style="background:linear-gradient(135deg,#fff8f0,#fff0d8);border:1px solid #e8c070;border-radius:9px;padding:10px 13px;min-width:100px;text-align:center;flex-shrink:0;align-self:flex-start;">
-    <div style="font-size:0.62em;color:#8a9abc;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:3px;">⏱ Drought</div>
-    <div id="hoursSince" style="font-size:2.1em;font-weight:900;color:#c85000;line-height:1.1;">—</div>
-    <div style="font-size:0.68em;color:#7a8aaa;margin-top:2px;">since last 🌭</div>
-    <div id="lastWhen" style="font-size:0.6em;color:#aab4cc;margin-top:4px;letter-spacing:0.3px;">loading...</div>
+    <div style="color:#c85000;font-weight:bold;font-size:0.85em;margin-bottom:5px;letter-spacing:1px">⏱ Drought</div>
+    <span style="background:#e8c070;color:#7a5000;font-size:0.62em;padding:1px 7px;border-radius:10px;letter-spacing:1px">LIVE</span>
+    <div style="margin-top:7px;padding-top:6px;border-top:1px solid #e8c070">
+      <div style="font-size:0.6em;text-transform:uppercase;letter-spacing:1px;color:#8a9abc;margin-bottom:2px">since last 🌭</div>
+      <div id="lastWhen" style="font-size:0.9em;font-weight:bold;color:#c85000">loading...</div>
+      <div id="hoursSince" style="font-size:1.35em;font-weight:900;color:#c85000;line-height:1.1">—</div>
+    </div>
   </div></div>
 </div>
 
