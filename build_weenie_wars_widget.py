@@ -46,20 +46,20 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":6,"may":5,"june":1,"july":0,"aug":0,"sep":0,"l7":2, "chomp":274,"odds":"+225","move":"▲","mc":"#B22234"},
-    {"name":"Tom",     "place":2, "total":6,"may":1,"june":5,"july":0,"aug":0,"sep":0,"l7":5, "chomp":274,"odds":"+375","move":"▲","mc":"#B22234"},
-    {"name":"Jake",    "place":2, "total":3,"may":3,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":137,"odds":"+800","move":"▲","mc":"#B22234"},
-    {"name":"Nick",    "place":2, "total":5,"may":0,"june":5,"july":0,"aug":0,"sep":0,"l7":5, "chomp":229,"odds":"+500","move":"▼","mc":"#2a7a2a"},
-    {"name":"Jess",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":2, "chomp":137,"odds":"+1500","move":"▲","mc":"#B22234"},
-    {"name":"Scott",   "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":91,"odds":"+1500","move":"▲","mc":"#B22234"},
-    {"name":"Leah",    "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":91,"odds":"+1500","move":"▲","mc":"#B22234"},
-    {"name":"Jon",     "place":8, "total":4,"may":1,"june":3,"july":0,"aug":0,"sep":0,"l7":4, "chomp":183, "odds":"+4000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Alex",    "place":1, "total":10,"may":5,"june":5,"july":0,"aug":0,"sep":0,"l7":5, "chomp":296,"odds":"+225","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":11,"may":1,"june":10,"july":0,"aug":0,"sep":0,"l7":8, "chomp":326,"odds":"+375","move":"▲","mc":"#B22234"},
+    {"name":"Jake",    "place":2, "total":3,"may":3,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":89,"odds":"+800","move":"▲","mc":"#B22234"},
+    {"name":"Nick",    "place":2, "total":5,"may":0,"june":5,"july":0,"aug":0,"sep":0,"l7":5, "chomp":148,"odds":"+500","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":119,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":119,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":89,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Jon",     "place":8, "total":8,"may":1,"june":7,"july":0,"aug":0,"sep":0,"l7":7, "chomp":237, "odds":"+4000","move":"▼","mc":"#2a7a2a"},
     {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
-    {"name":"Noel",    "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":46,  "odds":"+5000","move":"▲","mc":"#B22234"},
-    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":46,  "odds":"+5000","move":"▲","mc":"#B22234"},
-    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":91,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Noel",    "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":30,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":30,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":59,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
-    {"name":"Devin",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+6000","move":"▲","mc":"#B22234"},
+    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":59,  "odds":"+6000","move":"▲","mc":"#B22234"},
     {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
 ]
@@ -77,10 +77,10 @@ MONTHS = [
 # Update these manually each refresh
 
 BANNER = {
-    "leader_name":   "Alex",
-    "leader_total":  6,
+    "leader_name":   "Tom",
+    "leader_total":  11,
     "l7_leader":     "Tom",
-    "l7_score":      5,
+    "l7_score":      8,
     "l7_note":       "none today",
     "months_done":   1,
     "months_total":  5,
@@ -106,7 +106,7 @@ NICK_INVESTIGATION = True
 NICK_UPDATE       = "Commission investigators found a receipt for 47 hot dogs charged to a corporate card registered to a shell company called Nicky's Real Weenies LLC."
 HARRISON_INVESTIGATION = True
 HARRISON_UPDATE       = "FBI (Food Baby Investigations) has confirmed that Harrison, known in weenie circles as Uncle Sam the Glizzy Man, is the subject of a formal Fraudfurter inquiry — the most serious classification in weenie law."
-LAST_WEENIE_TS = 0  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
+LAST_WEENIE_TS = 1781272988  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 BIG_DAYS      = [('Jun 6', 14), ('May 25', 12), ('May 31', 3), ('Jun 5', 3), ('Jun 1', 2)]     # auto-filled by CI: [("Jun 3", 8), ...]
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
@@ -622,6 +622,52 @@ STANDALONE_RELOAD_JS = """<script>
 })();
 </script>"""
 
+# ── Hours-since-last-weenie JS (regular string — no f-string escaping needed) ──
+HOURS_SINCE_JS = """<script>
+(function() {
+  var SHEET_CSV = 'https://docs.google.com/spreadsheets/d/1-NezoEWSZpeUIZem89ZMltE-kGX_P11LqKVoAwSG0gU/export?format=csv&gid=1814658863';
+  var _lastMs = 0;
+
+  function parseET(str) {
+    var m = str.trim().replace(/^\"|"$/g,'').match(/(\\d+)\\/(\\d+)\\/(\\d+)\\s+(\\d+):(\\d+):(\\d+)/);
+    if (!m) return 0;
+    // Sheet timestamps are ET/EDT (UTC-4) — add 4h to get UTC ms
+    return Date.UTC(+m[3], +m[1]-1, +m[2], +m[4]+4, +m[5], +m[6]);
+  }
+
+  function tick() {
+    if (!_lastMs) return;
+    var hrs = Math.floor((Date.now() - _lastMs) / 3600000);
+    var el = document.getElementById('hoursSince');
+    var wl = document.getElementById('lastWhen');
+    if (el) el.textContent = hrs;
+    if (wl) {
+      var d = new Date(_lastMs);
+      wl.textContent = d.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' at ' +
+        d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+    }
+  }
+
+  function fetchSheet() {
+    fetch(SHEET_CSV + '&_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(csv){
+        var maxMs = 0;
+        csv.trim().split('\n').slice(1).forEach(function(line){
+          var ts = parseET(line.split(',')[0]);
+          if (ts > maxMs) maxMs = ts;
+        });
+        if (maxMs) { _lastMs = maxMs; tick(); }
+      })
+      .catch(function(){});
+  }
+
+  fetchSheet();
+  setInterval(tick, 60000);
+  setInterval(fetchSheet, 30 * 60 * 1000);
+})();
+</script>"""
+
 # ── Full HTML
 html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -888,7 +934,12 @@ html = f"""<!DOCTYPE html>
 </div>
 <div class="months-wrap" style="margin-bottom:12px;">
   <div class="section-title">Monthly Status</div>
-  <div class="months-row">{month_tiles}</div>
+  <div class="months-row">{month_tiles}<div id="droughtTile" style="background:linear-gradient(135deg,#fff8f0,#fff0d8);border:1px solid #e8c070;border-radius:9px;padding:10px 13px;min-width:100px;text-align:center;flex-shrink:0;align-self:flex-start;">
+    <div style="font-size:0.62em;color:#8a9abc;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:3px;">⏱ Drought</div>
+    <div id="hoursSince" style="font-size:2.1em;font-weight:900;color:#c85000;line-height:1.1;">—</div>
+    <div style="font-size:0.68em;color:#7a8aaa;margin-top:2px;">hrs since last 🌭</div>
+    <div id="lastWhen" style="font-size:0.6em;color:#aab4cc;margin-top:4px;letter-spacing:0.3px;">loading...</div>
+  </div></div>
 </div>
 
 <div class="cards-row">
@@ -922,16 +973,7 @@ html = f"""<!DOCTYPE html>
       <div class="ndate">★ {NATHANS_DATE} ★</div>
     </a>
   </div>
-  <div class="joey-wrap">
-    <div class="section-title">Drought Tracker</div>
-    <div class="hours-card">
-      <div class="hlabel">⏱ Last Logged</div>
-      <div class="htitle">Hours Since Last Weenie</div>
-      <div class="hcount" id="hoursSince">—</div>
-      <div class="hunit">hours</div>
-      <div class="hwhen" id="lastWhen">loading...</div>
-    </div>
-  </div>
+
 </div>
 
 <div class="narrative-card" style="margin-bottom:14px;">
@@ -1005,26 +1047,7 @@ html = f"""<!DOCTYPE html>
 {MOBILE_FILTER_JS}
 
 {STANDALONE_RELOAD_JS}
-<script>
-(function() {{
-  var ts = {LAST_WEENIE_TS};
-  if (!ts) return;
-  function update() {{
-    var now = Math.floor(Date.now() / 1000);
-    var hrs = Math.floor((now - ts) / 3600);
-    var el = document.getElementById('hoursSince');
-    var wl = document.getElementById('lastWhen');
-    if (el) el.textContent = hrs;
-    if (wl) {{
-      var d = new Date(ts * 1000);
-      wl.textContent = d.toLocaleDateString('en-US', {{month:'short', day:'numeric'}}) + ' at ' +
-        d.toLocaleTimeString('en-US', {{hour:'numeric', minute:'2-digit'}});
-    }}
-  }}
-  update();
-  setInterval(update, 60000);
-}})();
-</script>
+{HOURS_SINCE_JS}
 </body>
 </html>"""
 
