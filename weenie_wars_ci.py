@@ -40,6 +40,31 @@ NICK_UPDATES = [
     "Nick's alibi for June 3rd — I was simply existing — has been flagged as legally insufficient.",
 ]
 
+HARRISON_UPDATES = [
+    "FBI (Food Baby Investigations) has confirmed that Harrison, known in weenie circles as Uncle Sam the Glizzy Man, is the subject of a formal Fraudfurter inquiry — the most serious classification in weenie law.",
+    "Photo forensic analysts determined that the Food Baby belly in Harrison's insurance claim was induced by burgers — a finding the FBI called deeply unpatriotic.",
+    "Harrison's insurance agent confirmed receiving twelve Food Baby photos over six weeks, each captioned proudly eaten these — investigators note the caption was factually inaccurate.",
+    "The FBI subpoenaed Harrison's refrigerator and found evidence consistent with repeated, premeditated burger consumption. His attorney called it seasoning research.",
+    "Uncle Sam the Glizzy Man has retained legal counsel specializing in Fraudfurter defense — a niche practice the Supreme Weenie described as unfortunately necessary.",
+    "Forensic dieticians testified that the curvature, density, and trajectory of Harrison's Food Baby are inconsistent with hot dog consumption under any known eating model.",
+    "Harrison's insurance agent told investigators he assumed the Food Baby photos were just updates from a friend, and that he deeply regrets opening his email.",
+    "FBI agents executing a search warrant at Harrison's residence discovered a freezer containing forty-seven burger patties, zero hot dogs, and a framed photo of himself eating at a fast food restaurant.",
+    "The Supreme Weenie has elevated Harrison's case to a Class 1 Fraudfurter — a designation that carries mandatory mustard forfeiture upon conviction.",
+    "Harrison submitted a notarized statement claiming the burgers were consumed accidentally and that he thought they were very flat hot dogs. The FBI called this the worst alibi in Food Baby law.",
+    "A thermal imaging analysis of Harrison's Food Baby photos revealed a heat signature consistent with burger grease, not weenie residue — investigators say the science is damning.",
+    "The insurance company's fraud unit flagged Harrison's claim after noting that his Food Baby appeared to shift positions between photos — behavior inconsistent with legitimate weenie bloat.",
+    "Harrison told investigators he sent the Food Baby photos to his insurance agent by mistake and that they were meant for his mom. Neither his attorney nor his mom would comment.",
+    "An FBI field agent embedded at Harrison's local cookout observed him consuming three cheeseburgers while maintaining eye contact with the security camera — behavior analysts call a power move and also a crime.",
+    "Harrison's Venmo history, obtained by investigators, includes charges to contacts listed as Burger Guy, Definitely Not a Weenie, and What Harrison Owes the FBI.",
+    "The Weenie Commission has formally added Harrison's case to the Fraudfurter Registry — a database the Supreme Weenie described as alarmingly full.",
+    "Harrison's defense team filed a motion arguing that the Food Baby is a protected form of artistic expression. The motion was denied on the grounds that it made no sense.",
+    "Forensic accountants revealed that Harrison filed a separate insurance claim for emotional distress caused by being unable to eat more weenies — a claim investigators are calling audacious.",
+    "The FBI has assigned four agents to the Harrison case, two of whom have requested reassignment after reviewing the Food Baby photo evidence.",
+    "Uncle Sam the Glizzy Man was photographed outside his attorney's office wearing a shirt that read I Did Not Do This — investigators seized it as evidence.",
+    "A grand jury has been convened to hear testimony in the Harrison Fraudfurter case. Jurors were provided food vouchers valid for hot dogs only, which investigators call a precautionary measure.",
+    "Harrison's alibi for the night in question — I was simply being a patriot — has been entered into the record as Exhibit 14: Things That Are Not Defenses.",
+]
+
 today      = datetime.now()  # defined here so cache-bust and all downstream code can use it
 
 # ── Fetch CSV ─────────────────────────────────────────────────────────────────
@@ -150,6 +175,16 @@ src = re.sub(r'BIG_DAYS\s*=\s*\[[^\]]*\]', f'BIG_DAYS      = {repr(top5_days)}',
 if force_rebuild:
     src = re.sub(r'NICK_UPDATE\s*=\s*"[^"]*"', f'NICK_UPDATE       = "{random.choice(NICK_UPDATES)}"', src)
     print("  Nick sentence rotated (8am rebuild).")
+    src = re.sub(r'HARRISON_UPDATE\s*=\s*"[^"]*"', f'HARRISON_UPDATE       = "{random.choice(HARRISON_UPDATES)}"', src)
+    print("  Harrison sentence rotated (8am rebuild).")
+
+# Compute LAST_WEENIE_TS — most recent weenie entry, ET→UTC
+if rows:
+    last_row = max(rows, key=lambda r: datetime.strptime(r["Timestamp"], "%m/%d/%Y %H:%M:%S"))
+    last_dt  = datetime.strptime(last_row["Timestamp"], "%m/%d/%Y %H:%M:%S") + timedelta(hours=4)  # ET→UTC
+    last_ts_unix = int((last_dt - datetime(1970, 1, 1)).total_seconds())
+    src = re.sub(r'LAST_WEENIE_TS\s*=\s*\d+', f'LAST_WEENIE_TS = {last_ts_unix}', src)
+    print(f"  LAST_WEENIE_TS → {last_ts_unix} ({last_row['Timestamp']} ET)")
 
 with open(BUILD_SCRIPT, "w", encoding="utf-8") as f:
     f.write(src)
