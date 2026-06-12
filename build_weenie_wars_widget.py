@@ -46,20 +46,20 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":8,"may":5,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":246,"odds":"+225","move":"▲","mc":"#B22234"},
-    {"name":"Tom",     "place":2, "total":11,"may":1,"june":10,"july":0,"aug":0,"sep":0,"l7":8, "chomp":338,"odds":"+375","move":"▲","mc":"#B22234"},
-    {"name":"Jake",    "place":2, "total":3,"may":3,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":92,"odds":"+800","move":"▲","mc":"#B22234"},
-    {"name":"Nick",    "place":2, "total":5,"may":0,"june":5,"july":0,"aug":0,"sep":0,"l7":5, "chomp":154,"odds":"+500","move":"▼","mc":"#2a7a2a"},
-    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":123,"odds":"+1500","move":"▲","mc":"#B22234"},
-    {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":123,"odds":"+1500","move":"▲","mc":"#B22234"},
-    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":92,"odds":"+1500","move":"▲","mc":"#B22234"},
-    {"name":"Jon",     "place":8, "total":8,"may":1,"june":7,"july":0,"aug":0,"sep":0,"l7":7, "chomp":246, "odds":"+4000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Alex",    "place":1, "total":6,"may":5,"june":1,"july":0,"aug":0,"sep":0,"l7":2, "chomp":274,"odds":"+225","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":6,"may":1,"june":5,"july":0,"aug":0,"sep":0,"l7":5, "chomp":274,"odds":"+375","move":"▲","mc":"#B22234"},
+    {"name":"Jake",    "place":2, "total":3,"may":3,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":137,"odds":"+800","move":"▲","mc":"#B22234"},
+    {"name":"Nick",    "place":2, "total":5,"may":0,"june":5,"july":0,"aug":0,"sep":0,"l7":5, "chomp":229,"odds":"+500","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jess",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":2, "chomp":137,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Scott",   "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":91,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":2,"may":2,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":91,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Jon",     "place":8, "total":4,"may":1,"june":3,"july":0,"aug":0,"sep":0,"l7":4, "chomp":183, "odds":"+4000","move":"▼","mc":"#2a7a2a"},
     {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
-    {"name":"Noel",    "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":31,  "odds":"+5000","move":"▲","mc":"#B22234"},
-    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":31,  "odds":"+5000","move":"▲","mc":"#B22234"},
-    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":62,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Noel",    "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":46,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":46,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":91,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
-    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":62,  "odds":"+6000","move":"▲","mc":"#B22234"},
+    {"name":"Devin",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+6000","move":"▲","mc":"#B22234"},
     {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
 ]
@@ -77,10 +77,10 @@ MONTHS = [
 # Update these manually each refresh
 
 BANNER = {
-    "leader_name":   "Tom",
-    "leader_total":  11,
+    "leader_name":   "Alex",
+    "leader_total":  6,
     "l7_leader":     "Tom",
-    "l7_score":      8,
+    "l7_score":      5,
     "l7_note":       "none today",
     "months_done":   1,
     "months_total":  5,
@@ -103,9 +103,12 @@ UPDATED   = _build_dt.strftime("%I:%M %p ET  %m/%d/%Y").lstrip("0")
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "Surveillance footage shows Nick entering a Costco at 11:58pm, purchasing 96 hot dogs, and then immediately returning them — behavior investigators call a dry run."
+NICK_UPDATE       = "Commission investigators found a receipt for 47 hot dogs charged to a corporate card registered to a shell company called Nicky's Real Weenies LLC."
+HARRISON_INVESTIGATION = True
+HARRISON_UPDATE       = "FBI (Food Baby Investigations) has confirmed that Harrison, known in weenie circles as Uncle Sam the Glizzy Man, is the subject of a formal Fraudfurter inquiry — the most serious classification in weenie law."
+LAST_WEENIE_TS = 0  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
-BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('May 31', 3), ('Jun 5', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
+BIG_DAYS      = [('Jun 6', 14), ('May 25', 12), ('May 31', 3), ('Jun 5', 3), ('Jun 1', 2)]     # auto-filled by CI: [("Jun 3", 8), ...]
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
 
@@ -263,11 +266,14 @@ for i, p in enumerate(PLAYERS):
     nick_badge = ('<sup style="color:#B22234;font-size:0.8em">*</sup>'
                   '<span style="font-size:0.72em;color:#B22234;font-weight:normal;"> (under review)</span>'
                   if p["name"] == "Nick" and NICK_INVESTIGATION else '')
+    harrison_badge = ('<sup style="color:#B22234;font-size:0.8em">†</sup>'
+                      '<span style="font-size:0.72em;color:#B22234;font-weight:normal;"> (Fraudfurter case)</span>'
+                      if p["name"] == "Harrison" and HARRISON_INVESTIGATION else '')
     rows_html += f"""
     <tr style="background:{bg};" data-player="{p['name']}" data-chomp="{p['chomp']}" data-place="{p['place']}">
       <td style="{td};text-align:center;font-size:1em">{streak}</td>
       <td style="{td};color:{pc};font-weight:bold;text-align:center;white-space:nowrap">{icon} {p['place']}</td>
-      <td style="{td};{ns}">{p['name']}{nick_badge}</td>
+      <td style="{td};{ns}">{p['name']}{nick_badge}{harrison_badge}</td>
       <td style="{td};text-align:center;font-weight:bold;color:{tcol}">{fv(p['total'])}</td>
       <td style="{td};text-align:center;font-size:0.93em">{p2j_str}</td>
       <td style="{td};text-align:center;color:#445580">{fv(p['may'])}</td>
@@ -701,7 +707,21 @@ html = f"""<!DOCTYPE html>
   .nathans-card .ndays  {{ font-size:2.4em; font-weight:900; color:#002868; line-height:1; }}
   .nathans-card .nunit  {{ font-size:0.72em; color:#7a8aaa; margin-top:3px; }}
   .nathans-card .ndate  {{ font-size:0.65em; color:#aab4cc; margin-top:5px; letter-spacing:1px; }}
-  .season-card {{
+  .hours-card {{
+    background: linear-gradient(135deg, #fff8f0 0%, #fff3e0 100%);
+    border: 1.5px solid #e8d5b0;
+    border-radius: 12px;
+    padding: 16px 12px 12px;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+  }}
+  .hours-card .hlabel {{ color:#8a9abc; font-size:0.68em; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }}
+  .hours-card .htitle {{ font-size:0.82em; font-weight:bold; color:#7a4a00; margin-bottom:6px; letter-spacing:1px; }}
+  .hours-card .hcount {{ font-size:2.4em; font-weight:900; color:#c85000; line-height:1; }}
+  .hours-card .hunit  {{ font-size:0.72em; color:#7a8aaa; margin-top:3px; }}
+  .hours-card .hwhen  {{ font-size:0.65em; color:#aab4cc; margin-top:5px; letter-spacing:0.5px; }}
+    .season-card {{
     background:#fff; border:2px solid #445580; border-radius:10px;
     padding:14px 16px; text-align:center; width:180px;
     box-shadow:0 2px 8px rgba(68,85,128,0.10);
@@ -788,9 +808,11 @@ html = f"""<!DOCTYPE html>
     /* Cards: 3-per-row, compact */
     .cards-row {{ flex-wrap:nowrap; gap:6px; }}
     .joey-wrap {{ flex:1 1 0; min-width:0; }}
-    .season-card, .joey-card, .nathans-card {{ width:100% !important; padding:10px 6px !important; box-sizing:border-box; }}
+    .season-card, .joey-card, .nathans-card, .hours-card {{ width:100% !important; padding:10px 6px !important; box-sizing:border-box; }}
     .season-card .sdays, .joey-card .jcount, .nathans-card .ndays {{ font-size:1.9em; }}
     .season-card .slabel, .joey-card .jlabel, .nathans-card .nlabel {{ font-size:0.6em; }}
+    .hours-card .hcount {{ font-size:1.9em; }}
+    .hours-card .hlabel {{ font-size:0.6em; }}
     .season-card .stitle, .nathans-card .ntitle {{ font-size:0.72em; }}
     .joey-card .jname {{ font-size:0.78em; }}
 
@@ -900,12 +922,28 @@ html = f"""<!DOCTYPE html>
       <div class="ndate">★ {NATHANS_DATE} ★</div>
     </a>
   </div>
+  <div class="joey-wrap">
+    <div class="section-title">Drought Tracker</div>
+    <div class="hours-card">
+      <div class="hlabel">⏱ Last Logged</div>
+      <div class="htitle">Hours Since Last Weenie</div>
+      <div class="hcount" id="hoursSince">—</div>
+      <div class="hunit">hours</div>
+      <div class="hwhen" id="lastWhen">loading...</div>
+    </div>
+  </div>
 </div>
 
 <div class="narrative-card" style="margin-bottom:14px;">
   <div class="nt">🔍 Nick Investigation Update</div>
   <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">Supreme Weenie Update — {UPDATED}</div>
   <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{NICK_UPDATE}</p>
+</div>
+
+<div class="narrative-card" style="margin-bottom:14px;">
+  <div class="nt">🕵️ Harrison Investigation Update</div>
+  <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">FBI Food Baby Investigations — Fraudfurter Division — {UPDATED}</div>
+  <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{HARRISON_UPDATE}</p>
 </div>
 
 <div class="narrative-card" style="margin-bottom:14px;">
@@ -967,6 +1005,26 @@ html = f"""<!DOCTYPE html>
 {MOBILE_FILTER_JS}
 
 {STANDALONE_RELOAD_JS}
+<script>
+(function() {{
+  var ts = {LAST_WEENIE_TS};
+  if (!ts) return;
+  function update() {{
+    var now = Math.floor(Date.now() / 1000);
+    var hrs = Math.floor((now - ts) / 3600);
+    var el = document.getElementById('hoursSince');
+    var wl = document.getElementById('lastWhen');
+    if (el) el.textContent = hrs;
+    if (wl) {{
+      var d = new Date(ts * 1000);
+      wl.textContent = d.toLocaleDateString('en-US', {{month:'short', day:'numeric'}}) + ' at ' +
+        d.toLocaleTimeString('en-US', {{hour:'numeric', minute:'2-digit'}});
+    }}
+  }}
+  update();
+  setInterval(update, 60000);
+}})();
+</script>
 </body>
 </html>"""
 
