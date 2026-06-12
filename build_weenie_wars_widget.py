@@ -626,21 +626,24 @@ STANDALONE_RELOAD_JS = """<script>
 HOURS_SINCE_JS = """<script>
 (function() {
   var SHEET_CSV = 'https://docs.google.com/spreadsheets/d/1-NezoEWSZpeUIZem89ZMltE-kGX_P11LqKVoAwSG0gU/export?format=csv&gid=1814658863';
-  var _lastMs = 0;
+  // WW_LAST_TS is injected at build time by CI — always accurate at page load
+  var _lastMs = (typeof WW_LAST_TS !== 'undefined' && WW_LAST_TS) ? WW_LAST_TS * 1000 : 0;
 
   function parseET(str) {
-    var m = str.trim().replace(/^\"|"$/g,'').match(/(\\d+)\\/(\\d+)\\/(\\d+)\\s+(\\d+):(\\d+):(\\d+)/);
+    var m = str.trim().replace(/^"|"$/g,'').match(/(\\d+)\\/(\\d+)\\/(\\d+)\\s+(\\d+):(\\d+):(\\d+)/);
     if (!m) return 0;
-    // Sheet timestamps are ET/EDT (UTC-4) — add 4h to get UTC ms
     return Date.UTC(+m[3], +m[1]-1, +m[2], +m[4]+4, +m[5], +m[6]);
   }
 
   function tick() {
     if (!_lastMs) return;
-    var hrs = Math.floor((Date.now() - _lastMs) / 3600000);
-    var el = document.getElementById('hoursSince');
-    var wl = document.getElementById('lastWhen');
-    if (el) el.textContent = hrs;
+    var diffMs  = Date.now() - _lastMs;
+    var diffMin = Math.floor(diffMs / 60000);
+    var hrs = Math.floor(diffMin / 60);
+    var min = diffMin % 60;
+    var el  = document.getElementById('hoursSince');
+    var wl  = document.getElementById('lastWhen');
+    if (el) el.textContent = hrs + 'h ' + (min < 10 ? '0' : '') + min + 'm';
     if (wl) {
       var d = new Date(_lastMs);
       wl.textContent = d.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' at ' +
@@ -657,11 +660,13 @@ HOURS_SINCE_JS = """<script>
           var ts = parseET(line.split(',')[0]);
           if (ts > maxMs) maxMs = ts;
         });
-        if (maxMs) { _lastMs = maxMs; tick(); }
+        if (maxMs && maxMs > _lastMs) { _lastMs = maxMs; tick(); }
       })
       .catch(function(){});
   }
 
+  // Run immediately from CI-patched value, then try live fetch
+  if (_lastMs) tick();
   fetchSheet();
   setInterval(tick, 60000);
   setInterval(fetchSheet, 30 * 60 * 1000);
@@ -937,7 +942,7 @@ html = f"""<!DOCTYPE html>
   <div class="months-row">{month_tiles}<div id="droughtTile" style="background:linear-gradient(135deg,#fff8f0,#fff0d8);border:1px solid #e8c070;border-radius:9px;padding:10px 13px;min-width:100px;text-align:center;flex-shrink:0;align-self:flex-start;">
     <div style="font-size:0.62em;color:#8a9abc;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:3px;">⏱ Drought</div>
     <div id="hoursSince" style="font-size:2.1em;font-weight:900;color:#c85000;line-height:1.1;">—</div>
-    <div style="font-size:0.68em;color:#7a8aaa;margin-top:2px;">hrs since last 🌭</div>
+    <div style="font-size:0.68em;color:#7a8aaa;margin-top:2px;">since last 🌭</div>
     <div id="lastWhen" style="font-size:0.6em;color:#aab4cc;margin-top:4px;letter-spacing:0.3px;">loading...</div>
   </div></div>
 </div>
@@ -1047,6 +1052,7 @@ html = f"""<!DOCTYPE html>
 {MOBILE_FILTER_JS}
 
 {STANDALONE_RELOAD_JS}
+<script>var WW_LAST_TS={LAST_WEENIE_TS};</script>
 {HOURS_SINCE_JS}
 </body>
 </html>"""
