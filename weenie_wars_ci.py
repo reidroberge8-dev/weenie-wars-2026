@@ -164,6 +164,14 @@ total_weenies   = sum(totals.get(p, 0) for p in player_names)
 league_avg      = total_weenies / n_players if n_players else 1
 print(f"  {n_players} players, {total_weenies} weenies, avg={league_avg:.3f}")
 
+# Dynamic odds: parimutuel model — weight = total + 0.5 baseline per player
+_odds_weights = {n: totals.get(n, 0) + 0.5 for n in player_names}
+_odds_total   = sum(_odds_weights.values())
+def _odds(name):
+    prob = _odds_weights[name] / _odds_total
+    raw  = (1 / prob - 1) * 100
+    return '+' + str(max(100, round(raw / 50) * 50))
+
 def g(d, k): return d.get(k, 0)
 
 updated = 0
@@ -175,13 +183,14 @@ for name in player_names:
     aug  = g(month_scores[8],  name)
     sep  = g(month_scores[9],  name)
     l7v  = g(l7, name)
-    chmp = round(t / league_avg * 100) if t > 0 else 0
+    chmp  = round(t / league_avg * 100) if t > 0 else 0
+    oddsv = _odds(name)
     pattern = (
         rf'("name":"{name}"[^{{}}]*?"total":)\d+'
         rf'(,"may":)\d+(,"june":)\d+(,"july":)\d+(,"aug":)\d+(,"sep":)\d+'
-        rf'(,"l7":)\d+(,\s*"chomp":)\s*\d+'
+        rf'(,"l7":)\d+(,\s*"chomp":)\s*\d+(,"odds":"[^"]*")'
     )
-    repl = rf'\g<1>{t}\g<2>{may}\g<3>{june}\g<4>{july}\g<5>{aug}\g<6>{sep}\g<7>{l7v}\g<8>{chmp}'
+    repl = rf'\g<1>{t}\g<2>{may}\g<3>{june}\g<4>{july}\g<5>{aug}\g<6>{sep}\g<7>{l7v}\g<8>{chmp},"odds":"{oddsv}"'
     new_src, n = re.subn(pattern, repl, src)
     if n: src = new_src; updated += 1
 
