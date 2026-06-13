@@ -188,7 +188,7 @@ for name in player_names:
     pattern = (
         rf'("name":"{name}"[^{{}}]*?"total":)\d+'
         rf'(,"may":)\d+(,"june":)\d+(,"july":)\d+(,"aug":)\d+(,"sep":)\d+'
-        rf'(,"l7":)\d+(,\s*"chomp":)\s*\d+(,"odds":"[^"]*")'
+        rf'(,"l7":)\d+(,\s*"chomp":)\s*\d+(,\s*"odds":"[^"]*")'
     )
     repl = rf'\g<1>{t}\g<2>{may}\g<3>{june}\g<4>{july}\g<5>{aug}\g<6>{sep}\g<7>{l7v}\g<8>{chmp},"odds":"{oddsv}"'
     new_src, n = re.subn(pattern, repl, src)
