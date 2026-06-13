@@ -103,12 +103,13 @@ UPDATED   = _build_dt.strftime("%I:%M %p ET  %m/%d/%Y").lstrip("0")
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "Commission investigators found a receipt for 47 hot dogs charged to a corporate card registered to a shell company called Nicky's Real Weenies LLC."
+NICK_UPDATE       = "A hot dog vendor near Nick's home has gone suspiciously silent after being subpoenaed by the Commission."
 HARRISON_INVESTIGATION = True
-HARRISON_UPDATE       = "Forensic dieticians testified that the curvature, density, and trajectory of Harrison's Food Baby are inconsistent with hot dog consumption under any known eating model."
+HARRISON_UPDATE       = "FBI (Food Baby Investigations) has confirmed that Harrison, known in weenie circles as Uncle Sam the Glizzy Man, is the subject of a formal Fraudfurter inquiry — the most serious classification in weenie law."
 LAST_WEENIE_TS = 1781319458  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('May 31', 3), ('Jun 5', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
+BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 1120.4, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 294.1, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 271.3, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 248.9, 'delta_b': 0.0}, {'rank': 5, 'name': 'Larry Ellison', 'worth_b': 231.5, 'delta_b': 0.0}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
 
@@ -358,6 +359,65 @@ if BIG_DAYS:
     )
 else:
     BIG_DAYS_HTML = ""
+
+# ── Billionaire Weenie Fund card ─────────────────────────────────────────────
+_WEENIE_PRICE = 5.0  # Nathan's Famous ballpark price
+
+def _fmt_worth(b):
+    if b >= 1000: return f"${b/1000:.2f}T"
+    return f"${b:.0f}B"
+
+def _fmt_w(w):
+    if w >= 1e9:  return f"{w/1e9:.1f}B"
+    if w >= 1e6:  return f"{w/1e6:.1f}M"
+    if w >= 1e3:  return f"{w/1e3:.1f}K"
+    return str(int(w))
+
+if BILLIONAIRE_DATA:
+    _bill_rows = ""
+    for _bi, _bd in enumerate(BILLIONAIRE_DATA):
+        _rbg   = "background:#f7f9fc;" if _bi % 2 == 0 else ""
+        _worth = _fmt_worth(_bd["worth_b"])
+        _ween  = _fmt_w(_bd["worth_b"] * 1e9 / _WEENIE_PRICE)
+        _db    = _bd["delta_b"]
+        if _db > 0.05:
+            _dw    = _fmt_w(abs(_db) * 1e9 / _WEENIE_PRICE)
+            _dcell = f'<td style="text-align:right;padding:6px 4px;color:#00a651;font-weight:600">+{_dw} ↑</td>'
+        elif _db < -0.05:
+            _dw    = _fmt_w(abs(_db) * 1e9 / _WEENIE_PRICE)
+            _dcell = f'<td style="text-align:right;padding:6px 4px;color:#cc2200;font-weight:600">-{_dw} ↓</td>'
+        else:
+            _dcell = '<td style="text-align:right;padding:6px 4px;color:#aab4cc">—</td>'
+        _bill_rows += (
+            f'<tr style="{_rbg}">'
+            f'<td style="padding:6px 4px;color:#7a8aaa;font-size:0.85em">{_bd["rank"]}</td>'
+            f'<td style="padding:6px 4px;color:#334;font-weight:600">{_bd["name"]}</td>'
+            f'<td style="text-align:right;padding:6px 4px;color:#334">{_worth}</td>'
+            f'<td style="text-align:right;padding:6px 4px;font-weight:700;color:#002868">{_ween} 🌭</td>'
+            f'{_dcell}'
+            f'</tr>'
+        )
+    BILLIONAIRE_CARD_HTML = (
+        '<div class="narrative-card" style="margin-bottom:14px;">'
+        '<div class="nt">💰 What Could They Buy?</div>'
+        '<div style="font-size:0.72em;color:#7a8aaa;margin-bottom:8px">Forbes Real-Time Billionaires · priced at $5&thinsp;/&thinsp;🌭</div>'
+        '<table style="width:100%;border-collapse:collapse;font-size:0.88em;">'
+        '<thead><tr>'
+        '<th style="text-align:left;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">#</th>'
+        '<th style="text-align:left;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Name</th>'
+        '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Net Worth</th>'
+        '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">🌭 Weenies</th>'
+        '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Today&thinsp;±</th>'
+        '</tr></thead>'
+        f'<tbody>{_bill_rows}</tbody>'
+        '</table>'
+        '<div style="font-size:0.7em;color:#aab;margin-top:8px;font-style:italic">'
+        '* Today&thinsp;± = weenies gained/lost since market open. Updated every 5 min by CI.</div>'
+        '</div>'
+    )
+else:
+    BILLIONAIRE_CARD_HTML = ""
+
 
 # ── Compute narrative ────────────────────────────────────────────────────────
 
@@ -1002,6 +1062,7 @@ html = f"""<!DOCTYPE html>
 </div>
 
 {BIG_DAYS_HTML}
+{BILLIONAIRE_CARD_HTML}
 <div class="section-title">Leaderboard</div>
 <div class="month-filter" id="monthFilter">
   <span class="mf-label">Month:</span>
