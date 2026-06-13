@@ -9,7 +9,8 @@ on:
   push:
     branches: [main]
     paths:
-      - last_seen.json   # CI commits this when new weenies detected → chains next run
+      - last_seen.json            # CI commits this → chains next run
+      - build_weenie_wars_widget.py  # feature push → triggers immediate resync
   workflow_dispatch:
 
 permissions:
