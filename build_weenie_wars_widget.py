@@ -46,18 +46,18 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":10,"may":5,"june":5,"july":0,"aug":0,"sep":0,"l7":5, "chomp":291,"odds":"+225","move":"▲","mc":"#B22234"},
-    {"name":"Tom",     "place":2, "total":11,"may":1,"june":10,"july":0,"aug":0,"sep":0,"l7":8, "chomp":320,"odds":"+375","move":"▲","mc":"#B22234"},
+    {"name":"Alex",    "place":1, "total":10,"may":5,"june":5,"july":0,"aug":0,"sep":0,"l7":4, "chomp":291,"odds":"+225","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":11,"may":1,"june":10,"july":0,"aug":0,"sep":0,"l7":6, "chomp":320,"odds":"+375","move":"▲","mc":"#B22234"},
     {"name":"Jake",    "place":2, "total":3,"may":3,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":87,"odds":"+800","move":"▲","mc":"#B22234"},
     {"name":"Nick",    "place":2, "total":5,"may":0,"june":5,"july":0,"aug":0,"sep":0,"l7":2, "chomp":145,"odds":"+500","move":"▼","mc":"#2a7a2a"},
-    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":116,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":116,"odds":"+1500","move":"▲","mc":"#B22234"},
     {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":116,"odds":"+1500","move":"▲","mc":"#B22234"},
     {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":87,"odds":"+1500","move":"▲","mc":"#B22234"},
-    {"name":"Jon",     "place":8, "total":9,"may":1,"june":8,"july":0,"aug":0,"sep":0,"l7":8, "chomp":262, "odds":"+4000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jon",     "place":8, "total":9,"may":1,"june":8,"july":0,"aug":0,"sep":0,"l7":6, "chomp":262, "odds":"+4000","move":"▼","mc":"#2a7a2a"},
     {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Noel",    "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":29,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":29,  "odds":"+5000","move":"▲","mc":"#B22234"},
-    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":58,  "odds":"+5000","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":58,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
     {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":58,  "odds":"+6000","move":"▲","mc":"#B22234"},
     {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,  "odds":"+5000","move":"▲","mc":"#B22234"},
@@ -80,7 +80,7 @@ BANNER = {
     "leader_name":   "Tom",
     "leader_total":  11,
     "l7_leader":     "Tom",
-    "l7_score":      8,
+    "l7_score":      6,
     "l7_note":       "none today",
     "months_done":   1,
     "months_total":  5,
@@ -103,9 +103,9 @@ UPDATED   = _build_dt.strftime("%I:%M %p ET  %m/%d/%Y").lstrip("0")
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "A hot dog vendor near Nick's home has gone suspiciously silent after being subpoenaed by the Commission."
+NICK_UPDATE       = "Nick's own phone autocorrects hot dog to fraud — investigators are treating this as a confession."
 HARRISON_INVESTIGATION = True
-HARRISON_UPDATE       = "FBI (Food Baby Investigations) has confirmed that Harrison, known in weenie circles as Uncle Sam the Glizzy Man, is the subject of a formal Fraudfurter inquiry — the most serious classification in weenie law."
+HARRISON_UPDATE       = "Harrison submitted a notarized statement claiming the burgers were consumed accidentally and that he thought they were very flat hot dogs. The FBI called this the worst alibi in Food Baby law."
 LAST_WEENIE_TS = 1781319458  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('May 31', 3), ('Jun 5', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]

@@ -1,5 +1,15 @@
 {
   "csv_hash": "d673c9362971f2423bf9ab79e261fc288a4daaf88e886398dcbb01ae297f3fed",
   "row_count": 38,
-  "updated": "2026-06-13T10:09:19.104281"
+  "updated": "2026-06-13T17:02:55.504675",
+  "bill_day_start": {
+    "date": "2026-06-13",
+    "values": {
+      "Elon Musk": 1120389.387,
+      "Larry Page": 294083.626,
+      "Sergey Brin": 271251.891,
+      "Jeff Bezos": 248928.887,
+      "Larry Ellison": 231495.357
+    }
+  }
 }
