@@ -934,14 +934,14 @@ html = f"""<!DOCTYPE html>
     .stat-notes {{ flex-direction:column; }}
     .stat-note {{ min-width:unset; }}
 
-    /* Table: hide monthly cols + P2J + Odds — leaves Trend/Place/Player/Total/L7/CHOMP+ */
-    table th:nth-child(5),  table td:nth-child(5),   /* P2J */
-    table th:nth-child(6),  table td:nth-child(6),   /* May */
-    table th:nth-child(7),  table td:nth-child(7),   /* June */
-    table th:nth-child(8),  table td:nth-child(8),   /* July */
-    table th:nth-child(9),  table td:nth-child(9),   /* Aug */
-    table th:nth-child(10), table td:nth-child(10),  /* Sep */
-    table th:nth-child(13), table td:nth-child(13)   /* Odds */
+    /* Leaderboard: hide monthly cols + P2J + Odds — leaves Trend/Place/Player/Total/L7/CHOMP+ */
+    #leaderboard-table th:nth-child(5),  #leaderboard-table td:nth-child(5),   /* P2J */
+    #leaderboard-table th:nth-child(6),  #leaderboard-table td:nth-child(6),   /* May */
+    #leaderboard-table th:nth-child(7),  #leaderboard-table td:nth-child(7),   /* June */
+    #leaderboard-table th:nth-child(8),  #leaderboard-table td:nth-child(8),   /* July */
+    #leaderboard-table th:nth-child(9),  #leaderboard-table td:nth-child(9),   /* Aug */
+    #leaderboard-table th:nth-child(10), #leaderboard-table td:nth-child(10),  /* Sep */
+    #leaderboard-table th:nth-child(13), #leaderboard-table td:nth-child(13)   /* Odds */
     {{ display:none; }}
 
     table {{ font-size:0.9em; }}
