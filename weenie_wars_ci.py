@@ -118,6 +118,40 @@ for row in rows:
     day_totals[_dk] = day_totals.get(_dk, 0) + int(row["Weenies Consumed"])
 top5_days = sorted(day_totals.items(), key=lambda x: x[1], reverse=True)[:5]
 
+# ── Fetch Forbes Real-Time Billionaires ──────────────────────────────────────
+FORBES_URL   = "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=personName,finalWorth,naturalId&limit=5"
+WEENIE_PRICE = 5.0
+bill_state   = last_state.get("bill_day_start", {})
+billionaires = None
+try:
+    import urllib.request as _ureq
+    _freq = _ureq.Request(FORBES_URL, headers={"User-Agent": "Mozilla/5.0"})
+    with _ureq.urlopen(_freq, timeout=10) as _fr:
+        _fdata = json.loads(_fr.read())
+    bill_now = {
+        p["personName"]: p["finalWorth"]
+        for p in _fdata["personList"]["personsLists"][:5]
+    }
+    today_str  = today.strftime("%Y-%m-%d")
+    bill_date  = bill_state.get("date", "")
+    bill_start = bill_state.get("values", {})
+    if bill_date != today_str:
+        # New day — snapshot becomes the day-start baseline
+        bill_start = dict(bill_now)
+        bill_state = {"date": today_str, "values": bill_start}
+    billionaires = []
+    for i, (bname, worth_m) in enumerate(sorted(bill_now.items(), key=lambda x: -x[1])[:5]):
+        delta_b = (worth_m - bill_start.get(bname, worth_m)) / 1000
+        billionaires.append({
+            "rank":    i + 1,
+            "name":    bname,
+            "worth_b": round(worth_m / 1000, 1),
+            "delta_b": round(delta_b, 1),
+        })
+    print(f"  Forbes RTB: {[b['name'].split()[-1] for b in billionaires]}")
+except Exception as _fe:
+    print(f"  Forbes RTB fetch failed: {_fe}")
+
 # ── Update build script in memory ────────────────────────────────────────────
 print("Updating build script...")
 with open(BUILD_SCRIPT, "r", encoding="utf-8") as f:
@@ -186,6 +220,14 @@ if rows:
     src = re.sub(r'LAST_WEENIE_TS\s*=\s*\d+', f'LAST_WEENIE_TS = {last_ts_unix}', src)
     print(f"  LAST_WEENIE_TS → {last_ts_unix} ({last_row['Timestamp']} ET)")
 
+if billionaires is not None:
+    src = re.sub(
+        r'BILLIONAIRE_DATA\s*=\s*\[[^\]]*\](?:\s*#[^\n]*)?',
+        f'BILLIONAIRE_DATA = {repr(billionaires)}  # auto-filled by CI',
+        src
+    )
+    print(f"  BILLIONAIRE_DATA patched ({len(billionaires)} entries)")
+
 with open(BUILD_SCRIPT, "w", encoding="utf-8") as f:
     f.write(src)
 print(f"  {updated}/{n_players} player rows updated")
@@ -211,7 +253,10 @@ print(f"Live: https://weenie-wars-2026.web.app  ({today.strftime('%Y-%m-%d %H:%M
 
 # ── Save new state + commit ───────────────────────────────────────────────────
 with open(STATE_FILE, "w") as f:
-    json.dump({"csv_hash": csv_hash, "row_count": len(rows), "updated": today.isoformat()}, f, indent=2)
+    _state_out = {"csv_hash": csv_hash, "row_count": len(rows), "updated": today.isoformat()}
+    if bill_state:
+        _state_out["bill_day_start"] = bill_state
+    json.dump(_state_out, f, indent=2)
 
 subprocess.run(["git", "config", "user.name",  "github-actions[bot]"], cwd=ROOT)
 subprocess.run(["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"], cwd=ROOT)
