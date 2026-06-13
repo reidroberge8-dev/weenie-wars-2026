@@ -6,6 +6,10 @@ on:
     - cron: '*/5 * * * *'
     # 8am ET (noon UTC) — guaranteed daily rebuild regardless of activity
     - cron: '0 12 * * *'
+  push:
+    branches: [main]
+    paths:
+      - last_seen.json   # CI commits this when new weenies detected → chains next run
   workflow_dispatch:
 
 permissions:
