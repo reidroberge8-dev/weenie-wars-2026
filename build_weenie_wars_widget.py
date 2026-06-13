@@ -808,32 +808,19 @@ HOURS_SINCE_JS = """<script>
     var diffM  = Math.floor(diffS / 60);
     var diffH  = Math.floor(diffM / 60);
     var diffD  = Math.floor(diffH / 24);
-    var cntEl  = document.getElementById('droughtCount');
-    var untEl  = document.getElementById('droughtUnit');
-    var subEl  = document.getElementById('droughtSub');
-    var wl     = document.getElementById('lastWhen');
-    var count, unit, sub;
+    var el     = document.getElementById('droughtMain');
+    if (!el) return;
+    var txt;
     if (diffD >= 1) {
-      count = diffD;
-      unit  = diffD === 1 ? 'DAY' : 'DAYS';
-      sub   = (diffH % 24) + 'h ' + (diffM % 60 < 10 ? '0' : '') + (diffM % 60) + 'm';
+      var remH = diffH % 24;
+      txt = diffD + ' Day' + (diffD === 1 ? '' : 's') + ', ' + remH + 'h';
     } else if (diffH >= 1) {
-      count = diffH;
-      unit  = diffH === 1 ? 'HOUR' : 'HOURS';
-      sub   = (diffM % 60) + 'm ' + (diffS % 60 < 10 ? '0' : '') + (diffS % 60) + 's';
+      var remM = diffM % 60;
+      txt = diffH + ' Hour' + (diffH === 1 ? '' : 's') + ', ' + remM + 'm';
     } else {
-      count = diffM;
-      unit  = diffM === 1 ? 'MINUTE' : 'MINUTES';
-      sub   = (diffS % 60) + 's';
+      txt = diffM + ' Min' + (diffM === 1 ? '' : 's');
     }
-    if (cntEl) cntEl.textContent = count;
-    if (untEl) untEl.textContent = unit;
-    if (subEl) subEl.textContent = sub;
-    if (wl) {
-      var d = new Date(_lastMs);
-      wl.textContent = d.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' ' +
-        d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-    }
+    el.textContent = txt;
   }
 
   function fetchSheet() {
@@ -1133,11 +1120,9 @@ html = f"""<!DOCTYPE html>
     <span style="background:#1a2744;color:#ffd700;font-size:0.62em;padding:1px 7px;border-radius:10px;font-weight:bold;letter-spacing:1px">🌭 LIVE</span>
     <div style="margin-top:7px;padding-top:6px;border-top:1.5px solid rgba(26,39,68,0.3)">
       <div style="font-size:0.6em;text-transform:uppercase;letter-spacing:1px;color:#1a2744;font-weight:700;margin-bottom:2px">this group has gone</div>
-      <div id="droughtUnit" style="font-size:0.9em;font-weight:bold;color:#1a2744">DAYS</div>
-      <div id="droughtCount" style="font-size:1.35em;font-weight:900;color:#cc0000;line-height:1.1;font-variant-numeric:tabular-nums">—</div>
+      <div id="droughtMain" style="font-size:1.35em;font-weight:900;color:#cc0000;line-height:1.1;font-variant-numeric:tabular-nums">—</div>
+      <div style="font-size:0.9em;font-weight:bold;color:#1a2744">without a 🌭</div>
     </div>
-    <div id="droughtSub" style="display:none"></div>
-    <div id="lastWhen" style="display:none"></div>
   </div></div>
 </div>
 
