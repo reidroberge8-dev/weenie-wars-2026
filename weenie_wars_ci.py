@@ -86,11 +86,29 @@ today_date     = today.strftime("%Y-%m-%d")
 scores_changed = csv_hash != last_hash
 force_rebuild  = os.environ.get("FORCE_REBUILD", "false") == "true"
 
-if not scores_changed and not force_rebuild:
-    print("No new entries — skipping update.")
+# Stale-script detection: compare live sheet totals to build script.
+# Catches manual pushes that overwrote CI-updated scores.
+with open(BUILD_SCRIPT, "r", encoding="utf-8") as _f:
+    _bsrc = _f.read()
+_script_totals = {m.group(1): int(m.group(2)) for m in re.finditer(r'"name":"(\w+)"[^}]*?"total":(\d+)', _bsrc)}
+_live_totals = {}
+for _r in rows:
+    _n = _r["Name"].strip().replace("John", "Jon")
+    _live_totals[_n] = _live_totals.get(_n, 0) + int(_r["Weenies Consumed"])
+scores_stale = any(_script_totals.get(n, -1) != _live_totals.get(n, 0) for n in _script_totals)
+if scores_stale:
+    print(f"  Script scores stale ({sum(_live_totals.values())} sheet vs {sum(_script_totals.values())} script) — forcing update.")
+
+if not scores_changed and not force_rebuild and not scores_stale:
+    print("No new entries, scores current — skipping.")
     sys.exit(0)
 
 if scores_changed:
+    print(f"  Score change detected ({last_hash[:12] if last_hash else 'none'} → {csv_hash[:12]}) — full update.")
+elif scores_stale:
+    print("  Scores out of sync with sheet — resyncing.")
+else:
+    print("  No new weenies — 8am daily force-rebuild.")
     print(f"  Score change detected ({last_hash[:12] if last_hash else 'none'} → {csv_hash[:12]}) — full update.")
 else:
     print("  No new weenies — 8am daily force-rebuild.")
