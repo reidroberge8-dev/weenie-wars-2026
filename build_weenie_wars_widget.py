@@ -1111,9 +1111,8 @@ html = f"""<!DOCTYPE html>
 <div class="months-wrap" style="margin-bottom:12px;">
   <div class="section-title">Monthly Status</div>
   <div class="months-row">{month_tiles}<div id="droughtTile" style="background:#ffd700;border:2.5px solid #1a2744;border-radius:9px;padding:10px 13px;min-width:100px;text-align:center;flex-shrink:0;align-self:flex-start">
-    <div style="color:#1a2744;font-weight:900;font-size:0.85em;margin-bottom:5px;letter-spacing:1px">⚠ WEENIE WATCH</div>
-    <span style="background:#1a2744;color:#ffd700;font-size:0.62em;padding:1px 7px;border-radius:10px;font-weight:bold;letter-spacing:1px">🌭 LIVE</span>
-    <div style="margin-top:7px;padding-top:6px;border-top:1.5px solid rgba(26,39,68,0.3)">
+    <div style="color:#1a2744;font-weight:900;font-size:0.85em;margin-bottom:5px;letter-spacing:0.5px;white-space:nowrap">⚠ WEENIE WATCH</div>
+    <div style="margin-top:19px;padding-top:6px;border-top:1.5px solid rgba(26,39,68,0.3)">
       <div style="font-size:0.6em;text-transform:uppercase;letter-spacing:1px;color:#1a2744;font-weight:700;margin-bottom:2px">this group has gone</div>
       <div id="droughtMain" style="font-size:1.35em;font-weight:900;color:#cc0000;line-height:1.1;font-variant-numeric:tabular-nums">—</div>
       <div style="font-size:0.9em;font-weight:bold;color:#1a2744">without a 🌭</div>
