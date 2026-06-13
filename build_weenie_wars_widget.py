@@ -399,7 +399,7 @@ if BILLIONAIRE_DATA:
         )
     BILLIONAIRE_CARD_HTML = (
         '<div class="narrative-card" style="margin-bottom:14px;">'
-        '<div class="nt">💰 What Could They Buy?</div>'
+        '<div class="nt">🌭 Real Time Elite Weenies</div>'
         '<div style="font-size:0.72em;color:#7a8aaa;margin-bottom:8px">Forbes Real-Time Billionaires · priced at $5&thinsp;/&thinsp;🌭</div>'
         '<table style="width:100%;border-collapse:collapse;font-size:0.88em;">'
         '<thead><tr>'
@@ -803,16 +803,35 @@ HOURS_SINCE_JS = """<script>
 
   function tick() {
     if (!_lastMs) return;
-    var diffMs  = Date.now() - _lastMs;
-    var diffMin = Math.floor(diffMs / 60000);
-    var hrs = Math.floor(diffMin / 60);
-    var min = diffMin % 60;
-    var el  = document.getElementById('hoursSince');
-    var wl  = document.getElementById('lastWhen');
-    if (el) el.textContent = hrs + 'h ' + (min < 10 ? '0' : '') + min + 'm';
+    var diffMs = Date.now() - _lastMs;
+    var diffS  = Math.floor(diffMs / 1000);
+    var diffM  = Math.floor(diffS / 60);
+    var diffH  = Math.floor(diffM / 60);
+    var diffD  = Math.floor(diffH / 24);
+    var cntEl  = document.getElementById('droughtCount');
+    var untEl  = document.getElementById('droughtUnit');
+    var subEl  = document.getElementById('droughtSub');
+    var wl     = document.getElementById('lastWhen');
+    var count, unit, sub;
+    if (diffD >= 1) {
+      count = diffD;
+      unit  = diffD === 1 ? 'DAY' : 'DAYS';
+      sub   = (diffH % 24) + 'h ' + (diffM % 60 < 10 ? '0' : '') + (diffM % 60) + 'm';
+    } else if (diffH >= 1) {
+      count = diffH;
+      unit  = diffH === 1 ? 'HOUR' : 'HOURS';
+      sub   = (diffM % 60) + 'm ' + (diffS % 60 < 10 ? '0' : '') + (diffS % 60) + 's';
+    } else {
+      count = diffM;
+      unit  = diffM === 1 ? 'MINUTE' : 'MINUTES';
+      sub   = (diffS % 60) + 's';
+    }
+    if (cntEl) cntEl.textContent = count;
+    if (untEl) untEl.textContent = unit;
+    if (subEl) subEl.textContent = sub;
     if (wl) {
       var d = new Date(_lastMs);
-      wl.textContent = d.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' at ' +
+      wl.textContent = d.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' ' +
         d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
     }
   }
@@ -1109,13 +1128,17 @@ html = f"""<!DOCTYPE html>
 </div>
 <div class="months-wrap" style="margin-bottom:12px;">
   <div class="section-title">Monthly Status</div>
-  <div class="months-row">{month_tiles}<div id="droughtTile" style="background:linear-gradient(135deg,#fff8f0,#fff0d8);border:1px solid #e8c070;border-radius:9px;padding:10px 13px;min-width:100px;text-align:center;flex-shrink:0;align-self:flex-start;">
-    <div style="color:#c85000;font-weight:bold;font-size:0.85em;margin-bottom:5px;letter-spacing:1px">⏱ Drought</div>
-    <span style="background:#e8c070;color:#7a5000;font-size:0.62em;padding:1px 7px;border-radius:10px;letter-spacing:1px">LIVE</span>
-    <div style="margin-top:7px;padding-top:6px;border-top:1px solid #e8c070">
-      <div style="font-size:0.6em;text-transform:uppercase;letter-spacing:1px;color:#8a9abc;margin-bottom:2px">since last 🌭</div>
-      <div id="lastWhen" style="font-size:0.9em;font-weight:bold;color:#c85000">loading...</div>
-      <div id="hoursSince" style="font-size:1.35em;font-weight:900;color:#c85000;line-height:1.1">—</div>
+  <div class="months-row">{month_tiles}<div id="droughtTile" style="background:#ffd700;border:3px solid #1a2744;border-radius:5px;padding:0;min-width:110px;text-align:center;flex-shrink:0;align-self:flex-start;overflow:hidden">
+    <div style="background:#1a2744;color:#ffd700;font-size:0.58em;font-weight:900;padding:5px 8px;letter-spacing:1.5px;text-transform:uppercase;line-height:1.35">⚠ WEENIE<br>WATCH</div>
+    <div style="padding:6px 10px 8px">
+      <div style="font-size:0.52em;color:#1a2744;font-weight:700;text-transform:uppercase;letter-spacing:0.3px;line-height:1.4;margin-bottom:5px">This facility<br>has gone</div>
+      <div style="background:#fff;border:2.5px solid #1a2744;border-radius:3px;margin:0 auto 4px;padding:4px 6px;display:inline-block;min-width:54px">
+        <div id="droughtCount" style="font-size:1.8em;font-weight:900;color:#cc0000;line-height:1;font-variant-numeric:tabular-nums">—</div>
+      </div>
+      <div id="droughtUnit" style="font-size:0.65em;font-weight:900;color:#1a2744;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px">DAYS</div>
+      <div style="font-size:0.52em;color:#1a2744;font-weight:700;text-transform:uppercase;letter-spacing:0.3px;border-top:1.5px solid rgba(26,39,68,0.2);padding-top:4px;margin-bottom:4px">without a 🌭</div>
+      <div id="droughtSub" style="font-size:0.52em;color:#555;font-weight:600">—</div>
+      <div id="lastWhen" style="font-size:0.5em;color:#666;margin-top:1px">loading...</div>
     </div>
   </div></div>
 </div>
