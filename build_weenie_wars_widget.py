@@ -663,6 +663,112 @@ CHART_SECTION = (
       '}});})();</script>'
 )
 
+HOME_SCREEN_JS = """<style>
+@keyframes ww-slide-up { from { transform:translateY(60px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+@keyframes ww-bounce   { 0%,100% { transform:translateY(0); } 50% { transform:translateY(8px); } }
+</style>
+<script>
+(function() {
+  var btn = document.getElementById('installBtn');
+  var ua  = navigator.userAgent;
+  var isIOS       = /iPhone|iPad/.test(ua);
+  var isSafari    = /Safari/.test(ua) && !/CriOS|FxiOS|EdgiOS|OPiOS/.test(ua);
+  var isStandalone = window.navigator.standalone === true;
+  var _prompt = null;
+
+  // Android/Chrome: capture install prompt — allows skipping share sheet entirely
+  window.addEventListener('beforeinstallprompt', function(e) {
+    e.preventDefault();
+    _prompt = e;
+    if (btn) btn.style.display = 'inline-block';
+  });
+
+  // iOS Safari (not already installed)
+  if (isIOS && isSafari && !isStandalone && btn) {
+    btn.style.display = 'inline-block';
+  }
+
+  // Inject modal HTML once on first use
+  var _modalEl = null;
+  function buildModal() {
+    if (_modalEl) return;
+    _modalEl = document.createElement('div');
+    _modalEl.id = 'ww-install-modal';
+    _modalEl.innerHTML =
+      '<div id="ww-install-overlay" onclick="if(event.target===this)closeInstallModal()" '
+      + 'style="position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9998;'
+      + 'display:none;align-items:flex-end;justify-content:center;padding-bottom:0">'
+      + '<div style="background:#fff;border-radius:20px 20px 0 0;padding:22px 20px 40px;'
+      + 'max-width:440px;width:100%;position:relative;animation:ww-slide-up 0.25s ease-out">'
+      // close button
+      + '<button onclick="closeInstallModal()" style="position:absolute;top:12px;right:16px;'
+      + 'border:none;background:none;font-size:1.5em;color:#999;cursor:pointer;line-height:1;'
+      + 'padding:4px 8px;border-radius:50%">&#10005;</button>'
+      // header
+      + '<div style="text-align:center;margin-bottom:18px;padding-top:4px">'
+      + '<div style="font-size:1.35em;font-weight:900;color:#002868;margin-bottom:5px">📲 Add to Home Screen</div>'
+      + '<div style="font-size:0.83em;color:#7a8aaa;line-height:1.4">Open Weenie Wars like a native app —<br>instant load, no browser chrome</div>'
+      + '</div>'
+      // steps
+      + '<div style="display:flex;flex-direction:column;gap:10px;margin-bottom:22px">'
+      // step 1
+      + '<div style="display:flex;align-items:center;gap:13px;background:#f0f4fb;'
+      + 'border-radius:12px;padding:12px 14px">'
+      + '<span style="font-size:1.5em;min-width:30px;text-align:center">1️⃣</span>'
+      + '<span style="font-size:0.88em;color:#334;line-height:1.4">Tap the '
+      + '<strong style="color:#002868">Share</strong> button '
+      + '<span style="display:inline-block;border:1.5px solid #445580;border-radius:4px;'
+      + 'padding:0 4px;font-size:1.1em;line-height:1.3;vertical-align:middle">&#11014;</span>'
+      + ' at the <strong>bottom</strong> of Safari</span>'
+      + '</div>'
+      // step 2
+      + '<div style="display:flex;align-items:center;gap:13px;background:#f0f4fb;'
+      + 'border-radius:12px;padding:12px 14px">'
+      + '<span style="font-size:1.5em;min-width:30px;text-align:center">2️⃣</span>'
+      + '<span style="font-size:0.88em;color:#334;line-height:1.4">Scroll down and tap '
+      + '<strong style="color:#002868">"Add to Home Screen"</strong></span>'
+      + '</div>'
+      // step 3
+      + '<div style="display:flex;align-items:center;gap:13px;background:#f0f4fb;'
+      + 'border-radius:12px;padding:12px 14px">'
+      + '<span style="font-size:1.5em;min-width:30px;text-align:center">3️⃣</span>'
+      + '<span style="font-size:0.88em;color:#334;line-height:1.4">Tap '
+      + '<strong style="color:#002868">"Add"</strong> in the top-right corner</span>'
+      + '</div>'
+      + '</div>'
+      // bounce arrow
+      + '<div style="text-align:center">'
+      + '<span style="font-size:2em;display:inline-block;animation:ww-bounce 1.1s ease-in-out infinite">⬇️</span>'
+      + '<div style="font-size:0.72em;color:#aab4cc;margin-top:4px;letter-spacing:0.3px">'
+      + 'Share button is in the Safari toolbar below</div>'
+      + '</div>'
+      + '</div>'
+      + '</div>';
+    document.body.appendChild(_modalEl);
+  }
+
+  window.showInstallModal = function() {
+    if (_prompt) {
+      // Android: fire native prompt — user skips the share sheet entirely
+      _prompt.prompt();
+      _prompt.userChoice.then(function(r) {
+        if (r.outcome === 'accepted' && btn) btn.style.display = 'none';
+        _prompt = null;
+      });
+      return;
+    }
+    buildModal();
+    var ov = document.getElementById('ww-install-overlay');
+    if (ov) { ov.style.display = 'flex'; }
+  };
+
+  window.closeInstallModal = function() {
+    var ov = document.getElementById('ww-install-overlay');
+    if (ov) ov.style.display = 'none';
+  };
+})();
+</script>"""
+
 STANDALONE_RELOAD_JS = """<script>
 (function() {
   // iOS standalone mode: reload when app returns from background after 5+ min
@@ -881,7 +987,8 @@ html = f"""<!DOCTYPE html>
     letter-spacing:0.5px; white-space:nowrap; color:#fff;
   }}
   .btn-red  {{ background:#B22234; box-shadow:0 2px 6px rgba(178,34,52,0.3); }}
-  .btn-navy {{ background:#002868; box-shadow:0 2px 6px rgba(0,40,104,0.3); }}
+  .btn-navy    {{ background:#002868; box-shadow:0 2px 6px rgba(0,40,104,0.3); }}
+  .btn-install {{ display:none; background:#1a7340; box-shadow:0 2px 6px rgba(26,115,64,0.3); }}
 
   /* Month filter pills */
   .month-filter {{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; }}
@@ -996,6 +1103,9 @@ html = f"""<!DOCTYPE html>
   <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn-link btn-navy">
     🌭 Click for FREE WEENIES!
   </a>
+  <button id="installBtn" class="btn-link btn-install" onclick="showInstallModal()" style="display:none;border:none;cursor:pointer;font-size:0.82em">
+    📲 Add to Home Screen
+  </button>
 </div>
 <div class="months-wrap" style="margin-bottom:12px;">
   <div class="section-title">Monthly Status</div>
@@ -1115,6 +1225,7 @@ html = f"""<!DOCTYPE html>
 {PLAYER_DATA_SCRIPT}
 {MOBILE_FILTER_JS}
 
+{HOME_SCREEN_JS}
 {STANDALONE_RELOAD_JS}
 <script>var WW_LAST_TS={LAST_WEENIE_TS};</script>
 {HOURS_SINCE_JS}
