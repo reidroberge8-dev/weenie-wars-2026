@@ -109,9 +109,6 @@ elif scores_stale:
     print("  Scores out of sync with sheet — resyncing.")
 else:
     print("  No new weenies — 8am daily force-rebuild.")
-    print(f"  Score change detected ({last_hash[:12] if last_hash else 'none'} → {csv_hash[:12]}) — full update.")
-else:
-    print("  No new weenies — 8am daily force-rebuild.")
 
 # ── Calculate scores ──────────────────────────────────────────────────────────
 l7_cutoff = today - timedelta(days=7)
