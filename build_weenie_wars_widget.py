@@ -813,12 +813,12 @@ HOURS_SINCE_JS = """<script>
     var txt;
     if (diffD >= 1) {
       var remH = diffH % 24;
-      txt = diffD + ' Day' + (diffD === 1 ? '' : 's') + ', ' + remH + 'h';
+      txt = diffD + 'd ' + remH + 'h';
     } else if (diffH >= 1) {
       var remM = diffM % 60;
-      txt = diffH + ' Hour' + (diffH === 1 ? '' : 's') + ', ' + remM + 'm';
+      txt = diffH + 'h ' + remM + 'm';
     } else {
-      txt = diffM + ' Min' + (diffM === 1 ? '' : 's');
+      txt = diffM + 'm';
     }
     el.textContent = txt;
   }
@@ -1113,9 +1113,9 @@ html = f"""<!DOCTYPE html>
   <div class="months-row">{month_tiles}<div id="droughtTile" style="background:#ffd700;border:2.5px solid #1a2744;border-radius:9px;padding:10px 13px;min-width:100px;text-align:center;flex-shrink:0;align-self:flex-start">
     <div style="color:#1a2744;font-weight:900;font-size:0.85em;margin-bottom:5px;letter-spacing:0.5px;white-space:nowrap">⚠ WEENIE WATCH</div>
     <div style="margin-top:19px;padding-top:6px;border-top:1.5px solid rgba(26,39,68,0.3)">
-      <div style="font-size:0.6em;text-transform:uppercase;letter-spacing:1px;color:#1a2744;font-weight:700;margin-bottom:2px">this group has gone</div>
-      <div id="droughtMain" style="font-size:1.35em;font-weight:900;color:#cc0000;line-height:1.1;font-variant-numeric:tabular-nums">—</div>
-      <div style="font-size:0.9em;font-weight:bold;color:#1a2744">without a 🌭</div>
+      <div style="font-size:0.6em;text-transform:uppercase;letter-spacing:1px;color:#1a2744;font-weight:700;margin-bottom:2px;white-space:nowrap">this group has gone</div>
+      <div id="droughtMain" style="font-size:1.35em;font-weight:900;color:#cc0000;line-height:1.1;font-variant-numeric:tabular-nums;white-space:nowrap">—</div>
+      <div style="font-size:0.9em;font-weight:bold;color:#1a2744;white-space:nowrap">without a 🌭</div>
     </div>
   </div></div>
 </div>
