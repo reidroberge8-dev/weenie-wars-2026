@@ -399,7 +399,7 @@ if BILLIONAIRE_DATA:
         )
     BILLIONAIRE_CARD_HTML = (
         '<div class="narrative-card" style="margin-bottom:14px;">'
-        '<div class="nt">🌭 Real Time Elite Weenies</div>'
+        '<div class="nt">💰 What Could They Buy?</div>'
         '<div style="font-size:0.72em;color:#7a8aaa;margin-bottom:8px">Forbes Real-Time Billionaires · priced at $5&thinsp;/&thinsp;🌭</div>'
         '<table style="width:100%;border-collapse:collapse;font-size:0.88em;">'
         '<thead><tr>'
@@ -1128,18 +1128,16 @@ html = f"""<!DOCTYPE html>
 </div>
 <div class="months-wrap" style="margin-bottom:12px;">
   <div class="section-title">Monthly Status</div>
-  <div class="months-row">{month_tiles}<div id="droughtTile" style="background:#ffd700;border:3px solid #1a2744;border-radius:5px;padding:0;min-width:110px;text-align:center;flex-shrink:0;align-self:flex-start;overflow:hidden">
-    <div style="background:#1a2744;color:#ffd700;font-size:0.58em;font-weight:900;padding:5px 8px;letter-spacing:1.5px;text-transform:uppercase;line-height:1.35">⚠ WEENIE<br>WATCH</div>
-    <div style="padding:6px 10px 8px">
-      <div style="font-size:0.52em;color:#1a2744;font-weight:700;text-transform:uppercase;letter-spacing:0.3px;line-height:1.4;margin-bottom:5px">This facility<br>has gone</div>
-      <div style="background:#fff;border:2.5px solid #1a2744;border-radius:3px;margin:0 auto 4px;padding:4px 6px;display:inline-block;min-width:54px">
-        <div id="droughtCount" style="font-size:1.8em;font-weight:900;color:#cc0000;line-height:1;font-variant-numeric:tabular-nums">—</div>
-      </div>
-      <div id="droughtUnit" style="font-size:0.65em;font-weight:900;color:#1a2744;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px">DAYS</div>
-      <div style="font-size:0.52em;color:#1a2744;font-weight:700;text-transform:uppercase;letter-spacing:0.3px;border-top:1.5px solid rgba(26,39,68,0.2);padding-top:4px;margin-bottom:4px">without a 🌭</div>
-      <div id="droughtSub" style="font-size:0.52em;color:#555;font-weight:600">—</div>
-      <div id="lastWhen" style="font-size:0.5em;color:#666;margin-top:1px">loading...</div>
+  <div class="months-row">{month_tiles}<div id="droughtTile" style="background:#ffd700;border:2.5px solid #1a2744;border-radius:9px;padding:10px 13px;min-width:100px;text-align:center;flex-shrink:0;align-self:flex-start">
+    <div style="color:#1a2744;font-weight:900;font-size:0.85em;margin-bottom:5px;letter-spacing:1px">⚠ WEENIE WATCH</div>
+    <span style="background:#1a2744;color:#ffd700;font-size:0.62em;padding:1px 7px;border-radius:10px;font-weight:bold;letter-spacing:1px">🌭 LIVE</span>
+    <div style="margin-top:7px;padding-top:6px;border-top:1.5px solid rgba(26,39,68,0.3)">
+      <div style="font-size:0.6em;text-transform:uppercase;letter-spacing:1px;color:#1a2744;font-weight:700;margin-bottom:2px">this group has gone</div>
+      <div id="droughtUnit" style="font-size:0.9em;font-weight:bold;color:#1a2744">DAYS</div>
+      <div id="droughtCount" style="font-size:1.35em;font-weight:900;color:#cc0000;line-height:1.1;font-variant-numeric:tabular-nums">—</div>
     </div>
+    <div id="droughtSub" style="display:none"></div>
+    <div id="lastWhen" style="display:none"></div>
   </div></div>
 </div>
 
