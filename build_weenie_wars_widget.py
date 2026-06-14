@@ -194,7 +194,9 @@ try:
         except: continue
         try:
             _ts  = _dtnow.strptime(_r["Timestamp"].strip(), "%m/%d/%Y %H:%M:%S").replace(tzinfo=_ET)
-            _dk  = _ts.strftime("%b %-d") if hasattr(_ts, 'strftime') else _ts.strftime("%b %d").lstrip("0").replace(" 0"," ")
+            _sfx = 'th' if 11 <= _ts.day <= 13 else {1:'st',2:'nd',3:'rd'}.get(_ts.day % 10, 'th')
+            _dk  = _ts.strftime(f"%A %B {_ts.day}{_sfx}")
+            if (_ts.month, _ts.day) in ((5, 25), (7, 4), (9, 7)): _dk += ' 🇺🇸'
         except: continue
         _day_tots[_dk] = _day_tots.get(_dk, 0) + _ct
     BIG_DAYS[:] = sorted(_day_tots.items(), key=lambda x: x[1], reverse=True)[:5]
