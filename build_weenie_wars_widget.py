@@ -46,23 +46,23 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":5, "chomp":283,"odds":"+550","move":"▲","mc":"#B22234"},
-    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":8, "chomp":361,"odds":"+400","move":"▲","mc":"#B22234"},
-    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":103,"odds":"+1550","move":"▲","mc":"#B22234"},
-    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":1, "chomp":155,"odds":"+1050","move":"▼","mc":"#2a7a2a"},
-    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":103,"odds":"+1550","move":"▲","mc":"#B22234"},
-    {"name":"Scott",   "place":5, "total":5,"may":2,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":129,"odds":"+1250","move":"▲","mc":"#B22234"},
-    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":77,"odds":"+2050","move":"▲","mc":"#B22234"},
-    {"name":"Jon",     "place":8, "total":12,"may":1,"june":11,"july":0,"aug":0,"sep":0,"l7":8, "chomp":309,"odds":"+500","move":"▼","mc":"#2a7a2a"},
-    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
-    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":52,"odds":"+2900","move":"▲","mc":"#B22234"},
-    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":26,"odds":"+4850","move":"▲","mc":"#B22234"},
-    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":52,"odds":"+2900","move":"▲","mc":"#B22234"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
-    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":52,"odds":"+2900","move":"▲","mc":"#B22234"},
-    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
-    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
-    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
+    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":6, "chomp":203,"odds":"+600","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":11, "chomp":258,"odds":"+400","move":"▲","mc":"#B22234"},
+    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":3, "chomp":111,"odds":"+1000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":55,"odds":"+1950","move":"▲","mc":"#B22234"},
+    {"name":"Jon",     "place":8, "total":12,"may":1,"june":11,"july":0,"aug":0,"sep":0,"l7":11, "chomp":222,"odds":"+500","move":"▼","mc":"#2a7a2a"},
+    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":18,"odds":"+4750","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
 ]
 
 MONTHS = [
@@ -81,11 +81,11 @@ BANNER = {
     "leader_name":   "Tom",
     "leader_total":  14,
     "l7_leader":     "Tom",
-    "l7_score":      8,
-    "l7_note":       "none today",
+    "l7_score":      11,
+    "l7_note":       "3 today",
     "months_done":   1,
     "months_total":  5,
-    "players":       17,
+    "players":       22,
 }
 
 # ─── NARRATIVE ───────────────────────────────────────────────────────────────
@@ -104,12 +104,13 @@ UPDATED   = _build_dt.strftime("%I:%M %p ET  %m/%d/%Y").lstrip("0")
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_LOG = [{"date": "Jun 13", "text": "A grocery store security camera caught Nick purchasing a single hot dog bun with no hot dog at 11:52pm on a Tuesday. Investigators spent six weeks trying to understand this and ultimately filed it under the most suspicious innocent act we have ever witnessed. The bun was entered into evidence."}, {"date": "Jun 12", "text": "Surveillance footage recovered from a 7-Eleven shows Nick entering at 2:47am, wandering the hot dog roller section for eleven minutes, purchasing nothing, and leaving while staring directly at the ceiling. Behavioral analysts have been studying the tape for three weeks and remain baffled."}, {"date": "Jun 11", "text": "Commission forensic accountants traced a payment of $847 from Nick to a Venmo contact labeled Not a Hot Dog Guy on the same day as his largest single-day entry. Neither Nick nor Not a Hot Dog Guy would comment. Not a Hot Dog Guy has since deleted his account. The Commission is looking for him."}]  # auto-filled by CI: newest first
+NICK_LOG = [{"date": "Jun 14","text": "Surveillance footage shows Nick entering a Costco at 11:58pm, purchasing ninety-six hot dogs, and then immediately returning them. The return receipt exists. The purchase receipt exists. There is no window in which the hot dogs could have been consumed. Nick says he changed his mind. Investigators say that is not an explanation."},{"date": "Jun 13","text": "A grocery store security camera caught Nick purchasing a single hot dog bun with no hot dog at 11:52pm on a Tuesday. Investigators spent six weeks trying to understand this and ultimately filed it under the most suspicious innocent act we have ever witnessed. The bun was entered into evidence."},{"date": "Jun 12","text": "Surveillance footage recovered from a 7-Eleven shows Nick entering at 2:47am, wandering the hot dog roller section for eleven minutes, purchasing nothing, and leaving while staring directly at the ceiling. Behavioral analysts have been studying the tape for three weeks and remain baffled."}]  # auto-filled by CI: newest first
 HARRISON_INVESTIGATION = True
 HARRISON_LOG = [{"date": "Jun 13", "text": "The FBI recovered a Post-it note from Harrison's recycling bin reading 'remember: hot dogs only, no burgers, they are watching.' Handwriting confirmed it was Harrison's. A second Post-it nearby read 'also destroy this note.' He had not destroyed either note. Both are now Exhibit A and Exhibit B."}, {"date": "Jun 12", "text": "Harrison's insurance adjuster testified that upon receiving the eleventh Food Baby photo, he called his supervisor assuming he was being pranked. His supervisor also assumed it was a prank. Both are now in therapy. The insurance company has requested the photos be destroyed. The FBI said absolutely not."}, {"date": "Jun 11", "text": "Uncle Sam the Glizzy Man appeared at his deposition in a t-shirt reading 'Glizzy Innocent' in large block letters, which his attorney had specifically told him not to wear. The shirt was confiscated as evidence. Harrison asked for it back three separate times. The answer was no each time."}]  # auto-filled by CI: newest first
-LAST_WEENIE_TS = 1781451717  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
+LAST_WEENIE_TS = 1781396729  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
-BIG_DAYS      = [('Thursday June11th', 15), ('Saturday June6th', 14), ('Monday May25th 🇺🇸', 12), ('Saturday June13th', 10), ('Sunday May31st', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
+BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('Jun 13', 9), ('May 31', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
+BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
 BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 1120.4, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 294.1, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 271.3, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 248.9, 'delta_b': 0.0}, {'rank': 5, 'name': 'Larry Ellison', 'worth_b': 231.5, 'delta_b': 0.0}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
@@ -200,6 +201,22 @@ try:
         except: continue
         _day_tots[_dk] = _day_tots.get(_dk, 0) + _ct
     BIG_DAYS[:] = sorted(_day_tots.items(), key=lambda x: x[1], reverse=True)[:5]
+    # Build per-day per-player breakdown for expandable rows
+    _bkdn = {}
+    for _r in _rows:
+        _nm2 = _r['Name'].strip().replace('John', 'Jon')
+        try: _ct2 = int(float(_r['Weenies Consumed']))
+        except: continue
+        try:
+            _ts2 = _dtnow.strptime(_r['Timestamp'].strip(), '%m/%d/%Y %H:%M:%S').replace(tzinfo=_ET)
+            _sfx2 = 'th' if 11 <= _ts2.day <= 13 else {1:'st',2:'nd',3:'rd'}.get(_ts2.day % 10, 'th')
+            _dk2  = _ts2.strftime(f'%A %B {_ts2.day}{_sfx2}')
+            if (_ts2.month, _ts2.day) in ((5, 25), (7, 4), (9, 7)): _dk2 += ' 🇺🇸'
+        except: continue
+        _bkdn.setdefault(_dk2, {})
+        _bkdn[_dk2][_nm2] = _bkdn[_dk2].get(_nm2, 0) + _ct2
+    BIG_DAYS_BREAKDOWN.clear()
+    BIG_DAYS_BREAKDOWN.update({dk: _bkdn[dk] for dk, _ in BIG_DAYS if dk in _bkdn})
     # Update LAST_WEENIE_TS
     _all_ts = []
     for _r in _rows:
@@ -408,14 +425,26 @@ if BIG_DAYS:
     for _i, (_date, _cnt) in enumerate(BIG_DAYS):
         _lbs  = round(_cnt * 2 / 16, 2)
         _ft   = round(_cnt * 6 / 12, 2)
-        _rbg  = "background:#f7f9fc;" if _i % 2 == 0 else ""
+        _rbg  = "background:#f7f9fc;" if _i % 2 == 0 else "background:#fff;"
+        # Build breakdown pills
+        _bk = BIG_DAYS_BREAKDOWN.get(_date, {})
+        _pills = "".join(
+            f'<span style="display:inline-flex;align-items:center;gap:3px;background:#fff;border:1px solid #c8d4e8;border-radius:4px;padding:2px 7px;font-size:0.82em;color:#334;white-space:nowrap"><strong style="color:#002868">{_pn}</strong>&nbsp;{_pc}&nbsp;🌭</span>'
+            for _pn, _pc in sorted(_bk.items(), key=lambda x: -x[1]) if _pc > 0
+        )
         _big_rows += (
-            f'<tr style="{_rbg}">'
-            f'<td style="padding:6px 4px;color:#334">{_date}</td>'
+            f'<tr style="{_rbg}cursor:pointer" onclick="toggleBigDay({_i})">'
+            f'<td style="padding:6px 4px;color:#334">'
+            f'<span id="bwd-arrow-{_i}" style="font-size:0.7em;margin-right:5px;color:#7a8aaa">▶</span>{_date}</td>'
             f'<td style="text-align:right;padding:6px 4px;font-weight:700;color:#002868">{_cnt}</td>'
             f'<td style="text-align:right;padding:6px 4px;color:#666">{_lbs} lbs</td>'
             f'<td style="text-align:right;padding:6px 4px;color:#666">{_ft} ft</td>'
             f'</tr>'
+            f'<tr id="bwd-{_i}" style="display:none">'
+            f'<td colspan="4" style="padding:6px 10px 10px 10px;background:#eef1f8;'
+            f'border-bottom:1px solid #d0daee">'
+            f'<div style="display:flex;flex-wrap:wrap;gap:5px">{_pills}</div>'
+            f'</td></tr>'
         )
     BIG_DAYS_HTML = (
         '<div class="nt">🏆 <span style="font-size:1.25em;font-weight:900;color:#002868">Biggest Weenie</span> Days</div>'
@@ -509,6 +538,13 @@ function switchBBW(id) {
     document.getElementById('bbw-'+n).style.display = (n===id) ? '' : 'none';
     document.getElementById('bbw-'+n+'-btn').classList.toggle('active', n===id);
   });
+}
+function toggleBigDay(i) {
+  var row   = document.getElementById('bwd-'+i);
+  var arrow = document.getElementById('bwd-arrow-'+i);
+  var open  = row.style.display !== 'none';
+  row.style.display  = open ? 'none' : '';
+  arrow.textContent  = open ? '\u25b6' : '\u25bc';
 }
 </script>"""
 
