@@ -129,7 +129,9 @@ for row in rows:
 day_totals = {}
 for row in rows:
     _dt_d = datetime.strptime(row["Timestamp"], "%m/%d/%Y %H:%M:%S")
-    _dk   = f"{_dt_d.strftime('%b')} {_dt_d.day}"
+    _sfx  = 'th' if 11 <= _dt_d.day <= 13 else {1:'st',2:'nd',3:'rd'}.get(_dt_d.day % 10, 'th')
+    _dk   = f"{_dt_d.strftime('%A %B')}{_dt_d.day}{_sfx}"
+    if (_dt_d.month, _dt_d.day) in ((5, 25), (7, 4), (9, 7)): _dk += ' 🇺🇸'
     day_totals[_dk] = day_totals.get(_dk, 0) + int(row["Weenies Consumed"])
 top5_days = sorted(day_totals.items(), key=lambda x: x[1], reverse=True)[:5]
 
