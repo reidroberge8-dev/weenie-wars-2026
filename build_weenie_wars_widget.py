@@ -427,11 +427,7 @@ NARRATIVE_SWITCHER_JS = """<script>
 function switchNarrative(id) {
   ['nick','harrison','analyst'].forEach(function(n) {
     document.getElementById('narr-'+n).style.display = (n===id) ? '' : 'none';
-    var b = document.getElementById('nb-'+n);
-    var on = (n===id);
-    b.style.background   = on ? '#B22234' : '#fff';
-    b.style.color        = on ? '#fff'    : '#002868';
-    b.style.borderColor  = on ? '#B22234' : '#002868';
+    document.getElementById('nb-'+n).classList.toggle('active', n===id);
   });
 }
 </script>"""
@@ -1171,13 +1167,18 @@ html = f"""<!DOCTYPE html>
 
 </div>
 
+<div class="section-title">Recent News</div>
 <div class="narrative-card" style="margin-bottom:14px;">
   <div style="display:flex;gap:6px;margin-bottom:12px;">
-    <button id="nb-nick"     class="narr-btn active" onclick="switchNarrative('nick')">🔍 Nick</button>
+    <button id="nb-analyst"  class="narr-btn active" onclick="switchNarrative('analyst')">📊 Analyst</button>
+    <button id="nb-nick"     class="narr-btn"        onclick="switchNarrative('nick')">🔍 Nick</button>
     <button id="nb-harrison" class="narr-btn"        onclick="switchNarrative('harrison')">🕵️ Harrison</button>
-    <button id="nb-analyst"  class="narr-btn"        onclick="switchNarrative('analyst')">📊 Analyst</button>
   </div>
-  <div id="narr-nick">
+  <div id="narr-analyst">
+    <div class="nt">📊 Analyst's Take</div>
+    <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{ANALYST_TAKE}</p>
+  </div>
+  <div id="narr-nick" style="display:none">
     <div class="nt">🔍 Nick Investigation Update</div>
     <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">Supreme Weenie Update — {UPDATED}</div>
     <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{NICK_UPDATE}</p>
@@ -1186,10 +1187,6 @@ html = f"""<!DOCTYPE html>
     <div class="nt">🕵️ Harrison Investigation Update</div>
     <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">FBI Food Baby Investigations — Fraudfurter Division — {UPDATED}</div>
     <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{HARRISON_UPDATE}</p>
-  </div>
-  <div id="narr-analyst" style="display:none">
-    <div class="nt">📊 Analyst's Take</div>
-    <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{ANALYST_TAKE}</p>
   </div>
 </div>
 {NARRATIVE_SWITCHER_JS}
