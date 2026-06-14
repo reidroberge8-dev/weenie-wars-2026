@@ -46,23 +46,23 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":5, "chomp":283,"odds":"+550","move":"▲","mc":"#B22234"},
-    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":8, "chomp":361,"odds":"+400","move":"▲","mc":"#B22234"},
-    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":103,"odds":"+1550","move":"▲","mc":"#B22234"},
-    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":1, "chomp":155,"odds":"+1050","move":"▼","mc":"#2a7a2a"},
-    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":103,"odds":"+1550","move":"▲","mc":"#B22234"},
-    {"name":"Scott",   "place":5, "total":5,"may":2,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":129,"odds":"+1250","move":"▲","mc":"#B22234"},
-    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":77,"odds":"+2050","move":"▲","mc":"#B22234"},
-    {"name":"Jon",     "place":8, "total":12,"may":1,"june":11,"july":0,"aug":0,"sep":0,"l7":8, "chomp":309,"odds":"+500","move":"▼","mc":"#2a7a2a"},
-    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
-    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":52,"odds":"+2900","move":"▲","mc":"#B22234"},
-    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":26,"odds":"+4850","move":"▲","mc":"#B22234"},
-    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":52,"odds":"+2900","move":"▲","mc":"#B22234"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
-    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":52,"odds":"+2900","move":"▲","mc":"#B22234"},
-    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
-    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
-    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
+    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":6, "chomp":203,"odds":"+600","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":11, "chomp":258,"odds":"+400","move":"▲","mc":"#B22234"},
+    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":3, "chomp":111,"odds":"+1000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":55,"odds":"+1950","move":"▲","mc":"#B22234"},
+    {"name":"Jon",     "place":8, "total":12,"may":1,"june":11,"july":0,"aug":0,"sep":0,"l7":11, "chomp":222,"odds":"+500","move":"▼","mc":"#2a7a2a"},
+    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":18,"odds":"+4750","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
 ]
 
 MONTHS = [
@@ -81,11 +81,11 @@ BANNER = {
     "leader_name":   "Tom",
     "leader_total":  14,
     "l7_leader":     "Tom",
-    "l7_score":      8,
-    "l7_note":       "none today",
+    "l7_score":      11,
+    "l7_note":       "3 today",
     "months_done":   1,
     "months_total":  5,
-    "players":       17,
+    "players":       22,
 }
 
 # ─── NARRATIVE ───────────────────────────────────────────────────────────────
@@ -107,10 +107,11 @@ NICK_INVESTIGATION = True
 NICK_LOG = [{"date": "Jun 14","text": "Surveillance footage shows Nick entering a Costco at 11:58pm, purchasing ninety-six hot dogs, and then immediately returning them. The return receipt exists. The purchase receipt exists. There is no window in which the hot dogs could have been consumed. Nick says he changed his mind. Investigators say that is not an explanation."},{"date": "Jun 13","text": "A grocery store security camera caught Nick purchasing a single hot dog bun with no hot dog at 11:52pm on a Tuesday. Investigators spent six weeks trying to understand this and ultimately filed it under the most suspicious innocent act we have ever witnessed. The bun was entered into evidence."},{"date": "Jun 12","text": "Surveillance footage recovered from a 7-Eleven shows Nick entering at 2:47am, wandering the hot dog roller section for eleven minutes, purchasing nothing, and leaving while staring directly at the ceiling. Behavioral analysts have been studying the tape for three weeks and remain baffled."}]  # auto-filled by CI: newest first
 HARRISON_INVESTIGATION = True
 HARRISON_LOG = [{"date": "Jun 13", "text": "The FBI recovered a Post-it note from Harrison's recycling bin reading 'remember: hot dogs only, no burgers, they are watching.' Handwriting confirmed it was Harrison's. A second Post-it nearby read 'also destroy this note.' He had not destroyed either note. Both are now Exhibit A and Exhibit B."}, {"date": "Jun 12", "text": "Harrison's insurance adjuster testified that upon receiving the eleventh Food Baby photo, he called his supervisor assuming he was being pranked. His supervisor also assumed it was a prank. Both are now in therapy. The insurance company has requested the photos be destroyed. The FBI said absolutely not."}, {"date": "Jun 11", "text": "Uncle Sam the Glizzy Man appeared at his deposition in a t-shirt reading 'Glizzy Innocent' in large block letters, which his attorney had specifically told him not to wear. The shirt was confiscated as evidence. Harrison asked for it back three separate times. The answer was no each time."}]  # auto-filled by CI: newest first
-LAST_WEENIE_TS = 1781451717  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
+LAST_WEENIE_TS = 1781396729  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
-BIG_DAYS      = [('Thursday June11th', 15), ('Saturday June6th', 14), ('Monday May25th 🇺🇸', 12), ('Saturday June13th', 10), ('Sunday May31st', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
+BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('Jun 13', 9), ('May 31', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
 BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
+WEENIE_LOG = []  # auto-filled by live-patch: [{player, count, display_ts, sort_ts}] newest first
 BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 1120.4, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 294.1, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 271.3, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 248.9, 'delta_b': 0.0}, {'rank': 5, 'name': 'Larry Ellison', 'worth_b': 231.5, 'delta_b': 0.0}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
@@ -217,6 +218,20 @@ try:
         _bkdn[_dk2][_nm2] = _bkdn[_dk2].get(_nm2, 0) + _ct2
     BIG_DAYS_BREAKDOWN.clear()
     BIG_DAYS_BREAKDOWN.update({dk: _bkdn[dk] for dk, _ in BIG_DAYS if dk in _bkdn})
+    # Build full weenie log (all entries, newest first)
+    _log_entries = []
+    for _r in _rows:
+        _nm3 = _r['Name'].strip().replace('John', 'Jon')
+        try: _ct3 = int(float(_r['Weenies Consumed']))
+        except: continue
+        try:
+            _ts3 = _dtnow.strptime(_r['Timestamp'].strip(), '%m/%d/%Y %H:%M:%S').replace(tzinfo=_ET)
+            _sfx3 = 'th' if 11 <= _ts3.day <= 13 else {1:'st',2:'nd',3:'rd'}.get(_ts3.day % 10, 'th')
+            _disp3 = _ts3.strftime(f'%b {_ts3.day}{_sfx3}, %I:%M %p').lstrip('0')
+        except: continue
+        _log_entries.append({'player': _nm3, 'count': _ct3, 'display_ts': _disp3, 'sort_ts': _ts3.timestamp()})
+    WEENIE_LOG.clear()
+    WEENIE_LOG.extend(sorted(_log_entries, key=lambda x: -x['sort_ts']))
     # Update LAST_WEENIE_TS
     _all_ts = []
     for _r in _rows:
@@ -463,6 +478,31 @@ if BIG_DAYS:
 else:
     BIG_DAYS_HTML = ""
 
+# ── Full Weenie Log HTML ─────────────────────────────────────────────────────
+if WEENIE_LOG:
+    _log_rows = ""
+    for _li, _entry in enumerate(WEENIE_LOG):
+        _lrbg = "background:#f7f9fc;" if _li % 2 == 0 else "background:#fff;"
+        _log_rows += (
+            f'<tr style="{_lrbg}">'
+            f'<td style="padding:5px 6px;color:#7a8aaa;font-size:0.82em;white-space:nowrap">{_entry["display_ts"]}</td>'
+            f'<td style="padding:5px 6px;color:#334;font-weight:600">{_entry["player"]}</td>'
+            f'<td style="text-align:right;padding:5px 6px;font-weight:700;color:#002868">{_entry["count"]} 🌭</td>'
+            f'</tr>'
+        )
+    WEENIE_LOG_HTML = (
+        '<table style="width:100%;border-collapse:collapse;font-size:0.88em;">'
+        '<thead><tr>'
+        '<th style="text-align:left;color:#7a8aaa;font-weight:600;padding:4px 6px;border-bottom:1px solid #e0e6f0">When</th>'
+        '<th style="text-align:left;color:#7a8aaa;font-weight:600;padding:4px 6px;border-bottom:1px solid #e0e6f0">Player</th>'
+        '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 6px;border-bottom:1px solid #e0e6f0">Logged</th>'
+        '</tr></thead>'
+        f'<tbody>{_log_rows}</tbody>'
+        '</table>'
+    )
+else:
+    WEENIE_LOG_HTML = '<div style="color:#aab;text-align:center;padding:20px">No weenies logged yet.</div>'
+
 # ── Billionaire Weenie Fund card ─────────────────────────────────────────────
 _WEENIE_PRICE = 5.0  # Nathan's Famous ballpark price
 
@@ -545,6 +585,13 @@ function toggleBigDay(i) {
   var open  = row.style.display !== 'none';
   row.style.display  = open ? 'none' : '';
   arrow.textContent  = open ? '\u25b6' : '\u25bc';
+}
+function toggleWeenielog() {
+  var panel = document.getElementById("weenie-log-panel");
+  var btn   = document.getElementById("wl-btn");
+  var open  = panel.style.display !== "none";
+  panel.style.display = open ? "none" : "";
+  btn.textContent = open ? "\U0001f4cb Full Weenie Log" : "\u2715 Hide Log";
 }
 </script>"""
 
@@ -1347,6 +1394,12 @@ html = f"""<!DOCTYPE html>
   <div class="stat-note"><strong>Odds</strong> — American format. +300 = $100 wins $300. <span style="color:#2a7a2a">▼ shortened</span> / <span style="color:#B22234">▲ lengthened</span>.</div>
 </div>
 
+<div style="text-align:center;margin:16px 0 6px">
+  <button id="wl-btn" onclick="toggleWeenielog()" style="background:#002868;color:#fff;border:none;padding:9px 24px;border-radius:6px;cursor:pointer;font-size:0.9em;font-weight:700;letter-spacing:0.4px">📋 Full Weenie Log</button>
+</div>
+<div id="weenie-log-panel" style="display:none;margin:0 0 18px">
+  {WEENIE_LOG_HTML}
+</div>
 
 {CHART_SECTION}
 
