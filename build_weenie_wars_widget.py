@@ -1112,7 +1112,7 @@ html = f"""<!DOCTYPE html>
 <div class="months-wrap" style="margin-bottom:12px;">
   <div class="section-title">Monthly Status</div>
   <div class="months-row">{month_tiles}<div id="droughtTile" style="background:#ffd700;border:2.5px solid #1a2744;border-radius:9px;padding:10px 13px;min-width:100px;text-align:center;flex-shrink:0;align-self:stretch;display:flex;flex-direction:column;justify-content:center">
-    <div style="color:#1a2744;font-weight:900;font-size:0.85em;margin-bottom:5px;letter-spacing:0.5px;line-height:1.25;text-align:center">🚨 WEENIE<br>WATCH</div>
+    <div style="color:#1a2744;font-weight:900;font-size:0.85em;margin-bottom:5px;letter-spacing:0.5px;line-height:1.25;text-align:center">🚨 WEENIE 🚨<br>🚨 WATCH 🚨</div>
     <div style="margin-top:6px">
       <div style="font-size:0.6em;text-transform:uppercase;letter-spacing:1px;color:#1a2744;font-weight:700;margin-bottom:2px;white-space:nowrap">this group has gone</div>
       <div id="droughtMain" style="font-size:1.35em;font-weight:900;color:#cc0000;line-height:1.1;font-variant-numeric:tabular-nums;white-space:nowrap">—</div>
