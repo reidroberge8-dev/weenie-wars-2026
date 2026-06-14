@@ -57,7 +57,7 @@ PLAYERS = [
     {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
     {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":53,"odds":"+2800","move":"▲","mc":"#B22234"},
     {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":27,"odds":"+4750","move":"▲","mc":"#B22234"},
-    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":53,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":53,"odds":"+2800","move":"▲","mc":"#B22234"},
     {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
     {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":53,"odds":"+2800","move":"▲","mc":"#B22234"},
     {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
@@ -1112,7 +1112,7 @@ html = f"""<!DOCTYPE html>
 <div class="months-wrap" style="margin-bottom:12px;">
   <div class="section-title">Monthly Status</div>
   <div class="months-row">{month_tiles}<div id="droughtTile" style="background:#ffd700;border:2.5px solid #1a2744;border-radius:9px;padding:10px 13px;min-width:100px;text-align:center;flex-shrink:0;align-self:flex-start">
-    <div style="color:#1a2744;font-weight:900;font-size:0.85em;margin-bottom:5px;letter-spacing:0.5px;white-space:nowrap">⚠ WEENIE WATCH</div>
+    <div style="color:#1a2744;font-weight:900;font-size:0.85em;margin-bottom:5px;letter-spacing:0.5px;line-height:1.25;text-align:center">👀 WEENIE<br>WATCH</div>
     <div style="margin-top:19px;padding-top:6px;border-top:1.5px solid rgba(26,39,68,0.3)">
       <div style="font-size:0.6em;text-transform:uppercase;letter-spacing:1px;color:#1a2744;font-weight:700;margin-bottom:2px;white-space:nowrap">this group has gone</div>
       <div id="droughtMain" style="font-size:1.35em;font-weight:900;color:#cc0000;line-height:1.1;font-variant-numeric:tabular-nums;white-space:nowrap">—</div>
