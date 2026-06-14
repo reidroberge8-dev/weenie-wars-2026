@@ -1,9 +1,9 @@
 {
-  "csv_hash": "6e48349a4530ba68e8018e6a9d78e57ff553404d24bc93de1b7c044855fde4cf",
-  "row_count": 44,
-  "updated": "2026-06-13T23:58:10.604349",
+  "csv_hash": "69972466c10ddc5525e94d861011a2d25afbdd02ec159debf4da7f2e1dd89a3d",
+  "row_count": 45,
+  "updated": "2026-06-14T00:25:34.302349",
   "bill_day_start": {
-    "date": "2026-06-13",
+    "date": "2026-06-14",
     "values": {
       "Elon Musk": 1120389.387,
       "Larry Page": 294083.626,
