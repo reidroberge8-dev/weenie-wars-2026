@@ -70,6 +70,61 @@ HARRISON_UPDATES = [
     "The Fraudfurter Division formally requested Harrison be placed on the Weenie Watch List, a designation reserved for individuals whose hot dog activity poses a systemic risk to competitive eating integrity. Harrison's attorney called it an overreach. The Division said it is the minimum appropriate response. The list now has one name on it.",
     "At the conclusion of the most recent hearing, Harrison was asked if he had anything to say to the Commission. He stood up, adjusted his jacket, said I just want everyone to know I really like hot dogs, and sat back down. The room was silent for 17 seconds. His attorney put his head on the table. It has been entered as Exhibit 91: The Statement.",
 ]
+# ── Headline templates (4 categories, picked 1 each at 8am rebuild) ──────────
+BREAKING_TEMPLATES = [
+    "{leader} leads Weenie Wars at {leader_total} total — {leader_pct}% of Joey Chestnut's {joey}-dog benchmark. The gap over {second} is {gap}. The Commission describes the situation as active and developing, which is also how they describe the investigation.",
+    "League-wide total: {total_weenies} weenies across {n_active} active competitors this season. Joey Chestnut has been informed. He declined to comment and ate something during the briefing. The briefing is being described as one-sided.",
+    "{leader} holds first place with {leader_total} weenies, which is {leader_total} more than the {zero_count} competitors who have not logged one. The {zero_count} have been notified. Their responses are pending. The Commission is not waiting up.",
+    "OFFICIAL STANDINGS: {leader} ({leader_total}), {second} ({second_total}), and {n_active} others trying. A gap of {gap} separates the top two. This gap has been named. Its name is The Chasm. It is shaped like a hot dog.",
+    "{n_active} of {n_players} competitors are on the board. The {zero_count} who are not have been issued a formal reminder that the season is {season_pct}% complete and the weenies are not going to eat themselves. The Commission has confirmed that is not how weenies work.",
+    "{leader} is running at {leader_pct}% of Joey Chestnut's benchmark. Joey was briefed. He asked what percentage. They told him. He nodded, said nothing, and went back to eating. The briefing is being described as inconclusive.",
+    "The gap between {leader} and {second} stands at {gap} weenie{gap_plural}. The Commission's analysts have been watching this number. It has been described as stubborn, meaningful, and uncomfortable to read aloud at press conferences.",
+    "First-place update: {leader} with {leader_total}. Second-place: {second} with {second_total}. The math connecting them is subtraction. The result is {gap}. The Commission reviewed this math and confirmed it is correct and also unflattering for {second}.",
+    "The Weenie Wars season is {season_pct}% complete. {leader} leads with {leader_total}. Joey Chestnut's record stands at {joey}. The distance between these two numbers is large. The Commission has described it as aspirational. Players have used other words.",
+    "Competitors have collectively consumed {total_weenies} weenies since Memorial Day. At the league average of {league_avg} per active player, Joey Chestnut's {joey}-dog record would require the combined efforts of the entire active field for multiple seasons. Joey was not moved by this analysis.",
+]
+
+HOT_TEMPLATES = [
+    "{l7_leader} is the hot hand with {l7} weenies in the last 7 days. Extrapolated over the full season, that pace yields {l7_proj} total. {leader} has been briefed. They described the projection as alarming and asked if it could be un-briefed. It could not.",
+    "Seven-day leader: {l7_leader} with {l7} entries. The grill is hot, the mustard is flowing, and the rest of the field has been observed checking their phones more than usual. The Commission has noted this pattern.",
+    "{l7_leader} — {l7} weenies in seven days. If you are {second} and you are reading this, you should consider eating something. The Commission recommends a hot dog, specifically.",
+    "Momentum report: {l7_leader} has the hot hand at {l7} over the last week. At this pace, the overall standings will shift by end of month. {leader}'s camp has declined to project by how much. The Commission estimates: considerably.",
+    "PACE ALERT: {l7_leader} with {l7} in the last 7 days has triggered a formal pace review. The review concluded the pace is real, the weenies are documented, and the field should be concerned. Two competitors have purchased hot dogs since receiving the report.",
+    "{l7_leader}'s L7 of {l7} represents the most active stretch by any competitor this week. Scientists reviewed this and confirmed it is, quote, a lot of hot dogs in a short period of time. The Commission agrees and has deployed an observer.",
+    "A {l7}-weenie week from {l7_leader} has raised the competition temperature. {lagging}, currently at {lagging_total} for the season, was asked for comment. They said they are aware of the situation. They did not say what they plan to do about it.",
+    "{l7_leader} with {l7} in 7 days. The projected full-season pace at this rate is {l7_proj} weenies. Joey Chestnut was shown this projection. He made no expression that any witness could describe as impressed.",
+    "{l7_leader} has been the most active competitor this week at {l7} entries. The Commission has been watching. The Commission has been timing. The Commission has not said anything yet. This has been described as ominous by at least one competitor.",
+    "Hot hand of the week: {l7_leader} with {l7}. {second} with {second_total} total is watching from {gap} back. The Commission released a statement saying the race is very much on. Two players asked them to stop saying that. The statement was reissued.",
+]
+
+STANDINGS_TEMPLATES = [
+    "{zero_count} competitors have not logged a single weenie. The Commission sent a certified letter to each. Two were delivered. One came back with 'return to sender' written on it in what analysts believe is the handwriting of the recipient. This is being investigated separately.",
+    "League average: {league_avg} weenies per active competitor. {leader} is at {leader_total}. The gap between those two numbers is doing a lot of work in this competition.",
+    "{lagging} has {lagging_total} weenie{lagging_plural} on the season — a P2J of {lagging_pct}% of Joey Chestnut's benchmark. Joey Chestnut's team has no comment. They expressed no comment with great confidence.",
+    "{zero_count} players have not eaten a single official weenie. Their names are on file. Their excuses are also on file. The Commission reviewed the excuses and categorized them as creative, implausible, and in one case simply the word no.",
+    "Current standings: {n_active} active competitors and {zero_count} who have yet to begin. The season is {season_pct}% done. The Commission will not say it is too late. They will also not say it is not too late. Both statements are simultaneously true.",
+    "The average active competitor has consumed {league_avg} weenies this season. Joey Chestnut's record is {joey} in ten minutes. The Commission is not here to make anyone feel bad about this. They are simply here to note it.",
+    "ODDS MOVEMENT: {leader} remains the favorite. {second} is within {gap}. {lagging} at {lagging_total} requires significant commitment between now and Labor Day. The Commission has confirmed this is possible and also very optimistic.",
+    "{second} trails {leader} by {gap}. In eating terms, that is {gap} separate events. {second}'s camp says they are not trailing. The Commission says subtraction does not care about camps. The gap is {gap}. It has been confirmed.",
+    "SEASON TRACKER: {season_pct}% complete. {n_active} active. {total_weenies} logged. {remaining} more needed for {leader} to match Joey Chestnut. The Commission notes that some of these numbers are more motivating than others.",
+    "Field report: of {n_players} competitors, {n_active} are active and {zero_count} have registered no weenies. The {zero_count} have been asked to explain themselves. None have explained themselves. The Commission filed this under ongoing situation.",
+]
+
+INVESTIGATION_TEMPLATES = [
+    "NICK INVESTIGATION, DAY ONGOING: Nick has {nick_total} entries on file. Each has been reviewed. Each has raised questions. Not all the questions have been answered. The lead investigator describes the situation as the most thoroughly documented confusion in Commission history.",
+    "The Harrison case entered a new phase after FBI analysts confirmed the smell coming from Harrison's alleged hot dog preparation area is not a hot dog smell and is instead consistent with either a hamburger or something that spent time near a hamburger and developed feelings about it.",
+    "TOM ALERT: Tom's name has appeared on the Epween List, a confidential Commission registry reserved for competitors whose consumption rates exceed statistical plausibility by a margin described as eyebrow-raising. Tom currently has {tom_total} entries. The eyebrow is raised and has not come down.",
+    "FOOTLONG LOGS UPDATE: Sources confirm Tom's name appears in the Footlong Logs — a classified internal document tracking single-day consumption events of unusual volume. Tom's {tom_total}-total season has generated multiple entries. Tom has declined to comment on the Footlong Logs, which the Commission notes is exactly what someone on the Footlong Logs would do.",
+    "Nick's attorney filed a motion to have {nick_total} entries reviewed under a more lenient standard. The standard was not changed. The motion was denied in 11 minutes, which the Commission noted is their second-fastest denial. Nick asked what the fastest was. The Commission said it was also one of Nick's motions.",
+    "Harrison's defense submitted a sworn affidavit stating he has always believed hot dogs to be cylindrical, beef-based, and served in a bun — which investigators confirmed is the definition of a hot dog and also does not explain the 31 Wendy's receipts. Harrison said the receipts are circumstantial. The Commission disagrees.",
+    "The Epween List gained a notable entry this week. Tom, whose season total of {tom_total} has drawn scrutiny from the High Volume Unit, was placed under enhanced monitoring. The High Volume Unit described the placement as routine. The placement was not routine. The Commission confirmed the placement was not routine.",
+    "FRAUDFURTER DIVISION QUARTERLY UPDATE: Nick — {nick_total} entries under review. Harrison — entries classified irregular. Tom — flagged for Footlong Log entries and Epween List classification. The Division requested additional staff. The request is pending. They are short-staffed and also slightly overwhelmed.",
+    "The Commission confirmed Tom is subject to a Footlong Log review after single-day totals triggered an audit under Rule 47-C: Implausible Consumption Events. Tom has {tom_total} weenies on the season. Rule 47-C was written specifically for situations like this, which the Commission says is not an accusation. It is a classification.",
+    "Harrison submitted new exculpatory evidence: a gas station receipt for a cylindrical food item dated during the competition window. Forensic analysts confirmed the receipt is real and the station sells both hot dogs and sausages under the same label. Harrison said he ordered the hot dog. The analyst said he cannot confirm that from a receipt. Harrison said that is the point of a receipt.",
+    "An anonymous tip alleged Nick keeps a second log under the alias W. Glizzy. The Commission investigated for three weeks. W. Glizzy has not been located. Nick says he has no idea who that is. Nick paused for two seconds before saying it. The two seconds have been entered into evidence.",
+    "EPWEEN LIST STATUS: Tom remains on the list. Harrison remains on a separate classification. Nick is under standard review. All three cases are active. The lead investigator described the combined caseload as unprecedented, exhausting, and honestly kind of impressive.",
+]
+
 
 today      = datetime.now()  # defined here so cache-bust and all downstream code can use it
 
@@ -87,6 +142,8 @@ if os.path.exists(STATE_FILE):
         last_state = json.load(f)
 
 last_hash      = last_state.get("csv_hash", "")
+prev_odds_data = last_state.get("odds", {})  # for move direction
+current_odds   = {}  # populated during player update loop
 today_date     = today.strftime("%Y-%m-%d")
 
 scores_changed = csv_hash != last_hash
@@ -197,6 +254,14 @@ def _odds(name):
 
 def g(d, k): return d.get(k, 0)
 
+def _odds_prob(odds_str):
+    """Convert American odds string to implied probability (higher = better)."""
+    try:
+        o = int(str(odds_str).replace("+",""))
+        return -100 / o if o < 0 else 100 / (o + 100)
+    except: return 0.0
+
+
 updated = 0
 for name in player_names:
     t    = g(totals, name)
@@ -208,12 +273,18 @@ for name in player_names:
     l7v  = g(l7, name)
     chmp  = round(t / league_avg * 100) if t > 0 else 0
     oddsv = _odds(name)
+    current_odds[name] = oddsv
+    prev_oddsv = prev_odds_data.get(name, oddsv)
+    if   _odds_prob(oddsv) > _odds_prob(prev_oddsv): movev, mcv = "\u25bc", "#2a7a2a"
+    elif _odds_prob(oddsv) < _odds_prob(prev_oddsv): movev, mcv = "\u25b2", "#B22234"
+    else:                                             movev, mcv = "\u2014", "#7a8aaa"
     pattern = (
         rf'("name":"{name}"[^{{}}]*?"total":)\d+'
         rf'(,"may":)\d+(,"june":)\d+(,"july":)\d+(,"aug":)\d+(,"sep":)\d+'
         rf'(,"l7":)\d+(,\s*"chomp":)\s*\d+(,\s*"odds":"[^"]*")'
+        r',\s*"move":"[^"]*",\s*"mc":"[^"]*"'
     )
-    repl = rf'\g<1>{t}\g<2>{may}\g<3>{june}\g<4>{july}\g<5>{aug}\g<6>{sep}\g<7>{l7v}\g<8>{chmp},"odds":"{oddsv}"'
+    repl = rf'\g<1>{t}\g<2>{may}\g<3>{june}\g<4>{july}\g<5>{aug}\g<6>{sep}\g<7>{l7v}\g<8>{chmp},"odds":"{oddsv}","move":"{movev}","mc":"{mcv}"'
     new_src, n = re.subn(pattern, repl, src)
     if n: src = new_src; updated += 1
 
@@ -240,6 +311,63 @@ src = re.sub(r'BIG_DAYS\s*=\s*\[[^\]]*\]', f'BIG_DAYS      = {repr(top5_days)}',
 # Nick/Harrison logs rotate on the 8am daily force-rebuild — prepend new entry, keep 3
 if force_rebuild:
     today_label = today.strftime("%b %-d")  # e.g. "Jun 14"
+    # ── Generate 4 daily headlines from live stats ──────────────────────────
+    _hl_sorted  = sorted(player_names, key=lambda p: totals.get(p,0), reverse=True)
+    _hl_leader  = _hl_sorted[0] if _hl_sorted else "TBD"
+    _hl_lt      = totals.get(_hl_leader, 0)
+    _hl_second  = _hl_sorted[1] if len(_hl_sorted)>1 else _hl_leader
+    _hl_st      = totals.get(_hl_second, 0)
+    _hl_gap     = max(0, _hl_lt - _hl_st)
+    _hl_l7ldr   = max(l7, key=l7.get) if l7 else _hl_leader
+    _hl_l7      = l7.get(_hl_l7ldr, 0)
+    _hl_l7proj  = round(_hl_l7 * 22) if _hl_l7 else 0
+    _hl_active  = [p for p in player_names if totals.get(p,0)>0]
+    _hl_zeros   = [p for p in player_names if totals.get(p,0)==0]
+    _hl_lagging = sorted(_hl_active, key=lambda p: totals.get(p,0))[0] if _hl_active else "TBD"
+    _hl_lt2     = totals.get(_hl_lagging, 0)
+    _hl_tw      = sum(totals.get(p,0) for p in player_names)
+    _hl_avg     = round(_hl_tw / len(_hl_active), 1) if _hl_active else 0
+    _hl_joey    = 70.5
+    from datetime import date as _hdate
+    _hl_elapsed = max(0,(_hdate.today()-_hdate(2026,5,25)).days)
+    _hl_spct    = round(_hl_elapsed/(_hdate(2026,9,7)-_hdate(2026,5,25)).days*100)
+    _hl_vars    = {
+        "leader":_hl_leader,"leader_total":_hl_lt,"second":_hl_second,
+        "second_total":_hl_st,"gap":_hl_gap,
+        "gap_plural":"" if _hl_gap==1 else "s",
+        "l7_leader":_hl_l7ldr,"l7":_hl_l7,"l7_proj":_hl_l7proj,
+        "lagging":_hl_lagging,"lagging_total":_hl_lt2,
+        "lagging_plural":"" if _hl_lt2==1 else "s",
+        "lagging_pct":round(_hl_lt2/_hl_joey*100,1),
+        "zero_count":len(_hl_zeros),"n_active":len(_hl_active),
+        "n_players":len(player_names),"total_weenies":_hl_tw,
+        "league_avg":_hl_avg,"leader_pct":round(_hl_lt/_hl_joey*100,1),
+        "joey":_hl_joey,"remaining":max(0,int(_hl_joey)-_hl_lt),
+        "season_pct":_hl_spct,
+        "nick_total":totals.get("Nick",0),
+        "harrison_total":totals.get("Harrison",0),
+        "tom_total":totals.get("Tom",0),
+    }
+    import hashlib as _hlib
+    random.seed(int(_hlib.md5(today_label.encode()).hexdigest()[:8],16))
+    _hl_cats = [
+        ("\U0001f4f0","BREAKING",BREAKING_TEMPLATES),
+        ("\U0001f525","HOT STREAK",HOT_TEMPLATES),
+        ("\U0001f4ca","STANDINGS",STANDINGS_TEMPLATES),
+        ("\U0001f575\ufe0f","INVESTIGATION",INVESTIGATION_TEMPLATES),
+    ]
+    _headlines = []
+    for _icon, _lbl, _pool in _hl_cats:
+        _tmpl = random.choice(_pool)
+        try: _txt = _tmpl.format(**_hl_vars)
+        except KeyError: _txt = _tmpl
+        _headlines.append({"icon":_icon,"label":_lbl,"text":_txt,"date":today_label})
+    src = re.sub(
+        r'HEADLINES\s*=\s*\[.*?\]\s*#[^\n]*',
+        f'HEADLINES = {repr(_headlines)}  # auto-filled by CI: 4 headlines per day',
+        src, flags=re.DOTALL
+    )
+    print(f"  Headlines generated for {today_label}")
     for _person, _pool, _var in [
         ("Nick",    NICK_UPDATES,    "NICK_LOG"),
         ("Harrison", HARRISON_UPDATES, "HARRISON_LOG"),
@@ -305,6 +433,8 @@ with open(STATE_FILE, "w") as f:
     _state_out = {"csv_hash": csv_hash, "row_count": len(rows), "updated": today.isoformat()}
     if bill_state:
         _state_out["bill_day_start"] = bill_state
+    if current_odds:
+        _state_out["odds"] = current_odds
     json.dump(_state_out, f, indent=2)
 
 subprocess.run(["git", "config", "user.name",  "github-actions[bot]"], cwd=ROOT)
