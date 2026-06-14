@@ -400,7 +400,7 @@ if BILLIONAIRE_DATA:
         )
     BILLIONAIRE_CARD_HTML = (
         '<div class="narrative-card" style="margin-bottom:14px;">'
-        '<div class="nt">💰 What Could They Buy?</div>'
+        '<div class="nt">💰 Big Shot Weenies</div>'
         '<div style="font-size:0.72em;color:#7a8aaa;margin-bottom:8px">Forbes Real-Time Billionaires · priced at $5&thinsp;/&thinsp;🌭</div>'
         '<table style="width:100%;border-collapse:collapse;font-size:0.88em;">'
         '<thead><tr>'
