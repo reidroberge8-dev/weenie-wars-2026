@@ -136,6 +136,79 @@ def _assign_places(players):
         p["place"] = place
     players[:] = sp  # reorder in-place so table renders sorted by default
 
+# ── Live-sheet self-patch (runs on every build) ─────────────────────────────
+# Silently fetches the live Google Sheet and overwrites in-memory PLAYERS
+# values before any HTML computation — ensures local builds are always fresh.
+try:
+    import urllib.request as _up, csv as _csv, io as _io
+    from datetime import datetime as _dtnow, timedelta as _tdnow, timezone as _tznow
+    _SHEET = ("https://docs.google.com/spreadsheets/d/"
+              "1-NezoEWSZpeUIZem89ZMltE-kGX_P11LqKVoAwSG0gU/"
+              "export?format=csv&gid=1814658863")
+    _raw   = _up.urlopen(_SHEET + f"&_={int(_dtnow.now().timestamp())}", timeout=10).read().decode("utf-8")
+    _rows  = list(_csv.DictReader(_io.StringIO(_raw)))
+    _ET    = _tznow(_tdnow(hours=-4))
+    _now   = _dtnow.now(_ET)
+    _today = _now.date()
+    _l7cut = _today - _tdnow(days=7)
+    _tots, _mon, _l7, _tdayCts = {}, {m: {} for m in range(5,10)}, {}, {}
+    for _r in _rows:
+        _nm = _r["Name"].strip().replace("John", "Jon")
+        try: _ct = int(float(_r["Weenies Consumed"]))
+        except: continue
+        try:
+            _ts  = _dtnow.strptime(_r["Timestamp"].strip(), "%m/%d/%Y %H:%M:%S").replace(tzinfo=_ET)
+            _edt = _ts.date()
+        except: continue
+        _tots[_nm] = _tots.get(_nm, 0) + _ct
+        if _edt == _today:   _tdayCts[_nm] = _tdayCts.get(_nm, 0) + _ct
+        if _edt >= _l7cut:   _l7[_nm]      = _l7.get(_nm, 0) + _ct
+        if _ts.month in _mon: _mon[_ts.month].setdefault(_nm, 0); _mon[_ts.month][_nm] += _ct
+    _nw  = sum(1 for v in _tots.values() if v > 0)
+    _avg = sum(_tots.values()) / _nw if _nw else 1
+    for _p in PLAYERS:
+        _n = _p["name"]
+        _p["total"] = _tots.get(_n, 0)
+        _p["may"]   = _mon[5].get(_n, 0)
+        _p["june"]  = _mon[6].get(_n, 0)
+        _p["july"]  = _mon[7].get(_n, 0)
+        _p["aug"]   = _mon[8].get(_n, 0)
+        _p["sep"]   = _mon[9].get(_n, 0)
+        _p["l7"]    = _l7.get(_n, 0)
+        _p["chomp"] = round(_p["total"] / _avg * 100) if _p["total"] > 0 else 0
+    # Update banner live data
+    _ldr   = max(PLAYERS, key=lambda p: p["total"])
+    _l7ldr = max(PLAYERS, key=lambda p: p["l7"]) if any(p["l7"] for p in PLAYERS) else _ldr
+    BANNER["leader_name"]  = _ldr["name"]
+    BANNER["leader_total"] = _ldr["total"]
+    BANNER["l7_leader"]    = _l7ldr["name"]
+    BANNER["l7_score"]     = _l7ldr["l7"]
+    _l7td  = _tdayCts.get(_l7ldr["name"], 0)
+    BANNER["l7_note"]      = f"{_l7td} today" if _l7td > 0 else "none today"
+    BANNER["players"]      = len([p for p in PLAYERS if p["total"] > 0 or True])
+    # Update BIG_DAYS from live data
+    _day_tots = {}
+    for _r in _rows:
+        _nm = _r["Name"].strip().replace("John", "Jon")
+        try: _ct = int(float(_r["Weenies Consumed"]))
+        except: continue
+        try:
+            _ts  = _dtnow.strptime(_r["Timestamp"].strip(), "%m/%d/%Y %H:%M:%S").replace(tzinfo=_ET)
+            _dk  = _ts.strftime("%b %-d") if hasattr(_ts, 'strftime') else _ts.strftime("%b %d").lstrip("0").replace(" 0"," ")
+        except: continue
+        _day_tots[_dk] = _day_tots.get(_dk, 0) + _ct
+    BIG_DAYS[:] = sorted(_day_tots.items(), key=lambda x: x[1], reverse=True)[:5]
+    # Update LAST_WEENIE_TS
+    _all_ts = []
+    for _r in _rows:
+        try:
+            _ts = _dtnow.strptime(_r["Timestamp"].strip(), "%m/%d/%Y %H:%M:%S").replace(tzinfo=_ET)
+            _all_ts.append(int(_ts.timestamp()))
+        except: pass
+    if _all_ts: LAST_WEENIE_TS = max(_all_ts)
+except Exception as _live_err:
+    pass  # silently fall back to hardcoded values if fetch fails
+
 _assign_places(PLAYERS)
 
 # Medal icons for top 3 unique ranks
