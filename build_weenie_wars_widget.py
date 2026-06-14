@@ -46,23 +46,23 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":5, "chomp":288,"odds":"+550","move":"▲","mc":"#B22234"},
-    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":8, "chomp":366,"odds":"+400","move":"▲","mc":"#B22234"},
-    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":105,"odds":"+1550","move":"▲","mc":"#B22234"},
-    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":1, "chomp":157,"odds":"+1050","move":"▼","mc":"#2a7a2a"},
-    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":105,"odds":"+1550","move":"▲","mc":"#B22234"},
-    {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":105,"odds":"+1550","move":"▲","mc":"#B22234"},
-    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":78,"odds":"+2000","move":"▲","mc":"#B22234"},
-    {"name":"Jon",     "place":8, "total":12,"may":1,"june":11,"july":0,"aug":0,"sep":0,"l7":8, "chomp":314,"odds":"+500","move":"▼","mc":"#2a7a2a"},
-    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14600","move":"▲","mc":"#B22234"},
-    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":52,"odds":"+2850","move":"▲","mc":"#B22234"},
-    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":26,"odds":"+4800","move":"▲","mc":"#B22234"},
-    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":52,"odds":"+2850","move":"▲","mc":"#B22234"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14600","move":"▲","mc":"#B22234"},
-    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":52,"odds":"+2850","move":"▲","mc":"#B22234"},
-    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14600","move":"▲","mc":"#B22234"},
-    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14600","move":"▲","mc":"#B22234"},
-    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14600","move":"▲","mc":"#B22234"},
+    {"name":"Alex",    "place":1, "total":10,"may":5,"june":5,"july":0,"aug":0,"sep":0,"l7":4, "chomp":266,"odds":"+600","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":8, "chomp":372,"odds":"+400","move":"▲","mc":"#B22234"},
+    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":106,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":1, "chomp":159,"odds":"+1000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":106,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":106,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":80,"odds":"+1950","move":"▲","mc":"#B22234"},
+    {"name":"Jon",     "place":8, "total":12,"may":1,"june":11,"july":0,"aug":0,"sep":0,"l7":8, "chomp":319,"odds":"+500","move":"▼","mc":"#2a7a2a"},
+    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":53,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":27,"odds":"+4750","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":53,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":53,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
 ]
 
 MONTHS = [
@@ -82,7 +82,7 @@ BANNER = {
     "leader_total":  14,
     "l7_leader":     "Tom",
     "l7_score":      8,
-    "l7_note":       "none today",
+    "l7_note":       "3 today",
     "months_done":   1,
     "months_total":  5,
     "players":       17,
@@ -104,12 +104,12 @@ UPDATED   = _build_dt.strftime("%I:%M %p ET  %m/%d/%Y").lstrip("0")
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
-NICK_UPDATE       = "A hot dog vendor near Nick's home has gone suspiciously silent after being subpoenaed by the Commission."
+NICK_LOG = [{"date": "Jun 13", "text": "A PI hired by the Commission photographed Nick eating a bratwurst and asked him to explain himself. Nick's response — 'it counts' — has been entered into the record as Exhibit 31: No It Doesn't."}, {"date": "Jun 12", "text": "Witnesses report Nick was seen at a gas station at 3am purchasing 11 hot dogs, a single pack of mustard, and a USB drive labeled 'NOT EVIDENCE'."}, {"date": "Jun 11", "text": "Nick submitted a sworn affidavit stating he is 'a hot dog person at his core.' The Commission's psychologist reviewed it and said 'that explains a lot but proves nothing.'"}]  # auto-filled by CI: newest first
 HARRISON_INVESTIGATION = True
-HARRISON_UPDATE       = "FBI (Food Baby Investigations) has confirmed that Harrison, known in weenie circles as Uncle Sam the Glizzy Man, is the subject of a formal Fraudfurter inquiry — the most serious classification in weenie law."
-LAST_WEENIE_TS = 1781396729  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
+HARRISON_LOG = [{"date": "Jun 13", "text": "The FBI subpoenaed Harrison's Google search history, which included: 'how to make hot dog look like burger' (Jun 2), 'can FBI see my searches about hot dogs' (Jun 3), and 'how to turn self in to Weenie Commission' (Jun 11)."}, {"date": "Jun 12", "text": "Forensic nutritionists calculated that Harrison's claimed weenie intake would require eating one hot dog every 7 minutes for four consecutive days. They noted this is theoretically possible but that Harrison specifically said he needed a nap."}, {"date": "Jun 11", "text": "Harrison's neighbor submitted a deposition stating the smell from his grill 'was definitely a burger and not even a good one.' This is the most damning testimony the Commission has received."}]  # auto-filled by CI: newest first
+LAST_WEENIE_TS = 1781393079  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
-BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('Jun 13', 10), ('May 31', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
+BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('Jun 13', 9), ('May 31', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
 BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 1120.4, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 294.1, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 271.3, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 248.9, 'delta_b': 0.0}, {'rank': 5, 'name': 'Larry Ellison', 'worth_b': 231.5, 'delta_b': 0.0}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
@@ -404,6 +404,22 @@ else:
 
 
 # ── Compute narrative ────────────────────────────────────────────────────────
+
+# ── Nick / Harrison log HTML (3 entries, newest first) ──────────────────────
+def _build_log_html(log):
+    parts = []
+    for i, entry in enumerate(log[:3]):
+        sep = 'border-bottom:1px solid #e8edf5;margin-bottom:12px;padding-bottom:12px;' if i < min(2, len(log) - 1) else ''
+        parts.append(
+            f'<div style="{sep}">'
+            f'<div style="font-size:0.68em;color:#8a9abc;font-weight:700;letter-spacing:0.8px;margin-bottom:5px;text-transform:uppercase">{entry["date"]}</div>'
+            f'<p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{entry["text"]}</p>'
+            f'</div>'
+        )
+    return "".join(parts)
+
+NICK_LOG_HTML     = _build_log_html(NICK_LOG)
+HARRISON_LOG_HTML = _build_log_html(HARRISON_LOG)
 
 # Narrative switcher JS — defined outside f-string to avoid brace-escaping
 NARRATIVE_SWITCHER_JS = """<script>
@@ -1166,13 +1182,11 @@ html = f"""<!DOCTYPE html>
   </div>
   <div id="narr-nick" style="display:none">
     <div class="nt">🔍 Nick Investigation Update</div>
-    <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">Supreme Weenie Update — {UPDATED}</div>
-    <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{NICK_UPDATE}</p>
+    {NICK_LOG_HTML}
   </div>
   <div id="narr-harrison" style="display:none">
     <div class="nt">🕵️ Harrison Investigation Update</div>
-    <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">FBI Food Baby Investigations — Fraudfurter Division — {UPDATED}</div>
-    <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{HARRISON_UPDATE}</p>
+    {HARRISON_LOG_HTML}
   </div>
 </div>
 {NARRATIVE_SWITCHER_JS}
