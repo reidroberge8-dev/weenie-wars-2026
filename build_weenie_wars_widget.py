@@ -422,6 +422,20 @@ else:
 
 # ── Compute narrative ────────────────────────────────────────────────────────
 
+# Narrative switcher JS — defined outside f-string to avoid brace-escaping
+NARRATIVE_SWITCHER_JS = """<script>
+function switchNarrative(id) {
+  ['nick','harrison','analyst'].forEach(function(n) {
+    document.getElementById('narr-'+n).style.display = (n===id) ? '' : 'none';
+    var b = document.getElementById('nb-'+n);
+    var on = (n===id);
+    b.style.background   = on ? '#B22234' : '#fff';
+    b.style.color        = on ? '#fff'    : '#002868';
+    b.style.borderColor  = on ? '#B22234' : '#002868';
+  });
+}
+</script>"""
+
 # Mobile month filter JS — defined outside f-string to avoid brace-escaping issues
 MOBILE_FILTER_JS = """<script>
 (function() {
@@ -899,6 +913,8 @@ html = f"""<!DOCTYPE html>
   .narrative-card .nt {{ font-size:0.68em; text-transform:uppercase; letter-spacing:2px; color:#7a8aaa; border-left:3px solid #B22234; padding-left:7px; margin-bottom:8px; }}
   .narrative-card p {{ margin-bottom:6px; }}
   .narrative-card p:last-child {{ margin-bottom:0; }}
+  .narr-btn {{ flex:1; padding:5px 0; font-size:0.72em; font-weight:700; letter-spacing:0.5px; border:1.5px solid #002868; border-radius:5px; cursor:pointer; background:#fff; color:#002868; transition:background 0.15s,color 0.15s; }}
+  .narr-btn.active {{ background:#B22234 !important; color:#fff !important; border-color:#B22234 !important; }}
   .joey-wrap {{ flex:0 0 auto; display:flex; flex-direction:column; }}
   .joey-card {{
     background:#fff; border:2px solid #B22234; border-radius:10px;
@@ -1156,21 +1172,27 @@ html = f"""<!DOCTYPE html>
 </div>
 
 <div class="narrative-card" style="margin-bottom:14px;">
-  <div class="nt">🔍 Nick Investigation Update</div>
-  <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">Supreme Weenie Update — {UPDATED}</div>
-  <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{NICK_UPDATE}</p>
+  <div style="display:flex;gap:6px;margin-bottom:12px;">
+    <button id="nb-nick"     class="narr-btn active" onclick="switchNarrative('nick')">🔍 Nick</button>
+    <button id="nb-harrison" class="narr-btn"        onclick="switchNarrative('harrison')">🕵️ Harrison</button>
+    <button id="nb-analyst"  class="narr-btn"        onclick="switchNarrative('analyst')">📊 Analyst</button>
+  </div>
+  <div id="narr-nick">
+    <div class="nt">🔍 Nick Investigation Update</div>
+    <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">Supreme Weenie Update — {UPDATED}</div>
+    <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{NICK_UPDATE}</p>
+  </div>
+  <div id="narr-harrison" style="display:none">
+    <div class="nt">🕵️ Harrison Investigation Update</div>
+    <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">FBI Food Baby Investigations — Fraudfurter Division — {UPDATED}</div>
+    <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{HARRISON_UPDATE}</p>
+  </div>
+  <div id="narr-analyst" style="display:none">
+    <div class="nt">📊 Analyst's Take</div>
+    <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{ANALYST_TAKE}</p>
+  </div>
 </div>
-
-<div class="narrative-card" style="margin-bottom:14px;">
-  <div class="nt">🕵️ Harrison Investigation Update</div>
-  <div style="font-size:0.7em;color:#8a9abc;margin-bottom:10px;letter-spacing:0.5px">FBI Food Baby Investigations — Fraudfurter Division — {UPDATED}</div>
-  <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{HARRISON_UPDATE}</p>
-</div>
-
-<div class="narrative-card" style="margin-bottom:14px;">
-  <div class="nt">📊 Analyst's Take</div>
-  <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{ANALYST_TAKE}</p>
-</div>
+{NARRATIVE_SWITCHER_JS}
 
 {BIG_DAYS_HTML}
 {BILLIONAIRE_CARD_HTML}
