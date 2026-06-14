@@ -46,23 +46,23 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":5, "chomp":288,"odds":"+550","move":"▲","mc":"#B22234"},
-    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":8, "chomp":366,"odds":"+400","move":"▲","mc":"#B22234"},
-    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":105,"odds":"+1550","move":"▲","mc":"#B22234"},
-    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":1, "chomp":157,"odds":"+1050","move":"▼","mc":"#2a7a2a"},
-    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":105,"odds":"+1550","move":"▲","mc":"#B22234"},
-    {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":105,"odds":"+1550","move":"▲","mc":"#B22234"},
-    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":78,"odds":"+2000","move":"▲","mc":"#B22234"},
-    {"name":"Jon",     "place":8, "total":12,"may":1,"june":11,"july":0,"aug":0,"sep":0,"l7":8, "chomp":314,"odds":"+500","move":"▼","mc":"#2a7a2a"},
-    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14600","move":"▲","mc":"#B22234"},
-    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":52,"odds":"+2850","move":"▲","mc":"#B22234"},
-    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":26,"odds":"+4800","move":"▲","mc":"#B22234"},
-    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":52,"odds":"+2850","move":"▲","mc":"#B22234"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14600","move":"▲","mc":"#B22234"},
-    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":52,"odds":"+2850","move":"▲","mc":"#B22234"},
-    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14600","move":"▲","mc":"#B22234"},
-    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14600","move":"▲","mc":"#B22234"},
-    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14600","move":"▲","mc":"#B22234"},
+    {"name":"Alex",    "place":1, "total":10,"may":5,"june":5,"july":0,"aug":0,"sep":0,"l7":4, "chomp":266,"odds":"+600","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":8, "chomp":372,"odds":"+400","move":"▲","mc":"#B22234"},
+    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":106,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":1, "chomp":159,"odds":"+1000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":106,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":106,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":80,"odds":"+1950","move":"▲","mc":"#B22234"},
+    {"name":"Jon",     "place":8, "total":12,"may":1,"june":11,"july":0,"aug":0,"sep":0,"l7":8, "chomp":319,"odds":"+500","move":"▼","mc":"#2a7a2a"},
+    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":53,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":27,"odds":"+4750","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":53,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":53,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
 ]
 
 MONTHS = [
@@ -82,7 +82,7 @@ BANNER = {
     "leader_total":  14,
     "l7_leader":     "Tom",
     "l7_score":      8,
-    "l7_note":       "none today",
+    "l7_note":       "3 today",
     "months_done":   1,
     "months_total":  5,
     "players":       17,
@@ -107,9 +107,9 @@ NICK_INVESTIGATION = True
 NICK_UPDATE       = "A hot dog vendor near Nick's home has gone suspiciously silent after being subpoenaed by the Commission."
 HARRISON_INVESTIGATION = True
 HARRISON_UPDATE       = "FBI (Food Baby Investigations) has confirmed that Harrison, known in weenie circles as Uncle Sam the Glizzy Man, is the subject of a formal Fraudfurter inquiry — the most serious classification in weenie law."
-LAST_WEENIE_TS = 1781396729  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
+LAST_WEENIE_TS = 1781393079  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
-BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('Jun 13', 10), ('May 31', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
+BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('Jun 13', 9), ('May 31', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
 BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 1120.4, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 294.1, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 271.3, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 248.9, 'delta_b': 0.0}, {'rank': 5, 'name': 'Larry Ellison', 'worth_b': 231.5, 'delta_b': 0.0}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
@@ -378,22 +378,12 @@ if BILLIONAIRE_DATA:
         _rbg   = "background:#f7f9fc;" if _bi % 2 == 0 else ""
         _worth = _fmt_worth(_bd["worth_b"])
         _ween  = _fmt_w(_bd["worth_b"] * 1e9 / _WEENIE_PRICE)
-        _db    = _bd["delta_b"]
-        if _db > 0.05:
-            _dw    = _fmt_w(abs(_db) * 1e9 / _WEENIE_PRICE)
-            _dcell = f'<td style="text-align:right;padding:6px 4px;color:#00a651;font-weight:600">+{_dw} ↑</td>'
-        elif _db < -0.05:
-            _dw    = _fmt_w(abs(_db) * 1e9 / _WEENIE_PRICE)
-            _dcell = f'<td style="text-align:right;padding:6px 4px;color:#cc2200;font-weight:600">-{_dw} ↓</td>'
-        else:
-            _dcell = '<td style="text-align:right;padding:6px 4px;color:#aab4cc">—</td>'
         _bill_rows += (
             f'<tr style="{_rbg}">'
             f'<td style="padding:6px 4px;color:#7a8aaa;font-size:0.85em">{_bd["rank"]}</td>'
             f'<td style="padding:6px 4px;color:#334;font-weight:600">{_bd["name"]}</td>'
             f'<td style="text-align:right;padding:6px 4px;color:#334">{_worth}</td>'
             f'<td style="text-align:right;padding:6px 4px;font-weight:700;color:#002868">{_ween} 🌭</td>'
-            f'{_dcell}'
             f'</tr>'
         )
     BILLIONAIRE_CARD_HTML = (
@@ -405,12 +395,9 @@ if BILLIONAIRE_DATA:
         '<th style="text-align:left;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Name</th>'
         '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Net Worth</th>'
         '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">🌭 Weenies</th>'
-        '<th style="text-align:right;color:#7a8aaa;font-weight:600;padding:4px 4px;border-bottom:1px solid #e0e6f0">Today&thinsp;±</th>'
         '</tr></thead>'
         f'<tbody>{_bill_rows}</tbody>'
         '</table>'
-        '<div style="font-size:0.7em;color:#aab;margin-top:8px;font-style:italic">'
-        '* Today&thinsp;± = weenies gained/lost since market open. Updated every 5 min by CI.</div>'
     )
 else:
     BILLIONAIRE_CARD_HTML = ""
