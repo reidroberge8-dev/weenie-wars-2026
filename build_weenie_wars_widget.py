@@ -46,23 +46,23 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":5, "chomp":283,"odds":"+550","move":"▲","mc":"#B22234"},
-    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":8, "chomp":361,"odds":"+400","move":"▲","mc":"#B22234"},
-    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":103,"odds":"+1550","move":"▲","mc":"#B22234"},
-    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":1, "chomp":155,"odds":"+1050","move":"▼","mc":"#2a7a2a"},
-    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":103,"odds":"+1550","move":"▲","mc":"#B22234"},
-    {"name":"Scott",   "place":5, "total":5,"may":2,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":129,"odds":"+1250","move":"▲","mc":"#B22234"},
-    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":77,"odds":"+2050","move":"▲","mc":"#B22234"},
-    {"name":"Jon",     "place":8, "total":12,"may":1,"june":11,"july":0,"aug":0,"sep":0,"l7":8, "chomp":309,"odds":"+500","move":"▼","mc":"#2a7a2a"},
-    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
-    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":52,"odds":"+2900","move":"▲","mc":"#B22234"},
-    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":26,"odds":"+4850","move":"▲","mc":"#B22234"},
-    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":52,"odds":"+2900","move":"▲","mc":"#B22234"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
-    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":52,"odds":"+2900","move":"▲","mc":"#B22234"},
-    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
-    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
-    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14800","move":"▲","mc":"#B22234"},
+    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":6, "chomp":203,"odds":"+600","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":11, "chomp":258,"odds":"+400","move":"▲","mc":"#B22234"},
+    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":3, "chomp":111,"odds":"+1000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":55,"odds":"+1950","move":"▲","mc":"#B22234"},
+    {"name":"Jon",     "place":8, "total":12,"may":1,"june":11,"july":0,"aug":0,"sep":0,"l7":11, "chomp":222,"odds":"+500","move":"▼","mc":"#2a7a2a"},
+    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":18,"odds":"+4750","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
 ]
 
 MONTHS = [
@@ -81,11 +81,11 @@ BANNER = {
     "leader_name":   "Tom",
     "leader_total":  14,
     "l7_leader":     "Tom",
-    "l7_score":      8,
-    "l7_note":       "none today",
+    "l7_score":      11,
+    "l7_note":       "3 today",
     "months_done":   1,
     "months_total":  5,
-    "players":       17,
+    "players":       22,
 }
 
 # ─── NARRATIVE ───────────────────────────────────────────────────────────────
@@ -101,15 +101,21 @@ except Exception:
 _build_dt = _dt.now(tz=_ET_TZ)
 UPDATED   = _build_dt.strftime("%I:%M %p ET  %m/%d/%Y").lstrip("0")
 
+# Auto-set MONTHS status from build date
+for _m in MONTHS:
+    _mk = {"may":5,"june":6,"july":7,"aug":8,"sep":9}[_m["key"]]
+    _m["status"] = "complete" if _build_dt.month > _mk else ("inprogress" if _build_dt.month == _mk else "upcoming")
+
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
 NICK_LOG = [{"date": "Jun 14","text": "Surveillance footage shows Nick entering a Costco at 11:58pm, purchasing ninety-six hot dogs, and then immediately returning them. The return receipt exists. The purchase receipt exists. There is no window in which the hot dogs could have been consumed. Nick says he changed his mind. Investigators say that is not an explanation."},{"date": "Jun 13","text": "A grocery store security camera caught Nick purchasing a single hot dog bun with no hot dog at 11:52pm on a Tuesday. Investigators spent six weeks trying to understand this and ultimately filed it under the most suspicious innocent act we have ever witnessed. The bun was entered into evidence."},{"date": "Jun 12","text": "Surveillance footage recovered from a 7-Eleven shows Nick entering at 2:47am, wandering the hot dog roller section for eleven minutes, purchasing nothing, and leaving while staring directly at the ceiling. Behavioral analysts have been studying the tape for three weeks and remain baffled."}]  # auto-filled by CI: newest first
 HARRISON_INVESTIGATION = True
 HARRISON_LOG = [{"date": "Jun 13", "text": "The FBI recovered a Post-it note from Harrison's recycling bin reading 'remember: hot dogs only, no burgers, they are watching.' Handwriting confirmed it was Harrison's. A second Post-it nearby read 'also destroy this note.' He had not destroyed either note. Both are now Exhibit A and Exhibit B."}, {"date": "Jun 12", "text": "Harrison's insurance adjuster testified that upon receiving the eleventh Food Baby photo, he called his supervisor assuming he was being pranked. His supervisor also assumed it was a prank. Both are now in therapy. The insurance company has requested the photos be destroyed. The FBI said absolutely not."}, {"date": "Jun 11", "text": "Uncle Sam the Glizzy Man appeared at his deposition in a t-shirt reading 'Glizzy Innocent' in large block letters, which his attorney had specifically told him not to wear. The shirt was confiscated as evidence. Harrison asked for it back three separate times. The answer was no each time."}]  # auto-filled by CI: newest first
-LAST_WEENIE_TS = 1781451717  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
+HEADLINES = []  # auto-filled by CI: [{icon,label,text,date}] 4 per day
+LAST_WEENIE_TS = 1781396729  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
-BIG_DAYS      = [('Thursday June11th', 15), ('Saturday June6th', 14), ('Monday May25th 🇺🇸', 12), ('Saturday June13th', 10), ('Sunday May31st', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
+BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('Jun 13', 9), ('May 31', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
 BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
 WEENIE_LOG = []  # auto-filled by live-patch: [{player, count, display_ts, sort_ts}] newest first
 RECORDS_SINGLE_DAY  = []  # auto-filled: [{player, count, date_display}] top 10 individual single-day
@@ -316,71 +322,28 @@ def top_scorer(month_key):
 def fv(v): return str(v) if v else "—"
 
 
-def generate_narrative(players, joey_count):
-    """Auto-generate 3-sentence analyst take from live player data."""
-    active = [p for p in players if p["total"] > 0]
-    if not active:
-        return ("The season is underway. No weenies on the board yet — "
-                "the field is completely wide open.")
-
-    top_total = players[0]["total"]  # players already sorted by total
-    leaders   = [p for p in players if p["total"] == top_total]
-    l7_active = sorted([p for p in players if p["l7"] > 0], key=lambda p: -p["l7"])
-    l7_leader = l7_active[0] if l7_active else None
-    zeros     = [p for p in players if p["total"] == 0]
-
+# ── Headlines HTML builder ────────────────────────────────────────────────────
+def _build_headlines_html(headlines):
+    if not headlines:
+        return '<p style="color:#aab;text-align:center;padding:20px 0">No headlines today — check back at 8am ET.</p>'
     parts = []
-
-    # Sentence 1 — who's leading
-    if len(leaders) == 1:
-        ldr = leaders[0]
-        p2j = round(ldr["total"] / joey_count * 100, 1)
+    label_colors = {"BREAKING":"#B22234","HOT STREAK":"#cc6600","STANDINGS":"#002868","INVESTIGATION":"#5a0d8a"}
+    for i, h in enumerate(headlines):
+        sep = 'border-bottom:1px solid #e8edf5;margin-bottom:14px;padding-bottom:14px;' if i < len(headlines)-1 else ''
+        lcol = label_colors.get(h.get("label",""), "#B22234")
         parts.append(
-            f"{ldr['name']} leads with {ldr['total']} weenie{'s' if ldr['total'] != 1 else ''} "
-            f"and a CHOMP+ of {ldr['chomp']} — {p2j}% of the way to Joey."
+            f'<div style="{sep}">' +
+            f'<div style="display:flex;align-items:center;gap:7px;margin-bottom:5px">' +
+            f'<span style="font-size:1.05em">{h["icon"]}</span>' +
+            f'<span style="font-size:0.63em;font-weight:800;letter-spacing:1.2px;color:{lcol};text-transform:uppercase">{h["label"]}</span>' +
+            f'<span style="font-size:0.63em;color:#aab4cc;margin-left:auto">{h["date"]}</span>' +
+            '</div>' +
+            f'<p style="margin:0;color:#334;font-size:0.88em;line-height:1.6">{h["text"]}</p>' +
+            '</div>'
         )
-    else:
-        names = " and ".join(p["name"] for p in leaders)
-        p2j = round(top_total / joey_count * 100, 1)
-        parts.append(
-            f"{names} are deadlocked at {top_total} weenie{'s' if top_total != 1 else ''} each "
-            f"({p2j}% of Joey) — the tiebreaker is whoever logs next."
-        )
+    return "".join(parts)
 
-    # Sentence 2 — hot hand
-    if l7_leader:
-        is_leader = l7_leader["name"] in [p["name"] for p in leaders]
-        if is_leader:
-            parts.append(
-                f"{l7_leader['name']} is also the hot hand with {l7_leader['l7']} in the last 7 days, "
-                f"showing no signs of slowing down."
-            )
-        else:
-            chase = leaders[0]["total"] - l7_leader["total"]
-            parts.append(
-                f"{l7_leader['name']} is the hot hand with {l7_leader['l7']} in the last 7 days"
-                + (f", just {chase} back from the lead." if chase > 0 else ", now tied at the top.")
-            )
-
-    # Sentence 3 — zeros or field note
-    if zeros:
-        znames = ", ".join(p["name"] for p in zeros[:3])
-        tail   = f" and {len(zeros)-3} others" if len(zeros) > 3 else ""
-        parts.append(
-            f"{znames}{tail} {'have' if len(zeros) != 1 else 'has'} yet to get on the board "
-            f"— the season is long."
-        )
-    elif len(active) >= 3:
-        third = [p for p in players if p["place"] == 3]
-        if third:
-            parts.append(
-                f"The whole field is eating — {third[0]['name']} sits third with {third[0]['total']} "
-                f"and odds of {third[0]['odds']}."
-            )
-
-    return " ".join(parts)
-
-ANALYST_TAKE = generate_narrative(PLAYERS, JOEY_COUNT)
+HEADLINES_HTML = _build_headlines_html(HEADLINES)
 
 # ── Leaderboard rows
 rows_html = ""
@@ -628,7 +591,7 @@ HARRISON_LOG_HTML = _build_log_html(HARRISON_LOG)
 # Narrative switcher JS — defined outside f-string to avoid brace-escaping
 NARRATIVE_SWITCHER_JS = """<script>
 function switchNarrative(id) {
-  ['nick','harrison','analyst'].forEach(function(n) {
+  ['nick','harrison','headlines'].forEach(function(n) {
     document.getElementById('narr-'+n).style.display = (n===id) ? '' : 'none';
     document.getElementById('nb-'+n).classList.toggle('active', n===id);
   });
@@ -1390,13 +1353,13 @@ html = f"""<!DOCTYPE html>
 <div class="section-title">Recent News</div>
 <div class="narrative-card" style="margin-bottom:14px;">
   <div style="display:flex;gap:6px;margin-bottom:12px;">
-    <button id="nb-analyst"  class="narr-btn active" onclick="switchNarrative('analyst')">📊 Analyst</button>
+    <button id="nb-headlines" class="narr-btn active" onclick="switchNarrative('headlines')">📰 Headlines</button>
     <button id="nb-nick"     class="narr-btn"        onclick="switchNarrative('nick')">🔍 Nick</button>
     <button id="nb-harrison" class="narr-btn"        onclick="switchNarrative('harrison')">🕵️ Harrison</button>
   </div>
-  <div id="narr-analyst">
-    <div class="nt">📊 Analyst's Take</div>
-    <p style="margin:0;color:#334;font-size:0.92em;line-height:1.6">{ANALYST_TAKE}</p>
+  <div id="narr-headlines">
+    <div class="nt">📰 Today's Headlines</div>
+    {HEADLINES_HTML}
   </div>
   <div id="narr-nick" style="display:none">
     <div class="nt">🔍 Nick Investigation Update</div>
