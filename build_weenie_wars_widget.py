@@ -1114,9 +1114,6 @@ html = f"""<!DOCTYPE html>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScMSUKG2thEJFaIJc4TviSwX346w8m8zJcou78Vqxdavu93kQ/viewform?usp=dialog" target="_blank" class="btn-link btn-red">
     🌭 Log Weenies Here
   </a>
-  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn-link btn-navy">
-    🌭 Click for FREE WEENIES!
-  </a>
   <button id="installBtn" class="btn-link btn-install" onclick="showInstallModal()" style="display:none;border:none;cursor:pointer;font-size:0.82em">
     📲 Add to Home Screen
   </button>
