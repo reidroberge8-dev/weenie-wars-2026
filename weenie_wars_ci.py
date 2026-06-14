@@ -229,12 +229,29 @@ if l7:
 src = re.sub(r'"players":\s*\d+,',         f'"players":       {n_players},',     src)
 src = re.sub(r'BIG_DAYS\s*=\s*\[[^\]]*\]', f'BIG_DAYS      = {repr(top5_days)}', src)
 # UPDATED is computed dynamically at build time — no regex needed
-# Nick sentence only rotates on the 8am daily force-rebuild
+# Nick/Harrison logs rotate on the 8am daily force-rebuild — prepend new entry, keep 3
 if force_rebuild:
-    src = re.sub(r'NICK_UPDATE\s*=\s*"[^"]*"', f'NICK_UPDATE       = "{random.choice(NICK_UPDATES)}"', src)
-    print("  Nick sentence rotated (8am rebuild).")
-    src = re.sub(r'HARRISON_UPDATE\s*=\s*"[^"]*"', f'HARRISON_UPDATE       = "{random.choice(HARRISON_UPDATES)}"', src)
-    print("  Harrison sentence rotated (8am rebuild).")
+    today_label = today.strftime("%b %-d")  # e.g. "Jun 14"
+    for _person, _pool, _var in [
+        ("Nick",    NICK_UPDATES,    "NICK_LOG"),
+        ("Harrison", HARRISON_UPDATES, "HARRISON_LOG"),
+    ]:
+        _new_text = random.choice(_pool)
+        _m = re.search(rf'{_var}\\s*=\\s*(\\[.*?\\])\\s*#', src, re.DOTALL)
+        if _m:
+            try:
+                _log = eval(_m.group(1))
+            except Exception:
+                _log = []
+            _log = [{"date": today_label, "text": _new_text}] + _log[:2]
+            src = re.sub(
+                rf'{_var}\\s*=\\s*\\[.*?\\]\\s*#[^\\n]*',
+                f'{_var} = {repr(_log)}  # auto-filled by CI: newest first',
+                src, flags=re.DOTALL
+            )
+            print(f"  {_person} log rotated: {today_label}")
+        else:
+            print(f"  {_person} log pattern not found in build script")
 
 # Compute LAST_WEENIE_TS — most recent weenie entry, ET→UTC
 if rows:
