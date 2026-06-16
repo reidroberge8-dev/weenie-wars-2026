@@ -46,23 +46,23 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":5, "chomp":260,"odds":"+600","move":"—","mc":"#7a8aaa"},
-    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":8, "chomp":331,"odds":"+450","move":"—","mc":"#7a8aaa"},
-    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":94,"odds":"+1700","move":"—","mc":"#7a8aaa"},
-    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":1, "chomp":142,"odds":"+1150","move":"—","mc":"#7a8aaa"},
-    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":94,"odds":"+1700","move":"—","mc":"#7a8aaa"},
-    {"name":"Scott",   "place":5, "total":5,"may":2,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":118,"odds":"+1350","move":"—","mc":"#7a8aaa"},
-    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":71,"odds":"+2200","move":"—","mc":"#7a8aaa"},
-    {"name":"Jon",     "place":8, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":10, "chomp":331,"odds":"+450","move":"—","mc":"#7a8aaa"},
-    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+16000","move":"—","mc":"#7a8aaa"},
-    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":47,"odds":"+3100","move":"—","mc":"#7a8aaa"},
-    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":24,"odds":"+5250","move":"—","mc":"#7a8aaa"},
-    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":47,"odds":"+3100","move":"—","mc":"#7a8aaa"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+16000","move":"—","mc":"#7a8aaa"},
-    {"name":"Devin",   "place":9, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":6, "chomp":142,"odds":"+1150","move":"—","mc":"#7a8aaa"},
-    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+16000","move":"—","mc":"#7a8aaa"},
-    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+16000","move":"—","mc":"#7a8aaa"},
-    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+16000","move":"—","mc":"#7a8aaa"},
+    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":6, "chomp":203,"odds":"+600","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":11, "chomp":258,"odds":"+400","move":"▲","mc":"#B22234"},
+    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":3, "chomp":111,"odds":"+1000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":55,"odds":"+1950","move":"▲","mc":"#B22234"},
+    {"name":"Jon",     "place":8, "total":12,"may":1,"june":11,"july":0,"aug":0,"sep":0,"l7":11, "chomp":222,"odds":"+500","move":"▼","mc":"#2a7a2a"},
+    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":18,"odds":"+4750","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
 ]
 
 MONTHS = [
@@ -80,12 +80,12 @@ MONTHS = [
 BANNER = {
     "leader_name":   "Tom",
     "leader_total":  14,
-    "l7_leader":     "Jon",
-    "l7_score":      10,
-    "l7_note":       "2 today",
+    "l7_leader":     "Tom",
+    "l7_score":      11,
+    "l7_note":       "3 today",
     "months_done":   1,
     "months_total":  5,
-    "players":       17,
+    "players":       22,
 }
 
 # ─── NARRATIVE ───────────────────────────────────────────────────────────────
@@ -112,15 +112,15 @@ NICK_INVESTIGATION = True
 NICK_LOG = [{"date": "Jun 15","text": "The Commission subpoenaed Nick's smart refrigerator. The refrigerator's logs show it was opened fourteen times between midnight and 4am on six separate competition nights. The refrigerator contained, according to Nick, leftovers. The Commission is running isotopic analysis on the leftovers."},{"date": "Jun 14","text": "Surveillance footage shows Nick entering a Costco at 11:58pm, purchasing ninety-six hot dogs, and then immediately returning them. The return receipt exists. The purchase receipt exists. There is no window in which the hot dogs could have been consumed. Nick says he changed his mind. Investigators say that is not an explanation."},{"date": "Jun 13","text": "A grocery store security camera caught Nick purchasing a single hot dog bun with no hot dog at 11:52pm on a Tuesday. Investigators spent six weeks trying to understand this and ultimately filed it under the most suspicious innocent act we have ever witnessed. The bun was entered into evidence."}]  # auto-filled by CI: newest first
 HARRISON_INVESTIGATION = True
 HARRISON_LOG = [{"date": "Jun 13", "text": "The FBI recovered a Post-it note from Harrison's recycling bin reading 'remember: hot dogs only, no burgers, they are watching.' Handwriting confirmed it was Harrison's. A second Post-it nearby read 'also destroy this note.' He had not destroyed either note. Both are now Exhibit A and Exhibit B."}, {"date": "Jun 12", "text": "Harrison's insurance adjuster testified that upon receiving the eleventh Food Baby photo, he called his supervisor assuming he was being pranked. His supervisor also assumed it was a prank. Both are now in therapy. The insurance company has requested the photos be destroyed. The FBI said absolutely not."}, {"date": "Jun 11", "text": "Uncle Sam the Glizzy Man appeared at his deposition in a t-shirt reading 'Glizzy Innocent' in large block letters, which his attorney had specifically told him not to wear. The shirt was confiscated as evidence. Harrison asked for it back three separate times. The answer was no each time."}]  # auto-filled by CI: newest first
-HEADLINES = [{'icon': '📰', 'label': 'BREAKING', 'text': "Tom is running at 19.9% of Joey Chestnut's benchmark. Joey was briefed. He asked what percentage. They told him. He nodded, said nothing, and went back to eating. The briefing is being described as inconclusive.", 'date': 'Jun 15'}, {'icon': '🔥', 'label': 'HOT STREAK', 'text': 'Hot hand of the week: Jon with 10. Jon with 14 total is watching from 0 back. The Commission released a statement saying the race is very much on. Two players asked them to stop saying that. The statement was reissued.', 'date': 'Jun 15'}, {'icon': '📊', 'label': 'STANDINGS', 'text': 'SEASON TRACKER: 20% complete. 12 active. 72 logged. 56 more needed for Tom to match Joey Chestnut. The Commission notes that some of these numbers are more motivating than others.', 'date': 'Jun 15'}, {'icon': '🕵️', 'label': 'INVESTIGATION', 'text': 'The Epween List gained a notable entry this week. Tom, whose season total of 14 has drawn scrutiny from the High Volume Unit, was placed under enhanced monitoring. The High Volume Unit described the placement as routine. The placement was not routine. The Commission confirmed the placement was not routine.', 'date': 'Jun 15'}]  # auto-filled by CI: 4 headlines per day
-LAST_WEENIE_TS = 1781542455  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
+HEADLINES = [{'icon': '📰', 'label': 'BREAKING', 'text': "The gap between Tom and Jon stands at 2 weenies. The Commission's analysts have been watching this number. It has been described as stubborn, meaningful, and uncomfortable to read aloud at press conferences.", 'date': 'Jun 14'}, {'icon': '🔥', 'label': 'HOT STREAK', 'text': "Momentum report: Tom has the hot hand at 8 over the last week. At this pace, the overall standings will shift by end of month. Tom's camp has declined to project by how much. The Commission estimates: considerably.", 'date': 'Jun 14'}, {'icon': '📊', 'label': 'STANDINGS', 'text': '5 players have not eaten a single official weenie. Their names are on file. Their excuses are also on file. The Commission reviewed the excuses and categorized them as creative, implausible, and in one case simply the word no.', 'date': 'Jun 14'}, {'icon': '🕵️', 'label': 'INVESTIGATION', 'text': 'Harrison submitted exculpatory evidence: a gas station receipt for a cylindrical food item during the competition window. Analysts confirmed the receipt is real and the station sells both hot dogs and sausages under the same label. Harrison said he ordered the hot dog. The analyst said he cannot confirm that from a receipt.', 'date': 'Jun 14'}]  # auto-filled by CI: 4 headlines per day
+LAST_WEENIE_TS = 1781396729  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
-BIG_DAYS      = [('Thursday June11th', 15), ('Saturday June6th', 14), ('Monday May25th 🇺🇸', 12), ('Saturday June13th', 10), ('Sunday June14th', 5)]     # auto-filled by CI: [("Jun 3", 8), ...]
+BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('Jun 13', 9), ('May 31', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
 BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
 WEENIE_LOG = []  # auto-filled by live-patch: [{player, count, display_ts, sort_ts}] newest first
 RECORDS_SINGLE_DAY  = []  # auto-filled: [{player, count, date_display}] top 10 individual single-day
 RECORDS_SINGLE_WEEK = []  # auto-filled: [{player, count, week_display}] top 10 individual single-week
-BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 1285.2, 'delta_b': 70.5}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 301.4, 'delta_b': -1.4}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 277.9, 'delta_b': -1.3}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 255.5, 'delta_b': -0.4}, {'rank': 5, 'name': 'Larry Ellison', 'worth_b': 241.4, 'delta_b': -1.9}]  # auto-filled by CI
+BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 1120.4, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 294.1, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 271.3, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 248.9, 'delta_b': 0.0}, {'rank': 5, 'name': 'Larry Ellison', 'worth_b': 231.5, 'delta_b': 0.0}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
 
@@ -1334,68 +1334,6 @@ LIVE_DATA_JS = """<script>
         ds.data=dv;
       });
       window._wwChart.update('none');
-    }
-
-    // ── Headlines ────────────────────────────────────────────────────────────
-    var _narrH=document.getElementById('narr-headlines');
-    if (_narrH) {
-      var _rng=_wwDaySeed();
-      var _lch=function(arr){return arr[Math.floor(_rng()*arr.length)];};
-      var _s2=allNames.slice().sort(function(a,b){return (totals[b]||0)-(totals[a]||0);});
-      var _ld=_s2[0]||'TBD', _ld_t=totals[_ld]||0;
-      var _se=_s2[1]||_ld,   _se_t=totals[_se]||0;
-      var _gp=Math.max(0,_ld_t-_se_t);
-      var _act=allNames.filter(function(n){return (totals[n]||0)>0;});
-      var _zrs=allNames.filter(function(n){return (totals[n]||0)===0;});
-      var _lag=_act.length?_act.slice().sort(function(a,b){return (totals[a]||0)-(totals[b]||0);})[0]:'TBD';
-      var _lag_t=totals[_lag]||0;
-      var _tw2=allNames.reduce(function(s,n){return s+(totals[n]||0);},0);
-      var _avg2=_act.length?(_tw2/_act.length).toFixed(1):'0';
-      var _jy=70.5;
-      var _etN=new Date(Date.now()-4*3600*1000);
-      var _ms0=Date.UTC(2026,4,25), _msE=Date.UTC(2026,8,7);
-      var _td0=Date.UTC(_etN.getUTCFullYear(),_etN.getUTCMonth(),_etN.getUTCDate());
-      var _spct=Math.round(Math.max(0,_td0-_ms0)/(_msE-_ms0)*100);
-      var _hv={
-        leader:_ld,leader_total:_ld_t,second:_se,second_total:_se_t,
-        gap:_gp,gap_plural:_gp===1?'':'s',
-        l7_leader:l7ldr,l7:l7sc,l7_proj:l7sc*22,
-        lagging:_lag,lagging_total:_lag_t,
-        lagging_plural:_lag_t===1?'':'s',
-        lagging_pct:(_lag_t/_jy*100).toFixed(1),
-        zero_count:_zrs.length,n_active:_act.length,
-        n_players:allNames.length,total_weenies:_tw2,
-        league_avg:_avg2,leader_pct:(_ld_t/_jy*100).toFixed(1),
-        joey:_jy,remaining:Math.max(0,Math.floor(_jy)-_ld_t),
-        season_pct:_spct,
-        nick_total:totals['Nick']||0,
-        harrison_total:totals['Harrison']||0,
-        tom_total:totals['Tom']||0
-      };
-      var _lcmap={'BREAKING':'#B22234','HOT STREAK':'#cc6600','STANDINGS':'#002868','INVESTIGATION':'#5a0d8a'};
-      var _moN2=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      var _etN2=new Date(Date.now()-4*3600*1000);
-      var _dlbl=_moN2[_etN2.getUTCMonth()+1]+' '+_etN2.getUTCDate();
-      var _cats=[
-        {icon:'📰',label:'BREAKING',pool:_BREAKING_T},
-        {icon:'🔥',label:'HOT STREAK',pool:_HOT_T},
-        {icon:'📊',label:'STANDINGS',pool:_STANDINGS_T},
-        {icon:'🕵️',label:'INVESTIGATION',pool:_INVESTIGATION_T}
-      ];
-      var _hHtml='<div class="nt">📰 Today&#39;s Headlines</div>';
-      _cats.forEach(function(c,ci){
-        var _txt=_wwFmt(_lch(c.pool),_hv);
-        var _sep=ci<_cats.length-1?'border-bottom:1px solid #e8edf5;margin-bottom:14px;padding-bottom:14px;':'';
-        _hHtml+='<div style="'+_sep+'">'
-          +'<div style="display:flex;align-items:center;gap:7px;margin-bottom:5px">'
-          +'<span style="font-size:1.05em">'+c.icon+'</span>'
-          +'<span style="font-size:0.63em;font-weight:800;letter-spacing:1.2px;color:'+_lcmap[c.label]+';text-transform:uppercase">'+c.label+'</span>'
-          +'<span style="font-size:0.63em;color:#aab4cc;margin-left:auto">'+_dlbl+'</span>'
-          +'</div>'
-          +'<p style="margin:0;color:#334;font-size:0.88em;line-height:1.6">'+_txt+'</p>'
-          +'</div>';
-      });
-      _narrH.innerHTML=_hHtml;
     }
 
     // ── Live stamp ───────────────────────────────────────────────────────────
