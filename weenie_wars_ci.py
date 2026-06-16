@@ -1,3 +1,26 @@
+TOM_UPDATES = [
+    "Tom logged three weenies today. The Commission confirmed all three were uncooked, consumed in The Watcher between 11pm and 1am. The Epween File was updated. The archivist was notified. The archivist requested not to be told the new page count. The Commission told her anyway. She sat down.",
+    "Forensic thermometer readings at Tom's residence show no hot dog cooking activity in 14 days. His microwave still has the factory protective film on the door. The Commission photographed it. The photo is in the Epween Files under Tab D: Appliances Never Used. It is the most visited tab in the archive.",
+    "Commission surveillance confirmed The Watcher was in use for 41 minutes last Tuesday before Tom logged an entry. Agents deployed outside described the apartment as silent during this period except for what one filed as a very focused sound. The sound has not been classified. The sound is in the Epween Files.",
+    "The Epween Files were accidentally included in a document batch sent to Tom's dentist. The dentist called the Commission. He said he had assumed the dental wear was from grinding. He now believes it is from what he described as strategic uncooked consumption. He has requested a transfer to a different state.",
+    "A visiting researcher asked to see the Epween Files as part of a study on competitive eating documentation. She reviewed Volume 1 only. She emerged 40 minutes later, thanked the Commission, and submitted a formal request to have her memory cleared. It was denied. She has not returned the Commission's calls.",
+    "Tom has consumed 100% of his logged weenies without cooking them. Commission dieticians confirmed this is not against the rules, is not something they expected to ever have to say, and have added a proposed amendment to competition guidelines titled simply The Tom Clause.",
+    "Witnesses describe The Watcher as a single recliner positioned seven feet from a blank wall in a room with no other furniture. The wall has no artwork. There is one lamp. It faces away from the chair. Tom has denied 14 requests to photograph The Watcher. All 14 denials are in the Epween Files under Tab J: Denials.",
+    "The Commission's lead analyst filed a 12-page assessment of The Watcher concluding it is, in their professional opinion, the most intentionally constructed eating environment they have encountered in 30 years. Page 12 ends with a personal note: I think he has been planning this for a long time. The note is underlined.",
+    "Tom entered three weenies in a 90-minute window. Surveillance indicates he did not leave The Watcher during this period. A source close to the situation describes the post-Watcher Tom as calm, resolved, and slightly different in a way I cannot explain. The source asked that their name be withheld.",
+    "The Epween Files index alone is 23 pages. Tab A: Origin. Tab B: Volume. Tab C: Methods. Tab D: Appliances Never Used. Tab E: The Watcher (preliminary). Tab F: The Watcher (confirmed). Tab G: The Watcher (classified). Tab G is sealed. Only the Supreme Weenie has clearance. She reviewed it once and has not discussed it since.",
+    "Tom was asked by a reporter if he had anything to say about The Watcher. He considered this for a long time. He said: it watches back. The reporter submitted the quote and was immediately called by her editor, who asked if she was all right. She said she was fine. She does not seem fine. The quote is in the Epween Files.",
+    "Commission toxicologists found that Tom's raw dog consumption style, defined in the official report as temperature-neutral direct intake, leaves no preparation evidence. No plates near a heat source. No cooking smells. The report describes the apartment as a crime scene that committed no crime.",
+    "An entry flagged by the High Volume Unit showed Tom logged 11 weenies in a single day. All 11 were uncooked. All 11 were logged from The Watcher between 10pm and 2am. The Commission convened an emergency session and after 90 minutes issued a memo that said only: noted. They considered this the appropriate response.",
+    "The Epween Files are now stored in their own room. The room was previously a supply closet. A sign outside reads EPWEEN ARCHIVE — ENTRY BY AUTHORIZATION ONLY. A second sign reads YES, THEY ARE ALL ABOUT ONE PERSON. A third sign below that says PLEASE DO NOT ASK FOLLOW-UP QUESTIONS.",
+    "Tom applied to have The Watcher declared a historic site. The application required a description of the site's cultural significance. Tom wrote: it is where it happens. The historic preservation office forwarded it to the Commission. It is now in the Epween Files under Tab R: Things Tom Has Said.",
+    "The Commission confirmed Tom does not have a system for choosing when to enter The Watcher. Sources say he simply knows. He described it as environmental awareness. A behavioral analyst reviewed this and filed a report titled The Watcher Awareness Problem, which opens with the sentence: this is not normal.",
+    "Forensic analysts recreated Tom's raw dog consumption timeline across the full season and confirmed it is not only consistent but meticulous. The word meticulous appears 14 times in the forensic report. The last instance reads: we are using meticulous because precise is not sufficient and intentional feels like a legal conclusion.",
+    "The Commission's thermal imaging team captured The Watcher at 1:04am. The image shows one heat signature in a chair, no heat signatures in the kitchen, and what the technician described as an absolutely still room. The Supreme Weenie reviewed the image once and has not discussed it since.",
+    "Tom submitted a formal objection to the phrase raw dog as used in Commission documents, stating he prefers the term ambient temperature consumption. The Commission reviewed the objection and issued a response: they appreciate his input and will continue to use raw dog, as it more precisely describes the situation.",
+    "The Epween Files gained another volume this week. Volumes 1 through 6 cover all other 16 competitors combined. Volume 7 is Tom only. Volume 7 is longer than Volumes 1 through 6 combined. The archivist has requested early retirement. The request is pending. Volume 8 has already been started.",
+]
+
 #!/usr/bin/env python3
 """
 Weenie Wars 2026 — CI Auto-Update Script
@@ -41,6 +64,16 @@ NICK_UPDATES = [
     "Technical analysts confirmed the background in four of Nick's submitted photos is the same kitchen on all claimed dates. When asked how March, April, June, and July all show the same unwashed dish, Nick said he has a lot of dishes. The dish has been subpoenaed. It has been washed. This was considered obstruction.",
     "Nick attempted to submit a character reference from someone listed only as A Respected Weenie Authority. The Commission confirmed no such person exists in any database or field adjacent to weenies. Nick was asked who this person is. Nick said he would rather not say. The Commission said that is suspicious. Nick said he knows.",
     "The Supreme Weenie released a public statement calling the Nick case the most complex and deeply weird investigation in Commission history and urged the public to remain calm. Nick responded by filing a defamation complaint against the Supreme Weenie. The complaint was denied. The statement was updated to include this fact.",
+    "Nick's security camera showed him entering his kitchen at 3:42am, standing at the counter for six minutes, and returning to bed. No food was prepared. No hot dogs were near the counter. Nick's log shows an entry for 3:42am that same day. The Commission replayed the tape 14 times. The case has been reclassified as fascinating.",
+    "Nick's attorney submitted a legal theory arguing that intention to eat a hot dog constitutes a weenie under the doctrine of spiritual consumption. The Commission confirmed it does not. The phrase spiritual consumption will not appear in any official Commission document again. Nick asked if he could still use it personally. The answer was no.",
+    "The Commission discovered Nick has a Google Calendar event titled [private] every day at meal times. They obtained a warrant. The events read only: thinking. All 47 of them. Nick said he is a contemplative person. The Commission said this does not help his case. Nick said he knows.",
+    "Nick's competitor form listed his eating style as mindful. The Commission asked what that means in the context of hot dogs. Nick said hot dog eating is about presence and intention. The Commission asked if he was eating the hot dogs. Nick said in a real sense, yes. The response was entered as Exhibit 97: Definitional Failure.",
+    "The Commission deployed a hot dog proximity sensor, a device invented specifically for this investigation, near Nick's apartment for 30 days. It registered zero readings. Nick said the sensor must be broken. The Commission confirmed it was tested on 400 other apartments with 100% accuracy. Nick said his building has unusual air.",
+    "Nick texted a Commission investigator at 11:16pm: I just had one in case you are wondering. The investigator asked for documentation. Nick sent a photo of his ceiling. He said it was artistic. The ceiling has been identified. It is Nick's ceiling. The investigation continues.",
+    "Investigators found a receipt in Nick's name from a restaurant called The Frankly Suspicious for a meal described only as the usual. The Commission sent an agent. The address leads to a park. Nick said it is in the park. The park has been surveilled for nine days. There is no restaurant. There is a bench. The bench has been noted.",
+    "Nick's therapist submitted an unsolicited letter to the Commission describing their client as preoccupied with documentation, competitive in ways that extend beyond conventional explanation, and deeply invested in being believed. She added she considers this a medical observation. The Commission printed it in 14-point font and framed it.",
+    "The Commission asked Nick to consume one hot dog in front of a notary. Nick said he would but needed two weeks to prepare. The Commission said it is a hot dog. Nick said there is a process. The Commission issued a statement saying the phrase there is a process is the most alarming sentence yet spoken in a weenie investigation.",
+    "A Commission investigator noted that Nick's apartment has three mirrors all positioned to face the front door and one framed print reading KEEP GOING above the kitchen counter. These observations are in the file under Tab 12: Environmental Indicators. Nick said they are motivational decorations. The investigator filed: possibly.",
 ]
 
 HARRISON_UPDATES = [
@@ -69,6 +102,16 @@ HARRISON_UPDATES = [
     "Harrison's gym records show 22 visits each lasting 8 to 12 minutes. A fitness expert testified that no meaningful workout is possible in that time and that the visits are consistent with someone who wanted to create the impression of physical activity without doing any. Harrison said he has very efficient workouts. The expert said no he does not.",
     "The Fraudfurter Division formally requested Harrison be placed on the Weenie Watch List, a designation reserved for individuals whose hot dog activity poses a systemic risk to competitive eating integrity. Harrison's attorney called it an overreach. The Division said it is the minimum appropriate response. The list now has one name on it.",
     "At the conclusion of the most recent hearing, Harrison was asked if he had anything to say to the Commission. He stood up, adjusted his jacket, said I just want everyone to know I really like hot dogs, and sat back down. The room was silent for 17 seconds. His attorney put his head on the table. It has been entered as Exhibit 91: The Statement.",
+    "Harrison submitted a sworn statement that he once ate a hot dog at a stadium and remembers it vividly. The Commission verified the stadium. It does not serve hot dogs. It has not served hot dogs since 1994. The Commission has described Harrison as either sincerely confused or a creative writer, and noted both are possible.",
+    "Uncle Sam the Glizzy Man arrived at his deposition wearing a tie with a hamburger pattern. His attorney had prepared a statement about it. Harrison said it was a hot dog tie. Three forensic textile analysts confirmed it was a hamburger tie. Harrison stood by the claim for 40 minutes. He eventually said it could go either way.",
+    "Harrison submitted a 17-minute voice memo titled My History with Hot Dogs. The Commission transcribed it. The word hot dog appears once, in the sentence I have always respected the hot dog. The remaining 16 minutes concern his feelings about summer, grills as a metaphor, and one extended digression about a burger he had in 2019 that changed him.",
+    "Harrison's new attorney submitted a motion to suppress all burger evidence on grounds that it unfairly prejudices the jury against clients who simply, as the motion reads, really enjoy the full range of cylindrical proteins. The Commission read this and scheduled a press conference to read it aloud. Tickets sold out in four hours.",
+    "The FBI placed a tracking device on Harrison's most-used spatula. In 30 days it traveled to 11 locations, two of which were hardware stores, four of which were private barbecues, and one which the GPS identified only as beef. The spatula has been named a person of interest. Harrison says that is not legal. The Commission is looking into it.",
+    "Harrison's kitchen has a hot dog roller machine still in the original packaging. It was purchased on May 25th, the first day of competition, and has not been opened. Harrison says he is saving it for a special occasion. The Commission asked what occasion. Harrison said he will know when the time is right. This is also in evidence.",
+    "The Commission's database entry for Harrison burger consumption spans 14 pages. The entry for all 16 other competitors combined spans two. Harrison's attorney says this is circumstantial. The Commission has given the document its own cover page, title, and table of contents. The table of contents is two pages.",
+    "Harrison filed a complaint arguing the Commission is unfairly targeting him based on smell. The Commission's evidence summary includes smell in Section 1 of 47 sections. Harrison's attorney has not read past Section 1. The Commission has offered to summarize. The attorney said he will get to it. He has not gotten to it.",
+    "A food safety inspector who visited Harrison's residence noted in her official report that the hot dog storage area was pristine, the burger area was extensively used, and that she found this interesting enough to mention to three different people before writing it down. All three people are now also involved in the investigation.",
+    "Harrison's Fraudfurter Division file was accidentally emailed to his landlord during a clerical error. The landlord called the Commission to ask if they needed anything else. He said he had suspected something for a while. He was asked what he suspected. He said: beef. He was thanked for his time. He has been added as a witness.",
 ]
 # ── Headline templates (4 categories, picked 1 each at 8am rebuild) ──────────
 BREAKING_TEMPLATES = [
@@ -123,6 +166,11 @@ INVESTIGATION_TEMPLATES = [
     "Harrison submitted new exculpatory evidence: a gas station receipt for a cylindrical food item dated during the competition window. Forensic analysts confirmed the receipt is real and the station sells both hot dogs and sausages under the same label. Harrison said he ordered the hot dog. The analyst said he cannot confirm that from a receipt. Harrison said that is the point of a receipt.",
     "An anonymous tip alleged Nick keeps a second log under the alias W. Glizzy. The Commission investigated for three weeks. W. Glizzy has not been located. Nick says he has no idea who that is. Nick paused for two seconds before saying it. The two seconds have been entered into evidence.",
     "EPWEEN LIST STATUS: Tom remains on the list. Harrison remains on a separate classification. Nick is under standard review. All three cases are active. The lead investigator described the combined caseload as unprecedented, exhausting, and honestly kind of impressive.",
+    "Tom has not cooked a hot dog this season. Commission thermal imaging confirmed it. Two witnesses described watching him eat and feeling an emotion they could not name. The High Volume Unit added a new classification to their tracking system. The classification is called The Tom. It applies to one person.",
+    "Sources confirm Tom enters The Watcher between one and four times per week. He has never invited anyone to The Watcher. He has never described The Watcher. The Commission has 94 pages on The Watcher. The Supreme Weenie reviewed them and issued one instruction: keep watching The Watcher.",
+    "Tom's Epween File is the largest single-subject file in Commission history. It surpassed the previous record last month. The Commission would not confirm details about the previous record holder. They said only: that case was simpler. Tom's attorney said his client is honored. The Commission said that is not the right word.",
+    "An anonymous tip described Tom's raw dog method as ritualistic, sequential, and conducted with the energy of someone completing a form they have filled out many times before. The tip was seven pages long. The Commission read all of it. They called the tipster and asked one question: are you OK? The tipster said yes. Their voice suggested otherwise.",
+    "The Epween Files reached a new milestone this week. The Commission held a brief ceremony. There was no cake. There was a file transfer to a larger server and a moment of silence that lasted longer than intended. Tom was not informed. Tom was in The Watcher.",
 ]
 
 
@@ -388,6 +436,24 @@ if force_rebuild:
             print(f"  {_person} log rotated: {today_label}")
         else:
             print(f"  {_person} log pattern not found in build script")
+
+    # ── Tom log rotation ────────────────────────────────────────────────────
+    _new_tom = random.choice(TOM_UPDATES)
+    _m = re.search(r'TOM_LOG\s*=\s*(\[.*?\])\s*#', src, re.DOTALL)
+    if _m:
+        try:
+            _log = eval(_m.group(1))
+        except Exception:
+            _log = []
+        _log = [{"date": today_label, "text": _new_tom}] + _log[:2]
+        src = re.sub(
+            r'TOM_LOG\s*=\s*\[.*?\]\s*#[^\n]*',
+            f'TOM_LOG = {repr(_log)}  # auto-filled by CI: newest first',
+            src, flags=re.DOTALL
+        )
+        print(f"  Tom log rotated: {today_label}")
+    else:
+        print("  Tom log pattern not found in build script")
 
 # Compute LAST_WEENIE_TS — most recent weenie entry, ET→UTC
 if rows:
