@@ -46,23 +46,23 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":4, "chomp":215,"odds":"+750","move":"▲","mc":"#B22234"},
+    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":1, "chomp":215,"odds":"+750","move":"—","mc":"#7a8aaa"},
     {"name":"Tom",     "place":2, "total":19,"may":1,"june":18,"july":0,"aug":0,"sep":0,"l7":8, "chomp":371,"odds":"+400","move":"—","mc":"#7a8aaa"},
     {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":78,"odds":"+2000","move":"—","mc":"#7a8aaa"},
     {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":1, "chomp":117,"odds":"+1350","move":"—","mc":"#7a8aaa"},
     {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":78,"odds":"+2000","move":"—","mc":"#7a8aaa"},
     {"name":"Scott",   "place":5, "total":6,"may":2,"june":4,"july":0,"aug":0,"sep":0,"l7":2, "chomp":117,"odds":"+1350","move":"—","mc":"#7a8aaa"},
     {"name":"Leah",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":78,"odds":"+2000","move":"—","mc":"#7a8aaa"},
-    {"name":"Jon",     "place":8, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":8, "chomp":274,"odds":"+550","move":"—","mc":"#7a8aaa"},
-    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+19000","move":"▲","mc":"#B22234"},
+    {"name":"Jon",     "place":8, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":6, "chomp":274,"odds":"+550","move":"—","mc":"#7a8aaa"},
+    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+19000","move":"—","mc":"#7a8aaa"},
     {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":39,"odds":"+3700","move":"—","mc":"#7a8aaa"},
-    {"name":"Kristen", "place":9, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":2, "chomp":59,"odds":"+2650","move":"▲","mc":"#B22234"},
-    {"name":"Reid",    "place":9, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":4, "chomp":117,"odds":"+1350","move":"▼","mc":"#2a7a2a"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+19000","move":"▲","mc":"#B22234"},
+    {"name":"Kristen", "place":9, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":2, "chomp":59,"odds":"+2650","move":"—","mc":"#7a8aaa"},
+    {"name":"Reid",    "place":9, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":4, "chomp":117,"odds":"+1350","move":"—","mc":"#7a8aaa"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+19000","move":"—","mc":"#7a8aaa"},
     {"name":"Devin",   "place":9, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":4, "chomp":117,"odds":"+1350","move":"—","mc":"#7a8aaa"},
     {"name":"Steph",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":39,"odds":"+3700","move":"—","mc":"#7a8aaa"},
-    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+19000","move":"▲","mc":"#B22234"},
-    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+19000","move":"▲","mc":"#B22234"},
+    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+19000","move":"—","mc":"#7a8aaa"},
+    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+19000","move":"—","mc":"#7a8aaa"},
 ]
 
 MONTHS = [
@@ -80,7 +80,7 @@ MONTHS = [
 BANNER = {
     "leader_name":   "Tom",
     "leader_total":  19,
-    "l7_leader":     "Jon",
+    "l7_leader":     "Tom",
     "l7_score":      8,
     "l7_note":       "none today",
     "months_done":   1,
@@ -113,8 +113,8 @@ NICK_LOG = [{"date": "Jun 15","text": "The Commission subpoenaed Nick's smart re
 HARRISON_INVESTIGATION = True
 HARRISON_LOG = [{"date": "Jun 13", "text": "The FBI recovered a Post-it note from Harrison's recycling bin reading 'remember: hot dogs only, no burgers, they are watching.' Handwriting confirmed it was Harrison's. A second Post-it nearby read 'also destroy this note.' He had not destroyed either note. Both are now Exhibit A and Exhibit B."}, {"date": "Jun 12", "text": "Harrison's insurance adjuster testified that upon receiving the eleventh Food Baby photo, he called his supervisor assuming he was being pranked. His supervisor also assumed it was a prank. Both are now in therapy. The insurance company has requested the photos be destroyed. The FBI said absolutely not."}, {"date": "Jun 11", "text": "Uncle Sam the Glizzy Man appeared at his deposition in a t-shirt reading 'Glizzy Innocent' in large block letters, which his attorney had specifically told him not to wear. The shirt was confiscated as evidence. Harrison asked for it back three separate times. The answer was no each time."}]  # auto-filled by CI: newest first
 
-TOM_LOG = [{'date': 'Jun 18', 'text': 'An entry flagged by the High Volume Unit showed Tom logged 11 weenies in a single day. All 11 were uncooked. All 11 were logged from The Watcher between 10pm and 2am. The Commission convened an emergency session and after 90 minutes issued a memo that said only: noted. They considered this the appropriate response.'}, {'date': 'Jun 17', 'text': 'Commission surveillance confirmed The Watcher was in use for 41 minutes last Tuesday before Tom logged an entry. Agents deployed outside described the apartment as silent during this period except for what one filed as a very focused sound. The sound has not been classified. The sound is in the Epween Files.'}, {'date': 'Jun 16', 'text': "The Epween Files were accidentally included in a document batch sent to Tom's dentist. The dentist called the Commission. He said he had assumed the dental wear was from grinding. He now believes it is from what he described as strategic uncooked consumption. He has requested a transfer to a different state."}]  # auto-filled by CI: newest first
-HEADLINES = [{'icon': '📰', 'label': 'BREAKING', 'text': 'OFFICIAL STANDINGS: Tom (19), Jon (14), and 13 others trying. A gap of 5 separates the top two. This gap has been named. Its name is The Chasm. It is shaped like a hot dog.', 'date': 'Jun 18'}, {'icon': '🔥', 'label': 'HOT STREAK', 'text': 'A 8-weenie week from Jon has raised the competition temperature. Noel, currently at 2 for the season, was asked for comment. They said they are aware of the situation. They did not say what they plan to do about it.', 'date': 'Jun 18'}, {'icon': '📊', 'label': 'STANDINGS', 'text': "4 competitors have not logged a single weenie. The Commission sent a certified letter to each. Two were delivered. One came back with 'return to sender' written on it in what analysts believe is the handwriting of the recipient. This is being investigated separately.", 'date': 'Jun 18'}, {'icon': '🕵️', 'label': 'INVESTIGATION', 'text': "The Harrison case entered a new phase after FBI analysts confirmed the smell coming from Harrison's alleged hot dog preparation area is not a hot dog smell and is instead consistent with either a hamburger or something that spent time near a hamburger and developed feelings about it.", 'date': 'Jun 18'}]  # auto-filled by CI: 4 headlines per day
+TOM_LOG = [{'date': 'Jun 19', 'text': 'Tom was asked by a reporter if he had anything to say about The Watcher. He considered this for a long time. He said: it watches back. The reporter submitted the quote and was immediately called by her editor, who asked if she was all right. She said she was fine. She does not seem fine. The quote is in the Epween Files.'}, {'date': 'Jun 18', 'text': 'An entry flagged by the High Volume Unit showed Tom logged 11 weenies in a single day. All 11 were uncooked. All 11 were logged from The Watcher between 10pm and 2am. The Commission convened an emergency session and after 90 minutes issued a memo that said only: noted. They considered this the appropriate response.'}, {'date': 'Jun 17', 'text': 'Commission surveillance confirmed The Watcher was in use for 41 minutes last Tuesday before Tom logged an entry. Agents deployed outside described the apartment as silent during this period except for what one filed as a very focused sound. The sound has not been classified. The sound is in the Epween Files.'}]  # auto-filled by CI: newest first
+HEADLINES = [{'icon': '📰', 'label': 'BREAKING', 'text': '13 of 17 competitors are on the board. The 4 who are not have been issued a formal reminder that the season is 24% complete and the weenies are not going to eat themselves. The Commission has confirmed that is not how weenies work.', 'date': 'Jun 19'}, {'icon': '🔥', 'label': 'HOT STREAK', 'text': 'Seven-day leader: Tom with 8 entries. The grill is hot, the mustard is flowing, and the rest of the field has been observed checking their phones more than usual. The Commission has noted this pattern.', 'date': 'Jun 19'}, {'icon': '📊', 'label': 'STANDINGS', 'text': 'Current standings: 13 active competitors and 4 who have yet to begin. The season is 24% done. The Commission will not say it is too late. They will also not say it is not too late. Both statements are simultaneously true.', 'date': 'Jun 19'}, {'icon': '🕵️', 'label': 'INVESTIGATION', 'text': 'Sources confirm Tom enters The Watcher between one and four times per week. He has never invited anyone to The Watcher. He has never described The Watcher. The Commission has 94 pages on The Watcher. The Supreme Weenie reviewed them and issued one instruction: keep watching The Watcher.', 'date': 'Jun 19'}]  # auto-filled by CI: 4 headlines per day
 LAST_WEENIE_TS = 1781816527  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 BIG_DAYS      = [('Thursday June11th', 15), ('Saturday June6th', 14), ('Monday May25th 🇺🇸', 12), ('Saturday June13th', 10), ('Thursday June18th', 10)]     # auto-filled by CI: [("Jun 3", 8), ...]
@@ -122,7 +122,7 @@ BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
 WEENIE_LOG = []  # auto-filled by live-patch: [{player, count, display_ts, sort_ts}] newest first
 RECORDS_SINGLE_DAY  = []  # auto-filled: [{player, count, date_display}] top 10 individual single-day
 RECORDS_SINGLE_WEEK = []  # auto-filled: [{player, count, week_display}] top 10 individual single-week
-BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 1239.2, 'delta_b': -9.2}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 301.0, 'delta_b': 0.4}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 277.6, 'delta_b': 0.4}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 254.1, 'delta_b': 0.9}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 234.5, 'delta_b': -2.1}]  # auto-filled by CI
+BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 1239.2, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 301.0, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 277.6, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 254.1, 'delta_b': 0.0}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 234.5, 'delta_b': 0.0}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
 
