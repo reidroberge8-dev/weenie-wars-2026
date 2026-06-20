@@ -1,9 +1,9 @@
 {
-  "csv_hash": "b5aaf9611a0314c034d51f179eee72f1c7a3572d34b262ec7115826dddded03e",
-  "row_count": 57,
-  "updated": "2026-06-19T18:21:30.407768",
+  "csv_hash": "d52a6037cdd1f078e984498bcd08370dc1efc39e9f9ee3b574a68c30b1650829",
+  "row_count": 58,
+  "updated": "2026-06-20T09:54:19.804985",
   "bill_day_start": {
-    "date": "2026-06-19",
+    "date": "2026-06-20",
     "values": {
       "Elon Musk": 1239180.967,
       "Larry Page": 300984.806,
@@ -15,20 +15,20 @@
   "odds": {
     "Alex": "+750",
     "Tom": "+400",
-    "Jake": "+2000",
-    "Nick": "+1350",
-    "Jess": "+2000",
-    "Scott": "+1350",
-    "Leah": "+2000",
+    "Jake": "+2050",
+    "Nick": "+1400",
+    "Jess": "+2050",
+    "Scott": "+1200",
+    "Leah": "+2050",
     "Jon": "+550",
-    "Alyssa": "+19000",
-    "Noel": "+3700",
+    "Alyssa": "+19200",
+    "Noel": "+3750",
     "Kristen": "+2650",
-    "Reid": "+1350",
-    "Jen": "+19000",
-    "Devin": "+1350",
-    "Steph": "+3700",
-    "Harrison": "+19000",
-    "Owen": "+19000"
+    "Reid": "+1400",
+    "Jen": "+19200",
+    "Devin": "+1400",
+    "Steph": "+3750",
+    "Harrison": "+19200",
+    "Owen": "+19200"
   }
 }
