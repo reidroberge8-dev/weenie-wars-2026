@@ -1,7 +1,7 @@
 {
-  "csv_hash": "187967c81dd9b4eeb1c6498ce0e4515a21eaf0b91165ebe7a346e3f081fcedc5",
-  "row_count": 67,
-  "updated": "2026-06-21T20:46:51.639897",
+  "csv_hash": "2ac151c84565e65cacd652632afdf5dcc4b94168cda3ae0a1cfae28197f1648c",
+  "row_count": 68,
+  "updated": "2026-06-21T20:58:50.667263",
   "bill_day_start": {
     "date": "2026-06-21",
     "values": {
@@ -21,14 +21,14 @@
     "Scott": "+1350",
     "Leah": "+1900",
     "Jon": "+650",
-    "Alyssa": "+21800",
+    "Alyssa": "+22000",
     "Noel": "+4300",
     "Kristen": "+1900",
     "Reid": "+1050",
-    "Jen": "+21800",
+    "Jen": "+22000",
     "Devin": "+1600",
-    "Steph": "+4300",
+    "Steph": "+3050",
     "Harrison": "+3050",
-    "Owen": "+7200"
+    "Owen": "+7250"
   }
 }
