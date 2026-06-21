@@ -46,23 +46,23 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":1, "chomp":212,"odds":"+750","move":"—","mc":"#7a8aaa"},
-    {"name":"Tom",     "place":2, "total":19,"may":1,"june":18,"july":0,"aug":0,"sep":0,"l7":5, "chomp":367,"odds":"+400","move":"—","mc":"#7a8aaa"},
-    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":77,"odds":"+2050","move":"—","mc":"#7a8aaa"},
-    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":0, "chomp":116,"odds":"+1400","move":"—","mc":"#7a8aaa"},
-    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":77,"odds":"+2050","move":"—","mc":"#7a8aaa"},
-    {"name":"Scott",   "place":5, "total":7,"may":2,"june":5,"july":0,"aug":0,"sep":0,"l7":3, "chomp":135,"odds":"+1200","move":"—","mc":"#7a8aaa"},
-    {"name":"Leah",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":1, "chomp":77,"odds":"+2050","move":"—","mc":"#7a8aaa"},
-    {"name":"Jon",     "place":8, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":5, "chomp":270,"odds":"+550","move":"—","mc":"#7a8aaa"},
-    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+19200","move":"—","mc":"#7a8aaa"},
-    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":39,"odds":"+3750","move":"—","mc":"#7a8aaa"},
-    {"name":"Kristen", "place":9, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":2, "chomp":58,"odds":"+2650","move":"—","mc":"#7a8aaa"},
-    {"name":"Reid",    "place":9, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":4, "chomp":116,"odds":"+1400","move":"—","mc":"#7a8aaa"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+19200","move":"—","mc":"#7a8aaa"},
-    {"name":"Devin",   "place":9, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":4, "chomp":116,"odds":"+1400","move":"—","mc":"#7a8aaa"},
-    {"name":"Steph",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":39,"odds":"+3750","move":"—","mc":"#7a8aaa"},
-    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+19200","move":"—","mc":"#7a8aaa"},
-    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+19200","move":"—","mc":"#7a8aaa"},
+    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":0, "chomp":195,"odds":"+800","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":19,"may":1,"june":18,"july":0,"aug":0,"sep":0,"l7":5, "chomp":336,"odds":"+450","move":"▲","mc":"#B22234"},
+    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":71,"odds":"+2200","move":"▲","mc":"#B22234"},
+    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":0, "chomp":106,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":71,"odds":"+2200","move":"▲","mc":"#B22234"},
+    {"name":"Scott",   "place":5, "total":7,"may":2,"june":5,"july":0,"aug":0,"sep":0,"l7":3, "chomp":124,"odds":"+1300","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":5,"may":2,"june":3,"july":0,"aug":0,"sep":0,"l7":2, "chomp":89,"odds":"+1800","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jon",     "place":8, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":2, "chomp":248,"odds":"+600","move":"▲","mc":"#B22234"},
+    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+20800","move":"▲","mc":"#B22234"},
+    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":35,"odds":"+4100","move":"▲","mc":"#B22234"},
+    {"name":"Kristen", "place":9, "total":5,"may":0,"june":5,"july":0,"aug":0,"sep":0,"l7":4, "chomp":89,"odds":"+1800","move":"▼","mc":"#2a7a2a"},
+    {"name":"Reid",    "place":9, "total":11,"may":0,"june":11,"july":0,"aug":0,"sep":0,"l7":9, "chomp":195,"odds":"+800","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+20800","move":"▲","mc":"#B22234"},
+    {"name":"Devin",   "place":9, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":4, "chomp":106,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Steph",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":35,"odds":"+4100","move":"▲","mc":"#B22234"},
+    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+20800","move":"▲","mc":"#B22234"},
+    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+20800","move":"▲","mc":"#B22234"},
 ]
 
 MONTHS = [
@@ -80,8 +80,8 @@ MONTHS = [
 BANNER = {
     "leader_name":   "Tom",
     "leader_total":  19,
-    "l7_leader":     "Jon",
-    "l7_score":      5,
+    "l7_leader":     "Reid",
+    "l7_score":      9,
     "l7_note":       "none today",
     "months_done":   1,
     "months_total":  5,
@@ -115,7 +115,7 @@ HARRISON_LOG = [{"date": "Jun 13", "text": "The FBI recovered a Post-it note fro
 
 TOM_LOG = [{'date': 'Jun 20', 'text': "The Epween Files were accidentally included in a document batch sent to Tom's dentist. The dentist called the Commission. He said he had assumed the dental wear was from grinding. He now believes it is from what he described as strategic uncooked consumption. He has requested a transfer to a different state."}, {'date': 'Jun 19', 'text': 'Tom was asked by a reporter if he had anything to say about The Watcher. He considered this for a long time. He said: it watches back. The reporter submitted the quote and was immediately called by her editor, who asked if she was all right. She said she was fine. She does not seem fine. The quote is in the Epween Files.'}, {'date': 'Jun 18', 'text': 'An entry flagged by the High Volume Unit showed Tom logged 11 weenies in a single day. All 11 were uncooked. All 11 were logged from The Watcher between 10pm and 2am. The Commission convened an emergency session and after 90 minutes issued a memo that said only: noted. They considered this the appropriate response.'}]  # auto-filled by CI: newest first
 HEADLINES = [{'icon': '📰', 'label': 'BREAKING', 'text': "Competitors have collectively consumed 88 weenies since Memorial Day. At the league average of 6.8 per active player, Joey Chestnut's 70.5-dog record would require the combined efforts of the entire active field for multiple seasons. Joey was not moved by this analysis.", 'date': 'Jun 20'}, {'icon': '🔥', 'label': 'HOT STREAK', 'text': "Momentum report: Jon has the hot hand at 5 over the last week. At this pace, the overall standings will shift by end of month. Tom's camp has declined to project by how much. The Commission estimates: considerably.", 'date': 'Jun 20'}, {'icon': '📊', 'label': 'STANDINGS', 'text': 'League average: 6.8 weenies per active competitor. Tom is at 19. The gap between those two numbers is doing a lot of work in this competition.', 'date': 'Jun 20'}, {'icon': '🕵️', 'label': 'INVESTIGATION', 'text': "The Harrison case entered a new phase after FBI analysts confirmed the smell coming from Harrison's alleged hot dog preparation area is not a hot dog smell and is instead consistent with either a hamburger or something that spent time near a hamburger and developed feelings about it.", 'date': 'Jun 20'}]  # auto-filled by CI: 4 headlines per day
-LAST_WEENIE_TS = 1781919183  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
+LAST_WEENIE_TS = 1782003152  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 BIG_DAYS      = [('Thursday June11th', 15), ('Saturday June6th', 14), ('Monday May25th 🇺🇸', 12), ('Saturday June13th', 10), ('Thursday June18th', 10)]     # auto-filled by CI: [("Jun 3", 8), ...]
 BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
