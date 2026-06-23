@@ -89,32 +89,6 @@ TIP_WRAPPERS_OWEN = [
 
 def categorize_tip(tip_text):
     t = tip_text.lower()
-    if "nick" in t:
-        return "COMMISSION", TIP_WRAPPERS_NICK
-    elif "harrison" in t or "fraudfurter" in t or "hamburger" in t or "burger" in t:
-        return "FRAUDFURTER", TIP_WRAPPERS_HARRISON
-    elif "tom" in t or "epween" in t or "watcher" in t or "raw dog" in t or "ambient" in t:
-        return "EPWEEN FILES", TIP_WRAPPERS_TOM
-    elif "owen" in t or "chorizo" in t or "chorizogate" in t:
-        return "CHORIZOGATE", TIP_WRAPPERS_OWEN
-    else:
-        return "HOTLINE TIP", TIP_WRAPPERS_GENERIC
-
-def categorize_tip(tip_text):
-    t = tip_text.lower()
-    if "nick" in t:
-        return "COMMISSION", TIP_WRAPPERS_NICK
-    elif "harrison" in t or "fraudfurter" in t or "hamburger" in t or "burger" in t:
-        return "FRAUDFURTER", TIP_WRAPPERS_HARRISON
-    elif "tom" in t or "epween" in t or "watcher" in t or "raw dog" in t or "ambient" in t:
-        return "EPWEEN FILES", TIP_WRAPPERS_TOM
-    elif "owen" in t or "chorizo" in t or "chorizogate" in t:
-        return "CHORIZOGATE", TIP_WRAPPERS_OWEN
-    else:
-        return "HOTLINE TIP", TIP_WRAPPERS_GENERIC
-
-def categorize_tip(tip_text):
-    t = tip_text.lower()
     if 'nick' in t:
         return 'COMMISSION', TIP_WRAPPERS_NICK
     elif 'harrison' in t or 'fraudfurter' in t or 'hamburger' in t or 'burger' in t:
@@ -492,14 +466,15 @@ if billionaires is not None:
     )
     print(f"  BILLIONAIRE_DATA patched ({len(billionaires)} entries)")
 
-# ── Update TIPS_HEADLINES in build script ────────────────────────────────────
-_tips_match = re.search(r'TIPS_HEADLINES\s*=\s*(\[.*?\])\s*#', src, re.DOTALL)
-_current_tips = []
-if _tips_match:
-    try:
-        _current_tips = eval(_tips_match.group(1))
-    except Exception:
-        _current_tips = []
+# ── Update TIPS_HEADLINES — source of truth is last_seen.json (survives build script overwrites)
+_current_tips = last_state.get("tips_headlines", [])
+if not _current_tips:
+    _tips_match = re.search(r'TIPS_HEADLINES\s*=\s*(\[.*?\])\s*#', src, re.DOTALL)
+    if _tips_match:
+        try:
+            _current_tips = eval(_tips_match.group(1))
+        except Exception:
+            _current_tips = []
 
 if tips_changed and tip_data:
     # Build headline for each new tip (ones not already in current list)
@@ -579,6 +554,7 @@ with open(STATE_FILE, "w") as f:
     _state_out["tips_row_count"]    = len(tip_data)
     _state_out["last_tip_ts"]       = last_state.get("last_tip_ts", "")
     _state_out["last_fallback_ts"]  = last_state.get("last_fallback_ts", "")
+    _state_out["tips_headlines"]    = _current_tips
     json.dump(_state_out, f, indent=2)
 
 subprocess.run(["git", "config", "user.name",  "github-actions[bot]"], cwd=ROOT)
