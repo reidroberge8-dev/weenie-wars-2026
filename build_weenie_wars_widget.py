@@ -46,23 +46,23 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":12,"may":5,"june":7,"july":0,"aug":0,"sep":0,"l7":1, "chomp":189,"odds":"+850","move":"—","mc":"#7a8aaa"},
-    {"name":"Tom",     "place":2, "total":22,"may":1,"june":21,"july":0,"aug":0,"sep":0,"l7":5, "chomp":346,"odds":"+400","move":"—","mc":"#7a8aaa"},
-    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":63,"odds":"+2500","move":"—","mc":"#7a8aaa"},
-    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":0, "chomp":94,"odds":"+1700","move":"—","mc":"#7a8aaa"},
-    {"name":"Jess",    "place":5, "total":6,"may":2,"june":4,"july":0,"aug":0,"sep":0,"l7":2, "chomp":94,"odds":"+1700","move":"—","mc":"#7a8aaa"},
-    {"name":"Scott",   "place":5, "total":7,"may":2,"june":5,"july":0,"aug":0,"sep":0,"l7":1, "chomp":110,"odds":"+1450","move":"—","mc":"#7a8aaa"},
-    {"name":"Leah",    "place":5, "total":5,"may":2,"june":3,"july":0,"aug":0,"sep":0,"l7":1, "chomp":79,"odds":"+2000","move":"—","mc":"#7a8aaa"},
-    {"name":"Jon",     "place":8, "total":15,"may":1,"june":14,"july":0,"aug":0,"sep":0,"l7":1, "chomp":236,"odds":"+650","move":"—","mc":"#7a8aaa"},
-    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+23200","move":"—","mc":"#7a8aaa"},
-    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":31,"odds":"+4550","move":"—","mc":"#7a8aaa"},
-    {"name":"Kristen", "place":9, "total":5,"may":0,"june":5,"july":0,"aug":0,"sep":0,"l7":4, "chomp":79,"odds":"+2000","move":"—","mc":"#7a8aaa"},
-    {"name":"Reid",    "place":9, "total":9,"may":0,"june":9,"july":0,"aug":0,"sep":0,"l7":7, "chomp":142,"odds":"+1150","move":"—","mc":"#7a8aaa"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+23200","move":"—","mc":"#7a8aaa"},
-    {"name":"Devin",   "place":9, "total":8,"may":0,"june":8,"july":0,"aug":0,"sep":0,"l7":2, "chomp":126,"odds":"+1250","move":"—","mc":"#7a8aaa"},
-    {"name":"Steph",   "place":9, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":47,"odds":"+3250","move":"—","mc":"#7a8aaa"},
-    {"name":"Harrison", "place":9, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":47,"odds":"+3250","move":"—","mc":"#7a8aaa"},
-    {"name":"Owen",    "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":16,"odds":"+7650","move":"—","mc":"#7a8aaa"},
+    {"name":"Alex",    "place":1, "total":11,"may":5,"june":6,"july":0,"aug":0,"sep":0,"l7":6, "chomp":203,"odds":"+600","move":"▲","mc":"#B22234"},
+    {"name":"Tom",     "place":2, "total":14,"may":1,"june":13,"july":0,"aug":0,"sep":0,"l7":11, "chomp":258,"odds":"+400","move":"▲","mc":"#B22234"},
+    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":3, "chomp":111,"odds":"+1000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jess",    "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Scott",   "place":5, "total":4,"may":2,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":74,"odds":"+1500","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":3,"may":2,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":55,"odds":"+1950","move":"▲","mc":"#B22234"},
+    {"name":"Jon",     "place":8, "total":12,"may":1,"june":11,"july":0,"aug":0,"sep":0,"l7":11, "chomp":222,"odds":"+500","move":"▼","mc":"#2a7a2a"},
+    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Kristen", "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":18,"odds":"+4750","move":"▲","mc":"#B22234"},
+    {"name":"Reid",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Devin",   "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":2, "chomp":37,"odds":"+2800","move":"▲","mc":"#B22234"},
+    {"name":"Steph",   "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Harrison", "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
+    {"name":"Owen",    "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+14400","move":"▲","mc":"#B22234"},
 ]
 
 MONTHS = [
@@ -79,13 +79,13 @@ MONTHS = [
 
 BANNER = {
     "leader_name":   "Tom",
-    "leader_total":  22,
-    "l7_leader":     "Reid",
-    "l7_score":      7,
-    "l7_note":       "none today",
+    "leader_total":  14,
+    "l7_leader":     "Tom",
+    "l7_score":      11,
+    "l7_note":       "3 today",
     "months_done":   1,
     "months_total":  5,
-    "players":       17,
+    "players":       22,
 }
 
 # ─── NARRATIVE ───────────────────────────────────────────────────────────────
@@ -114,15 +114,20 @@ HARRISON_INVESTIGATION = True
 HARRISON_LOG = [{"date": "Jun 13", "text": "The FBI recovered a Post-it note from Harrison's recycling bin reading 'remember: hot dogs only, no burgers, they are watching.' Handwriting confirmed it was Harrison's. A second Post-it nearby read 'also destroy this note.' He had not destroyed either note. Both are now Exhibit A and Exhibit B."}, {"date": "Jun 12", "text": "Harrison's insurance adjuster testified that upon receiving the eleventh Food Baby photo, he called his supervisor assuming he was being pranked. His supervisor also assumed it was a prank. Both are now in therapy. The insurance company has requested the photos be destroyed. The FBI said absolutely not."}, {"date": "Jun 11", "text": "Uncle Sam the Glizzy Man appeared at his deposition in a t-shirt reading 'Glizzy Innocent' in large block letters, which his attorney had specifically told him not to wear. The shirt was confiscated as evidence. Harrison asked for it back three separate times. The answer was no each time."}]  # auto-filled by CI: newest first
 
 TOM_LOG = [{"date": "Jun 16", "text": "Tom logged three weenies today. The Commission confirmed all three were uncooked, consumed in The Watcher between 11pm and 1am. The Epween File was updated. The archivist was notified. The archivist requested not to be told the new page count. The Commission told her anyway. She sat down."}]  # auto-filled by CI: newest first
+
+TIPS_HEADLINES = [
+    {"date": "Jun 23", "category": "CHORIZOGATE", "text": "Owen has been placed under formal investigation in what sources are calling Chorizogate. An anonymous tipster described activity at Owen's residence as inconsistent with a hot dog household. The Commission has opened a parallel case file. Owen has not responded to requests for comment. The Commission noted that is consistent with the profile."},
+]  # auto-filled by CI: newest first
+
 HEADLINES = [{'icon': '📰', 'label': 'BREAKING', 'text': "The gap between Tom and Jon stands at 2 weenies. The Commission's analysts have been watching this number. It has been described as stubborn, meaningful, and uncomfortable to read aloud at press conferences.", 'date': 'Jun 14'}, {'icon': '🔥', 'label': 'HOT STREAK', 'text': "Momentum report: Tom has the hot hand at 8 over the last week. At this pace, the overall standings will shift by end of month. Tom's camp has declined to project by how much. The Commission estimates: considerably.", 'date': 'Jun 14'}, {'icon': '📊', 'label': 'STANDINGS', 'text': '5 players have not eaten a single official weenie. Their names are on file. Their excuses are also on file. The Commission reviewed the excuses and categorized them as creative, implausible, and in one case simply the word no.', 'date': 'Jun 14'}, {'icon': '🕵️', 'label': 'INVESTIGATION', 'text': 'Harrison submitted exculpatory evidence: a gas station receipt for a cylindrical food item during the competition window. Analysts confirmed the receipt is real and the station sells both hot dogs and sausages under the same label. Harrison said he ordered the hot dog. The analyst said he cannot confirm that from a receipt.', 'date': 'Jun 14'}]  # auto-filled by CI: 4 headlines per day
-LAST_WEENIE_TS = 1782087854  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
+LAST_WEENIE_TS = 1781396729  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
-BIG_DAYS      = [('Thursday June11th', 15), ('Saturday June6th', 14), ('Sunday June21st', 14), ('Monday May25th 🇺🇸', 12), ('Saturday June13th', 10)]     # auto-filled by CI: [("Jun 3", 8), ...]
+BIG_DAYS      = [('Jun 11', 15), ('Jun 6', 14), ('May 25', 12), ('Jun 13', 9), ('May 31', 3)]     # auto-filled by CI: [("Jun 3", 8), ...]
 BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
 WEENIE_LOG = []  # auto-filled by live-patch: [{player, count, display_ts, sort_ts}] newest first
 RECORDS_SINGLE_DAY  = []  # auto-filled: [{player, count, date_display}] top 10 individual single-day
 RECORDS_SINGLE_WEEK = []  # auto-filled: [{player, count, week_display}] top 10 individual single-week
-BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 1078.2, 'delta_b': -7.4}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 284.1, 'delta_b': -0.4}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 262.0, 'delta_b': -0.4}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 245.0, 'delta_b': -0.5}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 234.1, 'delta_b': -0.3}]  # auto-filled by CI
+BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 1120.4, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 294.1, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 271.3, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 248.9, 'delta_b': 0.0}, {'rank': 5, 'name': 'Larry Ellison', 'worth_b': 231.5, 'delta_b': 0.0}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
 
@@ -325,6 +330,49 @@ def fv(v): return str(v) if v else "—"
 
 
 # ── Headlines HTML builder ────────────────────────────────────────────────────
+def _build_tips_html(tips):
+    """Build Recent News HTML from tip-based storylines (CI-populated)."""
+    if not tips:
+        return '<p style="color:#aab;text-align:center;padding:20px 0;font-style:italic">No tips received yet — be the first to call the Weenie Tip Hotline.</p>'
+    cat_colors = {
+        "BREAKING":    "#B22234",
+        "HOTLINE TIP": "#cc6600",
+        "INVESTIGATION":"#5a0d8a",
+        "CHORIZOGATE": "#2a6e2a",
+        "FRAUDFURTER": "#1a4a8a",
+        "EPWEEN FILES":"#5a0d8a",
+        "COMMISSION":  "#002868",
+    }
+    cat_icons = {
+        "BREAKING":    "📰",
+        "HOTLINE TIP": "📞",
+        "INVESTIGATION":"🕵️",
+        "CHORIZOGATE": "🌽",
+        "FRAUDFURTER": "🔍",
+        "EPWEEN FILES":"📁",
+        "COMMISSION":  "⚖️",
+    }
+    parts = []
+    for i, h in enumerate(tips[:5]):
+        sep = 'border-bottom:1px solid #e8edf5;margin-bottom:14px;padding-bottom:14px;' if i < len(tips[:5])-1 else ''
+        cat = h.get("category", "HOTLINE TIP").upper()
+        lcol = cat_colors.get(cat, "#B22234")
+        icon = cat_icons.get(cat, "📞")
+        date_str = h.get("date", "")
+        parts.append(
+            f'<div style="{sep}">'
+            f'<div style="display:flex;align-items:center;gap:7px;margin-bottom:5px">'
+            f'<span style="font-size:1.05em">{icon}</span>'
+            f'<span style="font-size:0.63em;font-weight:800;letter-spacing:1.2px;color:{lcol};text-transform:uppercase">{cat}</span>'
+            f'<span style="font-size:0.72em;font-weight:700;color:#5a6888;margin-left:auto">{date_str}</span>'
+            f'</div>'
+            f'<div style="font-size:0.88em;line-height:1.55;color:#2c3a5a">{h["text"]}</div>'
+            f'</div>'
+        )
+    return ''.join(parts)
+
+
+
 def _build_headlines_html(headlines):
     if not headlines:
         return '<p style="color:#aab;text-align:center;padding:20px 0">No headlines today — check back at 8am ET.</p>'
@@ -346,6 +394,7 @@ def _build_headlines_html(headlines):
     return "".join(parts)
 
 HEADLINES_HTML = _build_headlines_html(HEADLINES)
+TIPS_HEADLINES_HTML = _build_tips_html(TIPS_HEADLINES)
 
 # ── Leaderboard rows
 rows_html = ""
@@ -369,11 +418,13 @@ for i, p in enumerate(PLAYERS):
     harrison_badge = ('<sup style="color:#B22234;font-size:0.8em">†</sup>'
                       '<span style="font-size:0.72em;color:#B22234;font-weight:normal;"> (Fraudfurter case)</span>'
                       if p["name"] == "Harrison" and HARRISON_INVESTIGATION else '')
+    owen_badge = ('<div style="font-size:0.65em;color:#2a6e2a;font-weight:700;letter-spacing:0.3px;line-height:1.2">🌽 Chorizogate</div>'
+                  if p["name"] == "Owen" else '')
     rows_html += f"""
     <tr style="background:{bg};" data-player="{p['name']}" data-chomp="{p['chomp']}" data-place="{p['place']}">
       <td style="{td};text-align:center;font-size:1em">{streak}</td>
       <td style="{td};color:{pc};font-weight:bold;text-align:center;white-space:nowrap">{icon} {p['place']}</td>
-      <td style="{td};{ns}">{p['name']}{nick_badge}{harrison_badge}</td>
+      <td style="{td};{ns}">{p['name']}{nick_badge}{harrison_badge}{owen_badge}</td>
       <td style="{td};text-align:center;font-weight:bold;color:{tcol}">{fv(p['total'])}</td>
       <td style="{td};text-align:center;font-size:0.93em">{p2j_str}</td>
       <td style="{td};text-align:center;color:#445580">{fv(p['may'])}</td>
@@ -497,6 +548,7 @@ else:
 # ── Billionaire Weenie Fund card ─────────────────────────────────────────────
 _WEENIE_PRICE = 5.0  # Nathan's Famous ballpark price
 
+
 def _fmt_worth(b):
     if b >= 1000: return f"${b/1000:.2f}T"
     return f"${b:.0f}B"
@@ -593,12 +645,6 @@ TOM_LOG_HTML      = _build_log_html(TOM_LOG)
 
 # Narrative switcher JS — defined outside f-string to avoid brace-escaping
 NARRATIVE_SWITCHER_JS = """<script>
-function switchNarrative(id) {
-  ['nick','harrison','headlines','tom'].forEach(function(n) {
-    document.getElementById('narr-'+n).style.display = (n===id) ? '' : 'none';
-    document.getElementById('nb-'+n).classList.toggle('active', n===id);
-  });
-}
 function switchBBW(id) {
   ['days','shots','records'].forEach(function(n) {
     document.getElementById('bbw-'+n).style.display = (n===id) ? '' : 'none';
@@ -1045,66 +1091,9 @@ LIVE_DATA_JS = """<script>
 
 
 
-  // ── Headline templates ─────────────────────────────────────────────────────
-  var _BREAKING_T = [
-    "{leader} leads Weenie Wars at {leader_total} total — {leader_pct}% of Joey Chestnut's {joey}-dog benchmark. The gap over {second} is {gap}. The Commission describes the situation as active and developing, which is also how they describe the investigation.",
-    "League-wide total: {total_weenies} weenies across {n_active} active competitors this season. Joey Chestnut has been informed. He declined to comment and ate something during the briefing. The briefing is being described as one-sided.",
-    "{leader} holds first place with {leader_total} weenies, which is {leader_total} more than the {zero_count} competitors who have not logged one. The {zero_count} have been notified. Their responses are pending. The Commission is not waiting up.",
-    "OFFICIAL STANDINGS: {leader} ({leader_total}), {second} ({second_total}), and {n_active} others trying. A gap of {gap} separates the top two. This gap has been named. Its name is The Chasm. It is shaped like a hot dog.",
-    "{n_active} of {n_players} competitors are on the board. The {zero_count} who are not have been issued a formal reminder that the season is {season_pct}% complete and the weenies are not going to eat themselves. The Commission has confirmed that is not how weenies work.",
-    "{leader} is running at {leader_pct}% of Joey Chestnut's benchmark. Joey was briefed. He asked what percentage. They told him. He nodded, said nothing, and went back to eating. The briefing is being described as inconclusive.",
-    "The gap between {leader} and {second} stands at {gap} weenie{gap_plural}. The Commission's analysts have been watching this number. It has been described as stubborn, meaningful, and uncomfortable to read aloud at press conferences.",
-    "First-place update: {leader} with {leader_total}. Second-place: {second} with {second_total}. The math connecting them is subtraction. The result is {gap}. The Commission reviewed this math and confirmed it is correct and also unflattering for {second}.",
-    "The Weenie Wars season is {season_pct}% complete. {leader} leads with {leader_total}. Joey Chestnut's record stands at {joey}. The distance between these two numbers is large. The Commission has described it as aspirational. Players have used other words.",
-    "Competitors have collectively consumed {total_weenies} weenies since Memorial Day. At the league average of {league_avg} per active player, Joey Chestnut's {joey}-dog record would require the combined efforts of the entire active field for multiple seasons. Joey was not moved by this analysis."
-  ];
-  var _HOT_T = [
-    "{l7_leader} is the hot hand with {l7} weenies in the last 7 days. Extrapolated over the full season, that pace yields {l7_proj} total. {leader} has been briefed. They described the projection as alarming and asked if it could be un-briefed. It could not.",
-    "Seven-day leader: {l7_leader} with {l7} entries. The grill is hot, the mustard is flowing, and the rest of the field has been observed checking their phones more than usual. The Commission has noted this pattern.",
-    "{l7_leader} — {l7} weenies in seven days. If you are {second} and you are reading this, you should consider eating something. The Commission recommends a hot dog, specifically.",
-    "Momentum report: {l7_leader} has the hot hand at {l7} over the last week. At this pace, the overall standings will shift by end of month. {leader}'s camp has declined to project by how much. The Commission estimates: considerably.",
-    "PACE ALERT: {l7_leader} with {l7} in the last 7 days has triggered a formal pace review. The review concluded the pace is real, the weenies are documented, and the field should be concerned. Two competitors have purchased hot dogs since receiving the report.",
-    "{l7_leader}'s L7 of {l7} represents the most active stretch by any competitor this week. Scientists reviewed this and confirmed it is, quote, a lot of hot dogs in a short period of time. The Commission agrees and has deployed an observer.",
-    "A {l7}-weenie week from {l7_leader} has raised the competition temperature. {lagging}, currently at {lagging_total} for the season, was asked for comment. They said they are aware of the situation. They did not say what they plan to do about it.",
-    "{l7_leader} with {l7} in 7 days. The projected full-season pace at this rate is {l7_proj} weenies. Joey Chestnut was shown this projection. He made no expression that any witness could describe as impressed.",
-    "{l7_leader} has been the most active competitor this week at {l7} entries. The Commission has been watching. The Commission has been timing. The Commission has not said anything yet. This has been described as ominous by at least one competitor.",
-    "Hot hand of the week: {l7_leader} with {l7}. {second} with {second_total} total is watching from {gap} back. The Commission released a statement saying the race is very much on. Two players asked them to stop saying that. The statement was reissued."
-  ];
-  var _STANDINGS_T = [
-    "{zero_count} competitors have not logged a single weenie. The Commission sent a certified letter to each. Two were delivered. One came back with 'return to sender' written on it in what analysts believe is the handwriting of the recipient. This is being investigated separately.",
-    "League average: {league_avg} weenies per active competitor. {leader} is at {leader_total}. The gap between those two numbers is doing a lot of work in this competition.",
-    "{lagging} has {lagging_total} weenie{lagging_plural} on the season — a P2J of {lagging_pct}% of Joey Chestnut's benchmark. Joey Chestnut's team has no comment. They expressed no comment with great confidence.",
-    "{zero_count} players have not eaten a single official weenie. Their names are on file. Their excuses are also on file. The Commission reviewed the excuses and categorized them as creative, implausible, and in one case simply the word no.",
-    "Current standings: {n_active} active competitors and {zero_count} who have yet to begin. The season is {season_pct}% done. The Commission will not say it is too late. They will also not say it is not too late. Both statements are simultaneously true.",
-    "The average active competitor has consumed {league_avg} weenies this season. Joey Chestnut's record is {joey} in ten minutes. The Commission is not here to make anyone feel bad about this. They are simply here to note it.",
-    "ODDS MOVEMENT: {leader} remains the favorite. {second} is within {gap}. {lagging} at {lagging_total} requires significant commitment between now and Labor Day. The Commission has confirmed this is possible and also very optimistic.",
-    "{second} trails {leader} by {gap}. In eating terms, that is {gap} separate events. {second}'s camp says they are not trailing. The Commission says subtraction does not care about camps. The gap is {gap}. It has been confirmed.",
-    "SEASON TRACKER: {season_pct}% complete. {n_active} active. {total_weenies} logged. {remaining} more needed for {leader} to match Joey Chestnut. The Commission notes that some of these numbers are more motivating than others.",
-    "Field report: of {n_players} competitors, {n_active} are active and {zero_count} have registered no weenies. The {zero_count} have been asked to explain themselves. None have explained themselves. The Commission filed this under ongoing situation."
-  ];
-  var _INVESTIGATION_T = [
-    "NICK INVESTIGATION, DAY ONGOING: Nick has {nick_total} entries on file. Each has been reviewed. Each has raised questions. Not all the questions have been answered. The lead investigator describes the situation as the most thoroughly documented confusion in Commission history.",
-    "The Harrison case entered a new phase after FBI analysts confirmed the smell coming from Harrison's alleged hot dog preparation area is not a hot dog smell and is instead consistent with either a hamburger or something that spent time near a hamburger and developed feelings about it.",
-    "TOM ALERT: Tom's name has appeared on the Epween List, a confidential Commission registry reserved for competitors whose consumption rates exceed statistical plausibility by a margin described as eyebrow-raising. Tom currently has {tom_total} entries. The eyebrow is raised and has not come down.",
-    "FOOTLONG LOGS UPDATE: Sources confirm Tom's name appears in the Footlong Logs — a classified internal document tracking single-day consumption events of unusual volume. Tom's {tom_total}-total season has generated multiple entries. Tom has declined to comment on the Footlong Logs, which the Commission notes is exactly what someone on the Footlong Logs would do.",
-    "Nick's attorney filed a motion to have {nick_total} entries reviewed under a more lenient standard. The standard was not changed. The motion was denied in 11 minutes, which the Commission noted is their second-fastest denial. Nick asked what the fastest was. The Commission said it was also one of Nick's motions.",
-    "Harrison's defense submitted a sworn affidavit stating he has always believed hot dogs to be cylindrical, beef-based, and served in a bun — which investigators confirmed is the definition of a hot dog and also does not explain the 31 Wendy's receipts. Harrison said the receipts are circumstantial. The Commission disagrees.",
-    "The Epween List gained a notable entry this week. Tom, whose season total of {tom_total} has drawn scrutiny from the High Volume Unit, was placed under enhanced monitoring. The High Volume Unit described the placement as routine. The placement was not routine. The Commission confirmed the placement was not routine.",
-    "FRAUDFURTER DIVISION QUARTERLY UPDATE: Nick — {nick_total} entries under review. Harrison — entries classified irregular. Tom — flagged for Footlong Log entries and Epween List classification. The Division requested additional staff. The request is pending. They are short-staffed and also slightly overwhelmed.",
-    "The Commission confirmed Tom is subject to a Footlong Log review after single-day totals triggered an audit under Rule 47-C: Implausible Consumption Events. Tom has {tom_total} weenies on the season. Rule 47-C was written specifically for situations like this, which the Commission says is not an accusation. It is a classification.",
-    "Harrison submitted new exculpatory evidence: a gas station receipt for a cylindrical food item dated during the competition window. Forensic analysts confirmed the receipt is real and the station sells both hot dogs and sausages under the same label. Harrison said he ordered the hot dog. The analyst said he cannot confirm that from a receipt. Harrison said that is the point of a receipt.",
-    "An anonymous tip alleged Nick keeps a second log under the alias W. Glizzy. The Commission investigated for three weeks. W. Glizzy has not been located. Nick says he has no idea who that is. Nick paused for two seconds before saying it. The two seconds have been entered into evidence.",
-    "EPWEEN LIST STATUS: Tom remains on the list. Harrison remains on a separate classification. Nick is under standard review. All three cases are active. The lead investigator described the combined caseload as unprecedented, exhausting, and honestly kind of impressive."
-  ];
-  function _wwDaySeed() {
-    var et=new Date(Date.now()-4*3600*1000);
-    var dn=Math.floor((Date.UTC(et.getUTCFullYear(),et.getUTCMonth(),et.getUTCDate())-Date.UTC(2026,0,1))/86400000);
-    var s=((dn*65537)>>>0)||1;
-    return function(){s=((s*1664525+1013904223)>>>0);return s/0x100000000;};
-  }
-  function _wwFmt(tmpl,vars){ return tmpl.replace(/{(\\w+)}/g,function(_,k){return k in vars?String(vars[k]):'';}); }
 
-  function wwUpdate(csv) {
+
+    function wwUpdate(csv) {
     var lines = csv.trim().split('\n').slice(1);
     var totals={}, months={5:{},6:{},7:{},8:{},9:{}}, l7={};
     var dayTot={}, dayBkd={}, logEntries=[];
@@ -1674,27 +1663,12 @@ html = f"""<!DOCTYPE html>
 
 <div class="section-title">Recent News</div>
 <div class="narrative-card" style="margin-bottom:14px;">
-  <div style="display:flex;gap:6px;margin-bottom:12px;">
-    <button id="nb-headlines" class="narr-btn active" onclick="switchNarrative('headlines')">📰 Headlines</button>
-    <button id="nb-nick"     class="narr-btn"        onclick="switchNarrative('nick')">🔍 Nick</button>
-    <button id="nb-harrison" class="narr-btn"        onclick="switchNarrative('harrison')">🕵️ Harrison</button>
-    <button id="nb-tom"      class="narr-btn"        onclick="switchNarrative('tom')">📁 The Files</button>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+    <span style="font-size:0.75em;font-weight:800;color:#B22234;letter-spacing:1px;text-transform:uppercase">📰 Weenie Wars Insider</span>
+    <span style="font-size:0.68em;color:#aab4cc;margin-left:auto">Tips: <a href="https://forms.gle/yL1Lq3JjotzqoZyj9" target="_blank" style="color:#5a3e8a;text-decoration:none;font-weight:700">Hotline</a></span>
   </div>
   <div id="narr-headlines">
-    <div class="nt">📰 Today's Headlines</div>
-    {HEADLINES_HTML}
-  </div>
-  <div id="narr-nick" style="display:none">
-    <div class="nt">🔍 Nick Investigation Update</div>
-    {NICK_LOG_HTML}
-  </div>
-  <div id="narr-harrison" style="display:none">
-    <div class="nt">🕵️ Harrison Investigation Update</div>
-    {HARRISON_LOG_HTML}
-  </div>
-  <div id="narr-tom" style="display:none">
-    <div class="nt">📁 Epween Files — Subject: Tom</div>
-    {TOM_LOG_HTML}
+    {TIPS_HEADLINES_HTML}
   </div>
 </div>
 {NARRATIVE_SWITCHER_JS}
