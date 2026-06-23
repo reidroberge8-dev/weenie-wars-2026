@@ -510,7 +510,7 @@ if tips_changed and tip_data:
         _seen_raw.add(_tip_text)
     if _new_stories:
         _current_tips = list(reversed(_new_stories)) + _current_tips
-        _current_tips = _current_tips[:5]
+        _current_tips = _current_tips[:15]
         last_state["last_tip_ts"] = today.isoformat()
         print(f"  TIPS_HEADLINES: {len(_new_stories)} new tip story/stories added")
 
