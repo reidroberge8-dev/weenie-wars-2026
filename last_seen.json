@@ -1,7 +1,7 @@
 {
   "csv_hash": "e175b22eff36a01a3b41fe91ecced959935ced95b3f27162b9fa5df25c246a34",
   "row_count": 71,
-  "updated": "2026-06-23T22:27:04.033878",
+  "updated": "2026-06-23T22:28:53.441144",
   "bill_day_start": {
     "date": "2026-06-23",
     "values": {
@@ -31,11 +31,17 @@
     "Harrison": "+3250",
     "Owen": "+7650"
   },
-  "tips_hash": "3ecdd0a623a04e2d3302e7cf717b9d729225e71727e2648043c0fecfe061ee4d",
-  "tips_row_count": 2,
-  "last_tip_ts": "2026-06-23T22:27:04.033878",
+  "tips_hash": "0c8ead02ce8469838578668587ce61ff16e4ef489a1fcab84e0cfebd3a444f22",
+  "tips_row_count": 3,
+  "last_tip_ts": "2026-06-23T22:28:53.441144",
   "last_fallback_ts": "2026-06-23T21:34:28.748947",
   "tips_headlines": [
+    {
+      "date": "Jun 23",
+      "category": "EPWEEN FILES",
+      "text": "Tom was spotted with a dozen Mucke\u2019s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.. The High Volume Unit convened immediately and confirmed this is consistent with what they have been monitoring. A unit spokesperson said they were not surprised, which was itself surprising because the tip is extremely surprising. When asked to elaborate, the spokesperson said only that context is everything and context, in this case, is in Tab G. Tab G is still classified. The public has not seen Tab G. Several people who have seen Tab G have requested reassignment.",
+      "tip_raw": "Tom was spotted with a dozen Mucke\u2019s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions."
+    },
     {
       "date": "Jun 23",
       "category": "COMMISSION",
