@@ -1,7 +1,7 @@
 {
-  "csv_hash": "",
+  "csv_hash": "e175b22eff36a01a3b41fe91ecced959935ced95b3f27162b9fa5df25c246a34",
   "row_count": 71,
-  "updated": "2026-06-23T22:28:53.441144",
+  "updated": "2026-06-23T22:35:01.299449",
   "bill_day_start": {
     "date": "2026-06-23",
     "values": {
@@ -31,11 +31,17 @@
     "Harrison": "+3250",
     "Owen": "+7650"
   },
-  "tips_hash": "0c8ead02ce8469838578668587ce61ff16e4ef489a1fcab84e0cfebd3a444f22",
-  "tips_row_count": 3,
-  "last_tip_ts": "2026-06-23T22:28:53.441144",
+  "tips_hash": "7ae41701b787ebf8f15c3048e8fde1bd2f2a6d1702b5e0d6fd7d72a4129cc10f",
+  "tips_row_count": 4,
+  "last_tip_ts": "2026-06-23T22:35:01.299449",
   "last_fallback_ts": "2026-06-23T21:34:28.748947",
   "tips_headlines": [
+    {
+      "date": "Jun 23",
+      "category": "COMMISSION",
+      "text": "Nick was seen exchanging cuisinart product for preferential treatment from the commission. The contents loaded into this commission members car included a cotton candy machine, waffle iron, and an extremely large stick blender.. Nick was informed that this information had been submitted to the Commission. Nick said he could explain. He was asked to explain. He said he needed a few days. He has been given no days. He is currently working on his explanation with a team he described as consultants. The Commission has subpoenaed the consultants.",
+      "tip_raw": "Nick was seen exchanging cuisinart product for preferential treatment from the commission. The contents loaded into this commission members car included a cotton candy machine, waffle iron, and an extremely large stick blender."
+    },
     {
       "date": "Jun 23",
       "category": "EPWEEN FILES",
