@@ -115,7 +115,7 @@ HARRISON_LOG = [{"date": "Jun 13", "text": "The FBI recovered a Post-it note fro
 
 TOM_LOG = [{"date": "Jun 16", "text": "Tom logged three weenies today. The Commission confirmed all three were uncooked, consumed in The Watcher between 11pm and 1am. The Epween File was updated. The archivist was notified. The archivist requested not to be told the new page count. The Commission told her anyway. She sat down."}]  # auto-filled by CI: newest first
 
-TIPS_HEADLINES = [{'date': 'Jun 23', 'category': 'COMMISSION', 'text': 'Nick was seen exchanging cuisinart product for preferential treatment from the commission. The contents loaded into this commission members car included a cotton candy machine, waffle iron, and an extremely large stick blender.. Nick was informed that this information had been submitted to the Commission. Nick said he could explain. He was asked to explain. He said he needed a few days. He has been given no days. He is currently working on his explanation with a team he described as consultants. The Commission has subpoenaed the consultants.', 'tip_raw': 'Nick was seen exchanging cuisinart product for preferential treatment from the commission. The contents loaded into this commission members car included a cotton candy machine, waffle iron, and an extremely large stick blender.'}, {'date': 'Jun 23', 'category': 'EPWEEN FILES', 'text': 'Tom was spotted with a dozen Mucke’s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.. The High Volume Unit convened immediately and confirmed this is consistent with what they have been monitoring. A unit spokesperson said they were not surprised, which was itself surprising because the tip is extremely surprising. When asked to elaborate, the spokesperson said only that context is everything and context, in this case, is in Tab G. Tab G is still classified. The public has not seen Tab G. Several people who have seen Tab G have requested reassignment.', 'tip_raw': 'Tom was spotted with a dozen Mucke’s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.'}, {'date': 'Jun 23', 'category': 'COMMISSION', 'text': "Nick was seen eating plant based weenies. Commission forensic analysts spent four days cross-referencing this information with existing evidence. On day three, one analyst left the building, bought a sandwich, ate it in the parking lot, and came back in. She said she just needed a moment. The cross-reference was completed on day four. The results are consistent with the Commission's worst suspicions, which were already quite bad.", 'tip_raw': 'Nick was seen eating plant based weenies'}, {'date': 'Jun 23', 'category': 'EPWEEN FILES', 'text': 'Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a “large bottle of an unknown substance” which he claims was “just really thin mustard”. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.. The High Volume Unit convened immediately and confirmed this is consistent with what they have been monitoring. A unit spokesperson said they were not surprised, which was itself surprising because the tip is extremely surprising. When asked to elaborate, the spokesperson said only that context is everything and context, in this case, is in Tab G. Tab G is still classified. The public has not seen Tab G. Several people who have seen Tab G have requested reassignment.', 'tip_raw': 'Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a “large bottle of an unknown substance” which he claims was “just really thin mustard”. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.'}]  # auto-filled by CI: newest first
+TIPS_HEADLINES = [{'date': 'Jun 23', 'category': 'EPWEEN FILES', 'text': 'Tom was spotted with a dozen Mucke’s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.. The High Volume Unit convened immediately and confirmed this is consistent with what they have been monitoring. A unit spokesperson said they were not surprised, which was itself surprising because the tip is extremely surprising. When asked to elaborate, the spokesperson said only that context is everything and context, in this case, is in Tab G. Tab G is still classified. The public has not seen Tab G. Several people who have seen Tab G have requested reassignment.', 'tip_raw': 'Tom was spotted with a dozen Mucke’s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.'}, {'date': 'Jun 23', 'category': 'COMMISSION', 'text': "Nick was seen eating plant based weenies. Commission forensic analysts spent four days cross-referencing this information with existing evidence. On day three, one analyst left the building, bought a sandwich, ate it in the parking lot, and came back in. She said she just needed a moment. The cross-reference was completed on day four. The results are consistent with the Commission's worst suspicions, which were already quite bad.", 'tip_raw': 'Nick was seen eating plant based weenies'}, {'date': 'Jun 23', 'category': 'EPWEEN FILES', 'text': 'Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a “large bottle of an unknown substance” which he claims was “just really thin mustard”. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.. The High Volume Unit convened immediately and confirmed this is consistent with what they have been monitoring. A unit spokesperson said they were not surprised, which was itself surprising because the tip is extremely surprising. When asked to elaborate, the spokesperson said only that context is everything and context, in this case, is in Tab G. Tab G is still classified. The public has not seen Tab G. Several people who have seen Tab G have requested reassignment.', 'tip_raw': 'Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a “large bottle of an unknown substance” which he claims was “just really thin mustard”. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.'}]  # auto-filled by CI: newest first
 
 HEADLINES = [{'icon': '📰', 'label': 'BREAKING', 'text': "The gap between Tom and Jon stands at 2 weenies. The Commission's analysts have been watching this number. It has been described as stubborn, meaningful, and uncomfortable to read aloud at press conferences.", 'date': 'Jun 14'}, {'icon': '🔥', 'label': 'HOT STREAK', 'text': "Momentum report: Tom has the hot hand at 8 over the last week. At this pace, the overall standings will shift by end of month. Tom's camp has declined to project by how much. The Commission estimates: considerably.", 'date': 'Jun 14'}, {'icon': '📊', 'label': 'STANDINGS', 'text': '5 players have not eaten a single official weenie. Their names are on file. Their excuses are also on file. The Commission reviewed the excuses and categorized them as creative, implausible, and in one case simply the word no.', 'date': 'Jun 14'}, {'icon': '🕵️', 'label': 'INVESTIGATION', 'text': 'Harrison submitted exculpatory evidence: a gas station receipt for a cylindrical food item during the competition window. Analysts confirmed the receipt is real and the station sells both hot dogs and sausages under the same label. Harrison said he ordered the hot dog. The analyst said he cannot confirm that from a receipt.', 'date': 'Jun 14'}]  # auto-filled by CI: 4 headlines per day
 LAST_WEENIE_TS = 1782087854  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
@@ -332,9 +332,7 @@ def fv(v): return str(v) if v else "—"
 
 # ── Headlines HTML builder ────────────────────────────────────────────────────
 def _build_tips_html(tips):
-    """Build Recent News HTML from tip-based storylines (CI-populated)."""
-    if not tips:
-        return '<p style="color:#aab;text-align:center;padding:20px 0;font-style:italic">No tips received yet — be the first to call the Weenie Tip Hotline.</p>'
+    """Build paginated Recent News — 3 stories per page, dot+chevron nav at bottom."""
     cat_colors = {
         "BREAKING":    "#B22234",
         "HOTLINE TIP": "#cc6600",
@@ -353,24 +351,81 @@ def _build_tips_html(tips):
         "EPWEEN FILES":"📁",
         "COMMISSION":  "⚖️",
     }
-    parts = []
-    for i, h in enumerate(tips[:5]):
-        sep = 'border-bottom:1px solid #e8edf5;margin-bottom:14px;padding-bottom:14px;' if i < len(tips[:5])-1 else ''
-        cat = h.get("category", "HOTLINE TIP").upper()
-        lcol = cat_colors.get(cat, "#B22234")
-        icon = cat_icons.get(cat, "📞")
-        date_str = h.get("date", "")
-        parts.append(
-            f'<div style="{sep}">'
-            f'<div style="display:flex;align-items:center;gap:7px;margin-bottom:5px">'
-            f'<span style="font-size:1.05em">{icon}</span>'
-            f'<span style="font-size:0.63em;font-weight:800;letter-spacing:1.2px;color:{lcol};text-transform:uppercase">{cat}</span>'
-            f'<span style="font-size:0.72em;font-weight:700;color:#5a6888;margin-left:auto">{date_str}</span>'
-            f'</div>'
-            f'<div style="font-size:0.88em;line-height:1.55;color:#2c3a5a">{h["text"]}</div>'
+
+    if not tips:
+        return '<p style="color:#aab;text-align:center;padding:20px 0;font-style:italic">No tips received yet — be the first to call the Weenie Tip Hotline.</p>'
+
+    PER_PAGE = 3
+    pages    = [tips[i:i+PER_PAGE] for i in range(0, min(len(tips), 15), PER_PAGE)]
+    n_pages  = len(pages)
+
+    # ── Page content divs ────────────────────────────────────────────────────
+    page_html = []
+    for pi, page_stories in enumerate(pages):
+        stories_html = []
+        for si, h in enumerate(page_stories):
+            sep  = 'border-bottom:1px solid #e8edf5;margin-bottom:14px;padding-bottom:14px;' if si < len(page_stories)-1 else ''
+            cat  = h.get('category', 'HOTLINE TIP').upper()
+            lcol = cat_colors.get(cat, '#B22234')
+            icon = cat_icons.get(cat, '📞')
+            date_str = h.get('date', '')
+            stories_html.append(
+                f'<div style="{sep}">'
+                f'<div style="display:flex;align-items:center;gap:7px;margin-bottom:5px">'
+                f'<span style="font-size:1.05em">{icon}</span>'
+                f'<span style="font-size:0.63em;font-weight:800;letter-spacing:1.2px;color:{lcol};text-transform:uppercase">{cat}</span>'
+                f'<span style="font-size:0.72em;font-weight:700;color:#5a6888;margin-left:auto">{date_str}</span>'
+                f'</div>'
+                f'<div style="font-size:0.88em;line-height:1.55;color:#2c3a5a">{h["text"]}</div>'
+                f'</div>'
+            )
+        disp = 'block' if pi == 0 else 'none'
+        page_html.append(
+            f'<div class="rnp" id="rnp-{pi}" style="display:{disp};min-height:60px">'
+            + ''.join(stories_html) +
+            '</div>'
+        )
+
+    # ── Dot + chevron nav (only if >1 page) ──────────────────────────────────
+    nav_html = ''
+    if n_pages > 1:
+        dots = ''.join(
+            f'<span id="rnd-{i}" onclick="rnPage({i})" style="'
+            f'display:inline-block;width:8px;height:8px;border-radius:50%;cursor:pointer;'
+            f'margin:0 4px;transition:background 0.2s;'
+            f'background:{"#002868" if i==0 else "#c8d4e8"}">'
+            f'</span>'
+            for i in range(n_pages)
+        )
+        nav_html = (
+            f'<div style="display:flex;align-items:center;justify-content:center;'
+            f'gap:10px;margin-top:14px;padding-top:10px;border-top:1px solid #e8edf5">'
+            f'<span onclick="rnPage(window._rnP-1)" style="cursor:pointer;font-size:1.1em;'
+            f'color:#8a9abc;user-select:none;padding:2px 4px" title="Previous">&#8249;</span>'
+            f'<span id="rn-dots">{dots}</span>'
+            f'<span onclick="rnPage(window._rnP+1)" style="cursor:pointer;font-size:1.1em;'
+            f'color:#8a9abc;user-select:none;padding:2px 4px" title="Next">&#8250;</span>'
             f'</div>'
         )
-    return ''.join(parts)
+
+    # ── Inline JS (self-contained, no global collision) ───────────────────────
+    js = (
+        f'<script>'
+        f'window._rnP=0; window._rnN={n_pages};'
+        f'function rnPage(n){{'
+        f'  n=((n%window._rnN)+window._rnN)%window._rnN;'
+        f'  for(var i=0;i<window._rnN;i++){{'
+        f'    var pg=document.getElementById("rnp-"+i);'
+        f'    var dt=document.getElementById("rnd-"+i);'
+        f'    if(pg) pg.style.display=i===n?"block":"none";'
+        f'    if(dt) dt.style.background=i===n?"#002868":"#c8d4e8";'
+        f'  }}'
+        f'  window._rnP=n;'
+        f'}}'
+        f'</script>'
+    )
+
+    return ''.join(page_html) + nav_html + js
 
 
 
