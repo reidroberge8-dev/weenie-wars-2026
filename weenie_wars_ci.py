@@ -298,6 +298,20 @@ if scores_stale:
     print(f"  Script scores stale ({sum(_live_totals.values())} sheet vs {sum(_script_totals.values())} script) — forcing update.")
 
 if not scores_changed and not force_rebuild and not scores_stale and not tips_changed and not need_fallback:
+    # Still sync tips_headlines to state if missing (survives build script overwrites)
+    if "tips_headlines" not in last_state:
+        _tips_m = re.search(r'TIPS_HEADLINES\s*=\s*(\[.*?\])\s*#', open(BUILD_SCRIPT, encoding="utf-8").read(), re.DOTALL)
+        _th = []
+        if _tips_m:
+            try: _th = eval(_tips_m.group(1))
+            except: pass
+        if _th:
+            last_state["tips_headlines"] = _th
+            with open(STATE_FILE, "w") as _sf: json.dump(last_state, _sf, indent=2)
+            subprocess.run(["git", "add", STATE_FILE], cwd=ROOT)
+            subprocess.run(["git", "commit", "-m", "state: sync tips_headlines to last_seen.json"], cwd=ROOT)
+            subprocess.run(["git", "push"], cwd=ROOT)
+            print("  tips_headlines synced to state.")
     print("No new entries, scores current — skipping.")
     sys.exit(0)
 
