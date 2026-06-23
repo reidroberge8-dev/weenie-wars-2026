@@ -1,7 +1,7 @@
 {
   "csv_hash": "e175b22eff36a01a3b41fe91ecced959935ced95b3f27162b9fa5df25c246a34",
   "row_count": 71,
-  "updated": "2026-06-23T22:45:36.034655",
+  "updated": "2026-06-23T22:48:16.849924",
   "bill_day_start": {
     "date": "2026-06-23",
     "values": {
@@ -31,11 +31,17 @@
     "Harrison": "+3250",
     "Owen": "+7650"
   },
-  "tips_hash": "7ae41701b787ebf8f15c3048e8fde1bd2f2a6d1702b5e0d6fd7d72a4129cc10f",
-  "tips_row_count": 4,
-  "last_tip_ts": "2026-06-23T22:35:01.299449",
+  "tips_hash": "6b9ba9bf603704ec948b0e95d060c14c81f43b92c166251115ab2d098ec17434",
+  "tips_row_count": 5,
+  "last_tip_ts": "2026-06-23T22:48:16.849924",
   "last_fallback_ts": "2026-06-23T21:34:28.748947",
   "tips_headlines": [
+    {
+      "date": "Jun 23",
+      "category": "COMMISSION",
+      "text": "Tom and Nick have been observed putting their weenies in each others buns. This has been happening in the middle of the night, in the cover of darkness. Local officials are calling this behavior \u201cdocking\u201d and have stated that they have been not been using condiments, this has been referred to as \u201craw dogging\u201d. Raw dogging is not strictly prohibited, however raw dogging while docking is under further review. Devin was seen in The Watcher on multiple Tom/Nick raw dog sessions.. Nick, when reached for comment, said that is not what happened. He was asked what did happen. He said it was complicated. He was told the Commission had time. Nick said he did not have time and had to go. He has not returned the Commission's calls. The Commission has sent twelve follow-up emails. Nick has opened all twelve of them. He has replied to none. This is now part of the investigation.",
+      "tip_raw": "Tom and Nick have been observed putting their weenies in each others buns. This has been happening in the middle of the night, in the cover of darkness. Local officials are calling this behavior \u201cdocking\u201d and have stated that they have been not been using condiments, this has been referred to as \u201craw dogging\u201d. Raw dogging is not strictly prohibited, however raw dogging while docking is under further review. Devin was seen in The Watcher on multiple Tom/Nick raw dog sessions."
+    },
     {
       "date": "Jun 23",
       "category": "COMMISSION",
