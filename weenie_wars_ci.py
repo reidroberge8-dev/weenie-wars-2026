@@ -271,15 +271,7 @@ except Exception as _e:
     tip_data = []
     tips_hash = last_state.get("tips_hash", "")
 
-last_tips_hash   = last_state.get("tips_hash", "")
-last_tip_ts_str  = last_state.get("last_tip_ts", "")
-last_fallback_ts_str = last_state.get("last_fallback_ts", "")
-tips_changed     = tips_hash != last_tips_hash and tip_data  # hash changed AND tips exist
-last_tip_dt      = datetime.fromisoformat(last_tip_ts_str) if last_tip_ts_str else None
-last_fallback_dt = datetime.fromisoformat(last_fallback_ts_str) if last_fallback_ts_str else None
-no_tip_24h       = (last_tip_dt is None) or ((today - last_tip_dt.replace(tzinfo=None)) > timedelta(hours=24))
-no_fallback_24h  = (last_fallback_dt is None) or ((today - last_fallback_dt.replace(tzinfo=None)) > timedelta(hours=24))
-need_fallback    = no_tip_24h and no_fallback_24h
+
 
 # ── Change detection ──────────────────────────────────────────────────────────
 last_state = {}
@@ -293,6 +285,16 @@ current_odds   = {}  # populated during player update loop
 today_date     = today.strftime("%Y-%m-%d")
 
 scores_changed = csv_hash != last_hash
+
+last_tips_hash   = last_state.get("tips_hash", "")
+last_tip_ts_str  = last_state.get("last_tip_ts", "")
+last_fallback_ts_str = last_state.get("last_fallback_ts", "")
+tips_changed     = tips_hash != last_tips_hash and bool(tip_data)
+last_tip_dt      = datetime.fromisoformat(last_tip_ts_str) if last_tip_ts_str else None
+last_fallback_dt = datetime.fromisoformat(last_fallback_ts_str) if last_fallback_ts_str else None
+no_tip_24h       = (last_tip_dt is None) or ((today - last_tip_dt.replace(tzinfo=None)) > timedelta(hours=24))
+no_fallback_24h  = (last_fallback_dt is None) or ((today - last_fallback_dt.replace(tzinfo=None)) > timedelta(hours=24))
+need_fallback    = no_tip_24h and no_fallback_24h
 force_rebuild  = os.environ.get("FORCE_REBUILD", "false") == "true"
 
 # Stale-script detection: compare live sheet totals to build script.
