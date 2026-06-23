@@ -37,6 +37,61 @@ PUBLIC_HTML  = os.path.join(ROOT, "public", "index.html")
 STATE_FILE   = os.path.join(ROOT, "last_seen.json")
 
 SHEET_CSV = "https://docs.google.com/spreadsheets/d/1-NezoEWSZpeUIZem89ZMltE-kGX_P11LqKVoAwSG0gU/export?format=csv&gid=1814658863"
+TIPS_SHEET_CSV = "https://docs.google.com/spreadsheets/d/1qjL8RqvVwbeeiPoMsdeaWllLjQqkTeNbRXW6_LpVlaA/export?format=csv"
+
+OWEN_UPDATES = [
+    "Owen has been placed at the center of Chorizogate, the Commission's newest and fastest-growing investigation. Sources describe the case as in its early stages, alarming in its early stages, and proceeding at a pace the Commission described as brisk. Owen has logged no comment. The Commission noted he has also logged very few weenies. The Commission is not sure which is more suspicious.",
+    "The Chorizogate task force held its first formal briefing Tuesday. The primary exhibit was a grocery receipt. The secondary exhibit was a smell description provided by a neighbor. The tertiary exhibit was Owen's silence on the matter, which the Commission's lead analyst described as deafening.",
+    "Investigators confirmed Owen's weenie count is below the league average, which the Chorizogate task force described as consistent with a competitor who is substituting. Substituting with what, the task force has not confirmed. The task force says they have a theory. The theory is on page two of the report. Page two is sealed.",
+    "The Commission received three anonymous tips this week referencing Owen. All three described similar activity. None of the tipsters agreed to be identified. Two described themselves as concerned citizens. One described themselves as a witness. The Commission confirmed the witness is under separate review.",
+    "Chorizogate's evidence locker now includes photographic documentation, a written statement, and what the lead investigator called a very compelling smell. The smell has been catalogued, preserved, and entered as Exhibit A. The investigator noted it is not the smell of a hot dog and left it at that.",
+    "Owen was asked directly by a Commission field agent whether he had anything to say about Chorizogate. He looked at the agent for a long time. He then asked what Chorizogate was. The agent explained it. Owen said he had not heard of it. The agent noted Owen had filed a motion related to it six days earlier.",
+    "The Chorizogate investigation has expanded to include three additional exhibits and one new subpoena. Owen's attorney filed an objection to the subpoena. The objection was denied. Owen's attorney filed a second objection to the first objection being denied. This was also denied. The Commission noted they have never seen that done before.",
+    "Sources close to the investigation report that the chorizo recovered from Owen's residence matches the brand distributed by a company that also sells hot dogs. Owen's legal team called this exculpatory. The Commission called it a coincidence at best and asked them to stop saying the word exculpatory in the building.",
+    "Chorizogate passed its first month of active investigation with no resolution. The Commission issued a status update that read: ongoing. Owen's attorney said they look forward to exoneration. The Commission's attorney said they look forward to explaining what chorizo has to do with Weenie Wars. Both statements are pending.",
+    "The Commission confirmed Owen is the first competitor to have an investigation named after a specific sausage. This is noted in the case file as a historical distinction. The file does not use the word proud. The Commission confirmed they did not use the word proud intentionally.",
+]
+
+# ── Tip wrapper templates by subject ─────────────────────────────────────────
+TIP_WRAPPERS_GENERIC = [
+    "An anonymous tipster reported to the Weenie Tip Hotline: \"{tip}\". The Commission confirmed the tip is under active review. No further comment has been issued. The Commission phone has been ringing.",
+    "An anonymous source contacted the Weenie Tip Hotline with the following: \"{tip}\". The tip has been logged, dated, and forwarded to the appropriate division. The appropriate division declined to say which division that is.",
+    "Breaking from the Weenie Tip Hotline: \"{tip}\". Investigators have not confirmed or denied the details. A spokesperson said only that the Commission takes all tips seriously and has never said that with more conviction than today.",
+    "The Weenie Tip Hotline has received a tip of interest: \"{tip}\". The submission is under review. A source familiar with the review described it as, and this is a direct quote, very much worth a look.",
+    "A tipster reached out to the Weenie Tip Hotline this week: \"{tip}\". The Commission reviewed the tip at 9am. By 9:07am they had opened a new file. The file has been assigned a case number. The case number has been classified.",
+]
+TIP_WRAPPERS_NICK = [
+    "New evidence in the Nick case via the Weenie Tip Hotline: \"{tip}\". The Supreme Weenie Commission has added this to the active file. Nick attorney was notified. The attorney said no comment. The Commission noted that is consistent with prior responses.",
+    "The Nick investigation expanded this week after a tip to the Weenie Tip Hotline: \"{tip}\". Lead investigators described the submission as material to the ongoing inquiry and asked the public to continue coming forward.",
+    "The Supreme Weenie Commission confirmed a new tip regarding the Nick case: \"{tip}\". The tip has been cross-referenced with existing exhibits. It is consistent with the working theory. The theory remains sealed.",
+]
+TIP_WRAPPERS_HARRISON = [
+    "The FBI Fraudfurter Division received a tip through the Weenie Tip Hotline: \"{tip}\". Agents have begun cross-referencing this with the existing case file. Agents described the cross-reference as unfortunately confirming.",
+    "New Fraudfurter Division intelligence via the Hotline: \"{tip}\". Harrison legal team has requested the tip be disqualified on grounds of relevance. The Division confirmed it is highly relevant and asked them to stop calling.",
+    "The Harrison case advanced this week with a Hotline tip: \"{tip}\". The FBI added the tip to the 47-page Fraudfurter dossier. The dossier is now 48 pages. Page 48 is titled Recent Developments and opens with the word unfortunately.",
+]
+TIP_WRAPPERS_TOM = [
+    "A new entry has been added to the Epween Files following a Hotline tip: \"{tip}\". The archivist was notified. She asked how many more pages this would require. She was told one. She said that is still one too many. The page has been added.",
+    "The Epween Files expanded after an anonymous tip: \"{tip}\". Investigators cross-referenced the tip with Tab G. They cannot discuss Tab G. They confirmed the tip is consistent with Tab G and asked the caller not to contact them again about Tab G.",
+    "A Hotline tip added new dimension to the Tom investigation: \"{tip}\". The High Volume Unit reviewed the submission and escalated it to the senior analyst. The senior analyst said only: of course. He has said only of course in every briefing for the past three weeks.",
+]
+TIP_WRAPPERS_OWEN = [
+    "Chorizogate expanded this week following a Hotline tip: \"{tip}\". The task force added the submission to the evidence locker. The evidence locker now has a dedicated shelf for Hotline tips. The shelf is labeled OWEN. The label was not requested. It was considered self-explanatory.",
+    "A new anonymous tip has advanced the Chorizogate investigation: \"{tip}\". Owen attorney filed an immediate motion to suppress. The motion cited three procedural grounds. All three were denied. The tip has been admitted. The task force described admitting it as deeply satisfying.",
+    "Chorizogate tip locker added another entry: \"{tip}\". The Commission confirmed the tip is under active review. A spokesperson added they appreciate the engagement with the investigation and asked that all future tips be submitted via the official Hotline only.",
+]
+def categorize_tip(tip_text):
+    t = tip_text.lower()
+    if 'nick' in t:
+        return 'COMMISSION', TIP_WRAPPERS_NICK
+    elif 'harrison' in t or 'fraudfurter' in t or 'hamburger' in t or 'burger' in t:
+        return 'FRAUDFURTER', TIP_WRAPPERS_HARRISON
+    elif 'tom' in t or 'epween' in t or 'watcher' in t or 'raw dog' in t or 'ambient' in t:
+        return 'EPWEEN FILES', TIP_WRAPPERS_TOM
+    elif 'owen' in t or 'chorizo' in t or 'chorizogate' in t:
+        return 'CHORIZOGATE', TIP_WRAPPERS_OWEN
+    else:
+        return 'HOTLINE TIP', TIP_WRAPPERS_GENERIC
 
 NICK_UPDATES = [
     "The Commission's lead forensic analyst testified that Nick's submission photos contain EXIF data placing them 14 miles from any known hot dog vendor. When asked to explain, Nick said he walked. The analyst noted the timestamp was 3:17am. Nick said he is a night walker. This is being investigated separately.",
@@ -183,6 +238,29 @@ csv_hash = hashlib.sha256(raw_csv).hexdigest()
 rows = list(csv.DictReader(io.StringIO(raw_csv.decode("utf-8"))))
 print(f"  {len(rows)} entries | hash={csv_hash[:12]}...")
 
+# ── Fetch tips sheet ──────────────────────────────────────────────────────────
+try:
+    tips_req = urllib.request.Request(TIPS_SHEET_CSV, headers={"User-Agent": "Mozilla/5.0"})
+    raw_tips = urllib.request.urlopen(tips_req, timeout=15).read()
+    tip_rows = list(csv.reader(io.StringIO(raw_tips.decode("utf-8"))))
+    tip_data  = [r for r in tip_rows[1:] if r and r[0].strip() and len(r) >= 2]
+    tips_hash = hashlib.sha256(raw_tips).hexdigest()
+    print(f"  Tips sheet: {len(tip_data)} tips | hash={tips_hash[:12]}...")
+except Exception as _e:
+    print(f"  Tips sheet fetch failed: {_e}")
+    tip_data = []
+    tips_hash = last_state.get("tips_hash", "")
+
+last_tips_hash   = last_state.get("tips_hash", "")
+last_tip_ts_str  = last_state.get("last_tip_ts", "")
+last_fallback_ts_str = last_state.get("last_fallback_ts", "")
+tips_changed     = tips_hash != last_tips_hash and tip_data  # hash changed AND tips exist
+last_tip_dt      = datetime.fromisoformat(last_tip_ts_str) if last_tip_ts_str else None
+last_fallback_dt = datetime.fromisoformat(last_fallback_ts_str) if last_fallback_ts_str else None
+no_tip_24h       = (last_tip_dt is None) or ((today - last_tip_dt.replace(tzinfo=None)) > timedelta(hours=24))
+no_fallback_24h  = (last_fallback_dt is None) or ((today - last_fallback_dt.replace(tzinfo=None)) > timedelta(hours=24))
+need_fallback    = no_tip_24h and no_fallback_24h
+
 # ── Change detection ──────────────────────────────────────────────────────────
 last_state = {}
 if os.path.exists(STATE_FILE):
@@ -210,7 +288,7 @@ scores_stale = any(_script_totals.get(n, -1) != _live_totals.get(n, 0) for n in 
 if scores_stale:
     print(f"  Script scores stale ({sum(_live_totals.values())} sheet vs {sum(_script_totals.values())} script) — forcing update.")
 
-if not scores_changed and not force_rebuild and not scores_stale:
+if not scores_changed and not force_rebuild and not scores_stale and not tips_changed and not need_fallback:
     print("No new entries, scores current — skipping.")
     sys.exit(0)
 
@@ -218,6 +296,10 @@ if scores_changed:
     print(f"  Score change detected ({last_hash[:12] if last_hash else 'none'} → {csv_hash[:12]}) — full update.")
 elif scores_stale:
     print("  Scores out of sync with sheet — resyncing.")
+elif tips_changed:
+    print(f"  New tips detected ({last_tips_hash[:12] if last_tips_hash else 'none'} → {tips_hash[:12]}) — headline update.")
+elif need_fallback:
+    print("  No tips in 24h — generating fallback story.")
 else:
     print("  No new weenies — 8am daily force-rebuild.")
 
@@ -357,103 +439,7 @@ src = re.sub(r'"players":\s*\d+,',         f'"players":       {n_players},',    
 src = re.sub(r'BIG_DAYS\s*=\s*\[[^\]]*\]', f'BIG_DAYS      = {repr(top5_days)}', src)
 # UPDATED is computed dynamically at build time — no regex needed
 # Nick/Harrison logs rotate on the 8am daily force-rebuild — prepend new entry, keep 3
-if force_rebuild:
-    today_label = today.strftime("%b %-d")  # e.g. "Jun 14"
-    # ── Generate 4 daily headlines from live stats ──────────────────────────
-    _hl_sorted  = sorted(player_names, key=lambda p: totals.get(p,0), reverse=True)
-    _hl_leader  = _hl_sorted[0] if _hl_sorted else "TBD"
-    _hl_lt      = totals.get(_hl_leader, 0)
-    _hl_second  = _hl_sorted[1] if len(_hl_sorted)>1 else _hl_leader
-    _hl_st      = totals.get(_hl_second, 0)
-    _hl_gap     = max(0, _hl_lt - _hl_st)
-    _hl_l7ldr   = max(l7, key=l7.get) if l7 else _hl_leader
-    _hl_l7      = l7.get(_hl_l7ldr, 0)
-    _hl_l7proj  = round(_hl_l7 * 22) if _hl_l7 else 0
-    _hl_active  = [p for p in player_names if totals.get(p,0)>0]
-    _hl_zeros   = [p for p in player_names if totals.get(p,0)==0]
-    _hl_lagging = sorted(_hl_active, key=lambda p: totals.get(p,0))[0] if _hl_active else "TBD"
-    _hl_lt2     = totals.get(_hl_lagging, 0)
-    _hl_tw      = sum(totals.get(p,0) for p in player_names)
-    _hl_avg     = round(_hl_tw / len(_hl_active), 1) if _hl_active else 0
-    _hl_joey    = 70.5
-    from datetime import date as _hdate
-    _hl_elapsed = max(0,(_hdate.today()-_hdate(2026,5,25)).days)
-    _hl_spct    = round(_hl_elapsed/(_hdate(2026,9,7)-_hdate(2026,5,25)).days*100)
-    _hl_vars    = {
-        "leader":_hl_leader,"leader_total":_hl_lt,"second":_hl_second,
-        "second_total":_hl_st,"gap":_hl_gap,
-        "gap_plural":"" if _hl_gap==1 else "s",
-        "l7_leader":_hl_l7ldr,"l7":_hl_l7,"l7_proj":_hl_l7proj,
-        "lagging":_hl_lagging,"lagging_total":_hl_lt2,
-        "lagging_plural":"" if _hl_lt2==1 else "s",
-        "lagging_pct":round(_hl_lt2/_hl_joey*100,1),
-        "zero_count":len(_hl_zeros),"n_active":len(_hl_active),
-        "n_players":len(player_names),"total_weenies":_hl_tw,
-        "league_avg":_hl_avg,"leader_pct":round(_hl_lt/_hl_joey*100,1),
-        "joey":_hl_joey,"remaining":max(0,int(_hl_joey)-_hl_lt),
-        "season_pct":_hl_spct,
-        "nick_total":totals.get("Nick",0),
-        "harrison_total":totals.get("Harrison",0),
-        "tom_total":totals.get("Tom",0),
-    }
-    import hashlib as _hlib
-    random.seed(int(_hlib.md5(today_label.encode()).hexdigest()[:8],16))
-    _hl_cats = [
-        ("\U0001f4f0","BREAKING",BREAKING_TEMPLATES),
-        ("\U0001f525","HOT STREAK",HOT_TEMPLATES),
-        ("\U0001f4ca","STANDINGS",STANDINGS_TEMPLATES),
-        ("\U0001f575\ufe0f","INVESTIGATION",INVESTIGATION_TEMPLATES),
-    ]
-    _headlines = []
-    for _icon, _lbl, _pool in _hl_cats:
-        _tmpl = random.choice(_pool)
-        try: _txt = _tmpl.format(**_hl_vars)
-        except KeyError: _txt = _tmpl
-        _headlines.append({"icon":_icon,"label":_lbl,"text":_txt,"date":today_label})
-    src = re.sub(
-        r'HEADLINES\s*=\s*\[.*?\]\s*#[^\n]*',
-        f'HEADLINES = {repr(_headlines)}  # auto-filled by CI: 4 headlines per day',
-        src, flags=re.DOTALL
-    )
-    print(f"  Headlines generated for {today_label}")
-    for _person, _pool, _var in [
-        ("Nick",    NICK_UPDATES,    "NICK_LOG"),
-        ("Harrison", HARRISON_UPDATES, "HARRISON_LOG"),
-    ]:
-        _new_text = random.choice(_pool)
-        _m = re.search(rf'{_var}\\s*=\\s*(\\[.*?\\])\\s*#', src, re.DOTALL)
-        if _m:
-            try:
-                _log = eval(_m.group(1))
-            except Exception:
-                _log = []
-            _log = [{"date": today_label, "text": _new_text}] + _log[:2]
-            src = re.sub(
-                rf'{_var}\\s*=\\s*\\[.*?\\]\\s*#[^\\n]*',
-                f'{_var} = {repr(_log)}  # auto-filled by CI: newest first',
-                src, flags=re.DOTALL
-            )
-            print(f"  {_person} log rotated: {today_label}")
-        else:
-            print(f"  {_person} log pattern not found in build script")
-
-    # ── Tom log rotation ────────────────────────────────────────────────────
-    _new_tom = random.choice(TOM_UPDATES)
-    _m = re.search(r'TOM_LOG\s*=\s*(\[.*?\])\s*#', src, re.DOTALL)
-    if _m:
-        try:
-            _log = eval(_m.group(1))
-        except Exception:
-            _log = []
-        _log = [{"date": today_label, "text": _new_tom}] + _log[:2]
-        src = re.sub(
-            r'TOM_LOG\s*=\s*\[.*?\]\s*#[^\n]*',
-            f'TOM_LOG = {repr(_log)}  # auto-filled by CI: newest first',
-            src, flags=re.DOTALL
-        )
-        print(f"  Tom log rotated: {today_label}")
-    else:
-        print("  Tom log pattern not found in build script")
+today_label = today.strftime("%b %-d")  # e.g. "Jun 14"
 
 # Compute LAST_WEENIE_TS — most recent weenie entry, ET→UTC
 if rows:
@@ -470,6 +456,59 @@ if billionaires is not None:
         src
     )
     print(f"  BILLIONAIRE_DATA patched ({len(billionaires)} entries)")
+
+# ── Update TIPS_HEADLINES in build script ────────────────────────────────────
+_tips_match = re.search(r'TIPS_HEADLINES\s*=\s*(\[.*?\])\s*#', src, re.DOTALL)
+_current_tips = []
+if _tips_match:
+    try:
+        _current_tips = eval(_tips_match.group(1))
+    except Exception:
+        _current_tips = []
+
+if tips_changed and tip_data:
+    # Build headline for each new tip (ones not already in current list)
+    _seen_raw = {t.get("tip_raw", "") for t in _current_tips}
+    _new_stories = []
+    for _row in tip_data:
+        _tip_ts_raw  = _row[0].strip()
+        _tip_text    = _row[1].strip() if len(_row) > 1 else ""
+        if not _tip_text or _tip_text in _seen_raw:
+            continue
+        _cat, _wrappers = categorize_tip(_tip_text)
+        _story = random.choice(_wrappers).format(tip=_tip_text)
+        try:
+            _tip_dt    = datetime.strptime(_tip_ts_raw, "%m/%d/%Y %H:%M:%S")
+            _tip_label = _tip_dt.strftime("%b %-d")
+        except Exception:
+            _tip_label = today_label
+        _new_stories.append({"date": _tip_label, "category": _cat, "text": _story, "tip_raw": _tip_text})
+        _seen_raw.add(_tip_text)
+    if _new_stories:
+        _current_tips = list(reversed(_new_stories)) + _current_tips
+        _current_tips = _current_tips[:5]
+        last_state["last_tip_ts"] = today.isoformat()
+        print(f"  TIPS_HEADLINES: {len(_new_stories)} new tip story/stories added")
+
+elif need_fallback:
+    random.seed(int(hashlib.md5(today_label.encode()).hexdigest()[:8], 16))
+    _fallback_subjects = [
+        ("COMMISSION",   NICK_UPDATES),
+        ("FRAUDFURTER",  HARRISON_UPDATES),
+        ("EPWEEN FILES", TOM_UPDATES),
+        ("CHORIZOGATE",  OWEN_UPDATES),
+    ]
+    _f_cat, _f_pool = random.choice(_fallback_subjects)
+    _f_text = random.choice(_f_pool)
+    _current_tips = [{"date": today_label, "category": _f_cat, "text": _f_text}] + _current_tips[:4]
+    last_state["last_fallback_ts"] = today.isoformat()
+    print(f"  TIPS_HEADLINES: fallback story added ({_f_cat})")
+
+src = re.sub(
+    r'TIPS_HEADLINES\s*=\s*\[.*?\]\s*#[^\n]*',
+    f'TIPS_HEADLINES = {repr(_current_tips)}  # auto-filled by CI: newest first',
+    src, flags=re.DOTALL
+)
 
 with open(BUILD_SCRIPT, "w", encoding="utf-8") as f:
     f.write(src)
@@ -501,6 +540,10 @@ with open(STATE_FILE, "w") as f:
         _state_out["bill_day_start"] = bill_state
     if current_odds:
         _state_out["odds"] = current_odds
+    _state_out["tips_hash"]         = tips_hash
+    _state_out["tips_row_count"]    = len(tip_data)
+    _state_out["last_tip_ts"]       = last_state.get("last_tip_ts", "")
+    _state_out["last_fallback_ts"]  = last_state.get("last_fallback_ts", "")
     json.dump(_state_out, f, indent=2)
 
 subprocess.run(["git", "config", "user.name",  "github-actions[bot]"], cwd=ROOT)
