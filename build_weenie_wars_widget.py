@@ -1667,7 +1667,7 @@ html = f"""<!DOCTYPE html>
 
 <div style="text-align:center;margin-bottom:14px;">
   <a href="https://forms.gle/yL1Lq3JjotzqoZyj9" target="_blank" class="btn-link" style="background:#5a3e8a;box-shadow:0 2px 6px rgba(90,62,138,0.35);display:inline-block;padding:9px 28px;">
-    📞 Submit a Tip to the Weenie Tip Hotline
+    📞 Submit a Tip to the Weenie Hotline
   </a>
 </div>
 
