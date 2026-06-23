@@ -115,9 +115,7 @@ HARRISON_LOG = [{"date": "Jun 13", "text": "The FBI recovered a Post-it note fro
 
 TOM_LOG = [{"date": "Jun 16", "text": "Tom logged three weenies today. The Commission confirmed all three were uncooked, consumed in The Watcher between 11pm and 1am. The Epween File was updated. The archivist was notified. The archivist requested not to be told the new page count. The Commission told her anyway. She sat down."}]  # auto-filled by CI: newest first
 
-TIPS_HEADLINES = [
-    {"date": "Jun 23", "category": "CHORIZOGATE", "text": "Owen has been placed under formal investigation in what sources are calling Chorizogate. An anonymous tipster described activity at Owen's residence as inconsistent with a hot dog household. The Commission has opened a parallel case file. Owen has not responded to requests for comment. The Commission noted that is consistent with the profile."},
-]  # auto-filled by CI: newest first
+TIPS_HEADLINES = [{"date": "Jun 23", "category": "CHORIZOGATE", "text": "Owen has been placed at the center of Chorizogate, a Commission investigation that started as a routine audit and has since expanded to include three subpoenas, two surprise interviews, and a sealed exhibit labeled simply THE SMELL. Owen has 4 weenies on the season. The Commission is not saying the two things are connected. The Commission is clearly connecting the two things."}]  # auto-filled by CI: newest first
 
 HEADLINES = [{'icon': '📰', 'label': 'BREAKING', 'text': "The gap between Tom and Jon stands at 2 weenies. The Commission's analysts have been watching this number. It has been described as stubborn, meaningful, and uncomfortable to read aloud at press conferences.", 'date': 'Jun 14'}, {'icon': '🔥', 'label': 'HOT STREAK', 'text': "Momentum report: Tom has the hot hand at 8 over the last week. At this pace, the overall standings will shift by end of month. Tom's camp has declined to project by how much. The Commission estimates: considerably.", 'date': 'Jun 14'}, {'icon': '📊', 'label': 'STANDINGS', 'text': '5 players have not eaten a single official weenie. Their names are on file. Their excuses are also on file. The Commission reviewed the excuses and categorized them as creative, implausible, and in one case simply the word no.', 'date': 'Jun 14'}, {'icon': '🕵️', 'label': 'INVESTIGATION', 'text': 'Harrison submitted exculpatory evidence: a gas station receipt for a cylindrical food item during the competition window. Analysts confirmed the receipt is real and the station sells both hot dogs and sausages under the same label. Harrison said he ordered the hot dog. The analyst said he cannot confirm that from a receipt.', 'date': 'Jun 14'}]  # auto-filled by CI: 4 headlines per day
 LAST_WEENIE_TS = 1781396729  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
@@ -1610,11 +1608,6 @@ html = f"""<!DOCTYPE html>
     📲 Add to Home Screen
   </button>
 </div>
-<div class="btn-row" style="margin-bottom:10px;">
-  <a href="https://forms.gle/yL1Lq3JjotzqoZyj9" target="_blank" class="btn-link" style="background:#5a3e8a;box-shadow:0 2px 6px rgba(90,62,138,0.35);width:100%;text-align:center;display:block;">
-    📞 Weenie Tip Hotline
-  </a>
-</div>
 <div class="months-wrap" style="margin-bottom:12px;">
   <div class="section-title">Monthly Status</div>
   <div class="months-row">{month_tiles}<div id="droughtTile" style="background:#ffd700;border:2.5px solid #1a2744;border-radius:9px;padding:10px 13px;min-width:100px;text-align:center;flex-shrink:0;align-self:stretch;display:flex;flex-direction:column;justify-content:center">
@@ -1665,13 +1658,18 @@ html = f"""<!DOCTYPE html>
 <div class="narrative-card" style="margin-bottom:14px;">
   <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
     <span style="font-size:0.75em;font-weight:800;color:#B22234;letter-spacing:1px;text-transform:uppercase">📰 Weenie Wars Insider</span>
-    <span style="font-size:0.68em;color:#aab4cc;margin-left:auto">Tips: <a href="https://forms.gle/yL1Lq3JjotzqoZyj9" target="_blank" style="color:#5a3e8a;text-decoration:none;font-weight:700">Hotline</a></span>
   </div>
   <div id="narr-headlines">
     {TIPS_HEADLINES_HTML}
   </div>
 </div>
 {NARRATIVE_SWITCHER_JS}
+
+<div style="text-align:center;margin-bottom:14px;">
+  <a href="https://forms.gle/yL1Lq3JjotzqoZyj9" target="_blank" class="btn-link" style="background:#5a3e8a;box-shadow:0 2px 6px rgba(90,62,138,0.35);display:inline-block;padding:9px 28px;">
+    📞 Submit a Tip to the Weenie Tip Hotline
+  </a>
+</div>
 
 <div class="section-title">Big Beautiful Weenies</div>
 <div class="narrative-card" style="margin-bottom:14px;">
