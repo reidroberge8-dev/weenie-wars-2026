@@ -1,15 +1,15 @@
 {
   "csv_hash": "c1e66c62708d1d067d34e5847c81a0b64d08f0508e140cc052d30bbd814b93c9",
   "row_count": 72,
-  "updated": "2026-06-23T23:35:08.495891",
+  "updated": "2026-06-24T01:54:46.338430",
   "bill_day_start": {
-    "date": "2026-06-23",
+    "date": "2026-06-24",
     "values": {
-      "Elon Musk": 1085658.768,
-      "Larry Page": 284458.561,
-      "Sergey Brin": 262403.006,
-      "Jeff Bezos": 245501.532,
-      "Michael Dell": 234389.91
+      "Elon Musk": 1078230.15,
+      "Larry Page": 284063.994,
+      "Sergey Brin": 262040.164,
+      "Jeff Bezos": 245011.91,
+      "Michael Dell": 234139.722
     }
   },
   "odds": {
@@ -31,11 +31,17 @@
     "Harrison": "+3300",
     "Owen": "+3300"
   },
-  "tips_hash": "6b9ba9bf603704ec948b0e95d060c14c81f43b92c166251115ab2d098ec17434",
-  "tips_row_count": 5,
-  "last_tip_ts": "2026-06-23T22:48:16.849924",
+  "tips_hash": "9e3920bb22ea52cdad8e5b612571bbee76d06ca40978f37484d1a1f239b52704",
+  "tips_row_count": 6,
+  "last_tip_ts": "2026-06-24T01:54:46.338430",
   "last_fallback_ts": "2026-06-23T21:34:28.748947",
   "tips_headlines": [
+    {
+      "date": "Jun 23",
+      "category": "EPWEEN FILES",
+      "text": "A local bar keeper told Weenies Weekly \u201cReid had 17 miller high life\u2019s and started throwing hot dogs at other customers. He was yelling \u201cPig Missiles incoming!\u201d and \u201cHiroshima was child\u2019s play, I\u2019m turning Tokyo into Pork Fried Rice\u201d\u201d.. The High Volume Unit convened immediately and confirmed this is consistent with what they have been monitoring. A unit spokesperson said they were not surprised, which was itself surprising because the tip is extremely surprising. When asked to elaborate, the spokesperson said only that context is everything and context, in this case, is in Tab G. Tab G is still classified. The public has not seen Tab G. Several people who have seen Tab G have requested reassignment.",
+      "tip_raw": "A local bar keeper told Weenies Weekly \u201cReid had 17 miller high life\u2019s and started throwing hot dogs at other customers. He was yelling \u201cPig Missiles incoming!\u201d and \u201cHiroshima was child\u2019s play, I\u2019m turning Tokyo into Pork Fried Rice\u201d\u201d."
+    },
     {
       "date": "Jun 23",
       "category": "COMMISSION",
