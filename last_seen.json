@@ -1,7 +1,7 @@
 {
   "csv_hash": "c1e66c62708d1d067d34e5847c81a0b64d08f0508e140cc052d30bbd814b93c9",
   "row_count": 72,
-  "updated": "2026-06-24T01:59:53.398491",
+  "updated": "2026-06-24T11:38:15.907156",
   "bill_day_start": {
     "date": "2026-06-24",
     "values": {
@@ -31,11 +31,17 @@
     "Harrison": "+3300",
     "Owen": "+3300"
   },
-  "tips_hash": "f150e26317b7980f8c89b35f74b116090d21a9ba3c5a0a910fefd33cc1b481bc",
-  "tips_row_count": 6,
-  "last_tip_ts": "2026-06-24T01:59:53.398491",
+  "tips_hash": "bfd6ee726d63e3c4e370c8cc76f4efd36d13e04891c10260bcf1dab6e1abf3ad",
+  "tips_row_count": 7,
+  "last_tip_ts": "2026-06-24T11:38:15.907156",
   "last_fallback_ts": "2026-06-23T21:34:28.748947",
   "tips_headlines": [
+    {
+      "date": "Jun 24",
+      "category": "HOTLINE TIP",
+      "text": "There is a group forming calling themselves the lactose loyalists. They like cheese on their dogs. They were overheard discussing plans with John Cena for you can\u2019t see me cheese so they could trick the other contestants into joining their cause without their knowledge. When the commission was informed there was one word used\u2026 diabolical. The Commission convened an emergency session at 9am the following morning. The session was scheduled for 30 minutes. It ran for three hours and forty minutes. A source inside the room said the first hour was mostly silence. The Commission released a statement after. The statement said only that the situation was being monitored. Two commissioners were seen in the parking lot at 6pm, still talking. Neither would comment.",
+      "tip_raw": "There is a group forming calling themselves the lactose loyalists. They like cheese on their dogs. They were overheard discussing plans with John Cena for you can\u2019t see me cheese so they could trick the other contestants into joining their cause without their knowledge. When the commission was informed there was one word used\u2026 diabolical"
+    },
     {
       "date": "Jun 23",
       "category": "EPWEEN FILES",
