@@ -1,7 +1,7 @@
 {
   "csv_hash": "c1e66c62708d1d067d34e5847c81a0b64d08f0508e140cc052d30bbd814b93c9",
   "row_count": 72,
-  "updated": "2026-06-24T01:54:46.338430",
+  "updated": "2026-06-24T01:59:53.398491",
   "bill_day_start": {
     "date": "2026-06-24",
     "values": {
@@ -31,11 +31,17 @@
     "Harrison": "+3300",
     "Owen": "+3300"
   },
-  "tips_hash": "9e3920bb22ea52cdad8e5b612571bbee76d06ca40978f37484d1a1f239b52704",
+  "tips_hash": "f150e26317b7980f8c89b35f74b116090d21a9ba3c5a0a910fefd33cc1b481bc",
   "tips_row_count": 6,
-  "last_tip_ts": "2026-06-24T01:54:46.338430",
+  "last_tip_ts": "2026-06-24T01:59:53.398491",
   "last_fallback_ts": "2026-06-23T21:34:28.748947",
   "tips_headlines": [
+    {
+      "date": "Jun 23",
+      "category": "EPWEEN FILES",
+      "text": "A local bar keeper told Weenies Weekly \u201cReid had 17 Miller High Lifes and started throwing hot dogs at other customers. He was yelling \u201cPig Missiles incoming!\u201d and \u201cHiroshima was child\u2019s play, I\u2019m turning Tokyo into Pork Fried Rice with these Pig Missiles\u201d\u201d. Reid has denied all accusations and blamed it all on Alyssa.. Tom was informed that this information had been submitted. Tom said nothing for a long time. An investigator asked if he had anything to say. Tom said: I do what I do in The Watcher and The Watcher does not answer to the Commission. The investigator wrote this down. She wrote it down twice. She submitted it as a formal exhibit. It is Exhibit 112. The Commission held a brief ceremony to mark the 100th exhibit milestone. Tom did not attend the ceremony. This was noted.",
+      "tip_raw": "A local bar keeper told Weenies Weekly \u201cReid had 17 Miller High Lifes and started throwing hot dogs at other customers. He was yelling \u201cPig Missiles incoming!\u201d and \u201cHiroshima was child\u2019s play, I\u2019m turning Tokyo into Pork Fried Rice with these Pig Missiles\u201d\u201d. Reid has denied all accusations and blamed it all on Alyssa."
+    },
     {
       "date": "Jun 23",
       "category": "EPWEEN FILES",
