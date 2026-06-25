@@ -1,15 +1,15 @@
 {
   "csv_hash": "c1e66c62708d1d067d34e5847c81a0b64d08f0508e140cc052d30bbd814b93c9",
   "row_count": 72,
-  "updated": "2026-06-24T18:22:31.499242",
+  "updated": "2026-06-25T01:57:36.491470",
   "bill_day_start": {
-    "date": "2026-06-24",
+    "date": "2026-06-25",
     "values": {
-      "Elon Musk": 1078230.15,
-      "Larry Page": 284063.994,
-      "Sergey Brin": 262040.164,
-      "Jeff Bezos": 245011.91,
-      "Michael Dell": 234139.722
+      "Elon Musk": 951797.355,
+      "Larry Page": 283328.851,
+      "Sergey Brin": 261364.358,
+      "Jeff Bezos": 245153.063,
+      "Michael Dell": 236341.673
     }
   },
   "odds": {
@@ -31,11 +31,23 @@
     "Harrison": "+3300",
     "Owen": "+3300"
   },
-  "tips_hash": "bfd6ee726d63e3c4e370c8cc76f4efd36d13e04891c10260bcf1dab6e1abf3ad",
-  "tips_row_count": 7,
-  "last_tip_ts": "2026-06-24T11:38:15.907156",
+  "tips_hash": "b4bdb572ca84d5f4dbb3b757dc3c731b047264c3efa9c846070745c354cb2175",
+  "tips_row_count": 8,
+  "last_tip_ts": "2026-06-25T01:57:36.491470",
   "last_fallback_ts": "2026-06-23T21:34:28.748947",
   "tips_headlines": [
+    {
+      "date": "Jun 24",
+      "category": "COMMISSION",
+      "text": "Observed today - Nick walked out The Artificial Weenie factory and watched while 3 midgets loaded a pallet of unknown contents into his vehicle. Nick also laughed and pointed when one midget tripped on a blade of grass and face planted into a pile of dog feces. When an investigator for the Weenie Commission asked Nick if the pallet in his vehicle contained real weenies his response was \u201cPer Se\u201d. He then winked 3 times, did a pirouette, grabbed his groin and yelled \u201cmmmm weenies for daddy!\u201d. A group of children passing started crying and were sent to therapy.. Nick maintains that what happened is explainable. He has had multiple opportunities to explain it. His explanations have, to date, made the file larger rather than smaller. This is not typically how explanations work.",
+      "tip_raw": "Observed today - Nick walked out The Artificial Weenie factory and watched while 3 midgets loaded a pallet of unknown contents into his vehicle. Nick also laughed and pointed when one midget tripped on a blade of grass and face planted into a pile of dog feces. When an investigator for the Weenie Commission asked Nick if the pallet in his vehicle contained real weenies his response was \u201cPer Se\u201d. He then winked 3 times, did a pirouette, grabbed his groin and yelled \u201cmmmm weenies for daddy!\u201d. A group of children passing started crying and were sent to therapy."
+    },
+    {
+      "date": "Jun 23",
+      "category": "EPWEEN FILES",
+      "text": "A local bar keeper told Weenies Weekly \u201cReid had 17 Miller High Lifes and started throwing hot dogs at other customers. He was yelling \u201cPig Missiles incoming!\u201d and \u201cHiroshima was child\u2019s play, I\u2019m turning Tokyo into Pork Fried Rice with these Pig Missiles\u201d\u201d. Reid has denied all accusations and blamed it all on Alyssa.. The Epween Files team flagged the activity described as consistent with what they have been monitoring under Operation High Volume. The item or substance mentioned, if confirmed, would represent a significant new data point. The team has been quietly excited about this development. Quietly is doing a lot of work in that sentence.",
+      "tip_raw": "A local bar keeper told Weenies Weekly \u201cReid had 17 Miller High Lifes and started throwing hot dogs at other customers. He was yelling \u201cPig Missiles incoming!\u201d and \u201cHiroshima was child\u2019s play, I\u2019m turning Tokyo into Pork Fried Rice with these Pig Missiles\u201d\u201d. Reid has denied all accusations and blamed it all on Alyssa."
+    },
     {
       "date": "Jun 24",
       "category": "HOTLINE TIP",
