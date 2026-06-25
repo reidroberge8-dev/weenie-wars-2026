@@ -1,7 +1,7 @@
 {
   "csv_hash": "2800cc2386b3d93af42c0b504a4b0cb0c9453e3f793773b29aa0b6e479e3307f",
   "row_count": 73,
-  "updated": "2026-06-25T15:55:51.638810",
+  "updated": "2026-06-25T15:58:46.124583",
   "bill_day_start": {
     "date": "2026-06-25",
     "values": {
@@ -31,11 +31,17 @@
     "Harrison": "+3350",
     "Owen": "+3350"
   },
-  "tips_hash": "b4bdb572ca84d5f4dbb3b757dc3c731b047264c3efa9c846070745c354cb2175",
-  "tips_row_count": 8,
-  "last_tip_ts": "2026-06-25T01:57:36.491470",
+  "tips_hash": "2c6f2fb0b671bacecb721c60aa7d95008f862a1254f49d2705100268a3e97d9c",
+  "tips_row_count": 9,
+  "last_tip_ts": "2026-06-25T15:58:46.124583",
   "last_fallback_ts": "2026-06-23T21:34:28.748947",
   "tips_headlines": [
+    {
+      "date": "Jun 25",
+      "category": "EPWEEN FILES",
+      "text": "Tom has requested a meeting with the commission. He\u2019s wondering when the competition starts.. The Commission forwarded this to the Epween Files archive. The archivist added it without comment, which colleagues noted was unusual \u2014 she normally has a comment. When pressed, she said only: this tracks. She was asked what it tracks. She said everything. She returned to the archive and closed the door.",
+      "tip_raw": "Tom has requested a meeting with the commission. He\u2019s wondering when the competition starts."
+    },
     {
       "date": "Jun 24",
       "category": "COMMISSION",
