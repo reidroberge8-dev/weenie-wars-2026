@@ -1,15 +1,15 @@
 {
   "csv_hash": "5231e5704502a73c45dbfff013aa7ce683920cf07bdfccd0b9fc8bf12d76a8f4",
   "row_count": 74,
-  "updated": "2026-06-25T19:22:15.121158",
+  "updated": "2026-06-26T00:56:43.818055",
   "bill_day_start": {
-    "date": "2026-06-25",
+    "date": "2026-06-26",
     "values": {
-      "Elon Musk": 951797.355,
-      "Larry Page": 283328.851,
-      "Sergey Brin": 261364.358,
-      "Jeff Bezos": 245153.063,
-      "Michael Dell": 236341.673
+      "Elon Musk": 943755.779,
+      "Larry Page": 281596.083,
+      "Sergey Brin": 259771.609,
+      "Jeff Bezos": 238748.276,
+      "Michael Dell": 228517.265
     }
   },
   "odds": {
@@ -31,11 +31,17 @@
     "Harrison": "+3350",
     "Owen": "+3350"
   },
-  "tips_hash": "2c6f2fb0b671bacecb721c60aa7d95008f862a1254f49d2705100268a3e97d9c",
-  "tips_row_count": 9,
-  "last_tip_ts": "2026-06-25T15:58:46.124583",
+  "tips_hash": "eb7ed08ccdae7cfc09cb93b7db1917a7c5aadba8b1039507b1454cd21c106eb0",
+  "tips_row_count": 10,
+  "last_tip_ts": "2026-06-26T00:56:43.818055",
   "last_fallback_ts": "2026-06-23T21:34:28.748947",
   "tips_headlines": [
+    {
+      "date": "Jun 25",
+      "category": "EPWEEN FILES",
+      "text": "An anonymous source has come forward claiming to have proof that Tom is living a double life, known in his other life as \u201cJust the Tip Tommy\u201d. This has been reported to the commission and logged in the Epween files.. The item referenced above was identified by three Epween Files analysts independently and without coordination. All three reached the same conclusion. They shared their findings in a group message. The message contained no words. Just a single period. The period has been entered into the record.",
+      "tip_raw": "An anonymous source has come forward claiming to have proof that Tom is living a double life, known in his other life as \u201cJust the Tip Tommy\u201d. This has been reported to the commission and logged in the Epween files."
+    },
     {
       "date": "Jun 25",
       "category": "EPWEEN FILES",
