@@ -1,7 +1,7 @@
 {
   "csv_hash": "150605c893633e81ff5ba8691d68c77445cb34ae6a5bbb1615cd0b4bcd0b64ac",
   "row_count": 79,
-  "updated": "2026-06-27T18:15:20.179039",
+  "updated": "2026-06-27T19:30:52.940672",
   "bill_day_start": {
     "date": "2026-06-27",
     "values": {
@@ -31,11 +31,59 @@
     "Harrison": "+3650",
     "Owen": "+3650"
   },
-  "tips_hash": "e1dca567d12dc76ececb223d11d4c93b987953347b654790f7077a7b4b59d511",
-  "tips_row_count": 11,
-  "last_tip_ts": "2026-06-26T01:12:24.633559",
+  "tips_hash": "0571c05035ea0e3827e34aebaaf1ee32b8df3a7c816dc75b7d5c03e76a99b5dc",
+  "tips_row_count": 12,
+  "last_tip_ts": "2026-06-27T19:30:52.940672",
   "last_fallback_ts": "2026-06-27T08:09:55.674791",
   "tips_headlines": [
+    {
+      "date": "Jun 27",
+      "category": "EPWEEN FILES",
+      "text": "Tom and Jake were seen at the pride festival in West Hartford with a stroller filled with Fenway franks.. The item referenced above was identified by three Epween Files analysts independently and without coordination. All three reached the same conclusion. They shared their findings in a group message. The message contained no words. Just a single period. The period has been entered into the record.",
+      "tip_raw": "Tom and Jake were seen at the pride festival in West Hartford with a stroller filled with Fenway franks."
+    },
+    {
+      "date": "Jun 24",
+      "category": "HOTLINE TIP",
+      "text": "There is a group forming calling themselves the lactose loyalists. They like cheese on their dogs. They were overheard discussing plans with John Cena for you can\u2019t see me cheese so they could trick the other contestants into joining their cause without their knowledge. When the commission was informed there was one word used\u2026 diabolical. The tip was forwarded to the lead investigator with no additional comment. She read it, stood up, walked to the window, and said: this one matters. No one asked her to clarify. The context was self-evident.",
+      "tip_raw": "There is a group forming calling themselves the lactose loyalists. They like cheese on their dogs. They were overheard discussing plans with John Cena for you can\u2019t see me cheese so they could trick the other contestants into joining their cause without their knowledge. When the commission was informed there was one word used\u2026 diabolical"
+    },
+    {
+      "date": "Jun 23",
+      "category": "EPWEEN FILES",
+      "text": "A local bar keeper told Weenies Weekly \u201cReid had 17 Miller High Lifes and started throwing hot dogs at other customers. He was yelling \u201cPig Missiles incoming!\u201d and \u201cHiroshima was child\u2019s play, I\u2019m turning Tokyo into Pork Fried Rice with these Pig Missiles\u201d\u201d. Reid has denied all accusations and blamed it all on Alyssa.. The item referenced above was identified by three Epween Files analysts independently and without coordination. All three reached the same conclusion. They shared their findings in a group message. The message contained no words. Just a single period. The period has been entered into the record.",
+      "tip_raw": "A local bar keeper told Weenies Weekly \u201cReid had 17 Miller High Lifes and started throwing hot dogs at other customers. He was yelling \u201cPig Missiles incoming!\u201d and \u201cHiroshima was child\u2019s play, I\u2019m turning Tokyo into Pork Fried Rice with these Pig Missiles\u201d\u201d. Reid has denied all accusations and blamed it all on Alyssa."
+    },
+    {
+      "date": "Jun 23",
+      "category": "COMMISSION",
+      "text": "Tom and Nick have been observed putting their weenies in each others buns. This has been happening in the middle of the night, in the cover of darkness. Local officials are calling this behavior \u201cdocking\u201d and have stated that they have been not been using condiments, this has been referred to as \u201craw dogging\u201d. Raw dogging is not strictly prohibited, however raw dogging while docking is under further review. Devin was seen in The Watcher on multiple Tom/Nick raw dog sessions.. Nick maintains that what happened is explainable. He has had multiple opportunities to explain it. His explanations have, to date, made the file larger rather than smaller. This is not typically how explanations work.",
+      "tip_raw": "Tom and Nick have been observed putting their weenies in each others buns. This has been happening in the middle of the night, in the cover of darkness. Local officials are calling this behavior \u201cdocking\u201d and have stated that they have been not been using condiments, this has been referred to as \u201craw dogging\u201d. Raw dogging is not strictly prohibited, however raw dogging while docking is under further review. Devin was seen in The Watcher on multiple Tom/Nick raw dog sessions."
+    },
+    {
+      "date": "Jun 23",
+      "category": "COMMISSION",
+      "text": "Nick was seen exchanging cuisinart product for preferential treatment from the commission. The contents loaded into this commission members car included a cotton candy machine, waffle iron, and an extremely large stick blender.. Commission auditors ran the numbers on what was described. The numbers do not support Nick's version of events. Nick has a different set of numbers. The Commission asked where his numbers came from. Nick said he worked them out himself. This has been added to the file.",
+      "tip_raw": "Nick was seen exchanging cuisinart product for preferential treatment from the commission. The contents loaded into this commission members car included a cotton candy machine, waffle iron, and an extremely large stick blender."
+    },
+    {
+      "date": "Jun 23",
+      "category": "EPWEEN FILES",
+      "text": "Tom was spotted with a dozen Mucke\u2019s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.. Tom was asked directly whether the events described are accurate. He said The Watcher observes and does not comment on observations. The investigator asked if that was a yes. Tom said The Watcher's response stands. It has been logged as a conditional admission. Tom disputes the characterization. His dispute has also been logged.",
+      "tip_raw": "Tom was spotted with a dozen Mucke\u2019s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions."
+    },
+    {
+      "date": "Jun 23",
+      "category": "COMMISSION",
+      "text": "Nick was seen eating plant based weenies. Nick's attorney reviewed the information and advised him not to comment. Nick commented anyway. His comment was a question: does this seem like something I would do? The Commission's answer was yes, in writing, with citations.",
+      "tip_raw": "Nick was seen eating plant based weenies"
+    },
+    {
+      "date": "Jun 23",
+      "category": "EPWEEN FILES",
+      "text": "Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a \u201clarge bottle of an unknown substance\u201d which he claims was \u201cjust really thin mustard\u201d. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.. The item referenced above was identified by three Epween Files analysts independently and without coordination. All three reached the same conclusion. They shared their findings in a group message. The message contained no words. Just a single period. The period has been entered into the record.",
+      "tip_raw": "Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a \u201clarge bottle of an unknown substance\u201d which he claims was \u201cjust really thin mustard\u201d. The bottle was found empty next to the watcher, however no evidence of mustard was recovered."
+    },
     {
       "date": "Jun 27",
       "category": "CHORIZOGATE",
