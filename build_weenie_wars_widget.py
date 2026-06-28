@@ -46,23 +46,23 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":13,"may":5,"june":8,"july":0,"aug":0,"sep":0,"l7":1, "chomp":170,"odds":"+950","move":"—","mc":"#7a8aaa"},
-    {"name":"Tom",     "place":2, "total":24,"may":1,"june":23,"july":0,"aug":0,"sep":0,"l7":2, "chomp":314,"odds":"+450","move":"—","mc":"#7a8aaa"},
-    {"name":"Jake",    "place":2, "total":6,"may":3,"june":3,"july":0,"aug":0,"sep":0,"l7":2, "chomp":78,"odds":"+2050","move":"—","mc":"#7a8aaa"},
-    {"name":"Nick",    "place":2, "total":9,"may":0,"june":9,"july":0,"aug":0,"sep":0,"l7":3, "chomp":118,"odds":"+1350","move":"—","mc":"#7a8aaa"},
-    {"name":"Jess",    "place":5, "total":7,"may":2,"june":5,"july":0,"aug":0,"sep":0,"l7":1, "chomp":92,"odds":"+1750","move":"—","mc":"#7a8aaa"},
-    {"name":"Scott",   "place":5, "total":11,"may":2,"june":9,"july":0,"aug":0,"sep":0,"l7":4, "chomp":144,"odds":"+1100","move":"—","mc":"#7a8aaa"},
-    {"name":"Leah",    "place":5, "total":7,"may":2,"june":5,"july":0,"aug":0,"sep":0,"l7":2, "chomp":92,"odds":"+1750","move":"—","mc":"#7a8aaa"},
-    {"name":"Jon",     "place":8, "total":19,"may":1,"june":18,"july":0,"aug":0,"sep":0,"l7":4, "chomp":248,"odds":"+600","move":"—","mc":"#7a8aaa"},
-    {"name":"Alyssa",  "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":13,"odds":"+9150","move":"—","mc":"#7a8aaa"},
-    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":26,"odds":"+5450","move":"—","mc":"#7a8aaa"},
-    {"name":"Kristen", "place":9, "total":5,"may":0,"june":5,"july":0,"aug":0,"sep":0,"l7":0, "chomp":65,"odds":"+2400","move":"—","mc":"#7a8aaa"},
-    {"name":"Reid",    "place":9, "total":9,"may":0,"june":9,"july":0,"aug":0,"sep":0,"l7":0, "chomp":118,"odds":"+1350","move":"—","mc":"#7a8aaa"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+27600","move":"—","mc":"#7a8aaa"},
-    {"name":"Devin",   "place":9, "total":8,"may":0,"june":8,"july":0,"aug":0,"sep":0,"l7":0, "chomp":105,"odds":"+1550","move":"—","mc":"#7a8aaa"},
-    {"name":"Steph",   "place":9, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":0, "chomp":39,"odds":"+3850","move":"—","mc":"#7a8aaa"},
-    {"name":"Harrison", "place":9, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":0, "chomp":39,"odds":"+3850","move":"—","mc":"#7a8aaa"},
-    {"name":"Owen",    "place":9, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":2, "chomp":39,"odds":"+3850","move":"—","mc":"#7a8aaa"},
+    {"name":"Alex",    "place":1, "total":12,"may":5,"june":7,"july":0,"aug":0,"sep":0,"l7":1, "chomp":189,"odds":"+850","move":"—","mc":"#7a8aaa"},
+    {"name":"Tom",     "place":2, "total":22,"may":1,"june":21,"july":0,"aug":0,"sep":0,"l7":5, "chomp":346,"odds":"+400","move":"—","mc":"#7a8aaa"},
+    {"name":"Jake",    "place":2, "total":4,"may":3,"june":1,"july":0,"aug":0,"sep":0,"l7":0, "chomp":63,"odds":"+2500","move":"—","mc":"#7a8aaa"},
+    {"name":"Nick",    "place":2, "total":6,"may":0,"june":6,"july":0,"aug":0,"sep":0,"l7":0, "chomp":94,"odds":"+1700","move":"—","mc":"#7a8aaa"},
+    {"name":"Jess",    "place":5, "total":6,"may":2,"june":4,"july":0,"aug":0,"sep":0,"l7":2, "chomp":94,"odds":"+1700","move":"—","mc":"#7a8aaa"},
+    {"name":"Scott",   "place":5, "total":7,"may":2,"june":5,"july":0,"aug":0,"sep":0,"l7":1, "chomp":110,"odds":"+1450","move":"—","mc":"#7a8aaa"},
+    {"name":"Leah",    "place":5, "total":5,"may":2,"june":3,"july":0,"aug":0,"sep":0,"l7":1, "chomp":79,"odds":"+2000","move":"—","mc":"#7a8aaa"},
+    {"name":"Jon",     "place":8, "total":15,"may":1,"june":14,"july":0,"aug":0,"sep":0,"l7":1, "chomp":236,"odds":"+650","move":"—","mc":"#7a8aaa"},
+    {"name":"Alyssa",  "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+23200","move":"—","mc":"#7a8aaa"},
+    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":31,"odds":"+4550","move":"—","mc":"#7a8aaa"},
+    {"name":"Kristen", "place":9, "total":5,"may":0,"june":5,"july":0,"aug":0,"sep":0,"l7":4, "chomp":79,"odds":"+2000","move":"—","mc":"#7a8aaa"},
+    {"name":"Reid",    "place":9, "total":9,"may":0,"june":9,"july":0,"aug":0,"sep":0,"l7":7, "chomp":142,"odds":"+1150","move":"—","mc":"#7a8aaa"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+23200","move":"—","mc":"#7a8aaa"},
+    {"name":"Devin",   "place":9, "total":8,"may":0,"june":8,"july":0,"aug":0,"sep":0,"l7":2, "chomp":126,"odds":"+1250","move":"—","mc":"#7a8aaa"},
+    {"name":"Steph",   "place":9, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":47,"odds":"+3250","move":"—","mc":"#7a8aaa"},
+    {"name":"Harrison", "place":9, "total":3,"may":0,"june":3,"july":0,"aug":0,"sep":0,"l7":3, "chomp":47,"odds":"+3250","move":"—","mc":"#7a8aaa"},
+    {"name":"Owen",    "place":9, "total":1,"may":0,"june":1,"july":0,"aug":0,"sep":0,"l7":1, "chomp":16,"odds":"+7650","move":"—","mc":"#7a8aaa"},
 ]
 
 MONTHS = [
@@ -79,9 +79,9 @@ MONTHS = [
 
 BANNER = {
     "leader_name":   "Tom",
-    "leader_total":  24,
-    "l7_leader":     "Scott",
-    "l7_score":      4,
+    "leader_total":  22,
+    "l7_leader":     "Reid",
+    "l7_score":      7,
     "l7_note":       "none today",
     "months_done":   1,
     "months_total":  5,
@@ -115,17 +115,17 @@ HARRISON_LOG = [{"date": "Jun 13", "text": "The FBI recovered a Post-it note fro
 
 TOM_LOG = [{"date": "Jun 16", "text": "Tom logged three weenies today. The Commission confirmed all three were uncooked, consumed in The Watcher between 11pm and 1am. The Epween File was updated. The archivist was notified. The archivist requested not to be told the new page count. The Commission told her anyway. She sat down."}]  # auto-filled by CI: newest first
 
-TIPS_HEADLINES = [{'date': 'Jun 27', 'category': 'EPWEEN FILES', 'text': 'Tom and Jake were seen at the pride festival in West Hartford with a stroller filled with Fenway franks.. The item referenced above was identified by three Epween Files analysts independently and without coordination. All three reached the same conclusion. They shared their findings in a group message. The message contained no words. Just a single period. The period has been entered into the record.', 'tip_raw': 'Tom and Jake were seen at the pride festival in West Hartford with a stroller filled with Fenway franks.', 'headline': 'Sources: Fenway Franks Deployed in Stroller at Pride Parade — Jake Named Person of Interest'}, {'date': 'Jun 25', 'category': 'COMMISSION', 'text': 'The world has officially entered Chorizogate after Owen traveled all the way to Uruguay and began insisting that chorizo is “basically just a hot dog.” Legal scholars have been working around the clock to interpret the Weenie Accords, while Nick and Tom have issued a unanimous ruling that this is a flagrant violation of international hot dog law—unless, and only unless, the chorizo is consumed from a singular, lonely chair facing the corner of a bedroom, in which case it’s merely a misdemeanor. Harrison remains the lone dissenter, passionately arguing before the court that “chorizo is absolutely a weenie,” despite overwhelming public outrage. Meanwhile, Devin contributed absolutely nothing to the legal discussion by declaring, “If you rotate the sausage 37 degrees clockwise, it becomes a breakfast item and therefore falls under bird law.” The tribunal adjourned without a verdict, but Owen continues wandering the streets of Uruguay eating suspiciously spicy “hot dogs” while the Hague prepares an arrest warrant.. Nick maintains that what happened is explainable. He has had multiple opportunities to explain it. His explanations have, to date, made the file larger rather than smaller. This is not typically how explanations work.', 'tip_raw': 'The world has officially entered Chorizogate after Owen traveled all the way to Uruguay and began insisting that chorizo is “basically just a hot dog.” Legal scholars have been working around the clock to interpret the Weenie Accords, while Nick and Tom have issued a unanimous ruling that this is a flagrant violation of international hot dog law—unless, and only unless, the chorizo is consumed from a singular, lonely chair facing the corner of a bedroom, in which case it’s merely a misdemeanor. Harrison remains the lone dissenter, passionately arguing before the court that “chorizo is absolutely a weenie,” despite overwhelming public outrage. Meanwhile, Devin contributed absolutely nothing to the legal discussion by declaring, “If you rotate the sausage 37 degrees clockwise, it becomes a breakfast item and therefore falls under bird law.” The tribunal adjourned without a verdict, but Owen continues wandering the streets of Uruguay eating suspiciously spicy “hot dogs” while the Hague prepares an arrest warrant.', 'headline': "Owen Insists Chorizo 'Basically a Hot Dog'; Hague Prepares Arrest Warrant"}, {'date': 'Jun 25', 'category': 'EPWEEN FILES', 'text': 'An anonymous source has come forward claiming to have proof that Tom is living a double life, known in his other life as “Just the Tip Tommy”. This has been reported to the commission and logged in the Epween files.. The Commission forwarded this to the Epween Files archive. The archivist added it without comment, which colleagues noted was unusual — she normally has a comment. When pressed, she said only: this tracks. She was asked what it tracks. She said everything. She returned to the archive and closed the door.', 'tip_raw': 'An anonymous source has come forward claiming to have proof that Tom is living a double life, known in his other life as “Just the Tip Tommy”. This has been reported to the commission and logged in the Epween files.', 'headline': "Anonymous Source Alleges Tom Operating Under Alias 'Just the Tip Tommy'"}, {'date': 'Jun 25', 'category': 'EPWEEN FILES', 'text': 'Tom has requested a meeting with the commission. He’s wondering when the competition starts.. The item referenced above was identified by three Epween Files analysts independently and without coordination. All three reached the same conclusion. They shared their findings in a group message. The message contained no words. Just a single period. The period has been entered into the record.', 'tip_raw': 'Tom has requested a meeting with the commission. He’s wondering when the competition starts.', 'headline': 'Competitor Formally Requests Meeting to Ask When Competition Begins — It Started Weeks Ago'}, {'date': 'Jun 24', 'category': 'COMMISSION', 'text': "Observed today - Nick walked out The Artificial Weenie factory and watched while 3 midgets loaded a pallet of unknown contents into his vehicle. Nick also laughed and pointed when one midget tripped on a blade of grass and face planted into a pile of dog feces. When an investigator for the Weenie Commission asked Nick if the pallet in his vehicle contained real weenies his response was “Per Se”. He then winked 3 times, did a pirouette, grabbed his groin and yelled “mmmm weenies for daddy!”. A group of children passing started crying and were sent to therapy.. Commission auditors ran the numbers on what was described. The numbers do not support Nick's version of events. Nick has a different set of numbers. The Commission asked where his numbers came from. Nick said he worked them out himself. This has been added to the file.", 'tip_raw': 'Observed today - Nick walked out The Artificial Weenie factory and watched while 3 midgets loaded a pallet of unknown contents into his vehicle. Nick also laughed and pointed when one midget tripped on a blade of grass and face planted into a pile of dog feces. When an investigator for the Weenie Commission asked Nick if the pallet in his vehicle contained real weenies his response was “Per Se”. He then winked 3 times, did a pirouette, grabbed his groin and yelled “mmmm weenies for daddy!”. A group of children passing started crying and were sent to therapy.', 'headline': "Nick Exits Weenie Factory, Grabs Groin, Yells 'Weenies for Daddy'; Three Children in Therapy"}, {'date': 'Jun 24', 'category': 'HOTLINE TIP', 'text': 'There is a group forming calling themselves the lactose loyalists. They like cheese on their dogs. They were overheard discussing plans with John Cena for you can’t see me cheese so they could trick the other contestants into joining their cause without their knowledge. When the commission was informed there was one word used… diabolical. The tip was forwarded to the lead investigator with no additional comment. She read it, stood up, walked to the window, and said: this one matters. No one asked her to clarify. The context was self-evident.', 'tip_raw': 'There is a group forming calling themselves the lactose loyalists. They like cheese on their dogs. They were overheard discussing plans with John Cena for you can’t see me cheese so they could trick the other contestants into joining their cause without their knowledge. When the commission was informed there was one word used… diabolical', 'headline': 'Dairy Cult Allegedly Colluding With John Cena to Infiltrate Contest Using Invisible Cheese'}, {'date': 'Jun 23', 'category': 'EPWEEN FILES', 'text': "A local bar keeper told Weenies Weekly “Reid had 17 Miller High Lifes and started throwing hot dogs at other customers. He was yelling “Pig Missiles incoming!” and “Hiroshima was child’s play, I’m turning Tokyo into Pork Fried Rice with these Pig Missiles””. Reid has denied all accusations and blamed it all on Alyssa.. Tom was asked directly whether the events described are accurate. He said The Watcher observes and does not comment on observations. The investigator asked if that was a yes. Tom said The Watcher's response stands. It has been logged as a conditional admission. Tom disputes the characterization. His dispute has also been logged.", 'tip_raw': 'A local bar keeper told Weenies Weekly “Reid had 17 Miller High Lifes and started throwing hot dogs at other customers. He was yelling “Pig Missiles incoming!” and “Hiroshima was child’s play, I’m turning Tokyo into Pork Fried Rice with these Pig Missiles””. Reid has denied all accusations and blamed it all on Alyssa.', 'headline': "Barkeeper: Reid Hurled Hot Dogs at Patrons Screaming 'Pig Missiles' — Blames Alyssa"}, {'date': 'Jun 23', 'category': 'COMMISSION', 'text': "Tom and Nick have been observed putting their weenies in each others buns. This has been happening in the middle of the night, in the cover of darkness. Local officials are calling this behavior “docking” and have stated that they have been not been using condiments, this has been referred to as “raw dogging”. Raw dogging is not strictly prohibited, however raw dogging while docking is under further review. Devin was seen in The Watcher on multiple Tom/Nick raw dog sessions.. Nick's attorney reviewed the information and advised him not to comment. Nick commented anyway. His comment was a question: does this seem like something I would do? The Commission's answer was yes, in writing, with citations.", 'tip_raw': 'Tom and Nick have been observed putting their weenies in each others buns. This has been happening in the middle of the night, in the cover of darkness. Local officials are calling this behavior “docking” and have stated that they have been not been using condiments, this has been referred to as “raw dogging”. Raw dogging is not strictly prohibited, however raw dogging while docking is under further review. Devin was seen in The Watcher on multiple Tom/Nick raw dog sessions.', 'headline': 'Officials Probe Midnight Raw Dog Docking Sessions; Devin Confirmed Silent Observer'}, {'date': 'Jun 23', 'category': 'COMMISSION', 'text': "Nick was seen exchanging cuisinart product for preferential treatment from the commission. The contents loaded into this commission members car included a cotton candy machine, waffle iron, and an extremely large stick blender.. Nick's attorney reviewed the information and advised him not to comment. Nick commented anyway. His comment was a question: does this seem like something I would do? The Commission's answer was yes, in writing, with citations.", 'tip_raw': 'Nick was seen exchanging cuisinart product for preferential treatment from the commission. The contents loaded into this commission members car included a cotton candy machine, waffle iron, and an extremely large stick blender.', 'headline': "Nick Caught Loading Cotton Candy Machine and Oversized Blender Into Commissioner's Vehicle"}, {'date': 'Jun 23', 'category': 'EPWEEN FILES', 'text': 'Tom was spotted with a dozen Mucke’s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.. The Commission forwarded this to the Epween Files archive. The archivist added it without comment, which colleagues noted was unusual — she normally has a comment. When pressed, she said only: this tracks. She was asked what it tracks. She said everything. She returned to the archive and closed the door.', 'tip_raw': 'Tom was spotted with a dozen Mucke’s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.', 'headline': "Four Empty 'Diddy Brand Mustard' Bottles Recovered From Watcher Cushions"}, {'date': 'Jun 23', 'category': 'COMMISSION', 'text': "Nick was seen eating plant based weenies. Nick's attorney reviewed the information and advised him not to comment. Nick commented anyway. His comment was a question: does this seem like something I would do? The Commission's answer was yes, in writing, with citations.", 'tip_raw': 'Nick was seen eating plant based weenies', 'headline': 'Nick Spotted Consuming Plant-Based Weenie — No One Has Recovered'}, {'date': 'Jun 23', 'category': 'EPWEEN FILES', 'text': 'Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a “large bottle of an unknown substance” which he claims was “just really thin mustard”. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.. The Epween Files team flagged the activity described as consistent with what they have been monitoring under Operation High Volume. The item or substance mentioned, if confirmed, would represent a significant new data point. The team has been quietly excited about this development. Quietly is doing a lot of work in that sentence.', 'tip_raw': 'Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a “large bottle of an unknown substance” which he claims was “just really thin mustard”. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.', 'headline': "2AM: Man Enters Watcher With 'Thin Mustard' Bottle — Bottle Found Empty, No Mustard Recovered"}]  # auto-filled by CI: newest first
+TIPS_HEADLINES = [{'date': 'Jun 23', 'category': 'EPWEEN FILES', 'text': 'Tom was spotted with a dozen Mucke’s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.. The High Volume Unit convened immediately and confirmed this is consistent with what they have been monitoring. A unit spokesperson said they were not surprised, which was itself surprising because the tip is extremely surprising. When asked to elaborate, the spokesperson said only that context is everything and context, in this case, is in Tab G. Tab G is still classified. The public has not seen Tab G. Several people who have seen Tab G have requested reassignment.', 'tip_raw': 'Tom was spotted with a dozen Mucke’s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.'}, {'date': 'Jun 23', 'category': 'COMMISSION', 'text': "Nick was seen eating plant based weenies. Commission forensic analysts spent four days cross-referencing this information with existing evidence. On day three, one analyst left the building, bought a sandwich, ate it in the parking lot, and came back in. She said she just needed a moment. The cross-reference was completed on day four. The results are consistent with the Commission's worst suspicions, which were already quite bad.", 'tip_raw': 'Nick was seen eating plant based weenies'}, {'date': 'Jun 23', 'category': 'EPWEEN FILES', 'text': 'Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a “large bottle of an unknown substance” which he claims was “just really thin mustard”. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.. The High Volume Unit convened immediately and confirmed this is consistent with what they have been monitoring. A unit spokesperson said they were not surprised, which was itself surprising because the tip is extremely surprising. When asked to elaborate, the spokesperson said only that context is everything and context, in this case, is in Tab G. Tab G is still classified. The public has not seen Tab G. Several people who have seen Tab G have requested reassignment.', 'tip_raw': 'Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a “large bottle of an unknown substance” which he claims was “just really thin mustard”. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.'}]  # auto-filled by CI: newest first
 
 HEADLINES = [{'icon': '📰', 'label': 'BREAKING', 'text': "The gap between Tom and Jon stands at 2 weenies. The Commission's analysts have been watching this number. It has been described as stubborn, meaningful, and uncomfortable to read aloud at press conferences.", 'date': 'Jun 14'}, {'icon': '🔥', 'label': 'HOT STREAK', 'text': "Momentum report: Tom has the hot hand at 8 over the last week. At this pace, the overall standings will shift by end of month. Tom's camp has declined to project by how much. The Commission estimates: considerably.", 'date': 'Jun 14'}, {'icon': '📊', 'label': 'STANDINGS', 'text': '5 players have not eaten a single official weenie. Their names are on file. Their excuses are also on file. The Commission reviewed the excuses and categorized them as creative, implausible, and in one case simply the word no.', 'date': 'Jun 14'}, {'icon': '🕵️', 'label': 'INVESTIGATION', 'text': 'Harrison submitted exculpatory evidence: a gas station receipt for a cylindrical food item during the competition window. Analysts confirmed the receipt is real and the station sells both hot dogs and sausages under the same label. Harrison said he ordered the hot dog. The analyst said he cannot confirm that from a receipt.', 'date': 'Jun 14'}]  # auto-filled by CI: 4 headlines per day
-LAST_WEENIE_TS = 1782685757  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
+LAST_WEENIE_TS = 1782087854  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
 JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
 BIG_DAYS      = [('Thursday June11th', 15), ('Saturday June6th', 14), ('Sunday June21st', 14), ('Monday May25th 🇺🇸', 12), ('Saturday June13th', 10)]     # auto-filled by CI: [("Jun 3", 8), ...]
 BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
 WEENIE_LOG = []  # auto-filled by live-patch: [{player, count, display_ts, sort_ts}] newest first
 RECORDS_SINGLE_DAY  = []  # auto-filled: [{player, count, date_display}] top 10 individual single-day
 RECORDS_SINGLE_WEEK = []  # auto-filled: [{player, count, week_display}] top 10 individual single-week
-BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 946.7, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 276.2, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 254.8, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 243.8, 'delta_b': 0.0}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 223.0, 'delta_b': 0.0}]  # auto-filled by CI
+BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 1078.2, 'delta_b': -7.4}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 284.1, 'delta_b': -0.4}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 262.0, 'delta_b': -0.4}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 245.0, 'delta_b': -0.5}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 234.1, 'delta_b': -0.3}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
 
@@ -331,6 +331,88 @@ def fv(v): return str(v) if v else "—"
 
 
 # ── Headlines HTML builder ────────────────────────────────────────────────────
+def _ordinal(n):
+    if n in (11, 12, 13): return f"{n}th"
+    s = ["th","st","nd","rd","th","th","th","th","th","th"]
+    return f"{n}{s[n % 10]}"
+
+def _build_analysts_take(players):
+    """Generate dynamic Analyst's Take card above the leaderboard."""
+    if not players:
+        return ""
+
+    ranked      = sorted(players, key=lambda p: (-p["total"], -p["l7"]))
+    leader      = ranked[0]
+    second      = ranked[1] if len(ranked) > 1 else None
+    l7_sorted   = sorted(players, key=lambda p: -p["l7"])
+    l7_leader   = l7_sorted[0]
+    top3_names  = {p["name"] for p in ranked[:3]}
+
+    cold         = sorted([p for p in players if p["l7"] == 0 and p["total"] > 0], key=lambda p: -p["total"])
+    zeros        = [p for p in players if p["total"] == 0]
+    mentioned    = {l7_leader["name"]}
+    risers       = sorted([p for p in players if p["l7"] >= 3 and p["name"] not in top3_names and p["name"] not in mentioned], key=lambda p: -p["l7"])
+
+    obs = []
+
+    # 1. Leader
+    gap = (leader["total"] - second["total"]) if second else 0
+    if gap == 0:
+        obs.append(f"<b>{leader['name']}</b> and <b>{second['name']}</b> are deadlocked at the top with {leader['total']} weenies each. Whoever blinks first loses.")
+    elif gap == 1:
+        obs.append(f"<b>{leader['name']}</b> leads with {leader['total']} weenies — just 1 ahead of <b>{second['name']}</b>. The gap is a single hot dog. This is a knife fight.")
+    elif gap <= 5:
+        obs.append(f"<b>{leader['name']}</b> leads with {leader['total']} weenies, {gap} clear of <b>{second['name']}</b>. A {gap}-weenie gap this early is not a lead — it's an invitation.")
+    else:
+        obs.append(f"<b>{leader['name']}</b> is running away with this thing — {leader['total']} weenies, {gap} clear of <b>{second['name']}</b> in second. The field is watching and getting nervous.")
+
+    # 2. Hot hand (if different from overall leader)
+    if l7_leader["l7"] > 0:
+        if l7_leader["name"] != leader["name"]:
+            l7_rank = next((i+1 for i, p in enumerate(ranked) if p["name"] == l7_leader["name"]), "?")
+            obs.append(f"<b>{l7_leader['name']}</b> is the hottest player in the field right now with {l7_leader['l7']} in the last 7 days, currently sitting {_ordinal(l7_rank)} overall. That is a dangerous combination.")
+        else:
+            obs.append(f"<b>{leader['name']}</b> isn't just leading — {leader['l7']} weenies in the last 7 days means the lead is active and the gap is still growing.")
+
+    # 3. Cold players (l7=0 but have a total)
+    if cold:
+        cnames = [p["name"] for p in cold[:4]]
+        if len(cnames) == 1:
+            obs.append(f"<b>{cnames[0]}</b> has gone completely silent — zero weenies in the last 7 days. Analysts describe this as a problem.")
+        elif len(cnames) == 2:
+            obs.append(f"<b>{cnames[0]}</b> and <b>{cnames[1]}</b> have both gone cold — zero in the last 7 days. Someone needs to eat a hot dog.")
+        else:
+            joined = ", ".join(f"<b>{n}</b>" for n in cnames[:-1]) + f", and <b>{cnames[-1]}</b>"
+            obs.append(f"{joined} are all sitting on zero in the last 7 days. Collectively, that is a problem. Individually, it is each of their problems.")
+
+    # 4. Risers outside top 3
+    if risers:
+        r     = risers[0]
+        r_rank = next((i+1 for i, p in enumerate(ranked) if p["name"] == r["name"]), "?")
+        obs.append(f"Keep an eye on <b>{r['name']}</b> — {r['l7']} in the last 7 days from {_ordinal(r_rank)} place. If that pace holds, the standings are about to get uncomfortable for somebody.")
+
+    # 5. Zero club (no weenies at all)
+    if zeros:
+        znames = [p["name"] for p in zeros]
+        if len(znames) == 1:
+            obs.append(f"<b>{znames[0]}</b> remains the only player without a weenie on the season. The Commission has been notified and is not pleased.")
+        else:
+            joined = " and ".join(f"<b>{n}</b>" for n in znames) if len(znames) == 2 else ", ".join(f"<b>{n}</b>" for n in znames[:-1]) + f" and <b>{znames[-1]}</b>"
+            obs.append(f"{joined} have yet to log a single weenie on the season. The Commission is monitoring the situation and has described it as deeply concerning.")
+
+    bullet_html = "".join(
+        f'<div style="padding:7px 0 7px 12px;border-left:3px solid #dde6f5;margin-bottom:5px;'
+        f'font-size:0.87em;line-height:1.5;color:#2c3a5a">{o}</div>'
+        for o in obs
+    )
+    return (
+        '<div class="narrative-card" style="margin-bottom:14px">'
+        '<div style="font-size:0.72em;font-weight:800;color:#002868;letter-spacing:1.2px;'
+        'text-transform:uppercase;margin-bottom:10px">📊 Analyst\'s Take</div>'
+        + bullet_html +
+        '</div>'
+    )
+
 def _build_tips_html(tips):
     """Build paginated Recent News — 3 stories per page, dot+chevron nav.
     Each story shows only the headline; click ▶ to expand the full text."""
@@ -438,6 +520,7 @@ def _build_headlines_html(headlines):
     return "".join(parts)
 
 HEADLINES_HTML = _build_headlines_html(HEADLINES)
+ANALYSTS_TAKE_HTML  = _build_analysts_take(PLAYERS)
 TIPS_HEADLINES_HTML = _build_tips_html(TIPS_HEADLINES)
 
 # ── Leaderboard rows
@@ -1739,6 +1822,7 @@ html = f"""<!DOCTYPE html>
   <div id="bbw-records" style="display:none">{RECORDS_HTML}</div>
   <div id="bbw-shots" style="display:none">{BILLIONAIRE_CARD_HTML}</div>
 </div>
+{ANALYSTS_TAKE_HTML}
 <div class="section-title">Leaderboard</div>
 <div class="month-filter" id="monthFilter">
   <span class="mf-label">Month:</span>
