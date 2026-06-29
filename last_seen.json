@@ -1,7 +1,7 @@
 {
   "csv_hash": "655479b90014171d2699dde7cc39566179a8d12f9d6c086718c70f25db165da2",
   "row_count": 84,
-  "updated": "2026-06-29T04:23:28.058449",
+  "updated": "2026-06-29T14:39:21.879577",
   "bill_day_start": {
     "date": "2026-06-29",
     "values": {
@@ -31,11 +31,17 @@
     "Harrison": "+3850",
     "Owen": "+3850"
   },
-  "tips_hash": "bbcb5ac074c794b6c8560c96dae0d9e529c89f768e177f08963a553b0362e86c",
+  "tips_hash": "327c5157c92f8402d5da0e54aa4594e44a118883940f49db754a61360d53c0b2",
   "tips_row_count": 9,
-  "last_tip_ts": "2026-06-29T02:36:15.650164",
+  "last_tip_ts": "2026-06-29T14:39:21.879577",
   "last_fallback_ts": "2026-06-28T19:57:29.211532",
   "tips_headlines": [
+    {
+      "date": "Jun 28",
+      "category": "COMMISSION",
+      "text": "The Weenie Wars community was thrown into absolute chaos this morning after the anonymous release of the so-called \u201cEpween Files,\u201d a dossier alleging that current leader Tom, who sits atop the standings with 24 officially logged weenies, may have reached that total through methods the official rulebook describes as \u201cdeeply concerning and anatomically impossible.\u201d Sources familiar with the investigation claim that as many as 85% of Tom\u2019s recorded weenies never passed his lips at all, instead allegedly taking the \u201crear entrance express lane.\u201d Officials confirmed that only weenies consumed orally are eligible to be logged, prompting an immediate review of Tom\u2019s scorecard. Eyewitnesses reported seeing Tom \u201cwalking suspiciously stiff\u201d after several meals, while one judge admitted, \u201cAt the time, we just thought he had bad posture. Looking back\u2026 there were signs.\u201d  The allegations have sparked outrage across the competitive hot dog world. Rival competitor Nick demanded, \u201cWe\u2019re here to celebrate athletic eating, not advanced storage solutions,\u201d while Harrison declared, \u201cI\u2019ve never seen a man treat his digestive system like it has two front doors.\u201d Devin, visibly confused during an impromptu press conference, reportedly shouted, \u201cIf the weenie disappears but nobody saw chewing, is it even a hot dog, or is it just a disappearing magic trick?\u201d before wandering off in search of mustard. Meanwhile, investigators reportedly recovered enough circumstantial evidence to suggest dozens upon dozens of weenies may have embarked on what insiders are calling \u201cThe Brown Line Express.\u201d Tom has vehemently denied all wrongdoing, insisting, \u201cEvery weenie I logged was consumed according to\u2026 my interpretation of the rules.\u201d The Weenie Wars Commission has not announced a ruling, but insiders say officials are considering the largest score adjustment in league history if the Epween Files prove authentic. Until then, Tom\u2019s 24-weenie lead remains under the darkest cloud ever cast over competitive tube-meat athletics.. Nick maintains that what happened is explainable. He has had multiple opportunities to explain it. His explanations have, to date, made the file larger rather than smaller. This is not typically how explanations work.",
+      "tip_raw": "The Weenie Wars community was thrown into absolute chaos this morning after the anonymous release of the so-called \u201cEpween Files,\u201d a dossier alleging that current leader Tom, who sits atop the standings with 24 officially logged weenies, may have reached that total through methods the official rulebook describes as \u201cdeeply concerning and anatomically impossible.\u201d Sources familiar with the investigation claim that as many as 85% of Tom\u2019s recorded weenies never passed his lips at all, instead allegedly taking the \u201crear entrance express lane.\u201d Officials confirmed that only weenies consumed orally are eligible to be logged, prompting an immediate review of Tom\u2019s scorecard. Eyewitnesses reported seeing Tom \u201cwalking suspiciously stiff\u201d after several meals, while one judge admitted, \u201cAt the time, we just thought he had bad posture. Looking back\u2026 there were signs.\u201d  The allegations have sparked outrage across the competitive hot dog world. Rival competitor Nick demanded, \u201cWe\u2019re here to celebrate athletic eating, not advanced storage solutions,\u201d while Harrison declared, \u201cI\u2019ve never seen a man treat his digestive system like it has two front doors.\u201d Devin, visibly confused during an impromptu press conference, reportedly shouted, \u201cIf the weenie disappears but nobody saw chewing, is it even a hot dog, or is it just a disappearing magic trick?\u201d before wandering off in search of mustard. Meanwhile, investigators reportedly recovered enough circumstantial evidence to suggest dozens upon dozens of weenies may have embarked on what insiders are calling \u201cThe Brown Line Express.\u201d Tom has vehemently denied all wrongdoing, insisting, \u201cEvery weenie I logged was consumed according to\u2026 my interpretation of the rules.\u201d The Weenie Wars Commission has not announced a ruling, but insiders say officials are considering the largest score adjustment in league history if the Epween Files prove authentic. Until then, Tom\u2019s 24-weenie lead remains under the darkest cloud ever cast over competitive tube-meat athletics."
+    },
     {
       "date": "Jun 28",
       "category": "COMMISSION",
