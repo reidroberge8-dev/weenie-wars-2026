@@ -544,7 +544,7 @@ for i, p in enumerate(PLAYERS):
                   if p["name"] == "Nick" and NICK_INVESTIGATION else '')
     harrison_badge = ('<div style="font-size:0.65em;color:#1a4a8a;font-weight:700;letter-spacing:0.3px;line-height:1.2">🔍 Fraudfurter Case</div>'
                       if p["name"] == "Harrison" and HARRISON_INVESTIGATION else '')
-    tom_badge = ('<div style="font-size:0.65em;color:#5a0d8a;font-weight:700;letter-spacing:0.3px;line-height:1.2">📁 Epween Files</div>'
+    tom_badge = ('<div style="font-size:0.65em;color:#5a0d8a;font-weight:700;letter-spacing:0.3px;line-height:1.2">💩 Keistering Allegations</div>'
                  if p["name"] == "Tom" else '')
     owen_badge = ('<div style="font-size:0.65em;color:#2a6e2a;font-weight:700;letter-spacing:0.3px;line-height:1.2">🌽 Chorizogate</div>'
                   if p["name"] == "Owen" else '')
