@@ -532,6 +532,13 @@ elif need_fallback:
     last_state["last_fallback_ts"] = today.isoformat()
     print(f"  TIPS_HEADLINES: fallback story added ({_f_cat})")
 
+# Sanitize tips: strip literal newlines from all string fields so
+# repr() produces a single-line assignment (newlines cause SyntaxError)
+for _t in _current_tips:
+    for _k in list(_t.keys()):
+        if isinstance(_t[_k], str):
+            _t[_k] = _t[_k].replace('\r\n', ' ').replace('\r', ' ').replace('\n', ' ')
+
 src = re.sub(
     r'TIPS_HEADLINES\s*=\s*\[.*?\]\s*#[^\n]*',
     f'TIPS_HEADLINES = {repr(_current_tips)}  # auto-filled by CI: newest first',
