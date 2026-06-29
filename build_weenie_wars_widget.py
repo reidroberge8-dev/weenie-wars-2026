@@ -450,7 +450,9 @@ def _build_tips_html(tips):
         for si, h in enumerate(page_stories):
             sep      = 'border-bottom:1px solid #e8edf5;margin-bottom:6px;padding-bottom:6px;' if si < len(page_stories)-1 else ''
             cat      = h.get('category', 'HOTLINE TIP').upper()
-            lcol     = cat_colors.get(cat, '#B22234')
+            # 5 distinct colors cycling by position within each page
+            _tip_palette = ['#1e3a5f', '#b91c1c', '#0f766e', '#6b21a8', '#b45309']
+            lcol     = _tip_palette[si % len(_tip_palette)]
             icon     = cat_icons.get(cat, '📞')
             label    = h.get('headline', cat)
             date_str = h.get('date', '')
