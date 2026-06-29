@@ -500,7 +500,7 @@ if tips_changed and tip_data:
     _new_stories = []
     for _row in tip_data:
         _tip_ts_raw  = _row[0].strip()
-        _tip_text    = _row[1].strip() if len(_row) > 1 else ""
+        _tip_text    = _row[1].strip().replace("\r\n", " ").replace("\r", " ").replace("\n", " ") if len(_row) > 1 else ""
         if not _tip_text or _tip_text in _seen_raw:
             continue
         _cat, _wrappers = categorize_tip(_tip_text)
