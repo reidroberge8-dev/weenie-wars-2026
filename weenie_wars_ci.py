@@ -539,9 +539,10 @@ for _t in _current_tips:
         if isinstance(_t[_k], str):
             _t[_k] = _t[_k].replace('\r\n', ' ').replace('\r', ' ').replace('\n', ' ')
 
+_tips_repl = f'TIPS_HEADLINES = {repr(_current_tips)}  # auto-filled by CI: newest first'
 src = re.sub(
     r'TIPS_HEADLINES\s*=\s*\[.*?\]\s*#[^\n]*',
-    f'TIPS_HEADLINES = {repr(_current_tips)}  # auto-filled by CI: newest first',
+    lambda _m: _tips_repl,
     src, flags=re.DOTALL
 )
 
