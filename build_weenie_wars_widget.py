@@ -461,7 +461,6 @@ def _build_tips_html(tips):
                 f'<div style="{sep}">' 
                 f'<div onclick="toggleTip({gid})" style="cursor:pointer;display:flex;align-items:center;gap:7px;padding:5px 0">' 
                 f'<span id="tip-arrow-{gid}" style="font-size:0.7em;color:#7a8aaa;flex-shrink:0">▶</span>' 
-                f'<span style="font-size:1.0em;flex-shrink:0">{icon}</span>' 
                 f'<span style="font-size:0.7em;font-weight:800;letter-spacing:0.8px;color:{lcol};text-transform:uppercase;flex:1;line-height:1.3">{label}</span>' 
                 f'<span style="font-size:0.72em;font-weight:700;color:#5a6888;flex-shrink:0;margin-left:6px">{date_str}</span>' 
                 f'</div>' 
