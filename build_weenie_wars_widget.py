@@ -1738,14 +1738,14 @@ html = f"""<!DOCTYPE html>
     }}
     #ww-bottom-nav a {{
       flex:1; display:flex; flex-direction:column; align-items:center;
-      justify-content:center; padding:8px 4px 6px; text-decoration:none;
+      justify-content:center; padding:12px 4px 10px; text-decoration:none;
       color:#7a8aaa; font-size:0.6em; font-weight:700; letter-spacing:0.5px;
       text-transform:uppercase; gap:2px; transition:color 0.15s;
       -webkit-tap-highlight-color:transparent;
     }}
     #ww-bottom-nav a .ww-nav-icon {{ font-size:1.7em; line-height:1; }}
     #ww-bottom-nav a.active, #ww-bottom-nav a:active {{ color:#B22234; }}
-    body {{ padding-bottom:calc(62px + env(safe-area-inset-bottom, 0px)); }}
+    body {{ padding-bottom:calc(70px + env(safe-area-inset-bottom, 0px)); }}
   }}
 
 
