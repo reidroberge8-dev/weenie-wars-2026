@@ -1732,20 +1732,20 @@ html = f"""<!DOCTYPE html>
   @media (max-width:660px) {{
     #ww-bottom-nav {{
       display:flex; position:fixed; bottom:0; left:0; right:0; z-index:100;
-      background:#fff; border-top:2px solid #002868;
-      box-shadow:0 -2px 10px rgba(0,40,104,0.15);
+      background:#002868; border-top:3px solid #B22234;
+      box-shadow:0 -3px 14px rgba(0,0,0,0.35);
       padding-bottom:env(safe-area-inset-bottom, 0px);
     }}
     #ww-bottom-nav a {{
       flex:1; display:flex; flex-direction:column; align-items:center;
-      justify-content:center; padding:12px 4px 10px; text-decoration:none;
-      color:#7a8aaa; font-size:0.6em; font-weight:700; letter-spacing:0.5px;
-      text-transform:uppercase; gap:2px; transition:color 0.15s;
+      justify-content:center; padding:18px 4px 16px; text-decoration:none;
+      color:rgba(255,255,255,0.55); font-size:0.62em; font-weight:700; letter-spacing:0.5px;
+      text-transform:uppercase; gap:3px; transition:color 0.15s;
       -webkit-tap-highlight-color:transparent;
     }}
-    #ww-bottom-nav a .ww-nav-icon {{ font-size:1.7em; line-height:1; }}
-    #ww-bottom-nav a.active, #ww-bottom-nav a:active {{ color:#B22234; }}
-    body {{ padding-bottom:calc(70px + env(safe-area-inset-bottom, 0px)); }}
+    #ww-bottom-nav a .ww-nav-icon {{ font-size:2.0em; line-height:1; }}
+    #ww-bottom-nav a.active, #ww-bottom-nav a:active {{ color:#ffffff; }}
+    body {{ padding-bottom:calc(90px + env(safe-area-inset-bottom, 0px)); }}
   }}
 
 
