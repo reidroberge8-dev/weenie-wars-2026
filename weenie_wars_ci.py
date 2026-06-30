@@ -278,14 +278,7 @@ today_date     = today.strftime("%Y-%m-%d")
 scores_changed = csv_hash != last_hash
 
 last_tips_hash   = last_state.get("tips_hash", "")
-last_tip_ts_str  = last_state.get("last_tip_ts", "")
-last_fallback_ts_str = last_state.get("last_fallback_ts", "")
 tips_changed     = tips_hash != last_tips_hash and bool(tip_data)
-last_tip_dt      = datetime.fromisoformat(last_tip_ts_str) if last_tip_ts_str else None
-last_fallback_dt = datetime.fromisoformat(last_fallback_ts_str) if last_fallback_ts_str else None
-no_tip_24h       = (last_tip_dt is None) or ((today - last_tip_dt.replace(tzinfo=None)) > timedelta(hours=24))
-no_fallback_24h  = (last_fallback_dt is None) or ((today - last_fallback_dt.replace(tzinfo=None)) > timedelta(hours=24))
-need_fallback    = no_tip_24h and no_fallback_24h
 force_rebuild  = os.environ.get("FORCE_REBUILD", "false") == "true"
 
 # Stale-script detection: compare live sheet totals to build script.
@@ -301,7 +294,7 @@ scores_stale = any(_script_totals.get(n, -1) != _live_totals.get(n, 0) for n in 
 if scores_stale:
     print(f"  Script scores stale ({sum(_live_totals.values())} sheet vs {sum(_script_totals.values())} script) — forcing update.")
 
-if not scores_changed and not force_rebuild and not scores_stale and not tips_changed and not need_fallback:
+if not scores_changed and not force_rebuild and not scores_stale and not tips_changed:
     # Still sync tips_headlines to state if missing (survives build script overwrites)
     if "tips_headlines" not in last_state:
         _tips_m = re.search(r'TIPS_HEADLINES\s*=\s*(\[.*?\])\s*#', open(BUILD_SCRIPT, encoding="utf-8").read(), re.DOTALL)
@@ -325,8 +318,6 @@ elif scores_stale:
     print("  Scores out of sync with sheet — resyncing.")
 elif tips_changed:
     print(f"  New tips detected ({last_tips_hash[:12] if last_tips_hash else 'none'} → {tips_hash[:12]}) — headline update.")
-elif need_fallback:
-    print("  No tips in 24h — generating fallback story.")
 else:
     print("  No new weenies — 8am daily force-rebuild.")
 
@@ -518,20 +509,6 @@ if tips_changed and tip_data:
         last_state["last_tip_ts"] = today.isoformat()
         print(f"  TIPS_HEADLINES: {len(_new_stories)} new tip story/stories added")
 
-elif need_fallback:
-    random.seed(int(hashlib.md5(today_label.encode()).hexdigest()[:8], 16))
-    _fallback_subjects = [
-        ("COMMISSION",   NICK_UPDATES),
-        ("FRAUDFURTER",  HARRISON_UPDATES),
-        ("EPWEEN FILES", TOM_UPDATES),
-        ("CHORIZOGATE",  OWEN_UPDATES),
-    ]
-    _f_cat, _f_pool = random.choice(_fallback_subjects)
-    _f_text = random.choice(_f_pool)
-    _current_tips = [{"date": today_label, "category": _f_cat, "text": _f_text}] + _current_tips[:4]
-    last_state["last_fallback_ts"] = today.isoformat()
-    print(f"  TIPS_HEADLINES: fallback story added ({_f_cat})")
-
 # Sanitize tips: strip literal newlines from all string fields so
 # repr() produces a single-line assignment (newlines cause SyntaxError)
 for _t in _current_tips:
@@ -590,7 +567,6 @@ with open(STATE_FILE, "w") as f:
     _state_out["tips_hash"]         = tips_hash
     _state_out["tips_row_count"]    = len(tip_data)
     _state_out["last_tip_ts"]       = last_state.get("last_tip_ts", "")
-    _state_out["last_fallback_ts"]  = last_state.get("last_fallback_ts", "")
     _state_out["tips_headlines"]    = _current_tips
     json.dump(_state_out, f, indent=2)
 
