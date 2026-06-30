@@ -794,6 +794,30 @@ function toggleBigDay(i) {
   row.style.display  = open ? 'none' : '';
   arrow.textContent  = open ? '\u25b6' : '\u25bc';
 }
+function wwNavTo(id, el) {
+  var target = document.getElementById(id);
+  if (target) {
+    var y = target.getBoundingClientRect().top + window.pageYOffset - 8;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+  document.querySelectorAll("#ww-bottom-nav a").forEach(function(a){ a.classList.remove("active"); });
+  if (el) el.classList.add("active");
+}
+(function() {
+  var _wwSecs = ["ww-sec-news","ww-sec-standings","ww-sec-stats","ww-sec-log"];
+  window.addEventListener("scroll", function() {
+    var y = window.pageYOffset + window.innerHeight * 0.35;
+    var active = _wwSecs[0];
+    _wwSecs.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top + window.pageYOffset <= y) active = id;
+    });
+    document.querySelectorAll("#ww-bottom-nav a").forEach(function(a) {
+      a.classList.toggle("active", a.getAttribute("href").replace("#","") === active);
+    });
+  }, { passive: true });
+})();
+
 function toggleWeenielog() {
   var panel = document.getElementById("weenie-log-panel");
   var btn   = document.getElementById("wl-btn");
@@ -1597,7 +1621,7 @@ html = f"""<!DOCTYPE html>
   .section-title {{ font-size:0.68em; text-transform:uppercase; letter-spacing:2px; color:#7a8aaa; margin-bottom:7px; margin-top:2px; border-left:3px solid #B22234; padding-left:7px; }}
   table {{ width:100%; border-collapse:collapse; font-size:0.93em; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 1px 6px rgba(0,40,104,0.07); }}
   thead tr {{ background:#002868; }}
-  thead th {{ padding:8px 7px; text-align:center; color:#c8d4ea; font-size:0.68em; text-transform:uppercase; letter-spacing:1px; }}
+  thead th {{ padding:8px 7px; text-align:center; color:#c8d4ea; font-size:0.68em; text-transform:uppercase; letter-spacing:1px; position:sticky; top:0; z-index:2; }}
   thead th:nth-child(3) {{ text-align:left; }}
   thead th.chomp-h {{ color:#FFD700; }}
   thead th.l7-h {{ color:#88ccff; }}
@@ -1664,20 +1688,20 @@ html = f"""<!DOCTYPE html>
     .btn-row {{ flex-direction:column; gap:8px; }}
     .btn-link {{ width:100%; text-align:center; padding:13px 18px; font-size:0.9em; box-sizing:border-box; }}
 
-    /* Month tiles: wrap 2–3 per row */
-    .months-row {{ flex-wrap:wrap; gap:6px; }}
-    .months-row > div {{ flex:1 1 calc(33% - 6px); min-width:90px !important; }}
+    /* Month tiles: horizontal scroll — one row, no wrap */
+    .months-row {{ flex-wrap:nowrap; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:4px; }}
+    .months-row > div {{ flex:0 0 auto; min-width:80px !important; }}
 
-    /* Cards: 3-per-row, compact */
-    .cards-row {{ flex-wrap:nowrap; gap:6px; }}
-    .joey-wrap {{ flex:1 1 0; min-width:0; }}
-    .season-card, .joey-card, .nathans-card, .hours-card {{ width:100% !important; padding:10px 6px !important; box-sizing:border-box; }}
-    .season-card .sdays, .joey-card .jcount, .nathans-card .ndays {{ font-size:1.9em; }}
-    .season-card .slabel, .joey-card .jlabel, .nathans-card .nlabel {{ font-size:0.6em; }}
-    .hours-card .hcount {{ font-size:1.9em; }}
-    .hours-card .hlabel {{ font-size:0.6em; }}
-    .season-card .stitle, .nathans-card .ntitle {{ font-size:0.72em; }}
-    .joey-card .jname {{ font-size:0.78em; }}
+    /* Cards: 2x2 grid on mobile */
+    .cards-row {{ flex-wrap:wrap; gap:8px; }}
+    .joey-wrap {{ flex:1 1 calc(50% - 4px); min-width:0; }}
+    .season-card, .joey-card, .nathans-card, .hours-card {{ width:100% !important; padding:12px 8px !important; box-sizing:border-box; }}
+    .season-card .sdays, .joey-card .jcount, .nathans-card .ndays {{ font-size:2.2em; }}
+    .season-card .slabel, .joey-card .jlabel, .nathans-card .nlabel {{ font-size:0.62em; }}
+    .hours-card .hcount {{ font-size:2.2em; }}
+    .hours-card .hlabel {{ font-size:0.62em; }}
+    .season-card .stitle, .nathans-card .ntitle {{ font-size:0.74em; }}
+    .joey-card .jname {{ font-size:0.8em; }}
 
     /* Narrative */
     .narrative-card {{ font-size:0.82em; }}
@@ -1703,6 +1727,27 @@ html = f"""<!DOCTYPE html>
     .legend {{ font-size:0.68em; }}
     .section-title {{ font-size:0.65em; }}
     .footer {{ font-size:0.62em; }}
+  /* -- Bottom nav bar (mobile only) ------------------------------------ */
+  #ww-bottom-nav {{ display:none; }}
+  @media (max-width:660px) {{
+    #ww-bottom-nav {{
+      display:flex; position:fixed; bottom:0; left:0; right:0; z-index:100;
+      background:#fff; border-top:2px solid #002868;
+      box-shadow:0 -2px 10px rgba(0,40,104,0.15);
+      padding-bottom:env(safe-area-inset-bottom, 0px);
+    }}
+    #ww-bottom-nav a {{
+      flex:1; display:flex; flex-direction:column; align-items:center;
+      justify-content:center; padding:8px 4px 6px; text-decoration:none;
+      color:#7a8aaa; font-size:0.6em; font-weight:700; letter-spacing:0.5px;
+      text-transform:uppercase; gap:2px; transition:color 0.15s;
+      -webkit-tap-highlight-color:transparent;
+    }}
+    #ww-bottom-nav a .ww-nav-icon {{ font-size:1.7em; line-height:1; }}
+    #ww-bottom-nav a.active, #ww-bottom-nav a:active {{ color:#B22234; }}
+    body {{ padding-bottom:calc(62px + env(safe-area-inset-bottom, 0px)); }}
+  }}
+
 
   }}
 </style>
@@ -1800,7 +1845,7 @@ html = f"""<!DOCTYPE html>
   <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
     <span style="font-size:0.75em;font-weight:800;color:#B22234;letter-spacing:1px;text-transform:uppercase">📰 Weenie Wars Insider</span>
   </div>
-  <div id="narr-headlines">
+  <div id="ww-sec-news" style="scroll-margin-top:8px"></div><div id="narr-headlines">
     {TIPS_HEADLINES_HTML}
   </div>
 </div>
@@ -1812,7 +1857,7 @@ html = f"""<!DOCTYPE html>
   </a>
 </div>
 
-<div class="section-title">Big Beautiful Weenies</div>
+<div id="ww-sec-stats" style="scroll-margin-top:8px"></div><div class="section-title">Big Beautiful Weenies</div>
 <div class="narrative-card" style="margin-bottom:14px;">
   <div style="display:flex;gap:6px;margin-bottom:12px;">
     <button id="bbw-days-btn"    class="narr-btn active" onclick="switchBBW('days')">🏆 Biggest Days</button>
@@ -1824,7 +1869,7 @@ html = f"""<!DOCTYPE html>
   <div id="bbw-shots" style="display:none">{BILLIONAIRE_CARD_HTML}</div>
 </div>
 {ANALYSTS_TAKE_HTML}
-<div class="section-title">Leaderboard</div>
+<div id="ww-sec-standings" style="scroll-margin-top:8px"></div><div class="section-title">Leaderboard</div>
 <div class="month-filter" id="monthFilter">
   <span class="mf-label">Month:</span>
   <div class="mf-pills">
@@ -1863,6 +1908,7 @@ html = f"""<!DOCTYPE html>
 <div style="text-align:center;margin:16px 0 6px">
   <button id="wl-btn" onclick="toggleWeenielog()" style="background:#002868;color:#fff;border:none;padding:9px 24px;border-radius:6px;cursor:pointer;font-size:0.9em;font-weight:700;letter-spacing:0.4px">📋 Full Weenie Log</button>
 </div>
+<div id="ww-sec-log" style="scroll-margin-top:8px"></div>
 <div id="weenie-log-panel" style="display:none;margin:0 0 18px">
   {WEENIE_LOG_HTML}
 </div>
@@ -1887,6 +1933,14 @@ html = f"""<!DOCTYPE html>
 <script>var WW_LAST_TS={LAST_WEENIE_TS};</script>
 {LIVE_DATA_JS}
 {HOURS_SINCE_JS}
+
+<!-- Bottom nav bar (mobile) -->
+<div id="ww-bottom-nav">
+  <a href="#ww-sec-news" onclick="wwNavTo('ww-sec-news',this);return false;"><span class="ww-nav-icon">📰</span>News</a>
+  <a href="#ww-sec-standings" onclick="wwNavTo('ww-sec-standings',this);return false;"><span class="ww-nav-icon">🏆</span>Standings</a>
+  <a href="#ww-sec-stats" onclick="wwNavTo('ww-sec-stats',this);return false;"><span class="ww-nav-icon">📊</span>Stats</a>
+  <a href="#ww-sec-log" onclick="wwNavTo('ww-sec-log',this);return false;"><span class="ww-nav-icon">🌭</span>Log</a>
+</div>
 </body>
 </html>"""
 
