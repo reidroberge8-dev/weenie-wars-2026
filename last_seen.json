@@ -1,7 +1,7 @@
 {
-  "csv_hash": "",
+  "csv_hash": "8c511abad9a84296a872eda5795b06d2b0ca2a777e5ef12a0af6e76c4d0708bd",
   "row_count": 85,
-  "updated": "2026-06-30T18:23:43.593217",
+  "updated": "2026-06-30T20:28:15.063039",
   "bill_day_start": {
     "date": "2026-06-30",
     "values": {
@@ -34,7 +34,6 @@
   "tips_hash": "327c5157c92f8402d5da0e54aa4594e44a118883940f49db754a61360d53c0b2",
   "tips_row_count": 9,
   "last_tip_ts": "2026-06-29T14:39:21.879577",
-  "last_fallback_ts": "2026-06-30T16:37:40.938978",
   "tips_headlines": [
     {
       "date": "Jun 28",
