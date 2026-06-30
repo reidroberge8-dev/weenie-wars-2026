@@ -1,7 +1,7 @@
 {
   "csv_hash": "655479b90014171d2699dde7cc39566179a8d12f9d6c086718c70f25db165da2",
   "row_count": 84,
-  "updated": "2026-06-30T14:24:22.271371",
+  "updated": "2026-06-30T16:37:40.938978",
   "bill_day_start": {
     "date": "2026-06-30",
     "values": {
@@ -34,8 +34,13 @@
   "tips_hash": "327c5157c92f8402d5da0e54aa4594e44a118883940f49db754a61360d53c0b2",
   "tips_row_count": 9,
   "last_tip_ts": "2026-06-29T14:39:21.879577",
-  "last_fallback_ts": "2026-06-28T19:57:29.211532",
+  "last_fallback_ts": "2026-06-30T16:37:40.938978",
   "tips_headlines": [
+    {
+      "date": "Jun 30",
+      "category": "CHORIZOGATE",
+      "text": "Owen attended a voluntary Commission interview Tuesday. The interview was scheduled for 30 minutes. It ran for two and a half hours. Owen left without answering the last question. The question was: what is in your freezer. Owen said he would have to check. He lives alone. He did not check."
+    },
     {
       "date": "Jun 28",
       "category": "COMMISSION",
@@ -63,41 +68,6 @@
       "text": "An anonymous source has come forward claiming to have proof that Tom is living a double life, known in his other life as \u201cJust the Tip Tommy\u201d. This has been reported to the commission and logged in the Epween files.. The Commission forwarded this to the Epween Files archive. The archivist added it without comment, which colleagues noted was unusual \u2014 she normally has a comment. When pressed, she said only: this tracks. She was asked what it tracks. She said everything. She returned to the archive and closed the door.",
       "tip_raw": "An anonymous source has come forward claiming to have proof that Tom is living a double life, known in his other life as \u201cJust the Tip Tommy\u201d. This has been reported to the commission and logged in the Epween files.",
       "headline": "\ud83d\udd75\ufe0f\ud83e\udd2b Anonymous Source Alleges Tom Operating Under Alias 'Just the Tip Tommy'"
-    },
-    {
-      "date": "Jun 24",
-      "category": "COMMISSION",
-      "text": "Observed today - Nick walked out The Artificial Weenie factory and watched while 3 midgets loaded a pallet of unknown contents into his vehicle. Nick also laughed and pointed when one midget tripped on a blade of grass and face planted into a pile of dog feces. When an investigator for the Weenie Commission asked Nick if the pallet in his vehicle contained real weenies his response was \u201cPer Se\u201d. He then winked 3 times, did a pirouette, grabbed his groin and yelled \u201cmmmm weenies for daddy!\u201d. A group of children passing started crying and were sent to therapy.. Commission auditors ran the numbers on what was described. The numbers do not support Nick's version of events. Nick has a different set of numbers. The Commission asked where his numbers came from. Nick said he worked them out himself. This has been added to the file.",
-      "tip_raw": "Observed today - Nick walked out The Artificial Weenie factory and watched while 3 midgets loaded a pallet of unknown contents into his vehicle. Nick also laughed and pointed when one midget tripped on a blade of grass and face planted into a pile of dog feces. When an investigator for the Weenie Commission asked Nick if the pallet in his vehicle contained real weenies his response was \u201cPer Se\u201d. He then winked 3 times, did a pirouette, grabbed his groin and yelled \u201cmmmm weenies for daddy!\u201d. A group of children passing started crying and were sent to therapy.",
-      "headline": "\ud83c\udfed\ud83e\udd2f Nick Exits Weenie Factory, Grabs Groin, Yells 'Weenies for Daddy'; Three Children in Therapy"
-    },
-    {
-      "date": "Jun 24",
-      "category": "HOTLINE TIP",
-      "text": "There is a group forming calling themselves the lactose loyalists. They like cheese on their dogs. They were overheard discussing plans with John Cena for you can\u2019t see me cheese so they could trick the other contestants into joining their cause without their knowledge. When the commission was informed there was one word used\u2026 diabolical. The tip was forwarded to the lead investigator with no additional comment. She read it, stood up, walked to the window, and said: this one matters. No one asked her to clarify. The context was self-evident.",
-      "tip_raw": "There is a group forming calling themselves the lactose loyalists. They like cheese on their dogs. They were overheard discussing plans with John Cena for you can\u2019t see me cheese so they could trick the other contestants into joining their cause without their knowledge. When the commission was informed there was one word used\u2026 diabolical",
-      "headline": "\ud83e\uddc0\ud83d\udc7b Dairy Cult Allegedly Colluding With John Cena to Infiltrate Contest Using Invisible Cheese"
-    },
-    {
-      "date": "Jun 23",
-      "category": "COMMISSION",
-      "text": "Tom and Nick have been observed putting their weenies in each others buns. This has been happening in the middle of the night, in the cover of darkness. Local officials are calling this behavior \u201cdocking\u201d and have stated that they have been not been using condiments, this has been referred to as \u201craw dogging\u201d. Raw dogging is not strictly prohibited, however raw dogging while docking is under further review. Devin was seen in The Watcher on multiple Tom/Nick raw dog sessions.. Nick's attorney reviewed the information and advised him not to comment. Nick commented anyway. His comment was a question: does this seem like something I would do? The Commission's answer was yes, in writing, with citations.",
-      "tip_raw": "Tom and Nick have been observed putting their weenies in each others buns. This has been happening in the middle of the night, in the cover of darkness. Local officials are calling this behavior \u201cdocking\u201d and have stated that they have been not been using condiments, this has been referred to as \u201craw dogging\u201d. Raw dogging is not strictly prohibited, however raw dogging while docking is under further review. Devin was seen in The Watcher on multiple Tom/Nick raw dog sessions.",
-      "headline": "\ud83c\udf19\ud83c\udf2d Officials Probe Midnight Raw Dog Docking Sessions; Devin Confirmed Silent Observer"
-    },
-    {
-      "date": "Jun 23",
-      "category": "EPWEEN FILES",
-      "text": "Tom was spotted with a dozen Mucke\u2019s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.. The Commission forwarded this to the Epween Files archive. The archivist added it without comment, which colleagues noted was unusual \u2014 she normally has a comment. When pressed, she said only: this tracks. She was asked what it tracks. She said everything. She returned to the archive and closed the door.",
-      "tip_raw": "Tom was spotted with a dozen Mucke\u2019s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.",
-      "headline": "\ud83d\udc9b\ud83d\udecb\ufe0f Four Empty 'Diddy Brand Mustard' Bottles Recovered From Watcher Cushions"
-    },
-    {
-      "date": "Jun 23",
-      "category": "EPWEEN FILES",
-      "text": "Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a \u201clarge bottle of an unknown substance\u201d which he claims was \u201cjust really thin mustard\u201d. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.. The Epween Files team flagged the activity described as consistent with what they have been monitoring under Operation High Volume. The item or substance mentioned, if confirmed, would represent a significant new data point. The team has been quietly excited about this development. Quietly is doing a lot of work in that sentence.",
-      "tip_raw": "Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a \u201clarge bottle of an unknown substance\u201d which he claims was \u201cjust really thin mustard\u201d. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.",
-      "headline": "\ud83d\udd51\ud83e\uded9 2AM: Man Enters Watcher With 'Thin Mustard' Bottle \u2014 Bottle Found Empty, No Mustard Recovered"
     }
   ]
 }
