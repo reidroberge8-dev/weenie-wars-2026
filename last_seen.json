@@ -1,5 +1,5 @@
 {
-  "csv_hash": "8c511abad9a84296a872eda5795b06d2b0ca2a777e5ef12a0af6e76c4d0708bd",
+  "csv_hash": "",
   "row_count": 85,
   "updated": "2026-06-30T18:23:43.593217",
   "bill_day_start": {
@@ -36,11 +36,6 @@
   "last_tip_ts": "2026-06-29T14:39:21.879577",
   "last_fallback_ts": "2026-06-30T16:37:40.938978",
   "tips_headlines": [
-    {
-      "date": "Jun 30",
-      "category": "CHORIZOGATE",
-      "text": "Owen attended a voluntary Commission interview Tuesday. The interview was scheduled for 30 minutes. It ran for two and a half hours. Owen left without answering the last question. The question was: what is in your freezer. Owen said he would have to check. He lives alone. He did not check."
-    },
     {
       "date": "Jun 28",
       "category": "COMMISSION",
