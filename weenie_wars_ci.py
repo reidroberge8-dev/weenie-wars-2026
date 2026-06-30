@@ -556,6 +556,17 @@ if result.returncode != 0:
     print("BUILD ERROR:", result.stderr); sys.exit(1)
 print(result.stdout.strip())
 
+# ── Sanity-check built HTML before deploying ────────────────────────────────────
+REQUIRED_MARKERS = ["ww-bottom-nav", "joey-wrap", "ww-sec-news"]
+with open(HTML_OUT, encoding="utf-8") as _f:
+    _built = _f.read()
+_missing = [m for m in REQUIRED_MARKERS if m not in _built]
+if _missing:
+    print(f"DEPLOY ABORTED: built HTML missing required markers: {_missing}")
+    print(f"  File: {HTML_OUT}  ({len(_built):,} bytes)")
+    sys.exit(1)
+print(f"HTML guard passed ({len(_built):,} bytes, all markers present)")
+
 os.makedirs(os.path.join(ROOT, "public"), exist_ok=True)
 shutil.copy(HTML_OUT, PUBLIC_HTML)
 
