@@ -242,7 +242,9 @@ try:
             _sfx3 = 'th' if 11 <= _ts3.day <= 13 else {1:'st',2:'nd',3:'rd'}.get(_ts3.day % 10, 'th')
             _disp3 = _ts3.strftime(f'%b {_ts3.day}{_sfx3}, %I:%M %p').lstrip('0')
         except: continue
-        _log_entries.append({'player': _nm3, 'count': _ct3, 'display_ts': _disp3, 'sort_ts': _ts3.timestamp(), 'late_night': _ts3.hour >= 23 or _ts3.hour < 4})
+        _is_late_night = (_ts3.hour == 22 and _ts3.minute >= 30) or _ts3.hour == 23 or _ts3.hour < 5
+        _is_breakfast  = (5 <= _ts3.hour < 10) or (_ts3.hour == 10 and _ts3.minute <= 30)
+        _log_entries.append({'player': _nm3, 'count': _ct3, 'display_ts': _disp3, 'sort_ts': _ts3.timestamp(), 'late_night': _is_late_night, 'breakfast': _is_breakfast})
     WEENIE_LOG.clear()
     WEENIE_LOG.extend(sorted(_log_entries, key=lambda x: -x['sort_ts']))
     # Build individual single-day and single-week records
@@ -653,7 +655,12 @@ if WEENIE_LOG:
     _log_rows = ""
     for _li, _entry in enumerate(WEENIE_LOG):
         _lrbg = "background:#f7f9fc;" if _li % 2 == 0 else "background:#fff;"
-        _ln_badge = ' <span style="font-size:0.72em;color:#7c3aed;font-weight:700;white-space:nowrap">🌙 late night ween</span>' if _entry.get("late_night") else ""
+        if _entry.get("late_night"):
+            _ln_badge = ' <span style="font-size:0.72em;color:#7c3aed;font-weight:700;white-space:nowrap">🌙 Late Night Ween</span>'
+        elif _entry.get("breakfast"):
+            _ln_badge = ' <span style="font-size:0.72em;color:#b45309;font-weight:700;white-space:nowrap">🍳 Breakfast Ween</span>'
+        else:
+            _ln_badge = ""
         _log_rows += (
             f'<tr style="{_lrbg}">'
             f'<td style="padding:5px 6px;color:#7a8aaa;font-size:0.82em;white-space:nowrap">{_entry["display_ts"]}{_ln_badge}</td>'
