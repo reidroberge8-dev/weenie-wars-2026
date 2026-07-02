@@ -501,7 +501,9 @@ if tips_changed and tip_data:
             _tip_label = _tip_dt.strftime("%b %-d")
         except Exception:
             _tip_label = today_label
-        _new_stories.append({"date": _tip_label, "category": _cat, "text": _story, "tip_raw": _tip_text})
+        _first_sent = _tip_text.split(". ")[0].split("! ")[0].split("? ")[0]
+        _auto_hl = _first_sent[:97] + "…" if len(_first_sent) > 100 else _first_sent
+        _new_stories.append({"date": _tip_label, "category": _cat, "headline": _auto_hl, "text": _story, "tip_raw": _tip_text})
         _seen_raw.add(_tip_text)
     if _new_stories:
         _current_tips = list(reversed(_new_stories)) + _current_tips
