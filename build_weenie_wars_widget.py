@@ -133,7 +133,7 @@ NATHANS_DATE  = "July 4, 2026"
 from datetime import datetime as _dt
 _contest  = _dt(2026, 7, 4, tzinfo=_ET_TZ)
 _today    = _build_dt
-NATHANS_DAYS = max(0, (_contest - _today).days)
+NATHANS_DAYS = max(0, (_contest - _today.replace(hour=0, minute=0, second=0, microsecond=0)).days)
 
 # Days remaining in Weenie Wars season — ends Labor Day (first Mon in Sep)
 _labor_day   = _dt(2026, 9, 7, tzinfo=_ET_TZ)
