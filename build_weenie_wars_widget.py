@@ -242,7 +242,7 @@ try:
             _sfx3 = 'th' if 11 <= _ts3.day <= 13 else {1:'st',2:'nd',3:'rd'}.get(_ts3.day % 10, 'th')
             _disp3 = _ts3.strftime(f'%b {_ts3.day}{_sfx3}, %I:%M %p').lstrip('0')
         except: continue
-        _log_entries.append({'player': _nm3, 'count': _ct3, 'display_ts': _disp3, 'sort_ts': _ts3.timestamp()})
+        _log_entries.append({'player': _nm3, 'count': _ct3, 'display_ts': _disp3, 'sort_ts': _ts3.timestamp(), 'late_night': _ts3.hour >= 23 or _ts3.hour < 4})
     WEENIE_LOG.clear()
     WEENIE_LOG.extend(sorted(_log_entries, key=lambda x: -x['sort_ts']))
     # Build individual single-day and single-week records
@@ -653,9 +653,10 @@ if WEENIE_LOG:
     _log_rows = ""
     for _li, _entry in enumerate(WEENIE_LOG):
         _lrbg = "background:#f7f9fc;" if _li % 2 == 0 else "background:#fff;"
+        _ln_badge = ' <span style="font-size:0.72em;color:#7c3aed;font-weight:700;white-space:nowrap">🌙 late night ween</span>' if _entry.get("late_night") else ""
         _log_rows += (
             f'<tr style="{_lrbg}">'
-            f'<td style="padding:5px 6px;color:#7a8aaa;font-size:0.82em;white-space:nowrap">{_entry["display_ts"]}</td>'
+            f'<td style="padding:5px 6px;color:#7a8aaa;font-size:0.82em;white-space:nowrap">{_entry["display_ts"]}{_ln_badge}</td>'
             f'<td style="padding:5px 6px;color:#334;font-weight:600">{_entry["player"]}</td>'
             f'<td style="text-align:right;padding:5px 6px;font-weight:700;color:#002868">{_entry["count"]} 🌭</td>'
             f'</tr>'
