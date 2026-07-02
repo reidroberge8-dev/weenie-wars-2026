@@ -507,6 +507,15 @@ if tips_changed and tip_data:
         _seen_raw.add(_tip_text)
     if _new_stories:
         _current_tips = list(reversed(_new_stories)) + _current_tips
+        # Sort newest-first by date field before capping at 15
+        def _parse_tip_date(t):
+            from datetime import datetime as _dtp
+            s = t.get("date", "Jan 1")
+            for fmt in ("%b %-d", "%b %d"):
+                try: return _dtp.strptime(f"{s} 2026", f"{fmt} %Y")
+                except: pass
+            return _dtp(2026, 1, 1)
+        _current_tips = sorted(_current_tips, key=_parse_tip_date, reverse=True)
         _current_tips = _current_tips[:15]
         last_state["last_tip_ts"] = today.isoformat()
         print(f"  TIPS_HEADLINES: {len(_new_stories)} new tip story/stories added")
