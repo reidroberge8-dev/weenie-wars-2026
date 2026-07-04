@@ -1,7 +1,7 @@
 {
   "csv_hash": "3c846d0e3238497ea39b2fb0ba4e78d7aa989890bdbed8daa6956bafebc1deee",
   "row_count": 93,
-  "updated": "2026-07-04T16:28:59.585953",
+  "updated": "2026-07-04T16:31:13.264632",
   "bill_day_start": {
     "date": "2026-07-04",
     "values": {
@@ -31,10 +31,17 @@
     "Harrison": "+4150",
     "Owen": "+4150"
   },
-  "tips_hash": "970419a5c56bed3f4457431c2f22fb503251411ab31f9250f338b9516bfe8364",
-  "tips_row_count": 10,
-  "last_tip_ts": "2026-07-02T14:55:25.391282",
+  "tips_hash": "1929d37a3d7d687c0ec6917d91b77e1c91f8bfda03ebaae8a3655710cb7b7280",
+  "tips_row_count": 11,
+  "last_tip_ts": "2026-07-04T16:31:13.264632",
   "tips_headlines": [
+    {
+      "date": "Jul 4",
+      "category": "EPWEEN FILES",
+      "headline": "To whom it may concern, my name is being withheld for my own protection, but I can no longer rema\u2026",
+      "text": "To whom it may concern, my name is being withheld for my own protection, but I can no longer remain silent about what I witnessed in Apartment 4B, where a man named Tom placed a single hot dog into an ordinary-looking microwave and received, in return, a volume of processed meat so unnatural that I believe federal intervention is urgently required. At approximately 8:17 p.m., I observed Tom insert one hot dog on a paper plate, shut the microwave door, and press the start button; moments later, the unit emitted a low industrial hum, the lights in the building flickered, and what began as one hot dog became five, then twenty, then hundreds, spilling from the appliance with impossible force. Tom did not appear frightened. In fact, he seemed pleased. I repeat: he seemed pleased. By the time I contacted building management, hot dogs had breached the kitchen threshold and were advancing into the hallway. I am alerting the proper authorities because this is no longer a private culinary matter. This is replication technology, possibly unstable, certainly unsanitary, and now in the hands of a man who, when asked what he intended to do next, simply smiled and said, \u201cI\u2019m going to need more buns.\u201d. The Commission forwarded this to the Epween Files archive. The archivist added it without comment, which colleagues noted was unusual \u2014 she normally has a comment. When pressed, she said only: this tracks. She was asked what it tracks. She said everything. She returned to the archive and closed the door.",
+      "tip_raw": "To whom it may concern, my name is being withheld for my own protection, but I can no longer remain silent about what I witnessed in Apartment 4B, where a man named Tom placed a single hot dog into an ordinary-looking microwave and received, in return, a volume of processed meat so unnatural that I believe federal intervention is urgently required. At approximately 8:17 p.m., I observed Tom insert one hot dog on a paper plate, shut the microwave door, and press the start button; moments later, the unit emitted a low industrial hum, the lights in the building flickered, and what began as one hot dog became five, then twenty, then hundreds, spilling from the appliance with impossible force. Tom did not appear frightened. In fact, he seemed pleased. I repeat: he seemed pleased. By the time I contacted building management, hot dogs had breached the kitchen threshold and were advancing into the hallway. I am alerting the proper authorities because this is no longer a private culinary matter. This is replication technology, possibly unstable, certainly unsanitary, and now in the hands of a man who, when asked what he intended to do next, simply smiled and said, \u201cI\u2019m going to need more buns.\u201d"
+    },
     {
       "date": "Jul 2",
       "category": "COMMISSION",
