@@ -1,7 +1,7 @@
 {
-  "csv_hash": "ecfa82c2c5f0e075a3cc9923dcb4f4fcbdccc747974597ea9052da665612f529",
+  "csv_hash": "f6fd1b0a49610487c3ac2db9d16ebf8d9c000195e90c487b25d10bcd374923ed",
   "row_count": 96,
-  "updated": "2026-07-04T18:19:05.145263",
+  "updated": "2026-07-04T20:16:57.232322",
   "bill_day_start": {
     "date": "2026-07-04",
     "values": {
@@ -15,21 +15,21 @@
   "odds": {
     "Alex": "+1000",
     "Tom": "+450",
-    "Jake": "+2000",
+    "Jake": "+1400",
     "Nick": "+1550",
     "Jess": "+1750",
     "Scott": "+1150",
     "Leah": "+1750",
     "Jon": "+650",
-    "Alyssa": "+10350",
-    "Noel": "+6150",
-    "Kristen": "+1550",
+    "Alyssa": "+10400",
+    "Noel": "+6200",
+    "Kristen": "+2000",
     "Reid": "+1150",
-    "Jen": "+31200",
+    "Jen": "+31400",
     "Devin": "+1750",
     "Steph": "+3400",
-    "Harrison": "+4350",
-    "Owen": "+4350"
+    "Harrison": "+4400",
+    "Owen": "+4400"
   },
   "tips_hash": "1929d37a3d7d687c0ec6917d91b77e1c91f8bfda03ebaae8a3655710cb7b7280",
   "tips_row_count": 11,
