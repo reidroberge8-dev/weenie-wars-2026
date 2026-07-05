@@ -1,7 +1,7 @@
 {
   "csv_hash": "e093ae8ee2cd7aeb60b39ce6b5758ef946df521e695baec7f614baa94102e391",
   "row_count": 102,
-  "updated": "2026-07-05T00:04:33.301996",
+  "updated": "2026-07-05T00:08:40.791355",
   "bill_day_start": {
     "date": "2026-07-05",
     "values": {
@@ -31,10 +31,17 @@
     "Harrison": "+4650",
     "Owen": "+4650"
   },
-  "tips_hash": "1929d37a3d7d687c0ec6917d91b77e1c91f8bfda03ebaae8a3655710cb7b7280",
-  "tips_row_count": 11,
-  "last_tip_ts": "2026-07-04T16:31:13.264632",
+  "tips_hash": "056f098c8839d04068500b5a220783a560d87239e99358c57f1f8aa4b9813ccf",
+  "tips_row_count": 12,
+  "last_tip_ts": "2026-07-05T00:08:40.791355",
   "tips_headlines": [
+    {
+      "date": "Jul 4",
+      "category": "HOTLINE TIP",
+      "headline": "The one weenie left",
+      "text": "The one weenie left. Covered in cheese. The champions looked at it in dismay as the record for most consumed weeneis in a day was on the line. The tip was forwarded to the lead investigator with no additional comment. She read it, stood up, walked to the window, and said: this one matters. No one asked her to clarify. The context was self-evident.",
+      "tip_raw": "The one weenie left. Covered in cheese. The champions looked at it in dismay as the record for most consumed weeneis in a day was on the line"
+    },
     {
       "date": "Jul 4",
       "category": "EPWEEN FILES",
