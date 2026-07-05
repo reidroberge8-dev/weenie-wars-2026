@@ -1,7 +1,7 @@
 {
   "csv_hash": "7f136a34f418a14e5c0ec5e77ef717f1e72a65076f908a5c0ec455527fd95b90",
   "row_count": 108,
-  "updated": "2026-07-05T20:12:33.850589",
+  "updated": "2026-07-05T20:14:45.578868",
   "bill_day_start": {
     "date": "2026-07-05",
     "values": {
@@ -31,10 +31,17 @@
     "Harrison": "+3150",
     "Owen": "+3150"
   },
-  "tips_hash": "235485dd4c8ba14af1f2ac134270428c4bf0e39bde01bf9c231a7b57397e58a9",
-  "tips_row_count": 13,
-  "last_tip_ts": "2026-07-05T00:10:28.865222",
+  "tips_hash": "30c8452c4b88729d77bbd1202123884552c5b76f6505d0db38aa880b2c153e1b",
+  "tips_row_count": 14,
+  "last_tip_ts": "2026-07-05T20:14:45.578868",
   "tips_headlines": [
+    {
+      "date": "Jul 5",
+      "category": "COMMISSION",
+      "headline": "This just in",
+      "text": "This just in. Nick is terrible at eating weenies. This historians are saying this is the worst showing. Came in talking a big game pointing fingers but his l7 weenie score is pathetic. Nick was informed this had been submitted and asked whether the account was accurate. He said parts of it were. He was asked which parts. He said the parts that make him look okay. He was told those parts appear to be limited. He agreed, reluctantly.",
+      "tip_raw": "This just in. Nick is terrible at eating weenies. This historians are saying this is the worst showing. Came in talking a big game pointing fingers but his l7 weenie score is pathetic"
+    },
     {
       "date": "Jul 4",
       "category": "EPWEEN FILES",
