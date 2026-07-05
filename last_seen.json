@@ -1,7 +1,7 @@
 {
   "csv_hash": "e093ae8ee2cd7aeb60b39ce6b5758ef946df521e695baec7f614baa94102e391",
   "row_count": 102,
-  "updated": "2026-07-05T00:08:40.791355",
+  "updated": "2026-07-05T00:10:28.865222",
   "bill_day_start": {
     "date": "2026-07-05",
     "values": {
@@ -31,10 +31,17 @@
     "Harrison": "+4650",
     "Owen": "+4650"
   },
-  "tips_hash": "056f098c8839d04068500b5a220783a560d87239e99358c57f1f8aa4b9813ccf",
-  "tips_row_count": 12,
-  "last_tip_ts": "2026-07-05T00:08:40.791355",
+  "tips_hash": "235485dd4c8ba14af1f2ac134270428c4bf0e39bde01bf9c231a7b57397e58a9",
+  "tips_row_count": 13,
+  "last_tip_ts": "2026-07-05T00:10:28.865222",
   "tips_headlines": [
+    {
+      "date": "Jul 4",
+      "category": "EPWEEN FILES",
+      "headline": "Panic erupted across the Weenie Wars world late Friday after Tom brazenly logged a sausage as a l\u2026",
+      "text": "Panic erupted across the Weenie Wars world late Friday after Tom brazenly logged a sausage as a legitimate weenie, a move that legal scholars are already calling \u201cthe greatest processed meat constitutional crisis of our generation.\u201d The already-embattled competitor\u2014still battling the infamous Keistergate allegations that remain buried somewhere in the mysteriously vanished Epween Files\u2014is now facing an emergency hearing before the International Weenie Commission, where punishments reportedly range from a 10-weenie deduction to being forced to eat nothing but veggie dogs while watching everyone else compete. Anonymous insiders claim forensic meat analysts were dispatched to measure \u201csnap coefficient,\u201d \u201cbun compatibility,\u201d and \u201ccircumferential weenieness,\u201d while a K-9 unit trained exclusively on Nathan\u2019s hot dogs refused to acknowledge the evidence. Protesters gathered outside Commission headquarters chanting \u201cA sausage is not a state of mind!\u201d as betting markets briefly suspended all Tom-related wagers. Even more bizarre, surveillance footage allegedly shows Tom attempting to convince officials that \u201cif it fits in a bun, it\u2019s spiritually a weenie,\u201d an argument that reportedly caused three commissioners to resign on the spot. With Chorizogate still fresh in the public\u2019s memory, many believe Tom\u2019s Weenie Wars eligibility now hangs by a single mustard-stained thread.. The item referenced above was identified by three Epween Files analysts independently and without coordination. All three reached the same conclusion. They shared their findings in a group message. The message contained no words. Just a single period. The period has been entered into the record.",
+      "tip_raw": "Panic erupted across the Weenie Wars world late Friday after Tom brazenly logged a sausage as a legitimate weenie, a move that legal scholars are already calling \u201cthe greatest processed meat constitutional crisis of our generation.\u201d The already-embattled competitor\u2014still battling the infamous Keistergate allegations that remain buried somewhere in the mysteriously vanished Epween Files\u2014is now facing an emergency hearing before the International Weenie Commission, where punishments reportedly range from a 10-weenie deduction to being forced to eat nothing but veggie dogs while watching everyone else compete. Anonymous insiders claim forensic meat analysts were dispatched to measure \u201csnap coefficient,\u201d \u201cbun compatibility,\u201d and \u201ccircumferential weenieness,\u201d while a K-9 unit trained exclusively on Nathan\u2019s hot dogs refused to acknowledge the evidence. Protesters gathered outside Commission headquarters chanting \u201cA sausage is not a state of mind!\u201d as betting markets briefly suspended all Tom-related wagers. Even more bizarre, surveillance footage allegedly shows Tom attempting to convince officials that \u201cif it fits in a bun, it\u2019s spiritually a weenie,\u201d an argument that reportedly caused three commissioners to resign on the spot. With Chorizogate still fresh in the public\u2019s memory, many believe Tom\u2019s Weenie Wars eligibility now hangs by a single mustard-stained thread."
+    },
     {
       "date": "Jul 4",
       "category": "HOTLINE TIP",
