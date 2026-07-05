@@ -1,7 +1,7 @@
 {
   "csv_hash": "341d3ac7e1ec26572a877abb45ca622eb73980432bad61eb66baf0b127e8e627",
   "row_count": 112,
-  "updated": "2026-07-05T21:18:59.807264",
+  "updated": "2026-07-05T21:58:42.513424",
   "bill_day_start": {
     "date": "2026-07-05",
     "values": {
@@ -31,10 +31,17 @@
     "Harrison": "+3200",
     "Owen": "+3200"
   },
-  "tips_hash": "30c8452c4b88729d77bbd1202123884552c5b76f6505d0db38aa880b2c153e1b",
-  "tips_row_count": 14,
-  "last_tip_ts": "2026-07-05T20:14:45.578868",
+  "tips_hash": "696951c1ec61b33334df3c37070e4843d1e309bc37fc6b0aaf0aec823747813b",
+  "tips_row_count": 15,
+  "last_tip_ts": "2026-07-05T21:58:42.513424",
   "tips_headlines": [
+    {
+      "date": "Jul 5",
+      "category": "EPWEEN FILES",
+      "headline": "Tom was seen in the square chanting are you not entertained as he embodied the gladiator",
+      "text": "Tom was seen in the square chanting are you not entertained as he embodied the gladiator. Tom has embodied Russel Crowe and Joey chestnut and you are all doomed. The item referenced above was identified by three Epween Files analysts independently and without coordination. All three reached the same conclusion. They shared their findings in a group message. The message contained no words. Just a single period. The period has been entered into the record.",
+      "tip_raw": "Tom was seen in the square chanting are you not entertained as he embodied the gladiator. Tom has embodied Russel Crowe and Joey chestnut and you are all doomed"
+    },
     {
       "date": "Jul 5",
       "category": "COMMISSION",
