@@ -119,7 +119,7 @@ TIPS_HEADLINES = [{'date': 'Jul 5', 'category': 'EPWEEN FILES', 'headline': 'Tom
 
 HEADLINES = [{'icon': '📰', 'label': 'BREAKING', 'text': "The gap between Tom and Jon stands at 2 weenies. The Commission's analysts have been watching this number. It has been described as stubborn, meaningful, and uncomfortable to read aloud at press conferences.", 'date': 'Jun 14'}, {'icon': '🔥', 'label': 'HOT STREAK', 'text': "Momentum report: Tom has the hot hand at 8 over the last week. At this pace, the overall standings will shift by end of month. Tom's camp has declined to project by how much. The Commission estimates: considerably.", 'date': 'Jun 14'}, {'icon': '📊', 'label': 'STANDINGS', 'text': '5 players have not eaten a single official weenie. Their names are on file. Their excuses are also on file. The Commission reviewed the excuses and categorized them as creative, implausible, and in one case simply the word no.', 'date': 'Jun 14'}, {'icon': '🕵️', 'label': 'INVESTIGATION', 'text': 'Harrison submitted exculpatory evidence: a gas station receipt for a cylindrical food item during the competition window. Analysts confirmed the receipt is real and the station sells both hot dogs and sausages under the same label. Harrison said he ordered the hot dog. The analyst said he cannot confirm that from a receipt.', 'date': 'Jun 14'}]  # auto-filled by CI: 4 headlines per day
 LAST_WEENIE_TS = 1783290466  # auto-filled by CI — Unix seconds of most recent weenie entry (ET→UTC)
-JOEY_COUNT    = 70.5   # Joey Chestnut's most recent result (2025) — the benchmark
+JOEY_COUNT    = 66     # Joey Chestnut's 2026 result — the benchmark
 BIG_DAYS      = [('Saturday July4th 🇺🇸', 20), ('Sunday July5th', 20), ('Thursday June11th', 15), ('Saturday June6th', 14), ('Sunday June21st', 14)]     # auto-filled by CI: [("Jun 3", 8), ...]
 BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
 WEENIE_LOG = []  # auto-filled by live-patch: [{player, count, display_ts, sort_ts}] newest first
@@ -1236,7 +1236,7 @@ _MANIFEST_B64  = "eyJuYW1lIjoiV2VlbmllIFdhcnMgMjAyNiIsInNob3J0X25hbWUiOiJXZWVuaW
 LIVE_DATA_JS = """<script>
 (function() {
   var SHEET = 'https://docs.google.com/spreadsheets/d/1-NezoEWSZpeUIZem89ZMltE-kGX_P11LqKVoAwSG0gU/export?format=csv&gid=1814658863';
-  var JOEY  = 70.5;
+  var JOEY  = 66;
   var N_WK  = 16;
   var SS_MS = Date.UTC(2026, 4, 25); // season start May 25 UTC
   var MN = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -1825,7 +1825,7 @@ html = f"""<!DOCTYPE html>
       <div class="jname">Joey Chestnut</div>
       <div class="jcount">{JOEY_COUNT}</div>
       <div class="jdogs">hot dogs in 10 min</div>
-      <div class="jyear">★ 2025 RESULT ★</div>
+      <div class="jyear">★ 2026 RESULT ★</div>
     </a>
   </div>
   <div class="joey-wrap">
@@ -1929,7 +1929,7 @@ html = f"""<!DOCTYPE html>
 
 <button class="refresh-btn" onclick="window.location.reload()">↻ Refresh</button>
 <div class="updated-stamp">🕐 Built {UPDATED} &nbsp;·&nbsp; <span id="live-stamp">🟡 fetching live data...</span></div>
-<div class="footer">★ &nbsp; Odds for entertainment only &nbsp; ★ &nbsp; P2J benchmark: Joey Chestnut {JOEY_COUNT} dogs (2025) &nbsp; ★ &nbsp; CHOMP+ league avg = 1.13 weenies/player &nbsp; ★</div>
+<div class="footer">★ &nbsp; Odds for entertainment only &nbsp; ★ &nbsp; P2J benchmark: Joey Chestnut {JOEY_COUNT} dogs (2026) &nbsp; ★ &nbsp; CHOMP+ league avg = 1.13 weenies/player &nbsp; ★</div>
 <div style="text-align:center;color:#aab4cc;font-size:0.68em;margin-top:6px;letter-spacing:0.3px;">🟢 Scores update live every 5 minutes — no reload needed.</div>
 <div class="bottom-stripe">
   <div style="background:#B22234"></div><div style="background:#ddd"></div>
