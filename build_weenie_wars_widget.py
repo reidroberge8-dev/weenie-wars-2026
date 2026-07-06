@@ -46,23 +46,23 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":16,"may":5,"june":8,"july":3,"aug":0,"sep":0,"l7":3, "chomp":153,"odds":"+1050","move":"▲","mc":"#B22234"},
+    {"name":"Alex",    "place":1, "total":16,"may":5,"june":8,"july":3,"aug":0,"sep":0,"l7":3, "chomp":153,"odds":"+1050","move":"—","mc":"#7a8aaa"},
     {"name":"Tom",     "place":2, "total":34,"may":1,"june":25,"july":8,"aug":0,"sep":0,"l7":10, "chomp":325,"odds":"+450","move":"—","mc":"#7a8aaa"},
-    {"name":"Jake",    "place":2, "total":10,"may":3,"june":3,"july":4,"aug":0,"sep":0,"l7":4, "chomp":96,"odds":"+1700","move":"▲","mc":"#B22234"},
-    {"name":"Nick",    "place":2, "total":9,"may":0,"june":9,"july":0,"aug":0,"sep":0,"l7":0, "chomp":86,"odds":"+1850","move":"▲","mc":"#B22234"},
-    {"name":"Jess",    "place":5, "total":8,"may":2,"june":5,"july":1,"aug":0,"sep":0,"l7":1, "chomp":76,"odds":"+2100","move":"▲","mc":"#B22234"},
-    {"name":"Scott",   "place":5, "total":17,"may":2,"june":9,"july":6,"aug":0,"sep":0,"l7":6, "chomp":162,"odds":"+950","move":"▼","mc":"#2a7a2a"},
-    {"name":"Leah",    "place":5, "total":10,"may":2,"june":5,"july":3,"aug":0,"sep":0,"l7":3, "chomp":96,"odds":"+1700","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jake",    "place":2, "total":10,"may":3,"june":3,"july":4,"aug":0,"sep":0,"l7":4, "chomp":96,"odds":"+1700","move":"—","mc":"#7a8aaa"},
+    {"name":"Nick",    "place":2, "total":9,"may":0,"june":9,"july":0,"aug":0,"sep":0,"l7":0, "chomp":86,"odds":"+1850","move":"—","mc":"#7a8aaa"},
+    {"name":"Jess",    "place":5, "total":8,"may":2,"june":5,"july":1,"aug":0,"sep":0,"l7":1, "chomp":76,"odds":"+2100","move":"—","mc":"#7a8aaa"},
+    {"name":"Scott",   "place":5, "total":17,"may":2,"june":9,"july":6,"aug":0,"sep":0,"l7":6, "chomp":162,"odds":"+950","move":"—","mc":"#7a8aaa"},
+    {"name":"Leah",    "place":5, "total":10,"may":2,"june":5,"july":3,"aug":0,"sep":0,"l7":3, "chomp":96,"odds":"+1700","move":"—","mc":"#7a8aaa"},
     {"name":"Jon",     "place":8, "total":23,"may":1,"june":18,"july":4,"aug":0,"sep":0,"l7":4, "chomp":220,"odds":"+700","move":"—","mc":"#7a8aaa"},
-    {"name":"Alyssa",  "place":9, "total":3,"may":0,"june":1,"july":2,"aug":0,"sep":0,"l7":2, "chomp":29,"odds":"+5250","move":"▲","mc":"#B22234"},
-    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":19,"odds":"+7350","move":"▲","mc":"#B22234"},
-    {"name":"Kristen", "place":9, "total":9,"may":0,"june":5,"july":4,"aug":0,"sep":0,"l7":4, "chomp":86,"odds":"+1850","move":"▲","mc":"#B22234"},
-    {"name":"Reid",    "place":9, "total":13,"may":0,"june":9,"july":4,"aug":0,"sep":0,"l7":4, "chomp":124,"odds":"+1300","move":"▲","mc":"#B22234"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+37200","move":"▲","mc":"#B22234"},
-    {"name":"Devin",   "place":9, "total":9,"may":0,"june":8,"july":1,"aug":0,"sep":0,"l7":1, "chomp":86,"odds":"+1850","move":"▲","mc":"#B22234"},
-    {"name":"Steph",   "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":2, "chomp":48,"odds":"+3300","move":"▲","mc":"#B22234"},
-    {"name":"Harrison", "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":2, "chomp":48,"odds":"+3300","move":"▲","mc":"#B22234"},
-    {"name":"Owen",    "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":2, "chomp":48,"odds":"+3300","move":"▲","mc":"#B22234"},
+    {"name":"Alyssa",  "place":9, "total":3,"may":0,"june":1,"july":2,"aug":0,"sep":0,"l7":2, "chomp":29,"odds":"+5250","move":"—","mc":"#7a8aaa"},
+    {"name":"Noel",    "place":9, "total":2,"may":0,"june":2,"july":0,"aug":0,"sep":0,"l7":0, "chomp":19,"odds":"+7350","move":"—","mc":"#7a8aaa"},
+    {"name":"Kristen", "place":9, "total":9,"may":0,"june":5,"july":4,"aug":0,"sep":0,"l7":4, "chomp":86,"odds":"+1850","move":"—","mc":"#7a8aaa"},
+    {"name":"Reid",    "place":9, "total":13,"may":0,"june":9,"july":4,"aug":0,"sep":0,"l7":4, "chomp":124,"odds":"+1300","move":"—","mc":"#7a8aaa"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+37200","move":"—","mc":"#7a8aaa"},
+    {"name":"Devin",   "place":9, "total":9,"may":0,"june":8,"july":1,"aug":0,"sep":0,"l7":1, "chomp":86,"odds":"+1850","move":"—","mc":"#7a8aaa"},
+    {"name":"Steph",   "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":2, "chomp":48,"odds":"+3300","move":"—","mc":"#7a8aaa"},
+    {"name":"Harrison", "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":2, "chomp":48,"odds":"+3300","move":"—","mc":"#7a8aaa"},
+    {"name":"Owen",    "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":2, "chomp":48,"odds":"+3300","move":"—","mc":"#7a8aaa"},
 ]
 
 MONTHS = [
@@ -82,7 +82,7 @@ BANNER = {
     "leader_total":  34,
     "l7_leader":     "Tom",
     "l7_score":      10,
-    "l7_note":       "4 today",
+    "l7_note":       "none today",
     "months_done":   1,
     "months_total":  5,
     "players":       17,
@@ -125,7 +125,7 @@ BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
 WEENIE_LOG = []  # auto-filled by live-patch: [{player, count, display_ts, sort_ts}] newest first
 RECORDS_SINGLE_DAY  = []  # auto-filled: [{player, count, date_display}] top 10 individual single-day
 RECORDS_SINGLE_WEEK = []  # auto-filled: [{player, count, week_display}] top 10 individual single-week
-BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 997.1, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 293.4, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 270.6, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 252.6, 'delta_b': 0.0}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 220.7, 'delta_b': 0.0}]  # auto-filled by CI
+BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 977.2, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 298.0, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 274.9, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 254.9, 'delta_b': 0.0}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 227.5, 'delta_b': 0.0}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2026"
 
