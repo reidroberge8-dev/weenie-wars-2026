@@ -1829,7 +1829,7 @@ html = f"""<!DOCTYPE html>
     </a>
   </div>
   <div class="joey-wrap">
-    <div class="section-title">Nathan's 2026</div>
+    <div class="section-title">Nathan's 2027</div>
     <a href="{NATHANS_URL}" target="_blank" class="nathans-card">
       <div class="nlabel">🌭 Contest</div>
       <div class="ntitle">Nathan's Famous Hot Dog Eating</div>
