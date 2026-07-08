@@ -125,7 +125,7 @@ BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
 WEENIE_LOG = []  # auto-filled by live-patch: [{player, count, display_ts, sort_ts}] newest first
 RECORDS_SINGLE_DAY  = []  # auto-filled: [{player, count, date_display}] top 10 individual single-day
 RECORDS_SINGLE_WEEK = []  # auto-filled: [{player, count, week_display}] top 10 individual single-week
-BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 936.7, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 299.1, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 275.9, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 255.5, 'delta_b': 0.0}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 229.3, 'delta_b': 0.0}]  # auto-filled by CI
+BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 933.8, 'delta_b': -2.8}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 296.1, 'delta_b': -3.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 273.1, 'delta_b': -2.8}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 252.5, 'delta_b': -3.0}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 236.1, 'delta_b': 6.7}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2027"
 
