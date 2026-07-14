@@ -1,7 +1,7 @@
 {
   "csv_hash": "36f914c571c60a48ade5653227811419e983e0a5648933a4fbfc36e2abde28d9",
   "row_count": 128,
-  "updated": "2026-07-14T13:48:11.574445",
+  "updated": "2026-07-14T16:43:53.031734",
   "bill_day_start": {
     "date": "2026-07-14",
     "values": {
@@ -31,10 +31,17 @@
     "Harrison": "+3700",
     "Owen": "+2700"
   },
-  "tips_hash": "696951c1ec61b33334df3c37070e4843d1e309bc37fc6b0aaf0aec823747813b",
-  "tips_row_count": 15,
-  "last_tip_ts": "2026-07-05T21:58:42.513424",
+  "tips_hash": "f47111400083e74ba9a06fa8370700dd611f9de4adef37ec076cc4908b159359",
+  "tips_row_count": 16,
+  "last_tip_ts": "2026-07-14T16:43:53.031734",
   "tips_headlines": [
+    {
+      "date": "Jul 14",
+      "category": "EPWEEN FILES",
+      "headline": "Chaos has erupted across Weenie Wars after explosive allegations surfaced that Scott has been sec\u2026",
+      "text": "Chaos has erupted across Weenie Wars after explosive allegations surfaced that Scott has been secretly operating an underground 3D hot dog lab out of his garage, where he\u2019s allegedly printing fully customized franks at 0.08mm layer height before meticulously vacuum-sealing them into authentic Oscar Mayer packaging using a counterfeit expiration date stamp and what investigators described as \u201can unsettling amount of meat-colored filament.\u201d The Weenie Commission claims a thermal drone spotted Scott frantically hitting \u201cReprint\u201d after a nozzle clog produced what experts are calling \u201ca bratwurst-shaped abomination,\u201d while forensic analysts reportedly recovered microscopic plastic layer lines from a suspiciously perfect weenie submitted earlier this week. Jon was furious, declaring, \u201cThe man asked me if I preferred my hot dogs in PETG or ABS. I thought those were cholesterol levels.\u201d Jen added, \u201cScott accidentally emailed me a file called Oscar_Mayer_Final_v18_REAL_USE_THIS_ONE.stl and then tried to tell me it was a tax document.\u201d Even crazier, anonymous sources claim Scott\u2019s printer achieved sentience at 3:17 a.m., printed 47 unauthorized hot dogs on its own, demanded to be entered into Weenie Wars as an independent competitor, and has since gone missing along with three packs of buns and the entire Epween Files archive.. The Commission forwarded this to the Epween Files archive. The archivist added it without comment, which colleagues noted was unusual \u2014 she normally has a comment. When pressed, she said only: this tracks. She was asked what it tracks. She said everything. She returned to the archive and closed the door.",
+      "tip_raw": "Chaos has erupted across Weenie Wars after explosive allegations surfaced that Scott has been secretly operating an underground 3D hot dog lab out of his garage, where he\u2019s allegedly printing fully customized franks at 0.08mm layer height before meticulously vacuum-sealing them into authentic Oscar Mayer packaging using a counterfeit expiration date stamp and what investigators described as \u201can unsettling amount of meat-colored filament.\u201d The Weenie Commission claims a thermal drone spotted Scott frantically hitting \u201cReprint\u201d after a nozzle clog produced what experts are calling \u201ca bratwurst-shaped abomination,\u201d while forensic analysts reportedly recovered microscopic plastic layer lines from a suspiciously perfect weenie submitted earlier this week. Jon was furious, declaring, \u201cThe man asked me if I preferred my hot dogs in PETG or ABS. I thought those were cholesterol levels.\u201d Jen added, \u201cScott accidentally emailed me a file called Oscar_Mayer_Final_v18_REAL_USE_THIS_ONE.stl and then tried to tell me it was a tax document.\u201d Even crazier, anonymous sources claim Scott\u2019s printer achieved sentience at 3:17 a.m., printed 47 unauthorized hot dogs on its own, demanded to be entered into Weenie Wars as an independent competitor, and has since gone missing along with three packs of buns and the entire Epween Files archive."
+    },
     {
       "date": "Jul 5",
       "category": "EPWEEN FILES",
@@ -132,13 +139,6 @@
       "text": "Tom was spotted with a dozen Mucke\u2019s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.. The Epween Files team flagged the activity described as consistent with what they have been monitoring under Operation High Volume. The item or substance mentioned, if confirmed, would represent a significant new data point. The team has been quietly excited about this development. Quietly is doing a lot of work in that sentence.",
       "tip_raw": "Tom was spotted with a dozen Mucke\u2019s hotdogs and an equal amount of suppositories. Upon investigating The Watcher, four empty bottles of Diddy branded mustard were recovered from between the seat cushions.",
       "headline": "\ud83d\udd75\ufe0f\ud83d\udc9b Four Diddy-Brand Mustard Bottles Recovered from Watcher Cushions; Suppository Count Matches Hot Dog Total"
-    },
-    {
-      "date": "Jun 23",
-      "category": "EPWEEN FILES",
-      "text": "Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a \u201clarge bottle of an unknown substance\u201d which he claims was \u201cjust really thin mustard\u201d. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.. Tom was asked directly whether the events described are accurate. He said The Watcher observes and does not comment on observations. The investigator asked if that was a yes. Tom said The Watcher's response stands. It has been logged as a conditional admission. Tom disputes the characterization. His dispute has also been logged.",
-      "tip_raw": "Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a \u201clarge bottle of an unknown substance\u201d which he claims was \u201cjust really thin mustard\u201d. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.",
-      "headline": "\ud83d\udd50\ud83e\uded9 Watcher Bottle Found Empty at 2AM \u2014 \u201cJust Really Thin Mustard,\u201d Claims Tom; Zero Mustard Evidence Recovered"
     }
   ]
 }
