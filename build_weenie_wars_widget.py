@@ -48,7 +48,7 @@ PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
     {"name":"Alex",    "place":1, "total":17,"may":5,"june":8,"july":4,"aug":0,"sep":0,"l7":1, "chomp":140,"odds":"+1150","move":"—","mc":"#7a8aaa"},
     {"name":"Tom",     "place":2, "total":36,"may":1,"june":25,"july":10,"aug":0,"sep":0,"l7":2, "chomp":297,"odds":"+500","move":"—","mc":"#7a8aaa"},
-    {"name":"Jake",    "place":2, "total":15,"may":3,"june":3,"july":9,"aug":0,"sep":0,"l7":5, "chomp":124,"odds":"+1300","move":"—","mc":"#7a8aaa"},
+    {"name":"Jake",    "place":2, "total":15,"may":3,"june":3,"july":9,"aug":0,"sep":0,"l7":2, "chomp":124,"odds":"+1300","move":"—","mc":"#7a8aaa"},
     {"name":"Nick",    "place":2, "total":9,"may":0,"june":9,"july":0,"aug":0,"sep":0,"l7":0, "chomp":74,"odds":"+2150","move":"—","mc":"#7a8aaa"},
     {"name":"Jess",    "place":5, "total":11,"may":2,"june":5,"july":4,"aug":0,"sep":0,"l7":3, "chomp":91,"odds":"+1750","move":"—","mc":"#7a8aaa"},
     {"name":"Scott",   "place":5, "total":19,"may":2,"june":9,"july":8,"aug":0,"sep":0,"l7":2, "chomp":157,"odds":"+1000","move":"—","mc":"#7a8aaa"},
@@ -125,7 +125,7 @@ BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
 WEENIE_LOG = []  # auto-filled by live-patch: [{player, count, display_ts, sort_ts}] newest first
 RECORDS_SINGLE_DAY  = []  # auto-filled: [{player, count, date_display}] top 10 individual single-day
 RECORDS_SINGLE_WEEK = []  # auto-filled: [{player, count, week_display}] top 10 individual single-week
-BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 860.7, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 303.2, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 279.6, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 263.4, 'delta_b': 0.0}, {'rank': 5, 'name': 'Mark Zuckerberg', 'worth_b': 233.5, 'delta_b': 0.0}]  # auto-filled by CI
+BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 863.5, 'delta_b': 2.8}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 303.8, 'delta_b': 0.6}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 280.2, 'delta_b': 0.6}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 262.5, 'delta_b': -0.9}, {'rank': 5, 'name': 'Mark Zuckerberg', 'worth_b': 230.3, 'delta_b': -3.3}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2027"
 
