@@ -57,12 +57,12 @@ PLAYERS = [
     {"name":"Alyssa",  "place":9, "total":3,"may":0,"june":1,"july":2,"aug":0,"sep":0,"l7":0, "chomp":24,"odds":"+6250","move":"—","mc":"#7a8aaa"},
     {"name":"Noel",    "place":9, "total":3,"may":0,"june":2,"july":1,"aug":0,"sep":0,"l7":1, "chomp":24,"odds":"+6250","move":"—","mc":"#7a8aaa"},
     {"name":"Kristen", "place":9, "total":11,"may":0,"june":5,"july":6,"aug":0,"sep":0,"l7":2, "chomp":87,"odds":"+1850","move":"—","mc":"#7a8aaa"},
-    {"name":"Reid",    "place":9, "total":21,"may":0,"june":9,"july":12,"aug":0,"sep":0,"l7":8, "chomp":167,"odds":"+950","move":"—","mc":"#7a8aaa"},
+    {"name":"Reid",    "place":9, "total":21,"may":0,"june":9,"july":12,"aug":0,"sep":0,"l7":5, "chomp":167,"odds":"+950","move":"—","mc":"#7a8aaa"},
     {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+44400","move":"—","mc":"#7a8aaa"},
     {"name":"Devin",   "place":9, "total":9,"may":0,"june":8,"july":1,"aug":0,"sep":0,"l7":0, "chomp":71,"odds":"+2250","move":"—","mc":"#7a8aaa"},
     {"name":"Steph",   "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":0, "chomp":40,"odds":"+3950","move":"—","mc":"#7a8aaa"},
     {"name":"Harrison", "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":0, "chomp":40,"odds":"+3950","move":"—","mc":"#7a8aaa"},
-    {"name":"Owen",    "place":9, "total":7,"may":0,"june":3,"july":4,"aug":0,"sep":0,"l7":2, "chomp":56,"odds":"+2850","move":"—","mc":"#7a8aaa"},
+    {"name":"Owen",    "place":9, "total":7,"may":0,"june":3,"july":4,"aug":0,"sep":0,"l7":0, "chomp":56,"odds":"+2850","move":"—","mc":"#7a8aaa"},
 ]
 
 MONTHS = [
@@ -81,7 +81,7 @@ BANNER = {
     "leader_name":   "Tom",
     "leader_total":  38,
     "l7_leader":     "Reid",
-    "l7_score":      8,
+    "l7_score":      5,
     "l7_note":       "none today",
     "months_done":   1,
     "months_total":  5,
