@@ -1,35 +1,35 @@
 {
-  "csv_hash": "51278da993e8bff606b688dda38bf4d4fa9125aadfdb4f16da37c330d45c22af",
-  "row_count": 143,
-  "updated": "2026-07-23T14:04:39.732197",
+  "csv_hash": "82f955045b96debe1332abe22decd32bc943e8fe2db025d73152a5c840e2694d",
+  "row_count": 144,
+  "updated": "2026-07-24T01:22:19.023623",
   "bill_day_start": {
-    "date": "2026-07-23",
+    "date": "2026-07-24",
     "values": {
-      "Elon Musk": 750220.865,
-      "Larry Page": 280854.061,
-      "Sergey Brin": 259089.174,
-      "Jeff Bezos": 254486.76,
-      "Michael Dell": 241336.791
+      "Elon Musk": 743977.87,
+      "Larry Page": 262099.795,
+      "Jeff Bezos": 244614.919,
+      "Sergey Brin": 241847.486,
+      "Michael Dell": 239812.765
     }
   },
   "odds": {
     "Alex": "+1250",
     "Tom": "+450",
-    "Jake": "+1150",
+    "Jake": "+1050",
     "Nick": "+1950",
     "Jess": "+1950",
     "Scott": "+1050",
     "Leah": "+1650",
     "Jon": "+800",
-    "Alyssa": "+6550",
-    "Noel": "+6550",
-    "Kristen": "+1750",
+    "Alyssa": "+6650",
+    "Noel": "+6650",
+    "Kristen": "+1800",
     "Reid": "+950",
-    "Jen": "+46600",
-    "Devin": "+2350",
-    "Steph": "+4150",
-    "Harrison": "+4150",
-    "Owen": "+2100"
+    "Jen": "+47000",
+    "Devin": "+2400",
+    "Steph": "+4200",
+    "Harrison": "+4200",
+    "Owen": "+2150"
   },
   "tips_hash": "0c14a3a17708e91450e47812c69dc229554f0463dba2b8a29bc64f2c0382ca60",
   "tips_row_count": 17,
