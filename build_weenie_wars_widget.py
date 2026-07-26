@@ -48,21 +48,21 @@ PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
     {"name":"Alex",    "place":1, "total":17,"may":5,"june":8,"july":4,"aug":0,"sep":0,"l7":0, "chomp":125,"odds":"+1250","move":"—","mc":"#7a8aaa"},
     {"name":"Tom",     "place":2, "total":43,"may":1,"june":25,"july":17,"aug":0,"sep":0,"l7":5, "chomp":315,"odds":"+450","move":"—","mc":"#7a8aaa"},
-    {"name":"Jake",    "place":2, "total":23,"may":3,"june":3,"july":17,"aug":0,"sep":0,"l7":5, "chomp":169,"odds":"+900","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jake",    "place":2, "total":23,"may":3,"june":3,"july":17,"aug":0,"sep":0,"l7":5, "chomp":169,"odds":"+900","move":"—","mc":"#7a8aaa"},
     {"name":"Nick",    "place":2, "total":11,"may":0,"june":9,"july":2,"aug":0,"sep":0,"l7":0, "chomp":81,"odds":"+2000","move":"—","mc":"#7a8aaa"},
     {"name":"Jess",    "place":5, "total":11,"may":2,"june":5,"july":4,"aug":0,"sep":0,"l7":0, "chomp":81,"odds":"+2000","move":"—","mc":"#7a8aaa"},
     {"name":"Scott",   "place":5, "total":20,"may":2,"june":9,"july":9,"aug":0,"sep":0,"l7":1, "chomp":147,"odds":"+1050","move":"—","mc":"#7a8aaa"},
-    {"name":"Leah",    "place":5, "total":13,"may":2,"june":5,"july":6,"aug":0,"sep":0,"l7":2, "chomp":95,"odds":"+1700","move":"▲","mc":"#B22234"},
+    {"name":"Leah",    "place":5, "total":13,"may":2,"june":5,"july":6,"aug":0,"sep":0,"l7":2, "chomp":95,"odds":"+1700","move":"—","mc":"#7a8aaa"},
     {"name":"Jon",     "place":8, "total":25,"may":1,"june":18,"july":6,"aug":0,"sep":0,"l7":0, "chomp":183,"odds":"+850","move":"—","mc":"#7a8aaa"},
     {"name":"Alyssa",  "place":9, "total":3,"may":0,"june":1,"july":2,"aug":0,"sep":0,"l7":0, "chomp":22,"odds":"+6750","move":"—","mc":"#7a8aaa"},
     {"name":"Noel",    "place":9, "total":3,"may":0,"june":2,"july":1,"aug":0,"sep":0,"l7":0, "chomp":22,"odds":"+6750","move":"—","mc":"#7a8aaa"},
     {"name":"Kristen", "place":9, "total":12,"may":0,"june":5,"july":7,"aug":0,"sep":0,"l7":1, "chomp":88,"odds":"+1800","move":"—","mc":"#7a8aaa"},
     {"name":"Reid",    "place":9, "total":22,"may":0,"june":9,"july":13,"aug":0,"sep":0,"l7":1, "chomp":161,"odds":"+950","move":"—","mc":"#7a8aaa"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+48000","move":"▲","mc":"#B22234"},
-    {"name":"Devin",   "place":9, "total":9,"may":0,"june":8,"july":1,"aug":0,"sep":0,"l7":0, "chomp":66,"odds":"+2450","move":"▲","mc":"#B22234"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+48000","move":"—","mc":"#7a8aaa"},
+    {"name":"Devin",   "place":9, "total":9,"may":0,"june":8,"july":1,"aug":0,"sep":0,"l7":0, "chomp":66,"odds":"+2450","move":"—","mc":"#7a8aaa"},
     {"name":"Steph",   "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":0, "chomp":37,"odds":"+4250","move":"—","mc":"#7a8aaa"},
     {"name":"Harrison", "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":0, "chomp":37,"odds":"+4250","move":"—","mc":"#7a8aaa"},
-    {"name":"Owen",    "place":9, "total":10,"may":0,"june":3,"july":7,"aug":0,"sep":0,"l7":3, "chomp":73,"odds":"+2200","move":"—","mc":"#7a8aaa"},
+    {"name":"Owen",    "place":9, "total":10,"may":0,"june":3,"july":7,"aug":0,"sep":0,"l7":1, "chomp":73,"odds":"+2200","move":"—","mc":"#7a8aaa"},
 ]
 
 MONTHS = [
