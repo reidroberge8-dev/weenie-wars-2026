@@ -343,64 +343,72 @@ def _build_analysts_take(players):
     if not players:
         return ""
 
-    ranked      = sorted(players, key=lambda p: (-p["total"], -p["l7"]))
-    leader      = ranked[0]
-    second      = ranked[1] if len(ranked) > 1 else None
-    l7_sorted   = sorted(players, key=lambda p: -p["l7"])
-    l7_leader   = l7_sorted[0]
-    top3_names  = {p["name"] for p in ranked[:3]}
+    ranked     = sorted(players, key=lambda p: (-p["total"], -p["l7"]))
+    leader     = ranked[0]
+    second     = ranked[1] if len(ranked) > 1 else None
+    l7_sorted  = sorted(players, key=lambda p: -p["l7"])
+    l7_leader  = l7_sorted[0]
+    top3_names = {p["name"] for p in ranked[:3]}
 
-    cold         = sorted([p for p in players if p["l7"] == 0 and p["total"] > 0], key=lambda p: -p["total"])
-    zeros        = [p for p in players if p["total"] == 0]
-    mentioned    = {l7_leader["name"]}
-    risers       = sorted([p for p in players if p["l7"] >= 3 and p["name"] not in top3_names and p["name"] not in mentioned], key=lambda p: -p["l7"])
+    cold      = sorted([p for p in players if p["l7"] == 0 and p["total"] > 0], key=lambda p: -p["total"])
+    zeros     = [p for p in players if p["total"] == 0]
+    mentioned = {l7_leader["name"]}
+    risers    = sorted([p for p in players if p["l7"] >= 3 and p["name"] not in top3_names and p["name"] not in mentioned], key=lambda p: -p["l7"])
 
     obs = []
 
-    # 1. Leader
+    # 1. Leader gap
     gap = (leader["total"] - second["total"]) if second else 0
     if gap == 0:
-        obs.append(f"<b>{leader['name']}</b> and <b>{second['name']}</b> are deadlocked at the top with {leader['total']} weenies each. Whoever blinks first loses.")
+        obs.append(f"<b>{leader['name']}</b> and <b>{second['name']}</b> are deadlocked at {leader['total']} weenies apiece. Analysts have described the situation as tense, historic, and slightly nauseating.")
     elif gap == 1:
-        obs.append(f"<b>{leader['name']}</b> leads with {leader['total']} weenies — just 1 ahead of <b>{second['name']}</b>. The gap is a single hot dog. This is a knife fight.")
-    elif gap <= 5:
-        obs.append(f"<b>{leader['name']}</b> leads with {leader['total']} weenies, {gap} clear of <b>{second['name']}</b>. A {gap}-weenie gap this early is not a lead — it's an invitation.")
+        obs.append(f"<b>{leader['name']}</b> leads by a single hot dog. One. <b>{second['name']}</b> could close this gap during a gas station stop. The Commission has issued a formal warning to both parties.")
+    elif gap <= 3:
+        obs.append(f"<b>{leader['name']}</b> leads with {leader['total']} weenies, just {gap} ahead of <b>{second['name']}</b>. At this distance, a bad afternoon and a functioning microwave could flip it.")
+    elif gap <= 8:
+        obs.append(f"<b>{leader['name']}</b> holds a {gap}-weenie cushion over <b>{second['name']}</b> at {leader['total']} total. Comfortable, but not comfortable. The Commission recommends eating more hot dogs.")
     else:
-        obs.append(f"<b>{leader['name']}</b> is running away with this thing — {leader['total']} weenies, {gap} clear of <b>{second['name']}</b> in second. The field is watching and getting nervous.")
+        obs.append(f"<b>{leader['name']}</b> is conducting what analysts are calling a controlled demolition of this competition — {leader['total']} weenies, {gap} clear of <b>{second['name']}</b>. This is no longer a race. It is a nature documentary.")
 
-    # 2. Hot hand (if different from overall leader)
+    # 2. Hot hand
     if l7_leader["l7"] > 0:
         if l7_leader["name"] != leader["name"]:
-            l7_rank = next((i+1 for i, p in enumerate(ranked) if p["name"] == l7_leader["name"]), "?")
-            obs.append(f"<b>{l7_leader['name']}</b> is the hottest player in the field right now with {l7_leader['l7']} in the last 7 days, currently sitting {_ordinal(l7_rank)} overall. That is a dangerous combination.")
+            l7_rank  = next((i+1 for i, p in enumerate(ranked) if p["name"] == l7_leader["name"]), "?")
+            pf_note  = " The Weenie Commission has quietly reopened the Project Frankfurter file." if l7_leader["name"] == "Jake" else ""
+            obs.append(f"<b>{l7_leader['name']}</b> has the hottest hand in the field — {l7_leader['l7']} weenies in the last 7 days from {_ordinal(l7_rank)} place.{pf_note} Whoever is directly in front of them should be concerned.")
         else:
-            obs.append(f"<b>{leader['name']}</b> isn't just leading — {leader['l7']} weenies in the last 7 days means the lead is active and the gap is still growing.")
+            obs.append(f"<b>{leader['name']}</b> is not coasting — {leader['l7']} weenies in the last 7 days confirms the lead is active, compounding, and frankly alarming to everyone ranked below second place.")
 
-    # 3. Cold players (l7=0 but have a total)
+    # 3. Scott forensics note
+    scott_p = next((p for p in players if p["name"] == "Scott" and p["total"] > 0), None)
+    if scott_p:
+        obs.append(f"<b>Scott</b> has logged {scott_p['total']} weenies on the season (L7: {scott_p['l7']}). The Commission's forensic lab is still awaiting results on whether those weenies were organically consumed or extruded at 0.08mm layer height. Scott has not returned calls.")
+
+    # 4. Cold players
     if cold:
         cnames = [p["name"] for p in cold[:4]]
         if len(cnames) == 1:
-            obs.append(f"<b>{cnames[0]}</b> has gone completely silent — zero weenies in the last 7 days. Analysts describe this as a problem.")
+            obs.append(f"<b>{cnames[0]}</b> has gone completely silent — zero weenies in the last 7 days. Analysts describe this as 'a choice.' The Commission describes it as 'a problem.'")
         elif len(cnames) == 2:
-            obs.append(f"<b>{cnames[0]}</b> and <b>{cnames[1]}</b> have both gone cold — zero in the last 7 days. Someone needs to eat a hot dog.")
+            obs.append(f"<b>{cnames[0]}</b> and <b>{cnames[1]}</b> have both gone cold — zero in the last 7 days. The Commission sent a strongly worded email. Neither has responded. This is being noted.")
         else:
             joined = ", ".join(f"<b>{n}</b>" for n in cnames[:-1]) + f", and <b>{cnames[-1]}</b>"
-            obs.append(f"{joined} are all sitting on zero in the last 7 days. Collectively, that is a problem. Individually, it is each of their problems.")
+            obs.append(f"{joined} have all produced zero weenies in the last 7 days. That is {len(cnames)} adults. No hot dogs. The Commission is not naming names. They just did.")
 
-    # 4. Risers outside top 3
+    # 5. Risers outside top 3
     if risers:
-        r     = risers[0]
+        r      = risers[0]
         r_rank = next((i+1 for i, p in enumerate(ranked) if p["name"] == r["name"]), "?")
-        obs.append(f"Keep an eye on <b>{r['name']}</b> — {r['l7']} in the last 7 days from {_ordinal(r_rank)} place. If that pace holds, the standings are about to get uncomfortable for somebody.")
+        obs.append(f"<b>{r['name']}</b> is quietly putting together something dangerous — {r['l7']} weenies in the last 7 days from {_ordinal(r_rank)} place. Nobody is talking about this. They should be.")
 
-    # 5. Zero club (no weenies at all)
+    # 6. Zero club
     if zeros:
         znames = [p["name"] for p in zeros]
         if len(znames) == 1:
-            obs.append(f"<b>{znames[0]}</b> remains the only player without a weenie on the season. The Commission has been notified and is not pleased.")
+            obs.append(f"<b>{znames[0]}</b> has not logged a single weenie on the season. Not one. <b>{znames[0]}</b> was asked for comment. <b>{znames[0]}</b> did not respond. The Commission found this appropriate.")
         else:
             joined = " and ".join(f"<b>{n}</b>" for n in znames) if len(znames) == 2 else ", ".join(f"<b>{n}</b>" for n in znames[:-1]) + f" and <b>{znames[-1]}</b>"
-            obs.append(f"{joined} have yet to log a single weenie on the season. The Commission is monitoring the situation and has described it as deeply concerning.")
+            obs.append(f"{joined} have yet to log a single weenie this season. The Commission has formally categorized this as a tragedy in {len(znames)} acts. Memorial services are not planned but have not been ruled out.")
 
     bullet_html = "".join(
         f'<div style="padding:7px 0 7px 12px;border-left:3px solid #dde6f5;margin-bottom:5px;'
@@ -410,10 +418,11 @@ def _build_analysts_take(players):
     return (
         '<div class="narrative-card" style="margin-bottom:14px">'
         '<div style="font-size:0.72em;font-weight:800;color:#002868;letter-spacing:1.2px;'
-        'text-transform:uppercase;margin-bottom:10px">📊 Analyst\'s Take</div>'
+        'text-transform:uppercase;margin-bottom:10px">\U0001f4ca Analyst\'s Take</div>'
         + bullet_html +
         '</div>'
     )
+
 
 def _build_tips_html(tips):
     """Build paginated Recent News — 3 stories per page, dot+chevron nav.
