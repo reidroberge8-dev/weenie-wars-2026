@@ -46,14 +46,14 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":18,"may":5,"june":8,"july":5,"aug":0,"sep":0,"l7":1, "chomp":124,"odds":"+1300","move":"—","mc":"#7a8aaa"},
+    {"name":"Alex",    "place":1, "total":18,"may":5,"june":8,"july":5,"aug":0,"sep":0,"l7":0, "chomp":124,"odds":"+1300","move":"—","mc":"#7a8aaa"},
     {"name":"Tom",     "place":2, "total":43,"may":1,"june":25,"july":17,"aug":0,"sep":0,"l7":0, "chomp":297,"odds":"+500","move":"—","mc":"#7a8aaa"},
     {"name":"Jake",    "place":2, "total":28,"may":3,"june":3,"july":22,"aug":0,"sep":0,"l7":5, "chomp":193,"odds":"+800","move":"—","mc":"#7a8aaa"},
     {"name":"Nick",    "place":2, "total":11,"may":0,"june":9,"july":2,"aug":0,"sep":0,"l7":0, "chomp":76,"odds":"+2100","move":"—","mc":"#7a8aaa"},
     {"name":"Jess",    "place":5, "total":11,"may":2,"june":5,"july":4,"aug":0,"sep":0,"l7":0, "chomp":76,"odds":"+2100","move":"—","mc":"#7a8aaa"},
     {"name":"Scott",   "place":5, "total":23,"may":2,"june":9,"july":11,"aug":1,"sep":0,"l7":3, "chomp":159,"odds":"+1000","move":"—","mc":"#7a8aaa"},
     {"name":"Leah",    "place":5, "total":14,"may":2,"june":5,"july":7,"aug":0,"sep":0,"l7":1, "chomp":97,"odds":"+1650","move":"—","mc":"#7a8aaa"},
-    {"name":"Jon",     "place":8, "total":27,"may":1,"june":18,"july":8,"aug":0,"sep":0,"l7":2, "chomp":187,"odds":"+850","move":"—","mc":"#7a8aaa"},
+    {"name":"Jon",     "place":8, "total":27,"may":1,"june":18,"july":8,"aug":0,"sep":0,"l7":0, "chomp":187,"odds":"+850","move":"—","mc":"#7a8aaa"},
     {"name":"Alyssa",  "place":9, "total":3,"may":0,"june":1,"july":2,"aug":0,"sep":0,"l7":0, "chomp":21,"odds":"+7150","move":"—","mc":"#7a8aaa"},
     {"name":"Noel",    "place":9, "total":3,"may":0,"june":2,"july":1,"aug":0,"sep":0,"l7":0, "chomp":21,"odds":"+7150","move":"—","mc":"#7a8aaa"},
     {"name":"Kristen", "place":9, "total":12,"may":0,"june":5,"july":7,"aug":0,"sep":0,"l7":0, "chomp":83,"odds":"+1950","move":"—","mc":"#7a8aaa"},
