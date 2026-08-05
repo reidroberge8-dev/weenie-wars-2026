@@ -54,13 +54,13 @@ PLAYERS = [
     {"name":"Scott",   "place":5, "total":25,"may":2,"june":9,"july":11,"aug":3,"sep":0,"l7":3, "chomp":170,"odds":"+900","move":"—","mc":"#7a8aaa"},
     {"name":"Leah",    "place":5, "total":15,"may":2,"june":5,"july":7,"aug":1,"sep":0,"l7":1, "chomp":102,"odds":"+1550","move":"—","mc":"#7a8aaa"},
     {"name":"Jon",     "place":8, "total":27,"may":1,"june":18,"july":8,"aug":0,"sep":0,"l7":0, "chomp":184,"odds":"+850","move":"—","mc":"#7a8aaa"},
-    {"name":"Alyssa",  "place":9, "total":3,"may":0,"june":1,"july":2,"aug":0,"sep":0,"l7":0, "chomp":20,"odds":"+7300","move":"▲","mc":"#B22234"},
-    {"name":"Noel",    "place":9, "total":3,"may":0,"june":2,"july":1,"aug":0,"sep":0,"l7":0, "chomp":20,"odds":"+7300","move":"▲","mc":"#B22234"},
+    {"name":"Alyssa",  "place":9, "total":3,"may":0,"june":1,"july":2,"aug":0,"sep":0,"l7":0, "chomp":20,"odds":"+7300","move":"—","mc":"#7a8aaa"},
+    {"name":"Noel",    "place":9, "total":3,"may":0,"june":2,"july":1,"aug":0,"sep":0,"l7":0, "chomp":20,"odds":"+7300","move":"—","mc":"#7a8aaa"},
     {"name":"Kristen", "place":9, "total":12,"may":0,"june":5,"july":7,"aug":0,"sep":0,"l7":0, "chomp":82,"odds":"+1950","move":"—","mc":"#7a8aaa"},
     {"name":"Reid",    "place":9, "total":22,"may":0,"june":9,"july":13,"aug":0,"sep":0,"l7":0, "chomp":150,"odds":"+1050","move":"—","mc":"#7a8aaa"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+51600","move":"▲","mc":"#B22234"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+51600","move":"—","mc":"#7a8aaa"},
     {"name":"Devin",   "place":9, "total":9,"may":0,"june":8,"july":1,"aug":0,"sep":0,"l7":0, "chomp":61,"odds":"+2600","move":"—","mc":"#7a8aaa"},
-    {"name":"Steph",   "place":9, "total":6,"may":0,"june":3,"july":2,"aug":1,"sep":0,"l7":1, "chomp":41,"odds":"+3900","move":"▲","mc":"#B22234"},
+    {"name":"Steph",   "place":9, "total":6,"may":0,"june":3,"july":2,"aug":1,"sep":0,"l7":1, "chomp":41,"odds":"+3900","move":"—","mc":"#7a8aaa"},
     {"name":"Harrison", "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":0, "chomp":34,"odds":"+4600","move":"—","mc":"#7a8aaa"},
     {"name":"Owen",    "place":9, "total":11,"may":0,"june":3,"july":8,"aug":0,"sep":0,"l7":0, "chomp":75,"odds":"+2150","move":"—","mc":"#7a8aaa"},
 ]
@@ -125,7 +125,7 @@ BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
 WEENIE_LOG = []  # auto-filled by live-patch: [{player, count, display_ts, sort_ts}] newest first
 RECORDS_SINGLE_DAY  = []  # auto-filled: [{player, count, date_display}] top 10 individual single-day
 RECORDS_SINGLE_WEEK = []  # auto-filled: [{player, count, week_display}] top 10 individual single-week
-BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 783.3, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 307.8, 'delta_b': 0.0}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 283.9, 'delta_b': 0.0}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 283.2, 'delta_b': 0.0}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 252.8, 'delta_b': 0.0}]  # auto-filled by CI
+BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 719.3, 'delta_b': -64.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 309.7, 'delta_b': 1.9}, {'rank': 3, 'name': 'Sergey Brin', 'worth_b': 285.6, 'delta_b': 1.8}, {'rank': 4, 'name': 'Jeff Bezos', 'worth_b': 282.2, 'delta_b': -1.0}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 257.7, 'delta_b': 4.9}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2027"
 
