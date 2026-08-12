@@ -1,7 +1,7 @@
 {
   "csv_hash": "8d1d90838e2191931ab6b1d021984293d1ed5808b0a880c2b10e9c2f55d4ee76",
   "row_count": 166,
-  "updated": "2026-08-12T17:32:05.885623",
+  "updated": "2026-08-12T17:45:09.323730",
   "bill_day_start": {
     "date": "2026-08-12",
     "values": {
@@ -31,10 +31,17 @@
     "Harrison": "+4700",
     "Owen": "+2000"
   },
-  "tips_hash": "0c14a3a17708e91450e47812c69dc229554f0463dba2b8a29bc64f2c0382ca60",
-  "tips_row_count": 17,
-  "last_tip_ts": "2026-07-16T00:25:38.374959",
+  "tips_hash": "4f37f811279f08e140c01e8acda744bcfabfc350d2c63f626ec001d8fc1be841",
+  "tips_row_count": 18,
+  "last_tip_ts": "2026-08-12T17:45:09.323730",
   "tips_headlines": [
+    {
+      "date": "Aug 12",
+      "category": "FRAUDFURTER",
+      "headline": "The Weenie Wars world is in complete chaos after accusations surfaced that Jen and Leah have been\u2026",
+      "text": "The Weenie Wars world is in complete chaos after accusations surfaced that Jen and Leah have been secretly working together to create \u201cHamburger Dogs\u201d containing a shocking 0% hot dog, while still logging them as legitimate weenies. Sources claim the operation involves rolling hamburgers into suspiciously dog-shaped cylinders and hoping nobody notices. The Weenie Commission has launched an investigation into what is being called \u201cthe greatest meat fraud in competitive history.\u201d  Devin and Scott are absolutely furious. \u201cZERO PERCENT HOT DOG!\u201d Devin screamed. \u201cThat\u2019s not a weenie\u2014that\u2019s a hamburger having an identity crisis!\u201d Scott added, \u201cIf this is allowed, there are no rules anymore. Tomorrow someone\u2019s going to log a meatball sub as a weenie!\u201d Jen and Leah have denied the allegations, but investigators reportedly found a suspicious amount of ketchup, hamburger grease, and a document labeled \u201cOperation Hamburger Dog.\u201d. The Fraudfurter Division formally added this to the case file. The item described has been flagged as a new instance of what agents are calling the Departure Pattern, a term coined last Tuesday specifically for this case. Harrison asked what the Departure Pattern means. The Division said they would explain it at the hearing. There is now a hearing.",
+      "tip_raw": "The Weenie Wars world is in complete chaos after accusations surfaced that Jen and Leah have been secretly working together to create \u201cHamburger Dogs\u201d containing a shocking 0% hot dog, while still logging them as legitimate weenies. Sources claim the operation involves rolling hamburgers into suspiciously dog-shaped cylinders and hoping nobody notices. The Weenie Commission has launched an investigation into what is being called \u201cthe greatest meat fraud in competitive history.\u201d  Devin and Scott are absolutely furious. \u201cZERO PERCENT HOT DOG!\u201d Devin screamed. \u201cThat\u2019s not a weenie\u2014that\u2019s a hamburger having an identity crisis!\u201d Scott added, \u201cIf this is allowed, there are no rules anymore. Tomorrow someone\u2019s going to log a meatball sub as a weenie!\u201d Jen and Leah have denied the allegations, but investigators reportedly found a suspicious amount of ketchup, hamburger grease, and a document labeled \u201cOperation Hamburger Dog.\u201d"
+    },
     {
       "date": "Jul 15",
       "category": "EPWEEN FILES",
@@ -132,13 +139,6 @@
       "text": "There is a group forming calling themselves the lactose loyalists. They like cheese on their dogs. They were overheard discussing plans with John Cena for you can\u2019t see me cheese so they could trick the other contestants into joining their cause without their knowledge. When the commission was informed there was one word used\u2026 diabolical. This was reviewed by the full Commission and flagged as actionable. The claim was cross-referenced with existing evidence and found to be corroborated on at least two points. The subject has since been described as cooperative, which is not the same as helpful.",
       "tip_raw": "There is a group forming calling themselves the lactose loyalists. They like cheese on their dogs. They were overheard discussing plans with John Cena for you can\u2019t see me cheese so they could trick the other contestants into joining their cause without their knowledge. When the commission was informed there was one word used\u2026 diabolical",
       "headline": "\ud83e\uddc0\ud83d\udc7b Lactose Loyalists Enlist John Cena for Invisible Cheese Plot; Commission Issues One-Word Verdict: Diabolical"
-    },
-    {
-      "date": "Jun 23",
-      "category": "EPWEEN FILES",
-      "headline": "\ud83c\udf19\ud83c\udf2d \"Just Really Thin Mustard\" \u2014 Tom's 2 A.M. Watcher Visit Raises Questions After Empty Bottle Found, Zero Mustard Recovered",
-      "text": "Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a \u201clarge bottle of an unknown substance\u201d which he claims was \u201cjust really thin mustard\u201d. The bottle was found empty next to the watcher, however no evidence of mustard was recovered.. The item referenced above was identified by three Epween Files analysts independently and without coordination. All three reached the same conclusion. They shared their findings in a group message. The message contained no words. Just a single period. The period has been entered into the record.",
-      "tip_raw": "Tom was seen at 2am on June 23rd walking to the Watcher in the corner of the room. He was carrying a \u201clarge bottle of an unknown substance\u201d which he claims was \u201cjust really thin mustard\u201d. The bottle was found empty next to the watcher, however no evidence of mustard was recovered."
     }
   ]
 }
