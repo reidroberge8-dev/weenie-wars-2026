@@ -46,7 +46,7 @@ from datetime import datetime as _dt
 
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
-    {"name":"Alex",    "place":1, "total":18,"may":5,"june":8,"july":5,"aug":0,"sep":0,"l7":0, "chomp":120,"odds":"+1350","move":"▲","mc":"#B22234"},
+    {"name":"Alex",    "place":1, "total":18,"may":5,"june":8,"july":5,"aug":0,"sep":0,"l7":0, "chomp":120,"odds":"+1350","move":"—","mc":"#7a8aaa"},
     {"name":"Tom",     "place":2, "total":43,"may":1,"june":25,"july":17,"aug":0,"sep":0,"l7":0, "chomp":286,"odds":"+500","move":"—","mc":"#7a8aaa"},
     {"name":"Jake",    "place":2, "total":29,"may":3,"june":3,"july":22,"aug":1,"sep":0,"l7":0, "chomp":193,"odds":"+800","move":"—","mc":"#7a8aaa"},
     {"name":"Nick",    "place":2, "total":12,"may":0,"june":9,"july":2,"aug":1,"sep":0,"l7":1, "chomp":80,"odds":"+2000","move":"—","mc":"#7a8aaa"},
@@ -55,12 +55,12 @@ PLAYERS = [
     {"name":"Leah",    "place":5, "total":15,"may":2,"june":5,"july":7,"aug":1,"sep":0,"l7":0, "chomp":100,"odds":"+1600","move":"—","mc":"#7a8aaa"},
     {"name":"Jon",     "place":8, "total":27,"may":1,"june":18,"july":8,"aug":0,"sep":0,"l7":0, "chomp":179,"odds":"+850","move":"—","mc":"#7a8aaa"},
     {"name":"Alyssa",  "place":9, "total":3,"may":0,"june":1,"july":2,"aug":0,"sep":0,"l7":0, "chomp":20,"odds":"+7450","move":"—","mc":"#7a8aaa"},
-    {"name":"Noel",    "place":9, "total":4,"may":0,"june":2,"july":1,"aug":1,"sep":0,"l7":1, "chomp":27,"odds":"+5800","move":"▲","mc":"#B22234"},
+    {"name":"Noel",    "place":9, "total":4,"may":0,"june":2,"july":1,"aug":1,"sep":0,"l7":1, "chomp":27,"odds":"+5800","move":"—","mc":"#7a8aaa"},
     {"name":"Kristen", "place":9, "total":12,"may":0,"june":5,"july":7,"aug":0,"sep":0,"l7":0, "chomp":80,"odds":"+2000","move":"—","mc":"#7a8aaa"},
-    {"name":"Reid",    "place":9, "total":23,"may":0,"june":9,"july":13,"aug":1,"sep":0,"l7":1, "chomp":153,"odds":"+1050","move":"▲","mc":"#B22234"},
-    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+52800","move":"▲","mc":"#B22234"},
-    {"name":"Devin",   "place":9, "total":9,"may":0,"june":8,"july":1,"aug":0,"sep":0,"l7":0, "chomp":60,"odds":"+2700","move":"▲","mc":"#B22234"},
-    {"name":"Steph",   "place":9, "total":8,"may":0,"june":3,"july":2,"aug":3,"sep":0,"l7":2, "chomp":53,"odds":"+3000","move":"▼","mc":"#2a7a2a"},
+    {"name":"Reid",    "place":9, "total":23,"may":0,"june":9,"july":13,"aug":1,"sep":0,"l7":1, "chomp":153,"odds":"+1050","move":"—","mc":"#7a8aaa"},
+    {"name":"Jen",     "place":9, "total":0,"may":0,"june":0,"july":0,"aug":0,"sep":0,"l7":0, "chomp":0,"odds":"+52800","move":"—","mc":"#7a8aaa"},
+    {"name":"Devin",   "place":9, "total":9,"may":0,"june":8,"july":1,"aug":0,"sep":0,"l7":0, "chomp":60,"odds":"+2700","move":"—","mc":"#7a8aaa"},
+    {"name":"Steph",   "place":9, "total":8,"may":0,"june":3,"july":2,"aug":3,"sep":0,"l7":2, "chomp":53,"odds":"+3000","move":"—","mc":"#7a8aaa"},
     {"name":"Harrison", "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":0, "chomp":33,"odds":"+4700","move":"—","mc":"#7a8aaa"},
     {"name":"Owen",    "place":9, "total":12,"may":0,"june":3,"july":8,"aug":1,"sep":0,"l7":1, "chomp":80,"odds":"+2000","move":"—","mc":"#7a8aaa"},
 ]
@@ -82,7 +82,7 @@ BANNER = {
     "leader_total":  43,
     "l7_leader":     "Steph",
     "l7_score":      2,
-    "l7_note":       "1 today",
+    "l7_note":       "none today",
     "months_done":   1,
     "months_total":  5,
     "players":       17,
@@ -125,7 +125,7 @@ BIG_DAYS_BREAKDOWN = {}  # auto-filled by live-patch: {date: {player: count}}
 WEENIE_LOG = []  # auto-filled by live-patch: [{player, count, display_ts, sort_ts}] newest first
 RECORDS_SINGLE_DAY  = []  # auto-filled: [{player, count, date_display}] top 10 individual single-day
 RECORDS_SINGLE_WEEK = []  # auto-filled: [{player, count, week_display}] top 10 individual single-week
-BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 826.2, 'delta_b': -27.1}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 281.9, 'delta_b': -10.4}, {'rank': 3, 'name': 'Jeff Bezos', 'worth_b': 278.7, 'delta_b': -5.1}, {'rank': 4, 'name': 'Sergey Brin', 'worth_b': 260.1, 'delta_b': -9.5}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 244.6, 'delta_b': -6.1}]  # auto-filled by CI
+BILLIONAIRE_DATA = [{'rank': 1, 'name': 'Elon Musk', 'worth_b': 826.2, 'delta_b': 0.0}, {'rank': 2, 'name': 'Larry Page', 'worth_b': 281.9, 'delta_b': 0.0}, {'rank': 3, 'name': 'Jeff Bezos', 'worth_b': 278.7, 'delta_b': 0.0}, {'rank': 4, 'name': 'Sergey Brin', 'worth_b': 260.1, 'delta_b': 0.0}, {'rank': 5, 'name': 'Michael Dell', 'worth_b': 244.6, 'delta_b': 0.0}]  # auto-filled by CI
 NATHANS_URL   = "https://majorleagueeating.com/contests/1038"
 NATHANS_DATE  = "July 4, 2027"
 
