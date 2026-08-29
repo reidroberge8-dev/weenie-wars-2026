@@ -1,9 +1,9 @@
 {
-  "csv_hash": "4de4dc83e985c4573b814f22e3a291cd95bf78416819bd48a432418d2d9fa1be",
-  "row_count": 177,
-  "updated": "2026-08-28T21:48:23.673097",
+  "csv_hash": "546365dda2d8a74fd4e84061a8b69343a9561b132899652a502eef2b16e621f4",
+  "row_count": 178,
+  "updated": "2026-08-29T00:15:16.661834",
   "bill_day_start": {
-    "date": "2026-08-28",
+    "date": "2026-08-29",
     "values": {
       "Elon Musk": 873112.808,
       "Larry Page": 282990.504,
@@ -21,13 +21,13 @@
     "Scott": "+950",
     "Leah": "+1500",
     "Jon": "+750",
-    "Alyssa": "+7900",
+    "Alyssa": "+7950",
     "Noel": "+6150",
     "Kristen": "+2150",
     "Reid": "+1100",
-    "Jen": "+56000",
+    "Jen": "+56200",
     "Devin": "+2850",
-    "Steph": "+3200",
+    "Steph": "+2850",
     "Harrison": "+5000",
     "Owen": "+2150"
   },
