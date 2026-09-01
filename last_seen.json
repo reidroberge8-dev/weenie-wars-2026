@@ -1,15 +1,15 @@
 {
   "csv_hash": "f1ca86e40b2dd9c9a8357bd8d973e10c5281a2bcf6ebf85e9a4a7c9dbbc2ae31",
   "row_count": 181,
-  "updated": "2026-08-30T16:15:09.711335",
+  "updated": "2026-09-01T16:14:01.286895",
   "bill_day_start": {
-    "date": "2026-08-30",
+    "date": "2026-09-01",
     "values": {
-      "Elon Musk": 873112.808,
-      "Larry Page": 282990.504,
-      "Jeff Bezos": 273524.679,
-      "Sergey Brin": 261053.989,
-      "Michael Dell": 240420.083
+      "Elon Musk": 893225.204,
+      "Larry Page": 275112.819,
+      "Jeff Bezos": 263816.046,
+      "Sergey Brin": 253811.619,
+      "Michael Dell": 234513.634
     }
   },
   "odds": {
