@@ -47,10 +47,10 @@ from datetime import datetime as _dt
 PLAYERS = [
     # name       place  total  may  june  july  aug  sep   l7  chomp    odds    move   mc
     {"name":"Alex",    "place":1, "total":18,"may":5,"june":8,"july":5,"aug":0,"sep":0,"l7":0, "chomp":108,"odds":"+1500","move":"—","mc":"#7a8aaa"},
-    {"name":"Tom",     "place":2, "total":51,"may":1,"june":25,"july":17,"aug":8,"sep":0,"l7":3, "chomp":305,"odds":"+450","move":"—","mc":"#7a8aaa"},
+    {"name":"Tom",     "place":2, "total":51,"may":1,"june":25,"july":17,"aug":8,"sep":0,"l7":0, "chomp":305,"odds":"+450","move":"—","mc":"#7a8aaa"},
     {"name":"Jake",    "place":2, "total":31,"may":3,"june":3,"july":22,"aug":3,"sep":0,"l7":0, "chomp":186,"odds":"+850","move":"—","mc":"#7a8aaa"},
     {"name":"Nick",    "place":2, "total":12,"may":0,"june":9,"july":2,"aug":1,"sep":0,"l7":0, "chomp":72,"odds":"+2250","move":"—","mc":"#7a8aaa"},
-    {"name":"Jess",    "place":5, "total":13,"may":2,"june":5,"july":4,"aug":1,"sep":1,"l7":1, "chomp":78,"odds":"+2050","move":"▼","mc":"#2a7a2a"},
+    {"name":"Jess",    "place":5, "total":13,"may":2,"june":5,"july":4,"aug":1,"sep":1,"l7":1, "chomp":78,"odds":"+2050","move":"—","mc":"#7a8aaa"},
     {"name":"Scott",   "place":5, "total":26,"may":2,"june":9,"july":11,"aug":4,"sep":0,"l7":0, "chomp":156,"odds":"+1000","move":"—","mc":"#7a8aaa"},
     {"name":"Leah",    "place":5, "total":17,"may":2,"june":5,"july":7,"aug":3,"sep":0,"l7":0, "chomp":102,"odds":"+1550","move":"—","mc":"#7a8aaa"},
     {"name":"Jon",     "place":8, "total":32,"may":1,"june":18,"july":8,"aug":5,"sep":0,"l7":0, "chomp":192,"odds":"+800","move":"—","mc":"#7a8aaa"},
@@ -58,9 +58,9 @@ PLAYERS = [
     {"name":"Noel",    "place":9, "total":4,"may":0,"june":2,"july":1,"aug":1,"sep":0,"l7":0, "chomp":24,"odds":"+6400","move":"—","mc":"#7a8aaa"},
     {"name":"Kristen", "place":9, "total":12,"may":0,"june":5,"july":7,"aug":0,"sep":0,"l7":0, "chomp":72,"odds":"+2250","move":"—","mc":"#7a8aaa"},
     {"name":"Reid",    "place":9, "total":23,"may":0,"june":9,"july":13,"aug":1,"sep":0,"l7":0, "chomp":138,"odds":"+1150","move":"—","mc":"#7a8aaa"},
-    {"name":"Jen",     "place":9, "total":2,"may":0,"june":0,"july":0,"aug":2,"sep":0,"l7":0, "chomp":12,"odds":"+11600","move":"▲","mc":"#B22234"},
+    {"name":"Jen",     "place":9, "total":2,"may":0,"june":0,"july":0,"aug":2,"sep":0,"l7":0, "chomp":12,"odds":"+11600","move":"—","mc":"#7a8aaa"},
     {"name":"Devin",   "place":9, "total":14,"may":0,"june":8,"july":1,"aug":5,"sep":0,"l7":0, "chomp":84,"odds":"+1900","move":"—","mc":"#7a8aaa"},
-    {"name":"Steph",   "place":9, "total":9,"may":0,"june":3,"july":2,"aug":4,"sep":0,"l7":0, "chomp":54,"odds":"+3000","move":"▲","mc":"#B22234"},
+    {"name":"Steph",   "place":9, "total":9,"may":0,"june":3,"july":2,"aug":4,"sep":0,"l7":0, "chomp":54,"odds":"+3000","move":"—","mc":"#7a8aaa"},
     {"name":"Harrison", "place":9, "total":5,"may":0,"june":3,"july":2,"aug":0,"sep":0,"l7":0, "chomp":30,"odds":"+5200","move":"—","mc":"#7a8aaa"},
     {"name":"Owen",    "place":9, "total":12,"may":0,"june":3,"july":8,"aug":1,"sep":0,"l7":0, "chomp":72,"odds":"+2250","move":"—","mc":"#7a8aaa"},
 ]
@@ -80,8 +80,8 @@ MONTHS = [
 BANNER = {
     "leader_name":   "Tom",
     "leader_total":  51,
-    "l7_leader":     "Tom",
-    "l7_score":      3,
+    "l7_leader":     "Jess",
+    "l7_score":      1,
     "l7_note":       "none today",
     "months_done":   1,
     "months_total":  5,
