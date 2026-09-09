@@ -763,6 +763,8 @@ def _build_champion_popup(players, months, joey_count):
   window.wwGoToChampionPage = function(i){
     if(!pagesEl) return;
     pagesEl.scrollTo({left: i * pagesEl.clientWidth, behavior:'smooth'});
+    setTimeout(updateUI, 0);
+    setTimeout(updateUI, 400);
   };
   window.wwChampionNext = function(){
     var i = currentPage();
@@ -782,7 +784,7 @@ def _build_champion_popup(players, months, joey_count):
     if(ov) ov.classList.remove('ww-champ-show');
     try{ sessionStorage.setItem('ww_champion_seen','1'); }catch(e){}
   };
-  if(pagesEl){ pagesEl.addEventListener('scroll', function(){ requestAnimationFrame(updateUI); }); }
+  if(pagesEl){ pagesEl.addEventListener('scroll', updateUI); }
 
   var seen = false;
   try{ seen = sessionStorage.getItem('ww_champion_seen') === '1'; }catch(e){}
