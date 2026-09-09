@@ -106,6 +106,14 @@ for _m in MONTHS:
     _mk = {"may":5,"june":6,"july":7,"aug":8,"sep":9}[_m["key"]]
     _m["status"] = "complete" if _build_dt.month > _mk else ("inprogress" if _build_dt.month == _mk else "upcoming")
 
+# Competition legally ends at Labor Day, not calendar month-end — close out
+# September (and the season) early once Labor Day has passed.
+_labor_day_cutoff = _dt(2026, 9, 7, 23, 59, 59, tzinfo=_ET_TZ)
+if _build_dt > _labor_day_cutoff:
+    for _m in MONTHS:
+        if _m["key"] == "sep":
+            _m["status"] = "complete"
+
 # ── Temporary flags ──────────────────────────────────────────────────────────
 # Set to False to remove the asterisk once investigation is resolved
 NICK_INVESTIGATION = True
