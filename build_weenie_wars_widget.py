@@ -535,6 +535,266 @@ HEADLINES_HTML = _build_headlines_html(HEADLINES)
 ANALYSTS_TAKE_HTML  = _build_analysts_take(PLAYERS)
 TIPS_HEADLINES_HTML = _build_tips_html(TIPS_HEADLINES)
 
+def _build_champion_popup(players, months, joey_count):
+    """Season-champion crowning popup: 5-page swipeable modal shown on app open."""
+    tom = next(p for p in players if p["name"] == "Tom")
+    others = [p for p in players if p["name"] != "Tom"]
+    total = tom["total"]
+    rank_sorted = sorted(players, key=lambda p: -p["total"])
+    rank = [p["name"] for p in rank_sorted].index("Tom") + 1
+    second = max(others, key=lambda p: p["total"])
+    gap = total - second["total"]
+    league_avg = sum(p["total"] for p in players) / len(players)
+    chomp = tom["chomp"]
+    chomp_mult = round(chomp / 100.0, 1)
+    p2j = round(total / joey_count * 100, 1)
+    odds_val = int(tom["odds"].replace("+", ""))
+    is_favorite = odds_val == min(int(p["odds"].replace("+", "")) for p in players)
+
+    month_rows = []
+    for m in months:
+        if m["status"] not in ("complete", "inprogress"):
+            continue
+        key = m["key"]
+        vals = {p["name"]: p[key] for p in players}
+        mx = max(vals.values())
+        tv = vals.get("Tom", 0)
+        if mx == 0:
+            continue
+        led = (tv == mx)
+        best_other = max(v for n, v in vals.items() if n != "Tom")
+        month_rows.append((m["name"], tv, led, best_other))
+
+    months_led_count = sum(1 for _, _, led, _ in month_rows if led)
+
+    # ── Page 1: The Crowning ──────────────────────────────────────────────
+    page1 = (
+        '<div class="ww-champ-page ww-champ-p1">'
+        '<div class="ww-champ-crown">\U0001F451</div>'
+        '<div class="ww-champ-eyebrow">2026 WEENIE WARS</div>'
+        '<div class="ww-champ-title">CHAMPION</div>'
+        '<div class="ww-champ-name">TOM</div>'
+        '<div class="ww-champ-tagline">' + str(total) + ' Weenies. Zero Chill. One Legend.</div>'
+        '<div class="ww-champ-swipe-hint">swipe to see the receipts \u2192</div>'
+        '</div>'
+    )
+
+    # ── Page 2: Season by the Numbers ─────────────────────────────────────
+    stat_cards = (
+        '<div class="ww-champ-stat"><div class="ww-champ-stat-num">' + str(total) + '</div>'
+        '<div class="ww-champ-stat-lbl">Total Weenies \u2014 #1 overall (Rank ' + str(rank) + ')</div></div>'
+
+        '<div class="ww-champ-stat"><div class="ww-champ-stat-num">+' + str(gap) + '</div>'
+        '<div class="ww-champ-stat-lbl">Weenie lead over 2nd place (' + second["name"] + ', ' + str(second["total"]) + ')</div></div>'
+
+        '<div class="ww-champ-stat"><div class="ww-champ-stat-num">' + str(chomp) + '</div>'
+        '<div class="ww-champ-stat-lbl">CHOMP+ \u2014 ' + str(chomp_mult) + '\u00d7 the league average</div></div>'
+
+        '<div class="ww-champ-stat"><div class="ww-champ-stat-num">' + str(p2j) + '%</div>'
+        '<div class="ww-champ-stat-lbl">of the way to Joey Chestnut\u2019s pace</div></div>'
+    )
+    if is_favorite:
+        stat_cards += (
+            '<div class="ww-champ-stat"><div class="ww-champ-stat-num">' + tom["odds"] + '</div>'
+            '<div class="ww-champ-stat-lbl">Betting odds \u2014 shortest in the entire field</div></div>'
+        )
+    page2 = (
+        '<div class="ww-champ-page ww-champ-p2">'
+        '<div class="ww-champ-page-head">\U0001F4CA Season By The Numbers</div>'
+        '<div class="ww-champ-stat-grid">' + stat_cards + '</div>'
+        '</div>'
+    )
+
+    # ── Page 3: Month by Month Dominance ──────────────────────────────────
+    month_html = ""
+    for name, tv, led, best_other in month_rows:
+        badge = '<span class="ww-champ-led">\U0001F451 LED</span>' if led else '<span class="ww-champ-notled">field led</span>'
+        month_html += (
+            '<div class="ww-champ-month-row">'
+            '<div class="ww-champ-month-name">' + name + '</div>'
+            '<div class="ww-champ-month-val">' + str(tv) + ' \U0001F32D</div>'
+            + badge +
+            '</div>'
+        )
+    quiet_line = ""
+    if tom.get("l7", 0) == 0 and gap > 0:
+        quiet_line = (
+            '<div class="ww-champ-quip">Tom hasn\u2019t logged a weenie in the last 7 days \u2014 '
+            'and still leads by ' + str(gap) + '. That\u2019s not a slump, that\u2019s a savings account.</div>'
+        )
+    page3 = (
+        '<div class="ww-champ-page ww-champ-p3">'
+        '<div class="ww-champ-page-head">\U0001F4C5 Month-By-Month Dominance</div>'
+        '<div class="ww-champ-month-table">' + month_html + '</div>'
+        '<div class="ww-champ-summary">Led ' + str(months_led_count) + ' of ' + str(len(month_rows)) + ' months tracked so far.</div>'
+        + quiet_line +
+        '</div>'
+    )
+
+    # ── Pages 4 & 5: The Tom Files (hilarious hotline recap) ──────────────
+    tom_files = [
+        ("Jun 25", "\U0001F575\uFE0F", "\u201CJust the Tip Tommy\u201D",
+         "An anonymous tipster alleged Tom has been living a double life under a suspiciously specific alias. The Commission logged it in the Epween Files. Nobody has explained it since."),
+        ("Jun 27", "\U0001F308", "The Stroller Incident",
+         "Tom and Jake were spotted at a Pride parade in West Hartford pushing a stroller full of Fenway Franks. No further explanation was ever offered. None was needed."),
+        ("Jun 28", "\U0001F4A9", "The Brown Line Express",
+         "With Tom sitting atop the leaderboard, the \u201CEpween Files\u201D alleged up to 85% of his weenies took \u201Cthe rear entrance express lane.\u201D Tom blamed posture."),
+        ("Jul 4", "\U0001F52C", "\u201CI\u2019m Gonna Need More Buns\u201D",
+         "A neighbor reported watching Tom put one hot dog into a microwave and receive hundreds back. Federal intervention was requested. None arrived."),
+        ("Jul 4", "\u2696\uFE0F", "Chorizogate 2.0",
+         "Tom logged a sausage as a weenie, arguing \u201Cif it fits in a bun, it\u2019s spiritually a weenie.\u201D Three commissioners resigned on the spot."),
+        ("Jul 5", "\u2694\uFE0F", "\u201CAre You Not Weeniened?\u201D",
+         "Witnessed in the town square reenacting Gladiator, Tom declared the entire league doomed. Analysts confirmed the threat was credible."),
+    ]
+
+    def _tom_file_html(item):
+        date, emoji, title, blurb = item
+        return (
+            '<div class="ww-champ-file">'
+            '<div class="ww-champ-file-head"><span>' + emoji + '</span>' 
+            '<span class="ww-champ-file-title">' + title + '</span>'
+            '<span class="ww-champ-file-date">' + date + '</span></div>'
+            '<div class="ww-champ-file-blurb">' + blurb + '</div>'
+            '</div>'
+        )
+
+    files_p1 = "".join(_tom_file_html(i) for i in tom_files[:3])
+    files_p2 = "".join(_tom_file_html(i) for i in tom_files[3:])
+
+    page4 = (
+        '<div class="ww-champ-page ww-champ-p4">'
+        '<div class="ww-champ-page-head">\U0001F4C1 The Tom Files \u2014 Part One</div>'
+        + files_p1 +
+        '</div>'
+    )
+    page5 = (
+        '<div class="ww-champ-page ww-champ-p5">'
+        '<div class="ww-champ-page-head">\U0001F4C1 The Tom Files \u2014 Part Two</div>'
+        + files_p2 +
+        '<div class="ww-champ-closing">The investigation continues. The lead does not.<br>'
+        '<strong>Long live the King \U0001F451\U0001F32D</strong></div>'
+        '</div>'
+    )
+
+    pages_html = page1 + page2 + page3 + page4 + page5
+    dots_html = "".join('<span class="ww-champ-dot' + (' active' if i == 0 else '') + '" onclick="wwGoToChampionPage(' + str(i) + ')"></span>' for i in range(5))
+
+    css = """<style>
+.ww-champ-overlay{display:none;position:fixed;inset:0;background:rgba(10,14,30,.72);z-index:9999;align-items:center;justify-content:center;padding:16px}
+.ww-champ-overlay.ww-champ-show{display:flex}
+.ww-champ-card{background:#fff;border-radius:18px;max-width:440px;width:100%;max-height:88vh;box-shadow:0 20px 60px rgba(0,0,0,.4);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.ww-champ-close{position:absolute;top:10px;right:10px;z-index:5;background:rgba(0,0,0,.35);color:#fff;border:none;border-radius:50%;width:30px;height:30px;font-size:16px;cursor:pointer;line-height:1}
+.ww-champ-pages{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.ww-champ-pages::-webkit-scrollbar{display:none}
+.ww-champ-page{flex:0 0 100%;scroll-snap-align:start;min-height:460px;max-height:68vh;overflow-y:auto;box-sizing:border-box;padding:34px 26px 26px}
+.ww-champ-p1{background:linear-gradient(160deg,#002868 0%,#0a3a8f 55%,#B22234 130%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:460px}
+.ww-champ-crown{font-size:64px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35));margin-bottom:6px}
+.ww-champ-eyebrow{font-size:.78em;letter-spacing:2px;font-weight:800;opacity:.85}
+.ww-champ-title{font-size:1.9em;font-weight:900;letter-spacing:1px;margin:2px 0 10px}
+.ww-champ-name{font-size:3.2em;font-weight:900;letter-spacing:1px;text-shadow:0 4px 14px rgba(0,0,0,.35);margin-bottom:8px}
+.ww-champ-tagline{font-size:1em;font-weight:700;opacity:.95}
+.ww-champ-swipe-hint{margin-top:26px;font-size:.78em;opacity:.75;font-style:italic}
+.ww-champ-page-head{font-size:1.05em;font-weight:800;color:#002868;margin-bottom:16px;letter-spacing:.3px}
+.ww-champ-stat-grid{display:flex;flex-direction:column;gap:12px}
+.ww-champ-stat{background:#f4f7fd;border-left:4px solid #b45309;border-radius:10px;padding:12px 14px}
+.ww-champ-stat-num{font-size:1.6em;font-weight:900;color:#002868}
+.ww-champ-stat-lbl{font-size:.82em;color:#495a80;font-weight:600;margin-top:2px}
+.ww-champ-month-table{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.ww-champ-month-row{display:flex;align-items:center;gap:10px;background:#f4f7fd;border-radius:8px;padding:9px 12px}
+.ww-champ-month-name{font-weight:800;color:#002868;width:64px;flex-shrink:0;font-size:.88em}
+.ww-champ-month-val{font-weight:800;color:#2c3a5a;flex:1;font-size:.9em}
+.ww-champ-led{background:#b45309;color:#fff;font-size:.68em;font-weight:800;padding:3px 8px;border-radius:12px}
+.ww-champ-notled{background:#dbe2f0;color:#5a6888;font-size:.68em;font-weight:700;padding:3px 8px;border-radius:12px}
+.ww-champ-summary{font-size:.86em;font-weight:700;color:#495a80;margin-bottom:10px}
+.ww-champ-quip{font-size:.85em;font-style:italic;color:#8a3b0a;background:#fff3e6;border-radius:8px;padding:10px 12px}
+.ww-champ-file{border-bottom:1px solid #e8edf5;padding:10px 0}
+.ww-champ-file:last-child{border-bottom:none}
+.ww-champ-file-head{display:flex;align-items:center;gap:7px;margin-bottom:4px}
+.ww-champ-file-title{font-weight:800;color:#5a0d8a;font-size:.9em;flex:1;text-transform:uppercase;letter-spacing:.3px}
+.ww-champ-file-date{font-size:.72em;font-weight:700;color:#7a8aaa}
+.ww-champ-file-blurb{font-size:.86em;line-height:1.5;color:#2c3a5a}
+.ww-champ-closing{margin-top:16px;text-align:center;font-size:.92em;color:#002868;font-weight:700;line-height:1.6}
+.ww-champ-dots{display:flex;justify-content:center;gap:7px;padding:12px 0 4px}
+.ww-champ-dot{width:7px;height:7px;border-radius:50%;background:#d5dced;cursor:pointer}
+.ww-champ-dot.active{background:#002868;width:18px;border-radius:4px}
+.ww-champ-nav{display:flex;align-items:center;justify-content:space-between;padding:6px 18px 16px;font-size:.8em;font-weight:700;color:#495a80}
+.ww-champ-nav button{background:none;border:none;color:#002868;font-weight:800;cursor:pointer;padding:6px 10px;font-size:.95em}
+.ww-champ-nav button:disabled{opacity:.3;cursor:default}
+.ww-champ-reopen{position:fixed;bottom:78px;right:16px;z-index:500;background:linear-gradient(135deg,#b45309,#002868);color:#fff;border:none;border-radius:50%;width:46px;height:46px;font-size:20px;box-shadow:0 4px 14px rgba(0,0,0,.35);cursor:pointer}
+@media (max-width:480px){.ww-champ-reopen{bottom:64px}}
+</style>"""
+
+    html = (
+        '<div id="ww-champ-overlay" class="ww-champ-overlay" onclick="if(event.target===this)wwCloseChampion()">'
+        '<div class="ww-champ-card">'
+        '<button class="ww-champ-close" onclick="wwCloseChampion()">\u2715</button>'
+        '<div class="ww-champ-pages" id="ww-champ-pages">' + pages_html + '</div>'
+        '<div class="ww-champ-dots" id="ww-champ-dots">' + dots_html + '</div>'
+        '<div class="ww-champ-nav">'
+        '<button id="ww-champ-prev" onclick="wwChampionPrev()" disabled>\u2039 Prev</button>'
+        '<span id="ww-champ-pageindicator">1 / 5</span>'
+        '<button id="ww-champ-next" onclick="wwChampionNext()">Next \u203A</button>'
+        '</div>'
+        '</div>'
+        '</div>'
+        '<button id="ww-champ-reopen" class="ww-champ-reopen" onclick="wwOpenChampion()" title="Meet the Champion">\U0001F451</button>'
+    )
+
+    js = """<script>
+(function(){
+  var pagesEl = document.getElementById('ww-champ-pages');
+  var dots = document.querySelectorAll('#ww-champ-dots .ww-champ-dot');
+  var prevBtn = document.getElementById('ww-champ-prev');
+  var nextBtn = document.getElementById('ww-champ-next');
+  var indicator = document.getElementById('ww-champ-pageindicator');
+  var N = 5;
+
+  function currentPage(){
+    if(!pagesEl || !pagesEl.clientWidth) return 0;
+    return Math.round(pagesEl.scrollLeft / pagesEl.clientWidth);
+  }
+  function updateUI(){
+    var i = currentPage();
+    dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); });
+    if(indicator) indicator.textContent = (i+1) + ' / ' + N;
+    if(prevBtn) prevBtn.disabled = (i === 0);
+    if(nextBtn) nextBtn.textContent = (i === N-1) ? 'Done \u2713' : 'Next \u203A';
+  }
+  window.wwGoToChampionPage = function(i){
+    if(!pagesEl) return;
+    pagesEl.scrollTo({left: i * pagesEl.clientWidth, behavior:'smooth'});
+  };
+  window.wwChampionNext = function(){
+    var i = currentPage();
+    if(i >= N-1){ wwCloseChampion(); return; }
+    wwGoToChampionPage(i+1);
+  };
+  window.wwChampionPrev = function(){ wwGoToChampionPage(Math.max(0, currentPage()-1)); };
+  window.wwOpenChampion = function(){
+    var ov = document.getElementById('ww-champ-overlay');
+    if(!ov) return;
+    ov.classList.add('ww-champ-show');
+    wwGoToChampionPage(0);
+    setTimeout(updateUI, 60);
+  };
+  window.wwCloseChampion = function(){
+    var ov = document.getElementById('ww-champ-overlay');
+    if(ov) ov.classList.remove('ww-champ-show');
+    try{ sessionStorage.setItem('ww_champion_seen','1'); }catch(e){}
+  };
+  if(pagesEl){ pagesEl.addEventListener('scroll', function(){ requestAnimationFrame(updateUI); }); }
+
+  var seen = false;
+  try{ seen = sessionStorage.getItem('ww_champion_seen') === '1'; }catch(e){}
+  if(!seen){ setTimeout(function(){ wwOpenChampion(); }, 500); }
+})();
+</script>"""
+
+    return css + html + js
+
+CHAMPION_POPUP_HTML = _build_champion_popup(PLAYERS, MONTHS, JOEY_COUNT)
+
+
 # ── Leaderboard rows
 rows_html = ""
 for i, p in enumerate(PLAYERS):
@@ -1770,7 +2030,7 @@ html = f"""<!DOCTYPE html>
 </style>
 </head>
 <body>
-
+{CHAMPION_POPUP_HTML}
 <div class="header">
   <h1><span class="title-emoji">🌭</span><span class="title-text"> WEENIE WARS 2026 </span><span class="title-emoji">🌭</span></h1>
   <div class="subtitle">Hot Dog Eating Championship &nbsp;★&nbsp; Memorial Day to Labor Day</div>
