@@ -762,7 +762,7 @@ def _build_champion_popup(players, months, joey_count):
   }
   window.wwGoToChampionPage = function(i){
     if(!pagesEl) return;
-    pagesEl.scrollTo({left: i * pagesEl.clientWidth, behavior:'smooth'});
+    pagesEl.scrollTo({left: i * pagesEl.clientWidth, behavior: (document.hidden ? 'auto' : 'smooth')});
     setTimeout(updateUI, 0);
     setTimeout(updateUI, 400);
   };
