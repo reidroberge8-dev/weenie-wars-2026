@@ -50,7 +50,7 @@ PLAYERS = [
     {"name":"Tom",     "place":2, "total":51,"may":1,"june":25,"july":17,"aug":8,"sep":0,"l7":0, "chomp":296,"odds":"+500","move":"—","mc":"#7a8aaa"},
     {"name":"Jake",    "place":2, "total":31,"may":3,"june":3,"july":22,"aug":3,"sep":0,"l7":0, "chomp":180,"odds":"+850","move":"—","mc":"#7a8aaa"},
     {"name":"Nick",    "place":2, "total":14,"may":0,"june":9,"july":2,"aug":1,"sep":2,"l7":2, "chomp":81,"odds":"+2000","move":"—","mc":"#7a8aaa"},
-    {"name":"Jess",    "place":5, "total":13,"may":2,"june":5,"july":4,"aug":1,"sep":1,"l7":1, "chomp":75,"odds":"+2150","move":"—","mc":"#7a8aaa"},
+    {"name":"Jess",    "place":5, "total":13,"may":2,"june":5,"july":4,"aug":1,"sep":1,"l7":0, "chomp":75,"odds":"+2150","move":"—","mc":"#7a8aaa"},
     {"name":"Scott",   "place":5, "total":27,"may":2,"june":9,"july":11,"aug":4,"sep":1,"l7":1, "chomp":157,"odds":"+1000","move":"—","mc":"#7a8aaa"},
     {"name":"Leah",    "place":5, "total":18,"may":2,"june":5,"july":7,"aug":3,"sep":1,"l7":1, "chomp":104,"odds":"+1550","move":"—","mc":"#7a8aaa"},
     {"name":"Jon",     "place":8, "total":32,"may":1,"june":18,"july":8,"aug":5,"sep":0,"l7":0, "chomp":186,"odds":"+850","move":"—","mc":"#7a8aaa"},
